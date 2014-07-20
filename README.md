@@ -1,5 +1,7 @@
 # xNimrod
 
+[![Build Status](https://travis-ci.org/exercism/xnimrod.png?branch=master)](https://travis-ci.org/exercism/xnimrod)
+
 Exercism exercises in Nimrod
 
 ## Contributing Guide
