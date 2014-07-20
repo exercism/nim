@@ -4,7 +4,8 @@
   "repository": "https://github.com/exercism/xnimrod",
   "active": false,
   "problems": [
-    "leap"
+    "leap",
+    "bob"
   ],
   "deprecated": [
 
