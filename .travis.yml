@@ -1,4 +1,14 @@
-language: bash
+language: c
+
+install:
+  - cd _test
+  - wget http://nimrod-lang.org/download/nimrod_0.9.4_linux_amd64.tar.gz
+  - tar xf nimrod_0.9.4_linux_amd64.tar.gz
+  - cd -
+
+before_script: export PATH=$PATH:$PWD/_test/nimrod_0.9.4_linux_amd64/bin/
 
 script:
   - bin/configlet-linux-amd64 .
+  - nimrod c _test/check_exercises.nim > /dev/null
+  - _test/check_exercises
