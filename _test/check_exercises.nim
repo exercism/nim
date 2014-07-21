@@ -6,8 +6,8 @@ type TTestResult = tuple[exercise: string, exitCode: int]
 proc determineModuleName(testFilePath: string): string =
   let
     errorMsg = osproc.execCmdEx("nimrod c --verbosity=0 " & testFilePath).output
-    quotedModuleName = re.findAll(errorMsg, re"\'\w+\'")[0]
-  quotedModuleName[1 .. -2]
+    quotedWords = re.findAll(errorMsg, re"\'\w+\'")
+  quotedWords[high(quotedWords)][1 .. -2]
 
 proc runTest(testFilePath: string): TTestResult =
   let
@@ -33,3 +33,4 @@ when isMainModule:
     echo "SUCCESS"
   else:
     echo "FAILURES: " & strutils.join(failures, ", ")
+    programResult = 1
