@@ -5,7 +5,8 @@
   "active": false,
   "problems": [
     "leap",
-    "bob"
+    "bob",
+    "anagram"
   ],
   "deprecated": [
 
