@@ -6,6 +6,7 @@
   "problems": [
     "leap",
     "bob",
+    "word-count",
     "anagram"
   ],
   "deprecated": [
