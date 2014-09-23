@@ -6,7 +6,7 @@ suite "hey tests":
     check hey("Tom-ay-to, tom-aaaah-to.") == "Whatever."
 
   test "shouting":
-    check hey("WATCH OUT!") == "Woah, chill out!"
+    check hey("WATCH OUT!") == "Whoa, chill out!"
 
   test "asking a question":
     check hey("Does this cryogenic chamber make me look fat?") == "Sure."
@@ -21,10 +21,10 @@ suite "hey tests":
     check hey("It's OK if you don't want to go to the DMV.") == "Whatever."
 
   test "forceful questions":
-    check hey("WHAT THE HELL WERE YOU THINKING?") == "Woah, chill out!"
+    check hey("WHAT THE HELL WERE YOU THINKING?") == "Whoa, chill out!"
 
   test "shouting numbers":
-    check hey("1, 2, 3 GO!") == "Woah, chill out!"
+    check hey("1, 2, 3 GO!") == "Whoa, chill out!"
 
   test "only numbers":
     check hey("1, 2, 3") == "Whatever."
@@ -33,16 +33,16 @@ suite "hey tests":
     check hey("4?") == "Sure."
 
   test "shouting with special characters":
-    check hey("ZOMG THE %^*@#$(^ ZOMBIES ARE COMING!!1!") == "Woah, chill out!"
+    check hey("ZOMG THE %^*@#$(^ ZOMBIES ARE COMING!!1!") == "Whoa, chill out!"
 
   test "shouting with umlauts":
-    check hey("ÜMLÄÜTS!") == "Woah, chill out!"
+    check hey("ÜMLÄÜTS!") == "Whoa, chill out!"
 
   test "calmly speaking with umlauts":
     check hey("Ümläüts!") == "Whatever."
 
   test "shouting with no exclamation mark":
-    check hey("I HATE YOU") == "Woah, chill out!"
+    check hey("I HATE YOU") == "Whoa, chill out!"
 
   test "statement containing question mark":
     check hey("Ending with ? means a question.") == "Whatever."
