@@ -31,14 +31,14 @@ proc hey*(msg: string): string {.noSideEffect.} =
   ##   assert hey(question) == "Sure."
   ##
   ##   let rage = "TALK TO ME!!!"
-  ##   assert hey(rage) == "Woah, chill out!"
+  ##   assert hey(rage) == "Whoa, chill out!"
   ##
   ##   let resignation = ""
   ##   assert hey(resignation) == "Fine. Be that way!"
   if isSilence(msg):
     return "Fine. Be that way!"
   elif isYelling(msg):
-    return "Woah, chill out!"
+    return "Whoa, chill out!"
   elif isQuestion(msg):
     return "Sure."
   else:
