@@ -1,3 +1,5 @@
 nimcache/
 *.html
 *_test
+bin/configlet
+bin/configlet.exe
