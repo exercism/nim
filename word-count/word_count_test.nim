@@ -32,20 +32,20 @@ test "count multiple occurrences":
                            ("red", 1), ("blue", 1)])
     result = wordCount("one fish two fish red fish blue fish")
   check result == expected
-    
+
 test "ignore punctuation":
   let
     expected = fromPairs(@[("car", 1), ("carpet", 1), ("as", 1),
                            ("java", 1), ("javascript", 1)])
     result = wordCount("car : carpet as java : javascript!!&@$%^&")
   check result == expected
-    
+
 test "include numbers":
   let
     expected = fromPairs(@[("testing", 2), ("1", 1), ("2", 1)])
     result = wordCount("testing, 1, 2 testing")
   check result == expected
-    
+
 test "normalize case":
   let
     result = wordCount("go Go GO")
@@ -57,7 +57,7 @@ test "prefix punctuation":
     expected = fromPairs(@[("testing", 2), ("1", 1), ("2", 1)])
     result = wordCount("!%%#testing, 1, 2 testing")
   check result == expected
-    
+
 test "symbols are separators":
   let
     expected = fromPairs(@[("hey", 1), ("my", 1), ("spacebar", 1),
