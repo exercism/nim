@@ -1,7 +1,7 @@
 import
   critbits, strutils
 
-type TWordCount* = TCritBitTree[int]
+type TWordCount* = CritBitTree[int]
   ## A mapping from strings (`words`) to ints (`counts`).
 
 iterator words(s: string): string =

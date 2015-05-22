@@ -5,9 +5,9 @@ type TTestResult = tuple[exercise: string, exitCode: int]
 
 proc determineModuleName(testFilePath: string): string =
   let
-    errorMsg = osproc.execCmdEx("nimrod c --verbosity=0 " & testFilePath).output
+    errorMsg = osproc.execCmdEx("nim c --verbosity=0 " & testFilePath).output
     quotedWords = re.findAll(errorMsg, re"\'\w+\'")
-  quotedWords[high(quotedWords)][1 .. -2]
+  quotedWords[high(quotedWords)][1 .. ^2]
 
 proc runTest(testFilePath: string): TTestResult =
   let
@@ -18,7 +18,7 @@ proc runTest(testFilePath: string): TTestResult =
     modulePath = os.joinPath(exerciseDirPath, moduleName & ".nim")
   os.moveFile(examplePath, modulePath)
   echo "### " & exerciseName & " ###"
-  let exitCode = osproc.execCmd("nimrod c -r --verbosity=0 " & testFilePath)
+  let exitCode = osproc.execCmd("nim c -r --verbosity=0 " & testFilePath)
   os.moveFile(modulePath, examplePath)
   (exerciseName, exitCode)
 
