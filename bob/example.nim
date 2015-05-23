@@ -1,6 +1,6 @@
 from strutils import endsWith
 from unicode import isLower, isUpper, isWhiteSpace, runes
-  
+
 proc isSilence(s: string): bool =
   for r in runes(s):
     if not isWhiteSpace(r):

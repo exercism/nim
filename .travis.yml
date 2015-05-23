@@ -2,14 +2,16 @@ language: c
 
 install:
   - cd _test
-  - wget http://nimrod-lang.org/download/nimrod_0.9.4_linux_amd64.tar.gz
-  - tar xf nimrod_0.9.4_linux_amd64.tar.gz
-  - cd -
+  - wget http://nim-lang.org/download/nim-0.11.2.tar.xz
+  - tar xf nim-0.11.2.tar.xz
+  - cd nim-0.11.2
+  - ./build.sh
+  - cd ../..
 
-before_script: export PATH=$PATH:$PWD/_test/nimrod_0.9.4_linux_amd64/bin/
+before_script: export PATH=$PATH:$PWD/_test/nim-0.11.2/bin
 
 script:
   - bin/fetch-configlet
   - bin/configlet .
-  - nimrod c _test/check_exercises.nim > /dev/null
+  - nim c _test/check_exercises.nim > /dev/null
   - _test/check_exercises
