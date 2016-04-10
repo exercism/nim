@@ -1,7 +1,7 @@
 {
-  "slug": "nimrod",
-  "language": "Nimrod",
-  "repository": "https://github.com/exercism/xnimrod",
+  "slug": "nim",
+  "language": "Nim",
+  "repository": "https://github.com/exercism/xnim",
   "active": false,
   "problems": [
     "leap",
