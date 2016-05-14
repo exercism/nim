@@ -2,6 +2,7 @@
   "slug": "nim",
   "language": "Nim",
   "repository": "https://github.com/exercism/xnim",
+  "checklist_issue": 13,
   "active": false,
   "problems": [
     "leap",
