@@ -1,3 +1,4 @@
+from sequtils import map
 import tables
 
 type
