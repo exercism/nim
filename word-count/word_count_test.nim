@@ -2,7 +2,7 @@ import
  critbits, unittest
 import wordcount
 
-proc `==`(a, b: var TWordCount): bool =
+proc `==`(a, b: TWordCount): bool =
   if a.len != b.len:
     return
   for key, count in a:

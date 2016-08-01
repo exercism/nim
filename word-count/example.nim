@@ -12,4 +12,6 @@ proc wordCount*(s: string): TWordCount {.noSideEffect.} =
   ## Returns a mapping from the words (alphanumeric sequences) in `s` to their
   ## respective counts.
   for word in words(s):
+    if not result.hasKey(word):
+      result[word] = 0
     result[word] = result[word] + 1
