@@ -13,7 +13,8 @@
     "triangle",
     "react",
     "binary",
-    "rna-transcription"
+    "rna-transcription",
+    "hamming"
   ],
   "deprecated": [
 
