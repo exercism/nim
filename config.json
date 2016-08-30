@@ -14,7 +14,8 @@
     "react",
     "binary",
     "rna-transcription",
-    "hamming"
+    "hamming",
+    "queen-attack"
   ],
   "deprecated": [
 
