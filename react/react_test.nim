@@ -90,3 +90,16 @@ test "callbacks should only be called once even if multiple dependencies have ch
   discard c4.addCallback(proc (val: int) = inc(changed4))
   i1.value = 3
   check changed4 == 1
+
+test "callbacks should not be called if dependencies change in a way that the final value of the compute cell does not change":
+  let
+    reactor = newReactor()
+    i1 = reactor.createInput(0)
+    plusOne = reactor.createCompute(@[Cell i1], proc(vals: seq[int]): int = vals[0] + 1)
+    minusOne = reactor.createCompute(@[Cell i1], proc(vals: seq[int]): int = vals[0] - 1)
+    alwaysTwo = reactor.createCompute(@[Cell plusOne, minusOne], proc(vals: seq[int]): int = vals[0] - vals[1])
+  var changed = 0
+  discard alwaysTwo.addCallback(proc (val: int) = inc(changed))
+  for i in 0..10:
+    i1.value = i
+  check changed == 0
