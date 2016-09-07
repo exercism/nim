@@ -16,7 +16,8 @@
     "rna-transcription",
     "hamming",
     "queen-attack",
-    "nucleotide-count"
+    "nucleotide-count",
+    "difference-of-squares"
   ],
   "deprecated": [
 
