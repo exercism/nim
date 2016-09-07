@@ -15,7 +15,8 @@
     "binary",
     "rna-transcription",
     "hamming",
-    "queen-attack"
+    "queen-attack",
+    "nucleotide-count"
   ],
   "deprecated": [
 
