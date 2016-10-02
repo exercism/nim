@@ -24,10 +24,11 @@ proc runTest(testFilePath: string): TTestResult =
 
 when isMainModule:
   var failures: seq[string] = @[]
-  for file in os.walkFiles("./*/*_test.nim"):
-    let (exercise, exitCode) = runTest(file)
-    if exitCode != 0:
-      failures.add(exercise)
+  for dir in os.walkDir("./exercises"):
+    for file in os.walkFiles(os.joinPath(dir.path, "*_test.nim")):
+      let (exercise, exitCode) = runTest(file)
+      if exitCode != 0:
+        failures.add(exercise)
 
   if failures.len == 0:
     echo "SUCCESS"
