@@ -18,72 +18,100 @@
     {
       "difficulty": 1,
       "slug": "hello-world",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "leap",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "bob",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "word-count",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "anagram",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "triangle",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "react",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "binary",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "rna-transcription",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "hamming",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "queen-attack",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "nucleotide-count",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "difference-of-squares",
-      "topics": []
+      "topics": [
+
+      ]
     },
     {
       "difficulty": 1,
       "slug": "raindrops",
-      "topics": []
+      "topics": [
+
+      ]
     }
   ]
 }
