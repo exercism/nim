@@ -1,6 +1,6 @@
-# xNim
+# Exercism Nim Track
 
-[![Build Status](https://travis-ci.org/exercism/xnim.png?branch=master)](https://travis-ci.org/exercism/xnim)
+[![Build Status](https://travis-ci.org/exercism/nim.png?branch=master)](https://travis-ci.org/exercism/nim)
 
 Exercism exercises in Nim
 
