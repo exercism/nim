@@ -15,6 +15,6 @@ before_script: export PATH=$PATH:$PWD/_test/nim-0.14.2/bin
 
 script:
   - bin/fetch-configlet
-  - bin/configlet .
+  - bin/configlet lint .
   - nim c _test/check_exercises.nim > /dev/null
   - _test/check_exercises
