@@ -4,107 +4,146 @@
   "repository": "https://github.com/exercism/nim",
   "checklist_issue": 13,
   "active": false,
-  "deprecated": [
-
-  ],
   "foregone": [
 
   ],
   "exercises": [
     {
-      "difficulty": 1,
+      "uuid": "4817a6c0-6c9f-41ce-b53e-54ee3c0a6e40",
       "slug": "hello-world",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "5f1ac3f4-6d30-4487-a9aa-b7e88fe9fb08",
       "slug": "leap",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "ced77a52-47fc-461f-942b-ed2e0d671d1c",
       "slug": "bob",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "ca6093d1-f2cb-4d28-9a56-312154f1179f",
       "slug": "word-count",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "81816524-33b8-4e06-ad31-65efc9b1fec2",
       "slug": "anagram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "4d520486-fb44-4f84-a261-4c2039a9b89c",
       "slug": "triangle",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd",
       "slug": "react",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "slug": "binary",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "532d4c60-52ff-4271-a346-b7c00ca83560",
       "slug": "rna-transcription",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "7a9e6a30-dc8d-4c7e-bfdd-34922253532e",
       "slug": "hamming",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "7131aec2-34c6-465f-a689-3a1cb297df3a",
       "slug": "queen-attack",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "afb513c4-fcfb-4211-bcbc-7807063d301c",
       "slug": "nucleotide-count",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f",
       "slug": "difference-of-squares",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
     },
     {
-      "difficulty": 1,
+      "uuid": "4e35d149-d3b2-4e98-85bd-7a21783b59d4",
       "slug": "raindrops",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
       "topics": [
 
       ]
