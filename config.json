@@ -1,7 +1,5 @@
 {
-  "slug": "nim",
   "language": "Nim",
-  "repository": "https://github.com/exercism/nim",
   "checklist_issue": 13,
   "active": false,
   "foregone": [
