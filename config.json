@@ -1,150 +1,120 @@
 {
-  "language": "Nim",
-  "checklist_issue": 13,
   "active": false,
-  "foregone": [
-
-  ],
+  "checklist_issue": 13,
   "exercises": [
     {
-      "uuid": "4817a6c0-6c9f-41ce-b53e-54ee3c0a6e40",
+      "core": false,
+      "difficulty": 1,
       "slug": "hello-world",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "4817a6c0-6c9f-41ce-b53e-54ee3c0a6e40"
     },
     {
-      "uuid": "5f1ac3f4-6d30-4487-a9aa-b7e88fe9fb08",
+      "core": false,
+      "difficulty": 1,
       "slug": "leap",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "5f1ac3f4-6d30-4487-a9aa-b7e88fe9fb08"
     },
     {
-      "uuid": "ced77a52-47fc-461f-942b-ed2e0d671d1c",
+      "core": false,
+      "difficulty": 1,
       "slug": "bob",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "ced77a52-47fc-461f-942b-ed2e0d671d1c"
     },
     {
-      "uuid": "ca6093d1-f2cb-4d28-9a56-312154f1179f",
+      "core": false,
+      "difficulty": 1,
       "slug": "word-count",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "ca6093d1-f2cb-4d28-9a56-312154f1179f"
     },
     {
-      "uuid": "81816524-33b8-4e06-ad31-65efc9b1fec2",
+      "core": false,
+      "difficulty": 1,
       "slug": "anagram",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "81816524-33b8-4e06-ad31-65efc9b1fec2"
     },
     {
-      "uuid": "4d520486-fb44-4f84-a261-4c2039a9b89c",
+      "core": false,
+      "difficulty": 1,
       "slug": "triangle",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "4d520486-fb44-4f84-a261-4c2039a9b89c"
     },
     {
-      "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd",
+      "core": false,
+      "difficulty": 1,
       "slug": "react",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd"
     },
     {
-      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
+      "core": false,
+      "difficulty": 1,
       "slug": "binary",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6"
     },
     {
-      "uuid": "532d4c60-52ff-4271-a346-b7c00ca83560",
+      "core": false,
+      "difficulty": 1,
       "slug": "rna-transcription",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "532d4c60-52ff-4271-a346-b7c00ca83560"
     },
     {
-      "uuid": "7a9e6a30-dc8d-4c7e-bfdd-34922253532e",
+      "core": false,
+      "difficulty": 1,
       "slug": "hamming",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "7a9e6a30-dc8d-4c7e-bfdd-34922253532e"
     },
     {
-      "uuid": "7131aec2-34c6-465f-a689-3a1cb297df3a",
+      "core": false,
+      "difficulty": 1,
       "slug": "queen-attack",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "7131aec2-34c6-465f-a689-3a1cb297df3a"
     },
     {
-      "uuid": "afb513c4-fcfb-4211-bcbc-7807063d301c",
+      "core": false,
+      "difficulty": 1,
       "slug": "nucleotide-count",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "afb513c4-fcfb-4211-bcbc-7807063d301c"
     },
     {
-      "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f",
+      "core": false,
+      "difficulty": 1,
       "slug": "difference-of-squares",
-      "core": false,
+      "topics": null,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-
-      ]
+      "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f"
     },
     {
-      "uuid": "4e35d149-d3b2-4e98-85bd-7a21783b59d4",
-      "slug": "raindrops",
       "core": false,
-      "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-
-      ]
+      "slug": "raindrops",
+      "topics": null,
+      "unlocked_by": null,
+      "uuid": "4e35d149-d3b2-4e98-85bd-7a21783b59d4"
     }
-  ]
+  ],
+  "foregone": [],
+  "language": "Nim"
 }
