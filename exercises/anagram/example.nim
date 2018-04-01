@@ -9,7 +9,7 @@ proc isAnagramTo(a, b: TAnagram): bool {.noSideEffect, procVar.} =
   a.chars == b.chars and cmpIgnoreCase(a.word, b.word) != 0
 
 proc anagram(word: string): TAnagram =
-  var chars = toSeq(word.toLower().items)
+  var chars = toSeq(word.toLowerAscii().items)
   sort(chars, cmp[char])
   (word, chars)
 
