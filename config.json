@@ -145,6 +145,21 @@
       "topics": [
 
       ]
+    },
+    {
+      "uuid": "81009e3e-37ff-4f28-a84a-6935c32f96fa",
+      "slug": "pangram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "loops",
+        "conditionals",
+        "strings",
+        "algorithms",
+        "filtering",
+        "logic"
+      ]
     }
   ]
 }
