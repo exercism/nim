@@ -145,6 +145,19 @@
       "topics": [
 
       ]
+    },
+    {
+      "uuid": "b44d1ecb-48db-4841-be99-f48ba2602748",
+      "slug": "scrabble-score",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "loops",
+        "strings",
+        "games",
+        "maps"
+      ]
     }
   ]
 }
