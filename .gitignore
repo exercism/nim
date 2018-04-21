@@ -3,3 +3,4 @@ nimcache/
 *_test
 bin/configlet
 bin/configlet.exe
+.DS_Store

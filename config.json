@@ -171,6 +171,17 @@
         "bitwise_operations",
         "enumerations"
       ]
+    },
+    {
+      "uuid": "dccdbae7-e882-4171-a517-04562113d059",
+      "slug": "gigasecond",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "dates",
+        "time"
+      ]
     }
   ]
 }
