@@ -1,4 +1,4 @@
-from strutils import endsWith
+from strutils import endsWith, strip
 from unicode import isLower, isUpper, isWhiteSpace, runes
 
 proc isSilence(s: string): bool =
@@ -17,7 +17,7 @@ proc isYelling(s: string): bool =
   return nUpperRunes > 0
 
 proc isQuestion(s: string): bool =
-  return s.endsWith("?")
+  return s.strip().endsWith("?")
 
 proc hey*(msg: string): string {.noSideEffect.} =
   ## Returns the response of a lackadaisical teenager to a futile attempt to
