@@ -158,6 +158,19 @@
         "filtering",
         "logic"
       ]
+    },
+    {
+      "uuid": "58bb800a-5b64-44bc-8282-77972b71e615",
+      "slug": "allergies",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "classes",
+        "mathematics",
+        "bitwise_operations",
+        "enumerations"
+      ]
     }
   ]
 }
