@@ -182,6 +182,19 @@
         "dates",
         "time"
       ]
+    },
+    {
+      "uuid": "64f70cfe-e34c-43ee-9b9a-72fe54884599",
+      "slug": "space-age",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "mathematics",
+        "floating_point_numbers",
+        "integers",
+        "conditionals"
+      ]
     }
   ]
 }
