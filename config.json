@@ -195,6 +195,20 @@
         "integers",
         "conditionals"
       ]
+    },
+    {
+      "uuid": "b1eb9f3c-8724-4b88-a545-2fe34b12b9cf",
+      "slug": "isogram",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "loops",
+        "strings",
+        "algorithms",
+        "maps"
+      ]
     }
   ]
 }
