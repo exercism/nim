@@ -1,25 +1,25 @@
-import math
+import sequtils
 
-type
-  TriangleKind* = enum
-    tkEquilateral,
-    tkIsosceles,
-    tkScalene
+proc valid(a, b, c: int): bool =
+    let greatThenZero = all([a, b, c], proc (x: int): bool = return x > 0)
+    let equalityCheck = (a + b >= c) and (a + c >= b) and (b + c >= a)
 
-proc checkInvalidSide(f: float) =
-  let fc = classify(f)
-  if not (fc == fcNormal or fc == fcSubnormal) or f < 0:
-    raise newException(ValueError, "invalid side: " & $f)
+    greatThenZero and equalityCheck
 
-proc kind*(a, b, c: float): TriangleKind =
-  checkInvalidSide(a)
-  checkInvalidSide(b)
-  checkInvalidSide(c)
-  if a + b <= c or a + c <= b or b + c <= a:
-    raise newException(ValueError, "one side is larger than the other two combined")
-  elif a == b and b == c:
-    return tkEquilateral
-  elif a == b or b == c or a == c:
-    return tkIsosceles
-  else:
-    return tkScalene
+proc is_equilateral*(sides: array[3, int]): bool =
+    let a = sides[0]
+    let b = sides[1]
+    let c = sides[2]
+    valid(a, b, c) and all(sides, proc (x: int): bool = return a == x)
+
+proc is_isosceles*(sides: array[3, int]): bool =
+    let a = sides[0]
+    let b = sides[1]
+    let c = sides[2]
+    valid(a, b, c) and (a == b or b == c or a == c)
+
+proc is_scalene*(sides: array[3, int]): bool =
+    let a = sides[0]
+    let b = sides[1]
+    let c = sides[2]
+    valid(a, b, c) and not is_isosceles(sides)

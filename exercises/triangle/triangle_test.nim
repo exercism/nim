@@ -2,64 +2,52 @@ import unittest
 
 import triangle
 
-test "equilateral triangles have equal sides":
-  check kind(2, 2, 2) == tkEquilateral
+suite "returns true if the triangle is equilateral":
 
-test "larger equilateral triangles also have equal sides":
-  check kind(10, 10, 10) == tkEquilateral
+  test "true if all sides are equal":
+      check is_equilateral([2, 2, 2]) == true
 
-test "isosceles triangles have last two sides equal":
-  check kind(3, 4, 4) == tkIsosceles
+  test "false if any side is unequal":
+      check is_equilateral([2, 3, 2]) == false
 
-test "isosceles triangles have first and last sides equal":
-  check kind(4, 3, 4) == tkIsosceles
+  test "false if no sides are equal":
+      check is_equilateral([5, 4, 6]) == false
 
-test "isosceles triangles have two first sides equal":
-  check kind(4, 4, 3) == tkIsosceles
+  test "false if all sides are zero":
+      check is_equilateral([0, 0, 0]) == false
 
-test "isosceles triangles have in fact exactly two sides equal":
-  check kind(10, 10, 2) == tkIsosceles
 
-test "scalene triangles have no equal sides":
-  check kind(3, 4, 5) == tkScalene
+suite "returns true if the triangle is isosceles":
 
-test "scalene triangles have no equal sides at a larger scale too":
-  check kind(10, 11, 12) == tkScalene
+  test "true if last two sides are equal":
+      check is_isosceles([3, 4, 4]) == true
 
-test "scalene triangles have no equal sides in descending order either":
-  check kind(5, 4, 2) == tkScalene
+  test "true if first two sides are equal":
+      check is_isosceles([4, 4, 3]) == true
 
-test "very small triangles are legal":
-  check kind(0.4, 0.6, 0.3) == tkScalene
+  test "true if first and last sides are equal":
+      check is_isosceles([4, 3, 4]) == true
 
-test "triangles with no size are illegal":
-  expect(ValueError):
-    discard kind(0, 0, 0)
+  test "is equilateral triangles are also is isosceles":
+      check is_isosceles([4, 4, 4]) == true
 
-test "triangles with negative sides are illegal":
-  expect(ValueError):
-    discard kind(3, 4, -5)
+  test "false if no sides are equal":
+      check is_isosceles([2, 3, 4]) == false
 
-test "triangles violating triangle inequality are illegal":
-  expect(ValueError):
-    discard kind(1, 1, 3)
+  test "violation of triangle inequality not is isosceles":
+      check is_isosceles([1, 1, 3]) == false
 
-test "triangles violating triangle inequality are illegal 2":
-  expect(ValueError):
-    discard kind(2, 4, 2)
 
-test "triangles violating triangle inequality are illegal 3":
-  expect(ValueError):
-    discard kind(7, 3, 2)
+suite "returns true if the triangle is scalene":
 
-test "triangles with not a number are illegal":
-  expect(ValueError):
-    discard kind(7, 3, NaN)
+  test "true if no sides are equal":
+      check is_scalene([5, 4, 6]) == true
 
-test "triangles with infinity are illegal":
-  expect(ValueError):
-    discard kind(7, 3, Inf)
+  test "false if all sides are equal":
+      check is_scalene([4, 4, 4]) == false
 
-test "triangles with negative infinity are illegal":
-  expect(ValueError):
-    discard kind(7, Neginf, 4)
+  test "false if two sides are equal":
+      check is_scalene([4, 4, 3]) == false
+
+  test "violation of triangle inequality not is scalene":
+      check is_scalene([7, 3, 2]) == false
