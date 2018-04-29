@@ -1,38 +1,17 @@
 import
-  math
+  math, tables
 
-type
-  SpaceAge* = object
-    seconds*: int64
+let
+  times = {
+    "Earth": 31558149.76,
+    "Mercury": 7600530.24,
+    "Venus": 19413907.2,
+    "Mars": 59354294.4,
+    "Jupiter": 374335776.0,
+    "Saturn": 929596608.0,
+    "Uranus": 2661041808.0,
+    "Neptune": 5200418592.0
+  }.toTable
 
-
-proc onMercury*(age: SpaceAge): float =
-  round(age.seconds.float / 7600530.24, 2)
-
-
-proc onVenus*(age: SpaceAge): float =
-  round(age.seconds.float / 19413907.2, 2)
-
-
-proc onEarth*(age: SpaceAge): float =
-  round(age.seconds.float / 31558149.76, 2)
-
-
-proc onMars*(age: SpaceAge): float =
-  round(age.seconds.float / 59354294.4, 2)
-
-
-proc onJupiter*(age: SpaceAge): float =
-  round(age.seconds.float / 374335776.0, 2)
-
-
-proc onSaturn*(age: SpaceAge): float =
-  round(age.seconds.float / 929596608.0, 2)
-
-
-proc onUranus*(age: SpaceAge): float =
-  round(age.seconds.float / 2661041808.0, 2)
-
-
-proc onNeptune*(age: SpaceAge): float =
-    round(age.seconds.float / 5200418592.0, 2)
+proc age*(planet: string, seconds: int64): float =
+  round(seconds.float / times[planet], 2)
