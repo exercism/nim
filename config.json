@@ -209,6 +209,16 @@
         "algorithms",
         "maps"
       ]
+    },
+    {
+      "uuid": "cc35f8f2-488e-40f7-adcd-1e690cabc6f8",
+      "slug": "acronym",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings"
+      ]
     }
   ]
 }
