@@ -219,6 +219,16 @@
       "topics": [
         "strings"
       ]
+    },
+    {
+      "uuid": "f572ed7b-a1e7-47ab-a9c3-71ba988d3699",
+      "slug": "reverse-string",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings"
+      ]
     }
   ]
 }
