@@ -229,6 +229,18 @@
       "topics": [
         "strings"
       ]
+    },
+    {
+      "uuid": "b7ad6238-bb8e-4629-8a6f-5eddb8568d87",
+      "slug": "two-fer",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "optional_values",
+        "text_formatting"
+      ]
     }
   ]
 }
