@@ -241,6 +241,18 @@
         "optional_values",
         "text_formatting"
       ]
+    },
+    {
+      "uuid": "83f70468-941b-4d7d-9df7-6f8b6a54f6bc",
+      "slug": "armstrong-numbers",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "mathematics",
+        "algorithms",
+        "loops"
+      ]
     }
   ]
 }
