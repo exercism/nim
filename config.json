@@ -253,6 +253,19 @@
         "algorithms",
         "loops"
       ]
+    },
+    {
+      "uuid": "bb8af717-9e8d-498c-85cf-e6e77a84919e",
+      "slug": "bracket-push",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "recursion",
+        "strings",
+        "stacks",
+        "parsing"
+      ]
     }
   ]
 }
