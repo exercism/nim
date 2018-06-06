@@ -29,7 +29,7 @@ suite "hey tests":
     check hey("It's OK if you don't want to go to the DMV.") == "Whatever."
 
   test "forceful questions":
-    check hey("WHAT THE HELL WERE YOU THINKING?") == "Whoa, chill out!"
+    check hey("WHAT THE HELL WERE YOU THINKING?") == "Calm down, I know what I'm doing!"
 
   test "shouting numbers":
     check hey("1, 2, 3 GO!") == "Whoa, chill out!"
