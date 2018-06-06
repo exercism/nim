@@ -23,7 +23,7 @@ proc hey*(msg: string): string {.noSideEffect.} =
   ## Returns the response of a lackadaisical teenager to a futile attempt to
   ## communicate with him.
   ##
-  ## .. code-block:: nimrod
+  ## .. code-block:: nim
   ##   let greeting = "Hi, Bob!"
   ##   assert hey(greeting) == "Whatever."
   ##
@@ -37,9 +37,12 @@ proc hey*(msg: string): string {.noSideEffect.} =
   ##   assert hey(resignation) == "Fine. Be that way!"
   if isSilence(msg):
     return "Fine. Be that way!"
+  elif isQuestion(msg):
+    if isYelling(msg):
+      return "Calm down, I know what I'm doing!"
+    else:
+      return "Sure."
   elif isYelling(msg):
     return "Whoa, chill out!"
-  elif isQuestion(msg):
-    return "Sure."
   else:
     return "Whatever."
