@@ -1,8 +1,6 @@
 {
   "language": "Nim",
-  "checklist_issue": 13,
   "active": false,
-  "foregone": [],
   "exercises": [
     {
       "uuid": "4817a6c0-6c9f-41ce-b53e-54ee3c0a6e40",
