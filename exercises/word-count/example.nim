@@ -1,19 +1,12 @@
 import
-  critbits, strutils
+  tables, strutils, re
 
-type TWordCount* = CritBitTree[int]
-  ## A mapping from strings (`words`) to ints (`counts`).
-
-iterator words(s: string): string =
-  for word in s.split(AllChars - Letters - Digits - {'\0'}):
+iterator words(sentence: string): string = 
+  for word in sentence.findAll(re"[a-zA-Z0-9]+(['][a-z]+)?"):
     yield toLowerAscii(word)
 
-proc wordCount*(s: string): TWordCount {.noSideEffect.} =
-  ## Returns a mapping from the words (alphanumeric sequences) in `s` to their
-  ## respective counts.
-  for word in words(s):
-    if word.len == 0:
-      continue
-    if not result.hasKey(word):
-      result[word] = 0
-    result[word] = result[word] + 1
+proc countWords*(sentence: string): TableRef[string, int] =
+  result = newTable[string, int]()
+  for word in words(sentence):
+    let count = result.getOrDefault(word)
+    result[word] = count + 1
