@@ -17,8 +17,8 @@ var
     ]
 
 
-proc is_allergic_to*(allergies: Allergies, allergy: string): bool =
+proc isAllergicTo*(allergies: Allergies, allergy: string): bool =
     (allergies.score and 1 shl allergiesList.find(allergy)) != 0
 
 proc lst*(allergies: Allergies): seq[string] =
-    allergiesList.filterIt(allergies.is_allergic_to(it))
+    allergiesList.filterIt(allergies.isAllergicTo(it))

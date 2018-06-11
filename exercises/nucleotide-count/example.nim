@@ -11,7 +11,7 @@ proc count*(nt: char, dna: string): int =
 
   nt_count
 
-proc count_dna*(dna: string): CountTable[char] =
+proc countDna*(dna: string): CountTable[char] =
   var counts = initCountTable[char]()
 
   for nt in toSeq(dna.items):
