@@ -11,15 +11,15 @@ test "count repetitive cytosine":
 test "count only thymine":
   check count('T', "GGGGGTAACCCGG") == 1
 
-test "count_dna empty":
-  check len(count_dna("")) == 0
+test "countDna empty":
+  check len(countDna("")) == 0
 
-test "count_dna only guanine":
-  let counts = count_dna("GGGGGGGG")
+test "countDna only guanine":
+  let counts = countDna("GGGGGGGG")
   check counts['G'] == 8
 
-test "count_dna counts all":
-  let counts = count_dna("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
+test "countDna counts all":
+  let counts = countDna("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
   check counts['A'] == 20
   check counts['C'] == 12
   check counts['T'] == 21
