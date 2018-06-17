@@ -151,7 +151,7 @@
       "slug": "armstrong-numbers",
       "uuid": "83f70468-941b-4d7d-9df7-6f8b6a54f6bc",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 1,
       "topics": [
         "algorithms",
@@ -192,6 +192,17 @@
         "bitwise_operations",
         "classes",
         "enumerations",
+        "mathematics"
+      ]
+    },
+    {
+      "slug": "sum-of-multiples",
+      "uuid": "4f71d4e9-749e-46ec-a2c8-e17497f1468a",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
         "mathematics"
       ]
     },
@@ -238,7 +249,7 @@
       "slug": "scrabble-score",
       "uuid": "b44d1ecb-48db-4841-be99-f48ba2602748",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 1,
       "topics": [
         "games",
