@@ -2,7 +2,7 @@ import unittest
 
 import bob
 
-suite "hey tests":
+suite "Bob":
 
   test "stating something":
     check hey("Tom-ay-to, tom-aaaah-to.") == "Whatever."
