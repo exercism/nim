@@ -2,7 +2,7 @@ import unittest
 
 import bracket_push
 
-suite "bracket-push":
+suite "Bracket Push":
 
   test "paired square brackets":
     check isPaired("[]") == true
