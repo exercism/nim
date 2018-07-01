@@ -1,2 +1,5 @@
 proc helloWorld*(name="World"): string =
-  return "Hello, " & name & "!"
+  "Hello, " & name & "!"
+
+let greeting = helloWorld("Exercism")
+echo greeting
