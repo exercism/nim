@@ -16,9 +16,27 @@ Convert a number to a string, the contents of which depend on the number's facto
   - In raindrop-speak, this would be a "PlingPlang".
 - 34 has four factors: 1, 2, 17, and 34.
   - In raindrop-speak, this would be "34".
+
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r raindrops_test.nim
+```
+
+## Submitting Exercises
+
+Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/raindrops` directory.
+
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
+
+For more detailed information about running tests, code style and linting,
+please see the [help page](http://exercism.io/languages/nim).
+
 ## Source
 
 A variation on a famous interview question intended to weed out potential candidates. [http://jumpstartlab.com](http://jumpstartlab.com)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

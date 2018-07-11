@@ -16,9 +16,27 @@ be able to say that they're 31.69 Earth-years old.
 
 If you're wondering why Pluto didn't make the cut, go watch [this
 youtube video](http://www.youtube.com/watch?v=Z_2gbGXzFbs).
+
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r space_age_test.nim
+```
+
+## Submitting Exercises
+
+Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/space-age` directory.
+
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
+
+For more detailed information about running tests, code style and linting,
+please see the [help page](http://exercism.io/languages/nim).
+
 ## Source
 
 Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=01](http://pine.fm/LearnToProgram/?Chapter=01)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

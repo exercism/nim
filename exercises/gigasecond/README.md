@@ -4,11 +4,18 @@ Calculate the moment when someone has lived for 10^9 seconds.
 
 A gigasecond is 10^9 (1,000,000,000) seconds.
 
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r gigasecond_test.nim
+```
+
 ## Submitting Exercises
 
 Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/gigasecond` directory.
 
-You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Workspace`.
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
 
 For more detailed information about running tests, code style and linting,
 please see the [help page](http://exercism.io/languages/nim).

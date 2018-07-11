@@ -15,5 +15,22 @@ In addition, compute cells should allow for registering change notification
 callbacks.  Call a cell’s callbacks when the cell’s value in a new stable
 state has changed from the previous stable state.
 
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r react_test.nim
+```
+
+## Submitting Exercises
+
+Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/react` directory.
+
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
+
+For more detailed information about running tests, code style and linting,
+please see the [help page](http://exercism.io/languages/nim).
+
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
