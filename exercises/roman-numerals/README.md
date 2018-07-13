@@ -42,12 +42,18 @@ In Roman numerals 1990 is MCMXC:
 
 See also: http://www.novaroma.org/via_romana/numbers.html
 
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r roman_numerals_test.nim
+```
 
 ## Submitting Exercises
 
 Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/roman-numerals` directory.
 
-You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Workspace`.
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
 
 For more detailed information about running tests, code style and linting,
 please see the [help page](http://exercism.io/languages/nim).

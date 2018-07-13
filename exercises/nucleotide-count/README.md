@@ -1,33 +1,37 @@
 # Nucleotide Count
 
-Given a DNA string, compute how many times each nucleotide occurs in the string.
+Given a single stranded DNA string, compute how many times each nucleotide occurs in the string.
 
-DNA is represented by an alphabet of the following symbols: 'A', 'C',
-'G', and 'T'.
+The genetic language of every living thing on the planet is DNA.
+DNA is a large molecule that is built from an extremely long sequence of individual elements called nucleotides.
+4 types exist in DNA and these differ only slightly and can be represented as the following symbols: 'A' for adenine, 'C' for cytosine, 'G' for guanine, and 'T' thymine.
 
-Each symbol represents a nucleotide, which is a fancy name for the
-particular molecules that happen to make up a large part of DNA.
-
-Shortest intro to biochemistry EVAR:
-
+Here is an analogy:
 - twigs are to birds nests as
-- nucleotides are to DNA and RNA as
-- amino acids are to proteins as
-- sugar is to starch as
-- oh crap lipids
+- nucleotides are to DNA as
+- legos are to lego houses as
+- words are to sentences as...
 
-I'm not going to talk about lipids because they're crazy complex.
+## Running the tests
 
-So back to nucleotides.
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r nucleotide_count_test.nim
+```
 
-DNA contains four types of them: adenine (`A`), cytosine (`C`), guanine
-(`G`), and thymine (`T`).
+## Submitting Exercises
 
-RNA contains a slightly different set of nucleotides, but we don't care
-about that for now.
+Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/nucleotide-count` directory.
+
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
+
+For more detailed information about running tests, code style and linting,
+please see the [help page](http://exercism.io/languages/nim).
+
 ## Source
 
 The Calculating DNA Nucleotides_problem at Rosalind [http://rosalind.info/problems/dna/](http://rosalind.info/problems/dna/)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

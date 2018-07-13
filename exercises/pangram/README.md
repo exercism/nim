@@ -8,11 +8,18 @@ The best known English pangram is:
 The alphabet used consists of ASCII letters `a` to `z`, inclusive, and is case
 insensitive. Input will not contain non-ASCII symbols.
 
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r pangram_test.nim
+```
+
 ## Submitting Exercises
 
 Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/pangram` directory.
 
-You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Workspace`.
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
 
 For more detailed information about running tests, code style and linting,
 please see the [help page](http://exercism.io/languages/nim).

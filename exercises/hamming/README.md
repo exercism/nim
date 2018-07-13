@@ -31,12 +31,31 @@ The Hamming distance between these two DNA strands is 7.
 
 # Implementation notes
 
-The Hamming distance is only defined for sequences of equal length. This means
-that based on the definition, each language could deal with getting sequences
-of equal length differently.
+The Hamming distance is only defined for sequences of equal length, so
+an attempt to calculate it between sequences of different lengths should
+not work. The general handling of this situation (e.g., raising an
+exception vs returning a special value) may differ between languages.
+
+## Running the tests
+
+To compile and run the tests, just run the following in your exercise directory:
+```bash
+$ nim c -r hamming_test.nim
+```
+
+## Submitting Exercises
+
+Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/hamming` directory.
+
+You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
+
+For more detailed information about running tests, code style and linting,
+please see the [help page](http://exercism.io/languages/nim).
+
 ## Source
 
 The Calculating Point Mutations problem at Rosalind [http://rosalind.info/problems/hamm/](http://rosalind.info/problems/hamm/)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
