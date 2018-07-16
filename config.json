@@ -197,6 +197,19 @@
       ]
     },
     {
+      "slug": "atbash-cipher",
+      "uuid": "88dde3e7-95c8-4a5f-8514-1c489917966e",
+      "core": false,
+      "unlocked_by": "grade-school",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "conditionals",
+        "loops",
+        "strings"
+      ]
+    },
+    {
       "slug": "sum-of-multiples",
       "uuid": "4f71d4e9-749e-46ec-a2c8-e17497f1468a",
       "core": true,
