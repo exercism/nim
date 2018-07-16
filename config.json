@@ -221,6 +221,17 @@
       ]
     },
     {
+      "slug": "collatz-conjecture",
+      "uuid": "e6f013ed-1dfc-4330-8f3c-3bc851f05fa4",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 1,
+      "topics": [
+        "loops",
+        "mathematics"
+      ]
+    },
+    {
       "slug": "acronym",
       "uuid": "cc35f8f2-488e-40f7-adcd-1e690cabc6f8",
       "core": false,
