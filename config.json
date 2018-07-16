@@ -149,6 +149,18 @@
       ]
     },
     {
+      "slug": "run-length-encoding",
+      "uuid": "825b54b4-68a8-4302-9e9b-61960a3df88e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "strings",
+        "text_formatting"
+      ]
+    },
+    {
       "slug": "armstrong-numbers",
       "uuid": "83f70468-941b-4d7d-9df7-6f8b6a54f6bc",
       "core": false,
