@@ -219,6 +219,22 @@
       ]
     },
     {
+      "slug": "grade-school",
+      "uuid": "356db5da-2a2b-40cc-bf72-d5046cb003f9",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "filtering",
+        "integers",
+        "lists",
+        "sorting",
+        "strings",
+        "classes"
+      ]
+    },
+    {
       "slug": "roman-numerals",
       "uuid": "91f1314c-5272-4a88-afee-747794236e2a",
       "core": false,
