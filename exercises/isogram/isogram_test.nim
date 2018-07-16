@@ -12,6 +12,9 @@ suite "Isogram":
     
   test "word with one duplicated character":
     check isIsogram("eleven") == false
+
+  test "word with one duplicated character from the end of the alphabet":
+    check isIsogram("zzyzx") == false
     
   test "longest reported english isogram":
     check isIsogram("subdermatoglyphic") == true
