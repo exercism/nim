@@ -312,6 +312,19 @@
       ]
     },
     {
+      "slug": "nth-prime",
+      "uuid": "c52b74a0-e885-4a2b-9a97-9ab62e07662e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "lists",
+        "loops",
+        "mathematics"
+      ]
+    },
+    {
       "slug": "bracket-push",
       "uuid": "bb8af717-9e8d-498c-85cf-e6e77a84919e",
       "core": false,
