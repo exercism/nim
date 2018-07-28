@@ -1,17 +1,15 @@
 proc toRna*(strand: string): string =
-  var rna = ""
+  result = ""
 
   for c in strand:
     case c
     of 'A':
-      rna &= 'U'
+      result &= 'U'
     of 'G':
-      rna &= 'C'
+      result &= 'C'
     of 'C':
-      rna &= 'G'
+      result &= 'G'
     of 'T':
-      rna &= 'A'
+      result &= 'A'
     else:
       raise newException(ValueError, "Invalid nucleotide")
-
-  rna

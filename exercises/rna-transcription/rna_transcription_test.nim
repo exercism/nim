@@ -3,20 +3,23 @@ import unittest
 import rna_transcription
 
 suite "RNA Transcription":
+
+  test "Empty RNA sequence":
+    check toRna("") == ""
+
+  test "RNA complement of cytosine is guanine":
+    check toRna("C") == "G"
   
-  test "transcribes G to C":
+  test "RNA complement of guanine is cytosine":
     check toRna("G") == "C"
 
-  test "transcribes C to G":
-    check toRna("C") == "G"
-
-  test "transcribes T to A":
+  test "RNA complement of thymine is adenine":
     check toRna("T") == "A"
 
-  test "transcribes A to U":
+  test "RNA complement of adenine is uracil":
     check toRna("A") == "U"
 
-  test "transcribe all occurrences":
+  test "RNA complement":
     check toRna("ACGTGGTCTTAA") == "UGCACCAGAAUU"
 
   test "raise ValueError on invalid nucleotide":
