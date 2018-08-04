@@ -42,8 +42,14 @@ Note that, when trying to submit an exercise, make sure the solution is in the `
 
 You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
 
-For more detailed information about running tests, code style and linting,
-please see the [help page](http://exercism.io/languages/nim).
+## Need help?
+
+These guides should help you,
+* [Installing Nim](https://exercism.io/tracks/nim/installation)
+* [Running the Tests](https://exercism.io/tracks/nim/tests)
+* [Learning Nim](https://exercism.io/tracks/nim/learning)
+* [Useful Nim Resources](https://exercism.io/tracks/nim/resources)
+
 
 ## Source
 
