@@ -169,7 +169,7 @@
       "topics": [
         "algorithms",
         "loops",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -179,7 +179,7 @@
       "unlocked_by": "leap",
       "difficulty": 1,
       "topics": [
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -204,8 +204,7 @@
       "topics": [
         "bitwise_operations",
         "classes",
-        "enumerations",
-        "mathematics"
+        "enumerations"
       ]
     },
     {
@@ -229,7 +228,7 @@
       "difficulty": 1,
       "topics": [
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -240,7 +239,7 @@
       "difficulty": 1,
       "topics": [
         "loops",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -261,13 +260,13 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "classes",
         "conditionals",
         "filtering",
         "integers",
         "lists",
         "sorting",
-        "strings",
-        "classes"
+        "strings"
       ]
     },
     {
@@ -281,7 +280,6 @@
         "integers",
         "logic",
         "loops",
-        "mathematics",
         "strings"
       ]
     },
@@ -294,8 +292,7 @@
       "topics": [
         "conditionals",
         "floating_point_numbers",
-        "integers",
-        "mathematics"
+        "integers"
       ]
     },
     {
@@ -321,7 +318,7 @@
         "algorithms",
         "lists",
         "loops",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -348,7 +345,6 @@
         "exception_handling",
         "games",
         "logic",
-        "mathematics",
         "matrices"
       ]
     },
@@ -360,8 +356,7 @@
       "difficulty": 1,
       "topics": [
         "classes",
-        "conditionals",
-        "mathematics"
+        "conditionals"
       ]
     },
     {
@@ -370,7 +365,9 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": []
+      "topics": [
+        "math"
+      ]
     },
     {
       "slug": "nucleotide-count",
