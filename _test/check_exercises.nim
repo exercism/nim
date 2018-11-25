@@ -3,23 +3,17 @@ import
 
 type TTestResult = tuple[exercise: string, exitCode: int]
 
-proc determineModuleName(testFilePath: string): string =
-  let
-    errorMsg = osproc.execCmdEx("nim c --verbosity=0 " & testFilePath).output
-    quotedWords = re.findAll(errorMsg, re"\'\w+\'")
-  quotedWords[high(quotedWords)][1 .. ^2]
-
 proc runTest(testFilePath: string): TTestResult =
   let
-    moduleName = determineModuleName(testFilePath)
     exerciseDirPath = os.splitPath(testFilePath)[0]
     exerciseName = os.splitPath(exerciseDirPath)[1]
+    moduleName = os.splitPath(testFilePath).tail.replace("_test", "")
     examplePath = os.joinPath(exerciseDirPath, "example.nim")
-    modulePath = os.joinPath(exerciseDirPath, moduleName & ".nim")
-  os.moveFile(examplePath, modulePath)
-  echo "### " & exerciseName & " ###"
+    modulePath = os.joinPath(exerciseDirPath, moduleName)
+  os.copyFile(examplePath, modulePath)
+  echo "\n ### " & exerciseName & " ###"
   let exitCode = osproc.execCmd("nim c -r --verbosity=0 " & testFilePath)
-  os.moveFile(modulePath, examplePath)
+  os.removeFile(modulePath)
   (exerciseName, exitCode)
 
 when isMainModule:
