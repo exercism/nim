@@ -1,15 +1,15 @@
 import unittest
-
 import rna_transcription
 
-suite "RNA Transcription":
+# version 1.3.0
 
-  test "Empty RNA sequence":
+suite "RNA Transcription":
+  test "empty RNA sequence":
     check toRna("") == ""
 
   test "RNA complement of cytosine is guanine":
     check toRna("C") == "G"
-  
+
   test "RNA complement of guanine is cytosine":
     check toRna("G") == "C"
 
