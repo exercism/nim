@@ -1,6 +1,8 @@
 import unittest
 import space_age
 
+# version 1.2.0
+
 suite "Space Age":
   # Helper operator: return true when two floats are approximately equal
   func `~=`(x, y: float): bool =
@@ -16,16 +18,20 @@ suite "Space Age":
     check age("Venus", 189_839_836) ~= 9.78
 
   test "age on Mars":
-    check age("Mars", 2_329_871_239) ~= 39.25
+    check age("Mars", 2_129_871_239) ~= 35.88
 
   test "age on Jupiter":
     check age("Jupiter", 901_876_382) ~= 2.41
 
   test "age on Saturn":
-    check age("Saturn", 3_000_000_000) ~= 3.23
+    check age("Saturn", 2_000_000_000) ~= 2.15
 
   test "age on Uranus":
-    check age("Uranus", 3_210_123_456) ~= 1.21
+    check age("Uranus", 1_210_123_456) ~= 0.46
 
   test "age on Neptune":
-    check age("Neptune", 8_210_123_456) ~= 1.58
+    check age("Neptune", 1_821_023_456) ~= 0.35
+
+  # Bonus
+  test "age that requires int64":
+    check age("Saturn", 3_000_000_000) ~= 3.23
