@@ -1,29 +1,31 @@
 import unittest
-
 import space_age
 
 suite "Space Age":
+  # Helper operator: return true when two floats are approximately equal
+  func `~=`(x, y: float): bool =
+    abs(x - y) < 0.01
 
   test "age on Earth":
-    check age("Earth", 1000000000) == 31.69
-    
+    check age("Earth", 1_000_000_000) ~= 31.69
+
   test "age on Mercury":
-    check age("Mercury", 2134835688) == 280.88
+    check age("Mercury", 2_134_835_688) ~= 280.88
 
   test "age on Venus":
-    check age("Venus", 189839836) == 9.78
-    
+    check age("Venus", 189_839_836) ~= 9.78
+
   test "age on Mars":
-    check age("Mars", 2329871239) == 39.25
+    check age("Mars", 2_329_871_239) ~= 39.25
 
   test "age on Jupiter":
-    check age("Jupiter", 901876382) == 2.41
+    check age("Jupiter", 901_876_382) ~= 2.41
 
   test "age on Saturn":
-    check age("Saturn", 3000000000) == 3.23
+    check age("Saturn", 3_000_000_000) ~= 3.23
 
   test "age on Uranus":
-    check age("Uranus", 3210123456) == 1.21
+    check age("Uranus", 3_210_123_456) ~= 1.21
 
   test "age on Neptune":
-    check age("Neptune", 8210123456) == 1.58
+    check age("Neptune", 8_210_123_456) ~= 1.58

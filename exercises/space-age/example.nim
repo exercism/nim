@@ -1,5 +1,4 @@
-import
-  math, tables
+import tables
 
 let
   times = {
@@ -14,4 +13,4 @@ let
   }.toTable
 
 proc age*(planet: string, seconds: int64): float =
-  round(seconds.float / times[planet], 2)
+  seconds.float / times[planet]
