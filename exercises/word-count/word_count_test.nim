@@ -1,74 +1,98 @@
-import
-  unittest, tables
-
+import unittest, tables
 import word_count
 
-# For each word in the input, count the number of times it appears in the entire sentence.
+# version 1.2.0
+
 suite "Word Count":
-
   test "count one word":
-    let
-      expected: TableRef[string, int] = {"word": 1}.newTable
-      result: TableRef[string, int] = countWords("word")
-    check result == expected
+    let output = countWords("word")
+    check:
+      output.len == 1
+      output["word"] == 1
 
-  test "count one of each":
-    let
-      expected = {"one": 1, "of": 1, "each": 1}.newTable
-      result = countWords("one of each")
-    check result == expected
+  test "count one of each word":
+    let output = countWords("one of each")
+    check:
+      output.len == 3
+      output["one"] == 1
+      output["of"] == 1
+      output["each"] == 1
 
   test "multiple occurrences of a word":
-    let
-      expected = {"one": 1, "fish": 4, "two": 1, "red": 1, "blue": 1}.newTable
-      result = countWords("one fish two fish red fish blue fish")
-    check result == expected
+    let output = countWords("one fish two fish red fish blue fish")
+    check:
+      output.len == 5
+      output["one"] == 1
+      output["fish"] == 4
+      output["two"] == 1
+      output["red"] == 1
+      output["blue"] == 1
 
   test "handles cramped lists":
-    let
-      expected = {"one": 1, "two": 1, "three": 1 }.newTable
-      result = countWords("one,two,three")
-    check result == expected
+    let output = countWords("one,two,three")
+    check:
+      output.len == 3
+      output["one"] == 1
+      output["two"] == 1
+      output["three"] == 1
 
   test "handles expanded lists":
-    let
-      expected = {"one": 1, "two": 1, "three": 1 }.newTable
-      result = countWords("one,\ntwo,\nthree")
-    check result == expected
+    let output = countWords("one,\ntwo,\nthree")
+    check:
+      output.len == 3
+      output["one"] == 1
+      output["two"] == 1
+      output["three"] == 1
 
   test "ignore punctuation":
-    let
-      expected = {"car": 1, "carpet": 1, "as": 1, "java": 1, "javascript": 1}.newTable
-      result = countWords("car: carpet as java: javascript!!&@$%^&")
-    check result == expected
-  
+    let output = countWords("car: carpet as java: javascript!!&@$%^&")
+    check:
+      output.len == 5
+      output["car"] == 1
+      output["carpet"] == 1
+      output["as"] == 1
+      output["java"] == 1
+      output["javascript"] == 1
+
   test "include numbers":
-    let
-      expected = {"testing": 2, "1": 1, "2": 1}.newTable
-      result = countWords("testing, 1, 2 testing")
-    check result == expected
-  
+    let output = countWords("testing, 1, 2 testing")
+    check:
+      output.len == 3
+      output["testing"] == 2
+      output["1"] == 1
+      output["2"] == 1
+
   test "normalize case":
-    let
-      expected = {"go": 3, "stop": 2}.newTable
-      result = countWords("go Go GO Stop stop")
-    check result == expected
+    let output = countWords("go Go GO Stop stop")
+    check:
+      output.len == 2
+      output["go"] == 3
+      output["stop"] == 2
 
   test "with apostrophes":
-    let
-      expected = {"first": 1, "don't": 2, "laugh": 1, "then": 1, "cry": 1}.newTable
-      result = countWords("First: don't laugh. Then: don't cry.")
-    check result == expected
+    let output = countWords("First: don't laugh. Then: don't cry.")
+    check:
+      output.len == 5
+      output["first"] == 1
+      output["don't"] == 2
+      output["laugh"] == 1
+      output["then"] == 1
+      output["cry"] == 1
 
   test "with quotations":
-    let
-      expected = {"joe": 1, "can't": 1, "tell": 1,
-                  "between": 1, "large": 2, "and": 1}.newTable
-      result = countWords("Joe can't tell between 'large' and large.")
-    check result == expected
+    let output = countWords("Joe can't tell between 'large' and large.")
+    check:
+      output.len == 6
+      output["joe"] == 1
+      output["can't"] == 1
+      output["tell"] == 1
+      output["between"] == 1
+      output["large"] == 2
+      output["and"] == 1
 
   test "multiple spaces not detected as a word":
-    let
-      expected = {"multiple": 1, "whitespaces": 1}.newTable
-      result = countWords(" multiple   whitespaces")
-    check result == expected
+    let output = countWords(" multiple   whitespaces")
+    check:
+      output.len == 2
+      output["multiple"] == 1
+      output["whitespaces"] == 1

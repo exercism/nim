@@ -1,6 +1,8 @@
-The return from `countWords` is a `TableRef[string, int]`, which is a hash table (or dictionary in other programming languages) with a key of `string` and a value of `int`. Look at Nim's documentation on `tables` at https://nim-lang.org/docs/tables.html
+The return from `countWords` can be any hash table type with a key of `string` and a value of `int`.
 
-For the procedure signature, the return will be of type `TableRef[string, int]`
+Hash tables (also known as "dictionaries" or "maps" in other programming languages) are implemented by the `tables` module - see the documentation at https://nim-lang.org/docs/tables.html
+
+For example, `countWords` could return a `TableRef[string, int]`
 
 ```nim
 proc countWords*(sentence: string): TableRef[string, int] =
