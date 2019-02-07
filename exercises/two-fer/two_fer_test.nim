@@ -1,9 +1,9 @@
 import unittest
-
 import two_fer
 
-suite "Two Fer":
+# version 1.2.0
 
+suite "Two Fer":
   test "no name given":
     check twoFer() == "One for you, one for me."
 
