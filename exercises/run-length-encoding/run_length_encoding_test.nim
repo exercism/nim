@@ -1,9 +1,9 @@
 import unittest
-
 import run_length_encoding
 
-suite "run-length encode a string":
+# version 1.1.0
 
+suite "run-length encode a string":
   test "empty string":
     check encode("") == ""
 
@@ -24,8 +24,8 @@ suite "run-length encode a string":
   test "lowercase characters":
     check encode("aabbbcccc") == "2a3b4c"
 
-suite "run-length decode a string":
 
+suite "run-length decode a string":
   test "empty string":
     check decode("") == ""
 
@@ -43,11 +43,10 @@ suite "run-length decode a string":
   test "multiple whitespace mixed in string":
     check decode("2 hs2q q2w2 ") == "  hsqq qww  "
 
-  test "lower case string":
+  test "lowercase string":
     check decode("2a3b4c") == "aabbbcccc"
 
 
 suite "encode and then decode":
-
   test "encode followed by decode gives original string":
     check "zzz ZZ  zZ".encode.decode == "zzz ZZ  zZ"
