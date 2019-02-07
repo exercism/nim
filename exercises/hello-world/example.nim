@@ -1,2 +1,2 @@
-proc helloworld*(name="World"): string =
-  return "Hello, " & name & "!"
+proc hello*: string =
+  "Hello, World!"

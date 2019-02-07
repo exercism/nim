@@ -1,14 +1,8 @@
 import unittest
+import hello_world
 
-import helloworld
+# version 1.1.0
 
 suite "Hello World":
-  
-  test "no name":
-    check helloworld() == "Hello, World!"
-
-  test "sample name":
-    check helloworld("Alice") == "Hello, Alice!"
-
-  test "other sample name":
-    check helloworld("Bob") == "Hello, Bob!"
+  test "say hi":
+    check hello() == "Hello, World!"
