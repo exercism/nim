@@ -1,23 +1,8 @@
-import sequtils
 import tables
 
-proc count*(nt: char, dna: string): int =
-  let nts = toSeq(dna.items)
-  var nt_count = 0
+func countDna*(s: string): CountTable[char] =
+  result = s.toCountTable()
 
-  for n in nts:
-    if n == nt:
-      nt_count += 1
-
-  nt_count
-
-proc countDna*(dna: string): CountTable[char] =
-  var counts = initCountTable[char]()
-
-  for nt in toSeq(dna.items):
-    if nt in ['A', 'C', 'G', 'T']:
-      counts.inc(nt)
-    else:
-      raise newException(ValueError, "Invalid nucleotide")
-
-  counts
+  for k in result.keys:
+    if k notin {'A', 'C', 'G', 'T'}:
+      raise newException(ValueError, "Not a valid nucleotide: " & k)
