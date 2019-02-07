@@ -1,9 +1,9 @@
 import unittest
-
 import collatz_conjecture
 
-suite "Collatz Conjecture":
+# version 1.2.1
 
+suite "Collatz Conjecture":
   test "zero steps for one":
     check steps(1) == 0
 
@@ -13,8 +13,8 @@ suite "Collatz Conjecture":
   test "even and odd steps":
     check steps(12) == 9
 
-  test "Large number of even and odd steps":
-    check steps(1000000) == 152
+  test "large number of even and odd steps":
+    check steps(1_000_000) == 152
 
   test "zero is an error":
     expect(ValueError):
