@@ -1,9 +1,9 @@
 import unittest
-
 import nth_prime
 
-suite "nth-prime":
+# version 2.1.0
 
+suite "Nth Prime":
   test "first prime":
     check prime(1) == 2
 
@@ -14,7 +14,7 @@ suite "nth-prime":
     check prime(6) == 13
 
   test "big prime":
-    check prime(10001) == 104743
+    check prime(10_001) == 104_743
 
   test "there is no zeroth prime":
     expect(ValueError):
