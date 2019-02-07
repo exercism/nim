@@ -1,17 +1,16 @@
 import unittest
-
 import allergies
 
+# version 1.2.0
 
 suite "Allergies":
-
   test "no allergies means not allergic":
     let allergies = Allergies(score: 0)
     check allergies.isAllergicTo("peanuts") == false
     check allergies.isAllergicTo("cats") == false
     check allergies.isAllergicTo("strawberries") == false
 
-  test "is allergic to eggs":
+  test "allergic to eggs":
     let allergies = Allergies(score: 1)
     check allergies.isAllergicTo("eggs") == true
 
@@ -20,6 +19,13 @@ suite "Allergies":
     check allergies.isAllergicTo("eggs") == true
     check allergies.isAllergicTo("shellfish") == true
     check allergies.isAllergicTo("strawberries") == false
+
+  test "allergic to strawberries but not peanuts":
+    let allergies = Allergies(score: 9)
+    check allergies.isAllergicTo("eggs") == true
+    check allergies.isAllergicTo("peanuts") == false
+    check allergies.isAllergicTo("shellfish") == false
+    check allergies.isAllergicTo("strawberries") == true
 
   test "no allergies at all":
     let allergies = Allergies(score: 0)
@@ -53,15 +59,11 @@ suite "Allergies":
   test "allergic to everything":
     let allergies = Allergies(score: 255)
     check allergies.lst == @[
-        "eggs", "peanuts", "shellfish", "strawberries", "tomatoes",
-        "chocolate", "pollen", "cats"]
-
-  test "ignore non allergen score parts only eggs":
-    let allergies = Allergies(score: 257)
-    check allergies.lst == @["eggs"]
+      "eggs", "peanuts", "shellfish", "strawberries", "tomatoes",
+      "chocolate", "pollen", "cats"]
 
   test "ignore non allergen score parts":
     let allergies = Allergies(score: 509)
     check allergies.lst == @[
-        "eggs", "shellfish", "strawberries", "tomatoes", "chocolate",
-        "pollen", "cats"]
+      "eggs", "shellfish", "strawberries", "tomatoes", "chocolate",
+      "pollen", "cats"]
