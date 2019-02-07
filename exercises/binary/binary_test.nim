@@ -1,8 +1,9 @@
 import unittest
 import binary
 
-suite "Binary":
+# version 1.1.0
 
+suite "Binary":
   test "binary 0 is decimal 0":
     check binary("0") == 0
 
@@ -50,6 +51,6 @@ suite "Binary":
     expect(ValueError):
       discard binary("10nope10")
 
-  test "a number and a word whitespace spearated is invalid":
+  test "a number and a word whitespace separated is invalid":
     expect(ValueError):
       discard binary("001 nope")
