@@ -1,13 +1,13 @@
 import unittest
+import atbash_cipher
+
+# version 1.2.0
 
 # The tests are divided into two groups:
 # Encoding from English to atbash cipher
 # Decoding from atbash cipher to all-lowercase-mashed-together English
 
-import atbash_cipher
-
 suite "Encode":
-
   test "encode yes":
     let phrase = "yes"
     let expected = "bvh"
@@ -48,8 +48,8 @@ suite "Encode":
     let expected = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
     check encode(phrase) == expected
 
-suite "Decode":
 
+suite "Decode":
   test "decode exercism":
     let phrase = "vcvix rhn"
     let expected = "exercism"
@@ -68,4 +68,14 @@ suite "Decode":
   test "decode all the letters":
     let phrase = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
     let expected = "thequickbrownfoxjumpsoverthelazydog"
+    check decode(phrase) == expected
+
+  test "decode with too many spaces":
+    let phrase = "vc vix    r hn"
+    let expected = "exercism"
+    check decode(phrase) == expected
+
+  test "decode with no spaces":
+    let phrase = "zmlyhgzxovrhlugvmzhgvkkrmthglmv"
+    let expected = "anobstacleisoftenasteppingstone"
     check decode(phrase) == expected
