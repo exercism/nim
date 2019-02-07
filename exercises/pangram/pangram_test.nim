@@ -1,22 +1,22 @@
 import unittest
+import pangram
 
-from pangram import isPangram
+# version 1.4.1
 
 suite "Pangram":
-
   test "sentence empty":
     check isPangram("") == false
 
   test "recognizes a perfect lower case pangram":
     check isPangram("abcdefghijklmnopqrstuvwxyz") == true
 
-  test "test pangram with only lower case":
+  test "pangram with only lower case":
     check isPangram("the quick brown fox jumps over the lazy dog") == true
 
-  test "missing character x":
+  test "missing character 'x'":
     check isPangram("a quick movement of the enemy will jeopardize five gunboats") == false
 
-  test "another missing character":
+  test "another missing character, e.g. 'h'":
     check isPangram("five boxing wizards jump quickly at it") == false
 
   test "pangram with underscores":
@@ -28,9 +28,8 @@ suite "Pangram":
   test "missing letters replaced by numbers":
     check isPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog") == false
 
-  test "pangram with mixedcase and punctuation":
-    check isPangram("Five quacking Zephyrs jolt my wax bed.") == true
+  test "pangram with mixed case and punctuation":
+    check isPangram("\"Five quacking Zephyrs jolt my wax bed.\"") == true
 
-  test "upper and lower case versions of the same character":
-    check isPangram("the quick brown fox jumped over the lazy FX") == false
-
+  test "upper and lower case versions of the same character should not be counted separately":
+    check isPangram("the quick brown fox jumps over with lazy FX") == false
