@@ -1,7 +1,7 @@
 import unittest, tables
 import word_count
 
-# version 1.2.0
+# version 1.3.0
 
 suite "Word Count":
   test "count one word":
@@ -96,3 +96,11 @@ suite "Word Count":
       output.len == 2
       output["multiple"] == 1
       output["whitespaces"] == 1
+
+  test "alternating word separators not detected as a word":
+    let output = countWords(",\n,one,\n ,two \n 'three'")
+    check:
+      output.len == 3
+      output["one"] == 1
+      output["two"] == 1
+      output["three"] == 1
