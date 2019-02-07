@@ -1,12 +1,12 @@
 import unittest
-
 import reverse_string
 
+# version 1.1.0
+
 suite "Reverse String":
-  
-  test "empty string":
+  test "an empty string":
     check reverse("") == ""
-    
+
   test "a word":
     check reverse("robot") == "tobor"
 
@@ -15,6 +15,6 @@ suite "Reverse String":
 
   test "a sentence with punctuation":
     check reverse("I'm hungry!") == "!yrgnuh m'I"
-    
+
   test "a palindrome":
     check reverse("racecar") == "racecar"
