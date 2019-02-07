@@ -1,29 +1,29 @@
 import unittest
-
 import armstrong_numbers
 
+# version 1.0.0
+
 suite "Armstrong Numbers":
+  test "single-digit numbers are Armstrong numbers":
+    check isArmstrongNumber(5) == true
 
-  test "Single digit numbers are Armstrong numbers":
-    check 5.isArmstrongNumber == true
+  test "there are no two-digit Armstrong numbers":
+    check isArmstrongNumber(10) == false
 
-  test "There are no 2 digit Armstrong numbers":
-    check 10.isArmstrongNumber == false
+  test "three-digit number that is an Armstrong number":
+    check isArmstrongNumber(153) == true
 
-  test "Three digit number that is an Armstrong number":
-    check 153.isArmstrongNumber == true
+  test "three-digit number that is not an Armstrong number":
+    check isArmstrongNumber(100) == false
 
-  test "Three digit number that is not an Armstrong number":
-    check 100.isArmstrongNumber == false
+  test "four-digit number that is an Armstrong number":
+    check isArmstrongNumber(9474) == true
 
-  test "Four digit number that is an Armstrong number":
-    check 9474.isArmstrongNumber == true
+  test "four-digit number that is not an Armstrong number":
+    check isArmstrongNumber(9475) == false
 
-  test "Four digit number that is not an Armstrong number":
-    check 9475.isArmstrongNumber == false
+  test "seven-digit number that is an Armstrong number":
+    check isArmstrongNumber(9_926_315) == true
 
-  test "Seven digit number that is an Armstrong number":
-    check 9926315.isArmstrongNumber == true
-
-  test "Four digit number that is an Armstrong number":
-    check 9926314.isArmstrongNumber == false
+  test "seven-digit number that is not an Armstrong number":
+    check isArmstrongNumber(9_926_314) == false
