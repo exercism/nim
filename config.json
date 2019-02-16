@@ -173,6 +173,17 @@
       ]
     },
     {
+      "slug": "grains",
+      "uuid": "40dcc736-1904-418e-bb69-2186b3bb0a83",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 2,
+      "topics": [
+        "integers",
+        "type_conversion"
+      ]
+    },
+    {
       "slug": "difference-of-squares",
       "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f",
       "core": false,
