@@ -4,7 +4,6 @@ import grains
 # version 1.2.0
 
 suite "Grains":
-
   test "grains on square 1":
     check onSquare(1) == 1
 
