@@ -371,8 +371,8 @@
       ]
     },
     {
-      "slug": "binary",
-      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
+      "slug": "all-your-base",
+      "uuid": "c95b43a3-f702-473e-bdd5-aa6708ba1ce3",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
@@ -407,6 +407,15 @@
         "events",
         "reactive_programming"
       ]
+    },
+    {
+      "slug": "binary",
+      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
+      "deprecated": true
     }
   ]
 }
