@@ -480,6 +480,18 @@
       ]
     },
     {
+      "slug": "luhn",
+      "uuid": "a8de14a7-aa77-4e5e-83cd-fa4321dd7a36",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "integers",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
