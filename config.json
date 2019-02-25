@@ -492,6 +492,17 @@
       ]
     },
     {
+      "slug": "matrix",
+      "uuid": "273015db-0c65-49f8-b216-50160dbad8b0",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "matrices",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
