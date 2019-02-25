@@ -467,6 +467,19 @@
       ]
     },
     {
+      "slug": "largest-series-product",
+      "uuid": "6491e319-9bb9-4e02-8048-77598c0c7b98",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "integers",
+        "math",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
