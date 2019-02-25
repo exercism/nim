@@ -12,12 +12,12 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 
 The test runner that Travis CI uses is it's own Nim application found at `_test/check_exercises.nim` in the repository. To run the test locally you need to compile the application and then run it.
 
-Then to run all the unit test, run 
+Then to run all the unit test, run
 ```bash
 $ nim c -r _test/check_exercises.nim
 ```
 
-If you would like to run one or more unit test, run 
+If you would like to run one or more unit test, run
 ```bash
 $ nim c -r _test/check_exercises.nim <exercise_name> <exercise_name>
 ```

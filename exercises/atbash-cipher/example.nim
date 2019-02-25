@@ -21,7 +21,7 @@ proc clean(phrase: string): seq[char] =
 
 proc convert(c: char, fromInput: string, toInput: string): char =
   if c.isAlphaAscii: toInput[fromInput.find(c)] else: c
-    
+
 proc encode*(phrase: string): string =
   phrase.clean.mapIt(it.convert(Plain, Cipher)).join("").group
 
