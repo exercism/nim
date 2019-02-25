@@ -613,6 +613,18 @@
       ]
     },
     {
+      "slug": "series",
+      "uuid": "ac78d616-2521-470c-a09f-aaffc96d3795",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "sequences",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "binary",
       "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
