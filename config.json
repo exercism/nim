@@ -455,6 +455,18 @@
       ]
     },
     {
+      "slug": "kindergarten-garden",
+      "uuid": "3df571f3-e47f-469b-b427-ac0f5167f964",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "enumerations",
+        "parsing",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
