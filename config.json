@@ -526,6 +526,19 @@
       ]
     },
     {
+      "slug": "perfect-numbers",
+      "uuid": "92579b80-194a-430f-b0e1-f2854ea8b505",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "enumerations",
+        "filtering",
+        "integers",
+        "math"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
