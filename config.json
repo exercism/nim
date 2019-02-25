@@ -561,6 +561,17 @@
       ]
     },
     {
+      "slug": "resistor-color",
+      "uuid": "b239a0f3-47b5-4583-985f-c98efca8259e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "enumerations"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
