@@ -572,6 +572,18 @@
       ]
     },
     {
+      "slug": "rotational-cipher",
+      "uuid": "b60b8bfd-a2a7-4da0-8a22-894fff5abab2",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "cryptography",
+        "integers",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
