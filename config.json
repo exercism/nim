@@ -584,6 +584,19 @@
       ]
     },
     {
+      "slug": "say",
+      "uuid": "ef24428e-289c-48d0-967b-961d95246f3c",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "strings",
+        "text_formatting",
+        "transforming"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
