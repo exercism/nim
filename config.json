@@ -432,6 +432,17 @@
       ]
     },
     {
+      "slug": "high-scores",
+      "uuid": "957a8f39-1c9e-43ef-917c-d70278314278",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "sequences",
+        "sorting"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
