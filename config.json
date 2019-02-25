@@ -638,6 +638,17 @@
       ]
     },
     {
+      "slug": "spiral-matrix",
+      "uuid": "32c1262c-4f60-45cf-a5eb-aae7ea19acfc",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "matrices"
+      ]
+    },
+    {
       "slug": "binary",
       "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
