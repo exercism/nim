@@ -503,6 +503,18 @@
       ]
     },
     {
+      "slug": "meetup",
+      "uuid": "adfbdcef-4d75-446f-9bfe-d3c7f28d8d2f",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "dates",
+        "enumerations",
+        "transforming"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
