@@ -10,7 +10,7 @@ proc runTest(testFilePath: string): TTestResult =
     moduleName = os.splitPath(testFilePath).tail.replace("_test", "")
     examplePath = os.joinPath(exerciseDirPath, "example.nim")
     modulePath = os.joinPath(exerciseDirPath, moduleName)
-  
+
   os.copyFile(examplePath, modulePath)
   echo "\n ### " & exerciseName & " ###"
   let exitCode = osproc.execCmd("nim c -r --verbosity=0 " & testFilePath)
@@ -18,12 +18,12 @@ proc runTest(testFilePath: string): TTestResult =
   (exerciseName, exitCode)
 
 when isMainModule:
-  var 
+  var
     exercises: seq[string] = @[]
     failures: seq[string] = @[]
 
   let arguments = commandLineParams()
-  
+
   if arguments.len == 0:
     exercises.add("*")
   else:

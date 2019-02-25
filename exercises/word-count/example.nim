@@ -1,7 +1,7 @@
 import
   tables, strutils, re
 
-iterator words(sentence: string): string = 
+iterator words(sentence: string): string =
   for word in sentence.findAll(re"[a-zA-Z0-9]+(['][a-z]+)?"):
     yield toLowerAscii(word)
 

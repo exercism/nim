@@ -26,7 +26,7 @@ pkg install nim
 ```
 
 ## choosenim
-If you are looking for a tool that is similar `rustup` and `pyenv`, [choosenim](https://github.com/dom96/choosenim) can help. 
+If you are looking for a tool that is similar `rustup` and `pyenv`, [choosenim](https://github.com/dom96/choosenim) can help.
 
 choosenim installs the Nim programming language from official downloads and sources, enabling you to easily switch between stable and development compilers.
 
