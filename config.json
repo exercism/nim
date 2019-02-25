@@ -649,6 +649,18 @@
       ]
     },
     {
+      "slug": "sublist",
+      "uuid": "08719e83-36ac-4f9a-9075-6edca3648d5d",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "enumerations",
+        "searching",
+        "sequences"
+      ]
+    },
+    {
       "slug": "binary",
       "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
