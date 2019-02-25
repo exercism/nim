@@ -443,6 +443,18 @@
       ]
     },
     {
+      "slug": "isbn-verifier",
+      "uuid": "e184b588-f6a1-4e07-ab31-5cedfd4f26c7",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "parsing",
+        "strings",
+        "type_conversion"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
