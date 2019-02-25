@@ -550,6 +550,17 @@
       ]
     },
     {
+      "slug": "protein-translation",
+      "uuid": "2121a163-8dce-4267-b8de-d1952c1491e8",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "maps",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
