@@ -515,6 +515,17 @@
       ]
     },
     {
+      "slug": "pascals-triangle",
+      "uuid": "9ba153ad-bd49-4c26-9d80-dadb496cb637",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "math"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
