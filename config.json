@@ -625,6 +625,19 @@
       ]
     },
     {
+      "slug": "sieve",
+      "uuid": "538e773f-ac66-4a1f-9b12-3eacd45b5084",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "filtering",
+        "integers",
+        "math"
+      ]
+    },
+    {
       "slug": "binary",
       "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
