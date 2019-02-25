@@ -409,6 +409,18 @@
       ]
     },
     {
+      "slug": "darts",
+      "uuid": "c83824af-bac6-4e59-9bf0-df5ab3f83a3d",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "floating_point_numbers",
+        "math"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
