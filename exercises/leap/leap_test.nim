@@ -1,11 +1,14 @@
 import unittest
 import leap
 
-# version 1.4.0
+# version 1.5.0
 
 suite "Leap":
   test "year not divisible by 4: common year":
     check isLeapYear(2015) == false
+
+  test "year divisible by 2, not divisible by 4: common year":
+    check isLeapYear(1970) == false
 
   test "year divisible by 4, not divisible by 100: leap year":
     check isLeapYear(1996) == true
