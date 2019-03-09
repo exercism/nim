@@ -421,6 +421,19 @@
       ]
     },
     {
+      "slug": "crypto-square",
+      "uuid": "a6e88c81-4f8b-45bb-8656-74f5a9554a12",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "cryptography",
+        "strings",
+        "text_formatting",
+        "transforming"
+      ]
+    },
+    {
       "slug": "darts",
       "uuid": "c83824af-bac6-4e59-9bf0-df5ab3f83a3d",
       "core": false,
