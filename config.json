@@ -792,6 +792,18 @@
       ]
     },
     {
+      "slug": "yacht",
+      "uuid": "9908f5fe-5df7-4e88-aab7-25959ed67985",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "games",
+        "integers"
+      ]
+    },
+    {
       "slug": "binary",
       "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
