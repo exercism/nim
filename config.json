@@ -446,6 +446,17 @@
       ]
     },
     {
+      "slug": "diamond",
+      "uuid": "675520e4-b763-4bdb-8d6a-740b12834fcb",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings",
+        "text_formatting"
+      ]
+    },
+    {
       "slug": "etl",
       "uuid": "da9807c2-959d-49e0-86a9-44de02501f37",
       "core": false,
