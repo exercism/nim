@@ -457,6 +457,20 @@
       ]
     },
     {
+      "slug": "diffie-hellman",
+      "uuid": "bf9a2fc3-def5-4bfc-a944-91bb213ad8b5",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "cryptography",
+        "integers",
+        "math",
+        "randomness"
+      ]
+    },
+    {
       "slug": "etl",
       "uuid": "da9807c2-959d-49e0-86a9-44de02501f37",
       "core": false,
