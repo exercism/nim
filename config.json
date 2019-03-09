@@ -780,6 +780,18 @@
       ]
     },
     {
+      "slug": "twelve-days",
+      "uuid": "b38a3fcc-f5cf-4366-b0b4-e39b8c81e3f6",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "pattern_recognition",
+        "strings",
+        "text_formatting"
+      ]
+    },
+    {
       "slug": "binary",
       "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
