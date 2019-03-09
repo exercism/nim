@@ -623,6 +623,17 @@
       ]
     },
     {
+      "slug": "proverb",
+      "uuid": "8d876470-08d5-4efe-b9d1-4a6812c1e586",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "loops",
+        "strings"
+      ]
+    },
+    {
       "slug": "resistor-color",
       "uuid": "b239a0f3-47b5-4583-985f-c98efca8259e",
       "core": false,
