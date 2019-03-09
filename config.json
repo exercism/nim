@@ -657,6 +657,17 @@
       ]
     },
     {
+      "slug": "robot-name",
+      "uuid": "5d2fa542-245a-4c5b-bfe1-bd667091c556",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "randomness",
+        "strings"
+      ]
+    },
+    {
       "slug": "rotational-cipher",
       "uuid": "b60b8bfd-a2a7-4da0-8a22-894fff5abab2",
       "core": false,
