@@ -680,6 +680,18 @@
       ]
     },
     {
+      "slug": "saddle-points",
+      "uuid": "8809c138-3973-479e-9331-82a7f719f5cb",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "matrices",
+        "searching"
+      ]
+    },
+    {
       "slug": "say",
       "uuid": "ef24428e-289c-48d0-967b-961d95246f3c",
       "core": false,
