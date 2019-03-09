@@ -589,6 +589,18 @@
       ]
     },
     {
+      "slug": "phone-number",
+      "uuid": "7cb027d9-6841-443a-9168-fb1347abe891",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "parsing",
+        "strings"
+      ]
+    },
+    {
       "slug": "prime-factors",
       "uuid": "869c033a-052c-4031-9402-970824bb520a",
       "core": false,
