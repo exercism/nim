@@ -705,6 +705,17 @@
       ]
     },
     {
+      "slug": "scale-generator",
+      "uuid": "b81e2ff7-5d11-499d-acc5-0448d1b1af47",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "pattern_matching",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "09623b3d-05ee-4825-aae8-6434c9538366",
       "core": false,
