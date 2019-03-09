@@ -645,6 +645,18 @@
       ]
     },
     {
+      "slug": "resistor-color-duo",
+      "uuid": "85c8f6d3-5802-4894-9929-5aa62d7a4840",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "enumerations",
+        "transforming"
+      ]
+    },
+    {
       "slug": "rotational-cipher",
       "uuid": "b60b8bfd-a2a7-4da0-8a22-894fff5abab2",
       "core": false,
