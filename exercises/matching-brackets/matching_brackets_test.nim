@@ -1,9 +1,9 @@
 import unittest
-import bracket_push
+import matching_brackets
 
-# version 1.5.0
+# version 2.0.0
 
-suite "Bracket Push":
+suite "Matching Brackets":
   test "paired square brackets":
     check isPaired("[]") == true
 

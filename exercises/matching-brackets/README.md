@@ -1,4 +1,4 @@
-# Bracket Push
+# Matching Brackets
 
 Given a string containing brackets `[]`, braces `{}`, parentheses `()`,
 or any combination thereof, verify that any and all pairs are matched
@@ -8,12 +8,12 @@ and nested correctly.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r bracket_push_test.nim
+$ nim c -r matching_brackets_test.nim
 ```
 
 ## Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/bracket-push` directory.
+Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/nim/matching-brackets` directory.
 
 You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Exercises Directory`.
 

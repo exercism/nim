@@ -333,7 +333,7 @@
       ]
     },
     {
-      "slug": "bracket-push",
+      "slug": "matching-brackets",
       "uuid": "bb8af717-9e8d-498c-85cf-e6e77a84919e",
       "core": false,
       "unlocked_by": "bob",
