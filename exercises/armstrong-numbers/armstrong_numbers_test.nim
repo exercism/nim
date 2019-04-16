@@ -1,9 +1,12 @@
 import unittest
 import armstrong_numbers
 
-# version 1.0.0
+# version 1.1.0
 
 suite "Armstrong Numbers":
+  test "zero is an Armstrong number":
+    check isArmstrongNumber(0) == true
+
   test "single-digit numbers are Armstrong numbers":
     check isArmstrongNumber(5) == true
 
