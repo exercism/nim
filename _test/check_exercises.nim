@@ -86,7 +86,7 @@ proc getImplementedSlugs: Slugs =
   ## test file, rather than one with an entry in `config.json`. This can be more
   ## convenient when implementing new exercises.
   for _, dir in walkDir(exercisesDir):
-    for file in walkFiles(dir / "test_*.nim"):
+    for file in walkFiles(dir / "tests" / "test_*.nim"):
       result.incl(dir.splitPath().tail) # e.g. "hello-world"
 
 type
@@ -175,8 +175,8 @@ proc prepareTests(slugs: Slugs) =
     copyFile(dir / "example.nim", srcDir / slugUnder & ".nim")
 
     # Copy a wrapped version of the test. For example:
-    #   `exercises/bob/test_bob.nim`  ->  `outDir/tests/test_bob.nim`
-    let wrappedTest = wrapTest(dir / "test_" & slugUnder & ".nim", slug)
+    #   `exercises/bob/tests/test_bob.nim`  ->  `outDir/tests/test_bob.nim`
+    let wrappedTest = wrapTest(dir / "tests" / "test_" & slugUnder & ".nim", slug)
     writeFile(testDir / testName & ".nim", wrappedTest)
 
   allTests &= "]\n"
