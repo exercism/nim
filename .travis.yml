@@ -5,15 +5,10 @@ env:
   - NIM_VERSION="0.19.6"
 
 install:
-  - cd _test
-  - wget https://nim-lang.org/download/nim-$NIM_VERSION.tar.xz
-  - tar xf nim-$NIM_VERSION.tar.xz
-  - cd nim-$NIM_VERSION
-  - ./build.sh
-  - cd ../..
+  - sh bin/travis-install.sh
 
 before_script:
-  - export PATH="_test/nim-${NIM_VERSION}/bin${PATH:+:$PATH}"
+  - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:$PATH}"
 
 script:
   - bin/fetch-configlet
