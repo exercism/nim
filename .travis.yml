@@ -11,6 +11,7 @@ install:
 before_script:
   - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:$PATH}"
   - bin/configlet lint .
+  - bin/configlet fmt . && git diff --exit-code
   - nim --version
   - nim c _test/check_exercises.nim
 
