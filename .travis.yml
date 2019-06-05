@@ -6,12 +6,12 @@ env:
 
 install:
   - sh bin/travis-install.sh
+  - bin/fetch-configlet
 
 before_script:
   - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:$PATH}"
 
 script:
-  - bin/fetch-configlet
   - bin/configlet lint .
   - nim c _test/check_exercises.nim > /dev/null
   - _test/check_exercises
