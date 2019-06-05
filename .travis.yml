@@ -12,7 +12,8 @@ install:
   - ./build.sh
   - cd ../..
 
-before_script: export PATH=$PATH:$PWD/_test/nim-$NIM_VERSION/bin
+before_script:
+  - export PATH="_test/nim-${NIM_VERSION}/bin${PATH:+:$PATH}"
 
 script:
   - bin/fetch-configlet
