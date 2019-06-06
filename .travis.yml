@@ -2,7 +2,7 @@ dist: xenial
 language: c
 
 env:
-  - NIM_VERSION="0.19.6"
+  - NIM_VERSION="0.20.0"
 
 install:
   - sh bin/travis-install.sh
@@ -13,6 +13,7 @@ before_script:
   - bin/configlet lint .
   - bin/configlet fmt . && git diff --exit-code
   - nim --version
+  - nimble --version
   - nim c _test/check_exercises.nim
 
 script:
