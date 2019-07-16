@@ -1,7 +1,7 @@
 import unittest
 import anagram
 
-# version 1.4.0
+# version 1.5.0
 
 suite "Anagram":
   test "no matches":
@@ -29,6 +29,11 @@ suite "Anagram":
     const candidates = @["gallery", "ballerina", "regally", "clergy", "largely", "leading"]
     check detectAnagrams(word, candidates) == @["gallery", "regally", "largely"]
 
+  test "detects multiple anagrams with different case":
+    const word = "nose"
+    const candidates = @["Eons", "ONES"]
+    check detectAnagrams(word, candidates) == @["Eons", "ONES"]
+
   test "does not detect non-anagrams with identical checksum":
     const word = "mass"
     const candidates = @["last"]
@@ -49,7 +54,7 @@ suite "Anagram":
     const candidates = @["cashregister", "Carthorse", "radishes"]
     check detectAnagrams(word, candidates) == @["Carthorse"]
 
-  test "does not detect a anagram if the original word is repeated":
+  test "does not detect an anagram if the original word is repeated":
     const word = "go"
     const candidates = @["go Go GO"]
     check detectAnagrams(word, candidates).len == 0
@@ -63,3 +68,8 @@ suite "Anagram":
     const word = "BANANA"
     const candidates = @["BANANA", "Banana", "banana"]
     check detectAnagrams(word, candidates).len == 0
+
+  test "words other than themselves can be anagrams":
+    const word = "LISTEN"
+    const candidates = @["Listen", "Silent", "LISTEN"]
+    check detectAnagrams(word, candidates) == @["Silent"]
