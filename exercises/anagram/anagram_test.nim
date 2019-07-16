@@ -5,98 +5,61 @@ import anagram
 
 suite "Anagram":
   test "no matches":
-    let
-      word = "diaper"
-      candidates = @["hello", "world", "zombies", "pants"]
-      expected: seq[string] = @[]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "diaper"
+    const candidates = @["hello", "world", "zombies", "pants"]
+    check detectAnagrams(word, candidates).len == 0
 
   test "detects two anagrams":
-    let
-      word = "master"
-      candidates = @["stream", "pigeon", "maters"]
-      expected = @["stream", "maters"]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "master"
+    const candidates = @["stream", "pigeon", "maters"]
+    check detectAnagrams(word, candidates) == @["stream", "maters"]
 
   test "does not detect anagram subsets":
-    let
-      word = "good"
-      candidates = @["dog", "goody"]
-      expected: seq[string] = @[]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "good"
+    const candidates = @["dog", "goody"]
+    check detectAnagrams(word, candidates).len == 0
 
   test "detects anagram":
-    let
-      word = "listen"
-      candidates = @["enlists", "google", "inlets", "banana"]
-      expected = @["inlets"]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "listen"
+    const candidates = @["enlists", "google", "inlets", "banana"]
+    check detectAnagrams(word, candidates) == @["inlets"]
 
   test "detects three anagrams":
-    let
-      word = "allergy"
-      candidates = @["gallery", "ballerina", "regally",
-                     "clergy", "largely", "leading"]
-      expected = @["gallery", "regally", "largely"]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "allergy"
+    const candidates = @["gallery", "ballerina", "regally", "clergy", "largely", "leading"]
+    check detectAnagrams(word, candidates) == @["gallery", "regally", "largely"]
 
   test "does not detect non-anagrams with identical checksum":
-    let
-      word = "mass"
-      candidates = @["last"]
-      expected: seq[string] = @[]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "mass"
+    const candidates = @["last"]
+    check detectAnagrams(word, candidates).len == 0
 
   test "detects anagrams case-insensitively":
-    let
-      word = "Orchestra"
-      candidates = @["cashregister", "Carthorse", "radishes"]
-      expected = @["Carthorse"]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "Orchestra"
+    const candidates = @["cashregister", "Carthorse", "radishes"]
+    check detectAnagrams(word, candidates) == @["Carthorse"]
 
   test "detects anagrams using case-insensitive subject":
-    let
-      word = "Orchestra"
-      candidates = @["cashregister", "carthorse", "radishes"]
-      expected = @["carthorse"]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "Orchestra"
+    const candidates = @["cashregister", "carthorse", "radishes"]
+    check detectAnagrams(word, candidates) == @["carthorse"]
 
   test "detects anagrams using case-insensitive possible matches":
-    let
-      word = "orchestra"
-      candidates = @["cashregister", "Carthorse", "radishes"]
-      expected = @["Carthorse"]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "orchestra"
+    const candidates = @["cashregister", "Carthorse", "radishes"]
+    check detectAnagrams(word, candidates) == @["Carthorse"]
 
   test "does not detect a anagram if the original word is repeated":
-    let
-      word = "go"
-      candidates = @["go Go GO"]
-      expected: seq[string] = @[]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "go"
+    const candidates = @["go Go GO"]
+    check detectAnagrams(word, candidates).len == 0
 
   test "anagrams must use all letters exactly once":
-    let
-      word = "tapper"
-      candidates = @["patter"]
-      expected: seq[string] = @[]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "tapper"
+    const candidates = @["patter"]
+    check detectAnagrams(word, candidates).len == 0
 
   test "words are not anagrams of themselves (case-insensitive)":
-    let
-      word = "BANANA"
-      candidates = @["BANANA", "Banana", "banana"]
-      expected: seq[string] = @[]
-      detected = detectAnagrams(word, candidates)
-    check detected == expected
+    const word = "BANANA"
+    const candidates = @["BANANA", "Banana", "banana"]
+    check detectAnagrams(word, candidates).len == 0
