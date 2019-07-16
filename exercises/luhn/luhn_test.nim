@@ -1,7 +1,7 @@
 import unittest
 import luhn
 
-# version 1.4.0
+# version 1.6.1
 
 suite "Luhn":
   test "single digit strings can not be valid":
@@ -28,8 +28,8 @@ suite "Luhn":
   test "valid number with an even number of digits":
     check isValid("095 245 88") == true
 
-  test "valid strings with a non-digit included become invalid":
-    check isValid("055a 444 285") == false
+  test "valid number with an odd number of spaces":
+    check isValid("234 567 891 234") == true
 
   test "valid strings with a non-digit added at the end become invalid":
     check isValid("059a") == false
@@ -38,7 +38,7 @@ suite "Luhn":
     check isValid("055-444-285") == false
 
   test "valid strings with symbols included become invalid":
-    check isValid("055£ 444$ 285") == false
+    check isValid("055# 444$ 285") == false
 
   test "single zero with space is invalid":
     check isValid(" 0") == false
@@ -49,5 +49,8 @@ suite "Luhn":
   test "input digit 9 is correctly converted to output digit 9":
     check isValid("091") == true
 
-  test "strings with non-digits is invalid":
+  test "using ascii value for non-doubled non-digit isn't allowed":
+    check isValid("055b 444 285") == false
+
+  test "using ascii value for doubled non-digit isn't allowed":
     check isValid(":9") == false
