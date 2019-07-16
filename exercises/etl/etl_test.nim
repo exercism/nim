@@ -1,10 +1,10 @@
 import unittest, tables
 import etl
 
-# version 1.0.0
+# version 2.0.0
 
 suite "ETL":
-  test "a single score with a single letter":
+  test "single letter":
     const input = {
       1: @['A']
     }.toTable
@@ -13,7 +13,7 @@ suite "ETL":
       output.len == 1
       output['a'] == 1
 
-  test "a single score with multiple letters":
+  test "single score with multiple letters":
     const input = {
       1: @['A', 'E', 'I', 'O', 'U']
     }.toTable
