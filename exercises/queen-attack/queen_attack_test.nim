@@ -1,7 +1,7 @@
 import unittest
 import queen_attack
 
-# version 2.2.0
+# version 2.3.0
 
 suite "Queen Attack":
   # Raise an error for invalid positions
@@ -42,7 +42,7 @@ suite "Queen Attack":
     check canAttack((2, 2), (1, 1)) == true
 
   test "can attack on fourth diagonal":
-    check canAttack((2, 2), (5, 5)) == true
+    check canAttack((1, 7), (0, 6)) == true
 
 
   # Bonus: graphical board representation
