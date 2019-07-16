@@ -1,7 +1,7 @@
 import unittest
 import reverse_string
 
-# version 1.1.0
+# version 1.2.0
 
 suite "Reverse String":
   test "an empty string":
@@ -18,3 +18,6 @@ suite "Reverse String":
 
   test "a palindrome":
     check reverse("racecar") == "racecar"
+
+  test "an even-sized word":
+    check reverse("drawer") == "reward"
