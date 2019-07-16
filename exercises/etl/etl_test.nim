@@ -35,8 +35,8 @@ suite "ETL":
     check:
       output.len == 4
       output['a'] == 1
-      output['e'] == 1
       output['d'] == 2
+      output['e'] == 1
       output['g'] == 2
 
   test "multiple scores with differing numbers of letters":
