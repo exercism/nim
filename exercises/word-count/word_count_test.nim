@@ -1,7 +1,7 @@
 import unittest, tables
 import word_count
 
-# version 1.3.0
+# version 1.4.0
 
 suite "Word Count":
   test "count one word":
@@ -89,6 +89,19 @@ suite "Word Count":
       output["between"] == 1
       output["large"] == 2
       output["and"] == 1
+
+  test "substrings from the beginning":
+    let output = countWords("Joe can't tell between app, apple and a.")
+    check:
+      output.len == 8
+      output["joe"] == 1
+      output["can't"] == 1
+      output["tell"] == 1
+      output["between"] == 1
+      output["app"] == 1
+      output["apple"] == 1
+      output["and"] == 1
+      output["a"] == 1
 
   test "multiple spaces not detected as a word":
     let output = countWords(" multiple   whitespaces")
