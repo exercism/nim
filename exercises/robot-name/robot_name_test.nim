@@ -40,7 +40,7 @@ suite "Robot Name":
 
   # test "all remaining robot names are distinct":
   #   const n = (26 * 26 * 1000) - 6 # The number of names not generated above.
-  #   var names = initSet[string](n.rightSize)
+  #   var names = initHashSet[string](n.rightSize)
   #   for i in 1 .. n:
   #     names.incl(makeRobot().name)
   #   check names.len == n
