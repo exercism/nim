@@ -6,7 +6,7 @@ type
     cells: seq[Cell]
     nextCellHandle: int16
   Cell* = ref object of RootObj
-    FValue: int
+    fValue: int
     id: int16
     reactor: Reactor
     consumers: seq[int16]
@@ -34,12 +34,12 @@ proc trigger(reactor: Reactor, start: Cell) =
     if id in needCheck:
       let
         cell = ComputeCell(reactor.cells[id])
-        vals = cell.producers.map(proc(p: Cell): int = p.FValue)
-        oldVal = cell.FValue
-      cell.FValue = cell.compute(vals)
-      if oldVal != cell.FValue:
+        vals = cell.producers.map(proc(p: Cell): int = p.fValue)
+        oldVal = cell.fValue
+      cell.fValue = cell.compute(vals)
+      if oldVal != cell.fValue:
         for callback in values(cell.callbacks):
-          callback(cell.FValue)
+          callback(cell.fValue)
         # TODO: Observers
         for consumerHandle in cell.consumers:
           incl(needCheck, consumerHandle)
@@ -56,13 +56,13 @@ proc createInput*(reactor: Reactor, value: int): InputCell =
   ## Create a new input cell.
   new(result)
   result.initCell(reactor)
-  result.FValue = value
+  result.fValue = value
 
-proc value*(cell: Cell): int = cell.FValue
+proc value*(cell: Cell): int = cell.fValue
 
 proc `value=`*(cell: InputCell, value: int) =
-  let oldVal = cell.FValue
-  cell.FValue = value
+  let oldVal = cell.fValue
+  cell.fValue = value
   if oldVal != value:
     cell.reactor.trigger(cell)
 
@@ -77,7 +77,7 @@ proc createCompute*(reactor: Reactor, inputs: seq[Cell], compute: ComputeFunc): 
   for idx, input in inputs:
     vals[idx] = input.value
     add(input.consumers, result.id)
-  result.FValue = compute(vals)
+  result.fValue = compute(vals)
 
 proc addCallback*(cell: ComputeCell, callback: CallbackFunc): CallbackHandle =
   add(cell.callbacks, cell.nextCallbackHandle, callback)

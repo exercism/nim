@@ -3,7 +3,7 @@ type
   NumeralArray = array[13, Numeral]
 
 let
-  numeral_mapping: NumeralArray = [
+  numeralMapping: NumeralArray = [
     (1000, "M"),
     (900, "CM"),
     (500, "D"),
@@ -23,7 +23,7 @@ let
 proc roman*(number: int): string =
   result = ""
   var n = number
-  for numeral in numeral_mapping:
+  for numeral in numeralMapping:
     while n >= numeral.number:
       result = result & numeral.roman
       n = n - numeral.number
