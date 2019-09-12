@@ -5,7 +5,7 @@ type TAnagram = tuple
   word: string
   chars: seq[char]  # the lowercased and sorted chars of the word
 
-proc isAnagramTo(a, b: TAnagram): bool {.noSideEffect, procVar.} =
+proc isAnagramTo(a, b: TAnagram): bool {.noSideEffect.} =
   a.chars == b.chars and cmpIgnoreCase(a.word, b.word) != 0
 
 proc anagram(word: string): TAnagram =
