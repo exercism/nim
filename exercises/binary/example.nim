@@ -1,5 +1,4 @@
 from algorithm import reversed
-from sequtils import toSeq
 from strutils import allCharsInSet
 
 proc binary*(input: string): int {.raises: [ValueError]} =
