@@ -1,7 +1,7 @@
 import strutils
 
 func matrix(s: string): seq[seq[int]] =
-  for line in s.splitlines:
+  for line in s.splitLines:
     var row = newSeq[int]()
     for n in line.split:
       row &= n.parseInt
