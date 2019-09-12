@@ -1,4 +1,4 @@
-proc isLeapYear*(y: int): bool {.noSideEffect, procvar.} =
+proc isLeapYear*(y: int): bool {.noSideEffect.} =
   ## Returns true if `y` is a leap year.
   ##
   ## .. code-block:: nim
