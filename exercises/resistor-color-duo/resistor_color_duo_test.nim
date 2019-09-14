@@ -1,7 +1,7 @@
 import unittest
 import resistor_color_duo
 
-# version 2.0.0
+# version 2.1.0
 
 suite "Resistor Color Duo":
   test "brown and black":
@@ -15,3 +15,6 @@ suite "Resistor Color Duo":
 
   test "orange and orange":
     check value([Orange, Orange]) == 33
+
+  test "ignore additional colors":
+    check value([Green, Brown, Orange]) == 51
