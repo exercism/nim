@@ -8,21 +8,21 @@ Exercism exercises in Nim
 
 Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
 
-### How to run exercise's unit tests
+## Testing
 
-The test runner that Travis CI uses is it's own Nim application found at `_test/check_exercises.nim` in the repository. To run the test locally you need to compile the application and then run it.
+The file [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/master/_test/check_exercises.nim) checks that the example solution for every implemented exercise passes that exercise's test suite. This repo configures Travis CI to run that file, and you can also run it on your own machine.
 
-Then to run all the unit test, run
+To test all the exercises, run:
 ```bash
-$ nim c -r _test/check_exercises.nim
+$ nim c -r check_exercises.nim
 ```
 
-If you would like to run one or more unit test, run
+To test a selection of exercises, run:
 ```bash
-$ nim c -r _test/check_exercises.nim <exercise_name> <exercise_name>
+$ nim c -r check_exercises.nim [exercise-name] [...]
 ```
 
-This will run all the unit tests in the exercise folders, along with renaming the `example.nim` to the appropriate module name to be imported into the unit test. After the test is done, it will rename the file back to `example.nim`. If all test pass, then you will see `SUCCESS` as the last line, if there are any errors you will see `FAILURES` with a list of exercises that have a failing test.
+This finds all the relevant tests, processes them into a new directory for testing, and runs them. For more information, please read the documentation comments in [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/master/_test/check_exercises.nim).
 
 ### Nim icon
 The Nim logo is assumed to be owned by Andreas Rumpf. It appears to be released under the MIT license, along with the Nim codebase. We've adapted the official Nim logo by changing the colors, which we believe falls under fair use.
