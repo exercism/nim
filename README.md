@@ -22,7 +22,7 @@ To test a selection of exercises, run:
 $ nim c -r check_exercises.nim [exercise-name] [...]
 ```
 
-This finds all the relevant tests, processes them into a new directory for testing, and runs them. For more information, please read the documentation comments in [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/master/_test/check_exercises.nim).
+This finds all the relevant tests, processes them into a new directory for testing, and runs them. For more information, please read the documentation comments in [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/master/_test/check_exercises.nim) or run `check_exercises` with the `--help` option.
 
 ### Nim icon
 The Nim logo is assumed to be owned by Andreas Rumpf. It appears to be released under the MIT license, along with the Nim codebase. We've adapted the official Nim logo by changing the colors, which we believe falls under fair use.

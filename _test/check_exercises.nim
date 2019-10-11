@@ -1,4 +1,4 @@
-import critbits, os, osproc, parseopt, strutils
+import critbits, os, osproc, parseopt, strutils, terminal
 
 ## This file is for testing the Nim track of exercism.io.
 ##
@@ -45,6 +45,20 @@ import critbits, os, osproc, parseopt, strutils
 ## │   └── test_yacht.nim
 ## ```
 
+proc writeHelp =
+  echo """Usage:
+  check_exercises [options] [exercise-name]...
+
+Check that the example solution for every implemented exercise passes that
+exercise's test suite.
+
+If any exercise names are given as arguments, test only those exercises.
+Exercise names can be abbreviated, but must uniquely identify an exercise.
+
+Options:
+  -h, --help      Print this help message"""
+  quit(0)
+
 let
   appDir = getAppDir()
   exercisesDir = appDir / "../exercises"
@@ -55,7 +69,9 @@ let
 
 # Let us define the exercise names as a set of strings. This is simpler than
 # defining an `enum` of all exercises (or all implemented exercises). We can use
-# `CritBitTree[void]` - an efficient container for a sorted set of strings.
+# `CritBitTree[void]` - an efficient container for a sorted set of strings. It
+# allows lookups by prefix so we can neatly support abbreviated exercise names
+# as command-line arguments (e.g. "lar" for "largest-series-product").
 type
   Slugs = CritBitTree[void]
 
@@ -164,15 +180,38 @@ proc parseCmdLine: Slugs =
   let implementedSlugs = getImplementedSlugs()
 
   for kind, key, val in getopt():
+    let k = key.toLowerAscii().replace('_', '-') # Allow e.g. "two_fer"
+
     case kind
     of cmdShortOption, cmdLongOption:
-      discard
-    of cmdArgument:
-      if key in implementedSlugs:
-        result.incl(key) # Test specified exercises in the order given.
+      case k
+      of "h", "help":
+        writeHelp()
       else:
-        echo "Error: unrecognized exercise name: '" & key & "'"
-        quit(0)
+        stdout.styledWrite(fgRed, "Error: ")
+        let prefix = if len(k) == 1: "-" else: "--"
+        stdout.write("invalid command line option: '" & prefix & key & "'\n\n")
+        writeHelp()
+    of cmdArgument:
+      if k in implementedSlugs:
+        result.incl(k) # Test specified exercises in the order given.
+      else:
+        var matches = newSeq[string]()
+        for match in implementedSlugs.keysWithPrefix(k):
+          matches &= match
+        case matches.len
+        of 0:
+          stdout.styledWrite(fgRed, "Error: ")
+          stdout.write("unrecognized exercise name: '" & key & "'\n\n")
+          writeHelp()
+        of 1:
+          result.incl(matches[0])
+        else:
+          stdout.styledWrite(fgRed, "Error: ")
+          let wording = matches.join("\n  ")
+          stdout.write("exercise name '" & key & "' is ambiguous. It matches:")
+          stdout.write("\n  " & wording & "\n\n")
+          writeHelp()
     of cmdEnd: assert(false) # Cannot happen.
 
   if result.len == 0:
