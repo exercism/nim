@@ -57,16 +57,19 @@ Exercise names can be abbreviated, but must uniquely identify an exercise.
 
 Options:
   -h, --help      Print this help message
-  -q, --quiet     Only print test failures"""
+  -q, --quiet     Only print test failures
+  -r, --remove    Remove output directory at the end (if all tests pass)
+  -t, --tmp       Set output path to a temporary location (e.g. in `/tmp`)"""
   quit(0)
 
 let
   appDir = getAppDir()
   exercisesDir = appDir / "../exercises"
-  outDir = appDir / "check_exercises_tmp"
-  testDir = outDir / "tests"
-  srcDir = outDir / "src" / "check_exercises"
-  allTestsPath = testDir / "all_tests.nim"
+var
+  outDir: string
+  testDir: string
+  srcDir: string
+  allTestsPath: string
 
 # Let us define the exercise names as a set of strings. This is simpler than
 # defining an `enum` of all exercises (or all implemented exercises). We can use
@@ -86,8 +89,21 @@ proc getImplementedSlugs: Slugs =
     for file in walkFiles(dir / "*_test.nim"):
       result.incl(dir.splitPath().tail) # e.g. "hello-world"
 
-proc prepareDir =
+type
+  Option = enum
+    optQuiet, optRemove, optTmp
+  Options = set[Option]
+
+proc prepareDir(options: Options) =
   ## Creates the new directory structure for the tests.
+  # Note that `getTempDir()` is generally discouraged, but it shouldn't cause
+  # problems here and the `-t` option is not the default.
+  let outBase = if optTmp in options: getTempDir() else: appDir
+  outDir = outBase / "check_exercises_tmp"
+  testDir = outDir / "tests"
+  srcDir = outDir / "src" / "check_exercises"
+  allTestsPath = testDir / "all_tests.nim"
+
   removeDir(outDir)
   createDir(testDir)
   createDir(srcDir)
@@ -254,16 +270,11 @@ proc quietRun: int =
   let failedSlugs = if failed.len == 0: "" else: " (" & failed.join(", ") & ")"
   echo "Failed: " & failed.len.`$`.align(numDigits) & failedSlugs
 
-type
-  Option = enum
-    optQuiet
-  Options = set[Option]
-
 proc runTests(slugs: Slugs, options: Options): int =
   ## Runs the tests for the exercises in `slugs` with user-specifed `options`.
   ##
   ## Returns the exit code, which is `0` if all tests pass and `1` otherwise.
-  prepareDir()
+  prepareDir(options)
   prepareTests(slugs)
 
   if optQuiet in options:
@@ -290,6 +301,14 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
         writeHelp()
       of "q", "quiet":
         result.options.incl(optQuiet)
+      of "r", "remove":
+        # Removing the output directory at the end is opt-in. This simplifies
+        # inspecting its contents.
+        result.options.incl(optRemove)
+      of "t", "tmp":
+        # Setting the output directory to a temporary location is opt-in. This
+        # keeps the output directory easy to find.
+        result.options.incl(optTmp)
       else:
         stdout.styledWrite(fgRed, "Error: ")
         let prefix = if len(k) == 1: "-" else: "--"
@@ -323,5 +342,8 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
 when isMainModule:
   let (slugs, options) = parseCmdLine()
   let exitCode = runTests(slugs, options)
+  # Only respect the `--remove` option if all tests passed.
   if exitCode != 0:
     quit(exitCode)
+  if optRemove in options:
+    removeDir(outDir)
