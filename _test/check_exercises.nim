@@ -1,4 +1,4 @@
-import critbits, os, osproc, parseopt, strutils, terminal
+import critbits, os, osproc, parseopt, streams, strutils, terminal
 
 ## This file is for testing the Nim track of exercism.io.
 ##
@@ -56,7 +56,8 @@ If any exercise names are given as arguments, test only those exercises.
 Exercise names can be abbreviated, but must uniquely identify an exercise.
 
 Options:
-  -h, --help      Print this help message"""
+  -h, --help      Print this help message
+  -q, --quiet     Only print test failures"""
   quit(0)
 
 let
@@ -161,22 +162,122 @@ proc prepareTests(slugs: Slugs) =
   allTests &= "]\n"
   writeFile(allTestsPath, allTests)
 
-proc runTests(slugs: Slugs): int =
-  ## Runs the tests for the exercises in `slugs`.
+proc quietRun: int =
+  ## Runs the previously prepared tests, but only prints failing tests and a
+  ## short summary. It also hides compiler messages that are less useful or
+  ## relate to intended behavior.
+  ##
+  ## Returns the exit code, which is `0` if all tests pass and `1` otherwise.
+  result = -1
+
+  putEnv("NIMTEST_OUTPUT_LVL", "PRINT_FAILURES")
+  let args = @["c", "-r", "--styleCheck:hint", "--colors:on",
+               "--hint[Conf]:off", "--hint[Processing]:off", "--hint[Link]:off",
+               "--hint[SuccessX]:on", "--hint[Exec]:off", allTestsPath]
+
+  const suiteStr = "[Suite] "
+  const failedStr = "  [FAILED]"
+
+  func isExpectedCompilerMessage(s: string): bool =
+    ## Returns `true` if `s` represents an expected compiler message that can
+    ## be ignored in quiet mode.
+    const ignore = {
+      # `robot-name`: the `sets` import is used for a commented-out bonus test.
+      "test_robot_name.nim": "imported and not used: 'sets'"
+    }
+    for (file, message) in ignore:
+      if s.contains(file) and s.contains(message):
+        return true
+
+  var
+    p = startProcess("nim", args = args, options = {poStdErrToStdOut, poUsePath})
+    outp = outputStream(p)
+    line = newStringOfCap(200).TaintedString
+    nextLine = newStringOfCap(200).TaintedString
+    passed = newSeq[string]()
+    failed = newSeq[string]()
+  discard outp.readLine(nextLine)
+
+  # The below prints the stream output, but edits it so that:
+  # - For exercises where all tests pass: print nothing. This omits the lines
+  #   `[Suite] slug\n\n` that `unittest` prints at any `NIMTEST_OUTPUT_LEVEL`.
+  # - For exercises with at least one failing test: add the default `unittest`
+  #   colors to the `[Suite] slug` line and the `[FAILED] test name` line(s).
+  #   This is easier than editing the stream output with the `NIMTEST_COLOR`
+  #   environomental variable set to `always`.
+
+  while true:
+    # The approach: to understand the current line we look at the one after it.
+    # We have set `unittest` to only print failing tests, and so, for example,
+    # if `[Suite] foo` is the final line or is followed by a blank line, then
+    # all the tests for exercise `foo` have passed.
+    # Note that `streams.peekLine` doesn't work for processes.
+    line = nextLine
+    if outp.readLine(nextLine):
+      if line.len == 0:
+        continue
+      if line.startsWith(suiteStr):
+        let slug = line[suiteStr.len .. ^1] # [Suite] is always followed by a slug.
+        if nextLine.len == 0 or atEnd(outp):
+          passed &= slug
+        else:
+          if failed.len > 0:
+            stdout.write("\n")
+          stdout.styledWrite(fgBlue, styleBright, suiteStr)
+          stdout.writeLine(slug)
+          failed &= slug
+      elif line.startsWith(failedStr):
+        let testDesc = line[failedStr.len .. ^1]
+        stdout.styledWrite(fgRed, styleBright, failedStr)
+        stdout.writeLine(testDesc)
+      elif line.isExpectedCompilerMessage():
+        continue
+      else:
+        stdout.writeLine(line)
+    else:
+      # Handle the final line.
+      if line.startsWith(suiteStr): # The final line when all suites pass.
+        let slug = line[suiteStr.len .. ^1]
+        passed &= slug
+      else:
+        stdout.writeLine(line)
+      result = peekExitCode(p)
+      if result != -1:
+        break
+
+  close(p)
+  let maxLen = max(passed.len, failed.len)
+  let numDigits = if maxLen < 10: 1 elif maxLen < 100: 2 else: 3
+  if failed.len > 0:
+    stdout.write("\n")
+  echo "Passed: " & passed.len.`$`.align(numDigits)
+  let failedSlugs = if failed.len == 0: "" else: " (" & failed.join(", ") & ")"
+  echo "Failed: " & failed.len.`$`.align(numDigits) & failedSlugs
+
+type
+  Option = enum
+    optQuiet
+  Options = set[Option]
+
+proc runTests(slugs: Slugs, options: Options): int =
+  ## Runs the tests for the exercises in `slugs` with user-specifed `options`.
   ##
   ## Returns the exit code, which is `0` if all tests pass and `1` otherwise.
   prepareDir()
   prepareTests(slugs)
 
-  result = execCmd("nim c -r --styleCheck:hint " & allTestsPath)
-  if result == 0:
-    let wording = if slugs.len == 1: " exercise." else: " exercises."
-    echo "\nTested ", slugs.len, wording, "\nAll tests passed."
+  if optQuiet in options:
+    result = quietRun()
   else:
-    echo "\nFailure. At least one test failed."
+    result = execCmd("nim c -r --styleCheck:hint " & allTestsPath)
+    if result == 0:
+      let wording = if slugs.len == 1: " exercise." else: " exercises."
+      echo "\nTested ", slugs.len, wording, "\nAll tests passed."
+    else:
+      echo "\nFailure. At least one test failed."
 
-proc parseCmdLine: Slugs =
-  ## Returns the user-specified exercise slugs.
+proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
+  ## Returns the user-specified exercise slugs and options.
   let implementedSlugs = getImplementedSlugs()
 
   for kind, key, val in getopt():
@@ -187,6 +288,8 @@ proc parseCmdLine: Slugs =
       case k
       of "h", "help":
         writeHelp()
+      of "q", "quiet":
+        result.options.incl(optQuiet)
       else:
         stdout.styledWrite(fgRed, "Error: ")
         let prefix = if len(k) == 1: "-" else: "--"
@@ -194,7 +297,7 @@ proc parseCmdLine: Slugs =
         writeHelp()
     of cmdArgument:
       if k in implementedSlugs:
-        result.incl(k) # Test specified exercises in the order given.
+        result.slugs.incl(k) # Test specified exercises in the order given.
       else:
         var matches = newSeq[string]()
         for match in implementedSlugs.keysWithPrefix(k):
@@ -205,7 +308,7 @@ proc parseCmdLine: Slugs =
           stdout.write("unrecognized exercise name: '" & key & "'\n\n")
           writeHelp()
         of 1:
-          result.incl(matches[0])
+          result.slugs.incl(matches[0])
         else:
           stdout.styledWrite(fgRed, "Error: ")
           let wording = matches.join("\n  ")
@@ -214,11 +317,11 @@ proc parseCmdLine: Slugs =
           writeHelp()
     of cmdEnd: assert(false) # Cannot happen.
 
-  if result.len == 0:
-    result = implementedSlugs # Test all exercises (in alphabetical order).
+  if result.slugs.len == 0:
+    result.slugs = implementedSlugs # Test all exercises (in alphabetical order).
 
 when isMainModule:
-  let slugs = parseCmdLine()
-  let exitCode = runTests(slugs)
+  let (slugs, options) = parseCmdLine()
+  let exitCode = runTests(slugs, options)
   if exitCode != 0:
     quit(exitCode)
