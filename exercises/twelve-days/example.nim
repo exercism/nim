@@ -42,7 +42,8 @@ const pair = generateVerses() # Generate the lyrics at compile-time.
 const song = pair[0] # `const (song, indices) = generateVerses()` in Nim 0.19.9
 const indices = pair[1]
 
-func recite*(start: DayRange, stop = start): string =
+func recite*(start: DayRange, stop: DayRange = 1): string =
+  let stop = if stop == 1: start else: stop # Workaround for Nim bug #11274.
   let firstChar = indices[start]
   let lastChar = if stop == 12: song.high - 2 else: indices[stop + 1] - 3
   result = song[firstChar .. lastChar] # Excludes the final two newlines.
