@@ -657,6 +657,18 @@
       ]
     },
     {
+      "slug": "resistor-color-trio",
+      "uuid": "6aa72d75-5c41-427a-a0fd-3253859e0f3e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "enumerations",
+        "math"
+      ]
+    },
+    {
       "slug": "robot-name",
       "uuid": "5d2fa542-245a-4c5b-bfe1-bd667091c556",
       "core": false,
