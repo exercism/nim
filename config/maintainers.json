@@ -20,6 +20,16 @@
       "link_url": "https://128bit.io",
       "avatar_url": null,
       "bio": "With a love of learning new languages, Nim has caught my eye and I want to share the experience of learning it with others."
+    },
+    {
+      "github_username": "ee7",
+      "alumnus": false,
+      "show_on_website": true,
+      "name": null,
+      "link_text": null,
+      "link_url": null,
+      "avatar_url": null,
+      "bio": "I like Nim."
     }
   ]
 }
