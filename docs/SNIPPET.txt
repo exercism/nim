@@ -1,4 +1,4 @@
-proc helloWorld*(name="World"): string =
+proc helloWorld*(name = "World"): string =
   "Hello, " & name & "!"
 
 let greeting = helloWorld("Exercism")
