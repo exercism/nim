@@ -6,7 +6,7 @@ Exercism exercises in Nim
 
 ## Contributing Guide
 
-Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
+Please see the [contributing guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md)
 
 ## Testing
 
