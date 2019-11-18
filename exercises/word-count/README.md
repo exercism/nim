@@ -30,6 +30,8 @@ i: 1
 fled: 1
 ```
 
+## Hints
+
 The return from `countWords` can be any hash table type with a key of `string` and a value of `int`.
 
 Hash tables (also known as "dictionaries" or "maps" in other programming languages) are implemented by the `tables` module - see the documentation at https://nim-lang.org/docs/tables.html
