@@ -2,7 +2,7 @@ dist: xenial
 language: c
 
 env:
-  - NIM_VERSION="1.0.2"
+  - NIM_VERSION="1.0.4"
 
 install:
   - sh bin/travis-install.sh
