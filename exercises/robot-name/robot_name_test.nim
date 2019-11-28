@@ -1,4 +1,4 @@
-import unittest, sets
+import unittest
 import robot_name
 
 func isValidRobotName(s: string): bool =
