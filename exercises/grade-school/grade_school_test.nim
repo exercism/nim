@@ -1,7 +1,7 @@
 import unittest
 import grade_school
 
-# version 1.0.0
+# version 1.0.1
 
 # Given students' names along with the grade that they are in,
 # create a roster for the school.
