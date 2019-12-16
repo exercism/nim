@@ -1,18 +1,21 @@
 import unittest
 import robot_name
 
-const runBonusTest = false
-when runBonusTest:
-  import sets
+# You can implement the robot name as a `string` or an `array[5, char]`.
+type
+  RobotName = string | array[5, char]
 
-func isValidRobotName(s: string): bool =
-  ## Returns true if `s` is two uppercase letters followed by three digits.
-  s.len == 5 and
-    s[0] in {'A'..'Z'} and
-    s[1] in {'A'..'Z'} and
-    s[2] in {'0'..'9'} and
-    s[3] in {'0'..'9'} and
-    s[4] in {'0'..'9'}
+func isValidRobotName(name: RobotName): bool =
+  ## Returns true if `name` is two uppercase letters followed by three digits.
+  when name is string:
+    if name.len != 5:
+      return false
+  result =
+    name[0] in {'A'..'Z'} and
+    name[1] in {'A'..'Z'} and
+    name[2] in {'0'..'9'} and
+    name[3] in {'0'..'9'} and
+    name[4] in {'0'..'9'}
 
 suite "Robot Name":
   test "robot has a valid name":
@@ -39,13 +42,35 @@ suite "Robot Name":
       nameBefore != nameAfter
       isValidRobotName(nameAfter)
 
-  # Bonus
   # The below test is optional. Change `runBonusTest` to `true` to run it.
+  const runBonusTest = false
 
   when runBonusTest:
-    test "all remaining robot names are distinct":
-      const n = (26 * 26 * 1000) - 6 # The number of names not generated above.
-      var names = initHashSet[string](n.rightSize)
-      for i in 1 .. n:
-        names.incl(makeRobot().name)
-      check names.len == n
+    func toInt(name: RobotName): int =
+      ## Returns a unique integer for each valid robot name.
+      (name[0].ord - 'A'.ord) * 26000 +
+      (name[1].ord - 'A'.ord) * 1000 +
+      (name[2].ord - '0'.ord) * 100 +
+      (name[3].ord - '0'.ord) * 10 +
+      (name[4].ord - '0'.ord)
+
+    test "all remaining robot names are valid and distinct":
+      const totalNames = 26 * 26 * 1000
+      var nums = newSeq[bool](totalNames)
+      const n = totalNames - 6 # The number of names not generated above.
+      var countDuplicate = 0
+      var countInvalid = 0
+
+      for _ in 1 .. n:
+        let name = makeRobot().name
+        if isValidRobotName(name):
+          let i = toInt(name)
+          if nums[i]:
+            inc(countDuplicate)
+          else:
+            nums[i] = true
+        else:
+          inc(countInvalid)
+      check:
+        countDuplicate == 0
+        countInvalid == 0
