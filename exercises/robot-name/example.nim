@@ -1,33 +1,44 @@
-import intsets, random, strutils
+import random
 
-type Robot = tuple[name: string]
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+type
+  Name = array[5, char]
+  Robot = object
+    name*: Name
+
 const numNames = 26 * 26 * 10 * 10 * 10
-var nums = initIntSet()
-nums.incl(numNames)
 randomize()
 
-func createLeadingZerosLookup: array[1000, string] =
-  for i in 0 .. result.high:
-    result[i] = i.`$`.align(3, '0')
+proc shuffledNames: seq[Name] =
+  result = newSeq[Name](numNames)
+  var name: Name
+  var i = 0
 
-const zeroPad = createLeadingZerosLookup()
+  for a in 'A'..'Z':
+    name[0] = a
+    for b in 'A'..'Z':
+      name[1] = b
+      for c in '0'..'9':
+        name[2] = c
+        for d in '0'..'9':
+          name[3] = d
+          for e in '0'..'9':
+            name[4] = e
+            result[i] = name
+            inc(i)
 
-func toName(n: Natural): string =
-  let b = n div 1000
-  let a = b div 26
-  result = alphabet[a mod 26] & alphabet[b mod 26] & zeroPad[n mod 1000]
+  shuffle(result)
 
-proc getUnusedName(s: var IntSet): string =
-  var i = numNames
-  # The below is faster than shuffling when generating a small number of names.
-  while i in s:
-    i = rand(numNames)
-  s.incl(i)
-  result = toName(i)
+let names = shuffledNames()
+var i = 0
 
-proc makeRobot*: Robot =
-  result.name = getUnusedName(nums)
+proc getUnusedName: Name {.inline.} =
+  # The tests do not currently specify the expected behavior on name exhaustion.
+  # The below checks that a "wraparound" implementation is supported.
+  result = names[i]
+  i = if i > names.high: 0 else: i + 1
 
-proc reset*(r: var Robot) =
-  r.name = getUnusedName(nums)
+proc makeRobot*: Robot {.inline.} =
+  result.name = getUnusedName()
+
+proc reset*(r: var Robot) {.inline.} =
+  r.name = getUnusedName()
