@@ -1,5 +1,9 @@
-import unittest, sets
+import unittest
 import robot_name
+
+const runBonusTest = false
+when runBonusTest:
+  import sets
 
 func isValidRobotName(s: string): bool =
   ## Returns true if `s` is two uppercase letters followed by three digits.
@@ -36,11 +40,12 @@ suite "Robot Name":
       isValidRobotName(nameAfter)
 
   # Bonus
-  # This test is optional. Uncomment the lines below to enable it.
+  # The below test is optional. Change `runBonusTest` to `true` to run it.
 
-  # test "all remaining robot names are distinct":
-  #   const n = (26 * 26 * 1000) - 6 # The number of names not generated above.
-  #   var names = initHashSet[string](n.rightSize)
-  #   for i in 1 .. n:
-  #     names.incl(makeRobot().name)
-  #   check names.len == n
+  when runBonusTest:
+    test "all remaining robot names are distinct":
+      const n = (26 * 26 * 1000) - 6 # The number of names not generated above.
+      var names = initHashSet[string](n.rightSize)
+      for i in 1 .. n:
+        names.incl(makeRobot().name)
+      check names.len == n
