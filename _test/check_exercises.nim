@@ -179,9 +179,12 @@ proc prepareTests(slugs: Slugs) =
   writeFile(allTestsPath, allTests)
 
 proc quietRun: int =
-  ## Runs the previously prepared tests, but only prints failing tests and a
-  ## short summary. It also hides compiler messages that are less useful or
-  ## relate to intended behavior.
+  ## Runs the previously prepared tests, but only prints:
+  ## - The more useful compiler output (minimum: any `CC` messages and a
+  ##   `SuccessX` hint).
+  ## - Failed tests.
+  ## - The number of passing exercises.
+  ## - The number of failing exercises and their names.
   ##
   ## Returns the exit code, which is `0` if all tests pass and `1` otherwise.
   result = -1
@@ -193,17 +196,6 @@ proc quietRun: int =
 
   const suiteStr = "[Suite] "
   const failedStr = "  [FAILED]"
-
-  func isExpectedCompilerMessage(s: string): bool =
-    ## Returns `true` if `s` represents an expected compiler message that can
-    ## be ignored in quiet mode.
-    const ignore = {
-      # `robot-name`: the `sets` import is used for a commented-out bonus test.
-      "test_robot_name.nim": "imported and not used: 'sets'"
-    }
-    for (file, message) in ignore:
-      if s.contains(file) and s.contains(message):
-        return true
 
   var
     p = startProcess("nim", args = args, options = {poStdErrToStdOut, poUsePath})
@@ -246,8 +238,6 @@ proc quietRun: int =
         let testDesc = line[failedStr.len .. ^1]
         stdout.styledWrite(fgRed, styleBright, failedStr)
         stdout.writeLine(testDesc)
-      elif line.isExpectedCompilerMessage():
-        continue
       else:
         stdout.writeLine(line)
     else:
