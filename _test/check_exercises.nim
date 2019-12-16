@@ -1,4 +1,4 @@
-import critbits, os, osproc, parseopt, streams, strutils, terminal
+import critbits, os, osproc, parseopt, streams, strscans, strutils, terminal
 
 ## This file is for testing the Nim track of exercism.io.
 ##
@@ -140,6 +140,10 @@ proc wrapTest(file: string, slug: string): string =
       # If there are multiple suites, keep the suite names as comments only.
       if numSuites > 1:
         result &= "    # " & line[7 .. ^3] & "\n"
+    # Enable bonus tests that are disabled by default.
+    elif line.scanf("$sconst runBonusTest"): # Also support `runBonusTests`.
+      let indent = if inSuite: "  " else: ""
+      result &= indent & line.split('=')[0] & "= true\n"
     elif inSuite:
       result &= "  " & line & "\n"
     else:
