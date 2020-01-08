@@ -1,5 +1,3 @@
-import critbits, os, osproc, parseopt, streams, strscans, strutils, terminal
-
 ## This file is for testing the Nim track of exercism.io.
 ##
 ## It checks that the example solution for every implemented exercise passes
@@ -44,6 +42,8 @@ import critbits, os, osproc, parseopt, streams, strscans, strutils, terminal
 ## │   ...
 ## │   └── test_yacht.nim
 ## ```
+
+import critbits, os, osproc, parseopt, streams, strscans, strutils, terminal
 
 proc writeHelp =
   echo """Usage:
