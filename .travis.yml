@@ -1,5 +1,6 @@
 dist: bionic
 language: shell
+os: linux
 version: ~> 1.0
 
 env:
