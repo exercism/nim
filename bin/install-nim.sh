@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# This script installs the Nim version given by the `NIM_VERSION` environment variable
-# into a directory named `nim-${NIM_VERSION}` in the same directory as this script.
+# This script installs the latest stable Nim version into a directory named `nim-stable`
+# in the same directory as this script.
 
 set -eux
 
@@ -11,11 +11,12 @@ rebuild() {
   ./koch nimble
 }
 
-readonly NIM_DIR="nim-${NIM_VERSION}"
+readonly NIM_VERSION="v$(curl -sSfL --retry 3 https://nim-lang.org/channels/stable)"
+readonly NIM_DIR="nim-stable"
 
 cd -- "$(dirname -- "$0")" # Change directory to that of this script.
 
-git clone -b "v${NIM_VERSION}" --depth 1 https://github.com/nim-lang/Nim.git "${NIM_DIR}"
+git clone -b "${NIM_VERSION}" --depth 1 https://github.com/nim-lang/Nim.git "${NIM_DIR}"
 (
   cd "${NIM_DIR}"
   git clone --depth 1 https://github.com/nim-lang/csources.git
