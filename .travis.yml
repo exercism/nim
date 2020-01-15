@@ -1,5 +1,5 @@
 dist: bionic
-language: minimal
+language: shell
 version: ~> 1.0
 
 env:
