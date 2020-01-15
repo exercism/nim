@@ -3,12 +3,9 @@ language: shell
 os: linux
 version: ~> 1.0
 
-env:
-  - NIM_VERSION="1.0.4"
-
 install:
   - sh bin/install-nim.sh
-  - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:${PATH}}"
+  - export PATH="bin/nim-stable/bin${PATH:+:${PATH}}"
   - nim --version
   - nimble --version
 
