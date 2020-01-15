@@ -15,6 +15,22 @@ jobs:
       dist: bionic
       env: CHANNEL=devel
 
+    - name: "macOS"
+      os: osx
+      env: CHANNEL=stable
+
+    - name: "arm64"
+      os: linux
+      dist: bionic
+      env: CHANNEL=stable
+      arch: arm64
+
+    - name: "ppc64le"
+      os: linux
+      dist: bionic
+      env: CHANNEL=stable
+      arch: ppc64le
+
 install:
   - sh bin/install-nim.sh
   - export PATH="bin/nim-${CHANNEL}/bin${PATH:+:${PATH}}"
