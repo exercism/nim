@@ -2,6 +2,10 @@ language: shell
 os: linux
 version: ~> 1.0
 
+cache:
+  directories:
+    - "bin/nim-${CHANNEL}"
+
 jobs:
   include:
     - stage: "Run `check_exercises`"
@@ -42,3 +46,13 @@ before_script:
 
 script:
   - _test/check_exercises
+
+before_cache:
+  # Show the apparent size of the cache contents.
+  # The `-b` flag is only available for `du` from GNU coreutils.
+  - |
+    if [ "${TRAVIS_OS_NAME}" = 'osx' ]; then
+      export PATH="/usr/local/opt/coreutils/libexec/gnubin${PATH:+:${PATH}}"
+    fi
+  - du -abh -d1 "bin/nim-${CHANNEL}" | sort -hr
+  - find "bin/nim-${CHANNEL}" -type f -exec du -bh {} + | sort -hr
