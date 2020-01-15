@@ -1,11 +1,23 @@
-dist: bionic
 language: shell
 os: linux
 version: ~> 1.0
 
+jobs:
+  include:
+    - stage: "Run `check_exercises`"
+      name: "nim-stable"
+      os: linux
+      dist: bionic
+      env: CHANNEL=stable
+
+    - name: "nim-devel"
+      os: linux
+      dist: bionic
+      env: CHANNEL=devel
+
 install:
   - sh bin/install-nim.sh
-  - export PATH="bin/nim-stable/bin${PATH:+:${PATH}}"
+  - export PATH="bin/nim-${CHANNEL}/bin${PATH:+:${PATH}}"
   - nim --version
   - nimble --version
 
