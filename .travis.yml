@@ -7,7 +7,7 @@ env:
   - NIM_VERSION="1.0.4"
 
 install:
-  - sh bin/travis-install.sh
+  - sh bin/install-nim.sh
   - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:${PATH}}"
   - nim --version
   - nimble --version
