@@ -11,11 +11,8 @@ install:
   - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:${PATH}}"
   - nim --version
   - nimble --version
-  - bin/fetch-configlet
 
 before_script:
-  - bin/configlet lint .
-  - bin/configlet fmt . && git diff --exit-code
   - nim c --styleCheck:hint _test/check_exercises.nim
 
 script:

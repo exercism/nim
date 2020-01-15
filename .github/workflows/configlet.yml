@@ -1,0 +1,19 @@
+name: Configlet (lint and fmt)
+on: [push, pull_request]
+
+jobs:
+  job1:
+    name: configlet
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: fetch-configlet
+      run: bin/fetch-configlet
+
+    - name: configlet lint
+      run: bin/configlet lint .
+
+    - name: configlet fmt
+      run: bin/configlet fmt . && git diff --exit-code
