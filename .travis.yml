@@ -8,14 +8,14 @@ env:
 
 install:
   - sh bin/travis-install.sh
+  - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:${PATH}}"
+  - nim --version
+  - nimble --version
   - bin/fetch-configlet
 
 before_script:
-  - export PATH="bin/nim-${NIM_VERSION}/bin${PATH:+:$PATH}"
   - bin/configlet lint .
   - bin/configlet fmt . && git diff --exit-code
-  - nim --version
-  - nimble --version
   - nim c --styleCheck:hint _test/check_exercises.nim
 
 script:
