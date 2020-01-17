@@ -1,7 +1,7 @@
 import unittest
 import bob
 
-# version 1.4.0
+# version 1.5.0
 
 suite "Bob":
   test "stating something":
@@ -23,13 +23,13 @@ suite "Bob":
     check hey("fffbbcbeab?") == "Sure."
 
   test "talking forcefully":
-    check hey("Let's go make out behind the gym!") == "Whatever."
+    check hey("Hi there!") == "Whatever."
 
   test "using acronyms in regular speech":
     check hey("It's OK if you don't want to go to the DMV.") == "Whatever."
 
   test "forceful question":
-    check hey("WHAT THE HELL WERE YOU THINKING?") == "Calm down, I know what I'm doing!"
+    check hey("WHAT'S GOING ON?") == "Calm down, I know what I'm doing!"
 
   test "shouting numbers":
     check hey("1, 2, 3 GO!") == "Whoa, chill out!"
