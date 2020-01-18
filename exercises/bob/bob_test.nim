@@ -1,7 +1,7 @@
 import unittest
 import bob
 
-# version 1.5.0
+# version 1.6.0
 
 suite "Bob":
   test "stating something":
@@ -26,7 +26,7 @@ suite "Bob":
     check hey("Hi there!") == "Whatever."
 
   test "using acronyms in regular speech":
-    check hey("It's OK if you don't want to go to the DMV.") == "Whatever."
+    check hey("It's OK if you don't want to go work for NASA.") == "Whatever."
 
   test "forceful question":
     check hey("WHAT'S GOING ON?") == "Calm down, I know what I'm doing!"
@@ -44,7 +44,7 @@ suite "Bob":
     check hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!") == "Whoa, chill out!"
 
   test "shouting with no exclamation mark":
-    check hey("I HATE THE DMV") == "Whoa, chill out!"
+    check hey("I HATE THE DENTIST") == "Whoa, chill out!"
 
   test "statement containing question mark":
     check hey("Ending with ? means a question.") == "Whatever."
