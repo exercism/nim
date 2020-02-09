@@ -1,7 +1,7 @@
 import unittest
 import luhn
 
-# version 1.6.1
+# version 1.7.0
 
 suite "Luhn":
   test "single digit strings can not be valid":
@@ -24,6 +24,9 @@ suite "Luhn":
 
   test "invalid credit card":
     check isValid("8273 1232 7352 0569") == false
+
+  test "invalid long number with an even remainder":
+    check isValid("1 2345 6789 1234 5678 9012") == false
 
   test "valid number with an even number of digits":
     check isValid("095 245 88") == true
