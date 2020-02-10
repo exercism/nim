@@ -384,7 +384,10 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": []
+      "topics": [
+        "maps",
+        "strings"
+      ]
     },
     {
       "slug": "raindrops",
@@ -392,7 +395,11 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": []
+      "topics": [
+        "conditionals",
+        "integers",
+        "strings"
+      ]
     },
     {
       "slug": "react",
