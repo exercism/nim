@@ -11,6 +11,8 @@ jobs:
 
     - name: fetch-configlet
       run: bin/fetch-configlet
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: configlet lint
       run: bin/configlet lint .

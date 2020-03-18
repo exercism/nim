@@ -2,12 +2,7 @@
 
 set -eo pipefail
 
-readonly RELEASES='https://github.com/exercism/configlet/releases'
-
-get_version () {
-    curl --silent --head ${RELEASES}/latest  |
-        awk -v FS=/ '/Location:/{print $NF}' | tr -d '\r'
-}
+readonly LATEST='https://api.github.com/repos/exercism/configlet/releases/latest'
 
 case "$(uname)" in
     (Darwin*)   OS='mac'     ;;
@@ -30,15 +25,28 @@ case "$(uname -m)" in
     (*)     ARCH='64bit' ;;
 esac
 
+if [ -z "${GITHUB_TOKEN}" ]
+then
+    HEADER=''
+else
+    HEADER="authorization: Bearer ${GITHUB_TOKEN}"
+fi
 
-VERSION="$(get_version)"
-URL="${RELEASES}/download/${VERSION}/configlet-${OS}-${ARCH}.${EXT}"
+FILENAME="configlet-${OS}-${ARCH}.${EXT}"
+
+get_url () {
+    curl --header "$HEADER" -s "$LATEST" |
+        awk -v filename=$FILENAME '$1 ~ /browser_download_url/ && $2 ~ filename { print $2 }' |
+        tr -d '"'
+}
+
+URL=$(get_url)
 
 case "$EXT" in
     (*zip)
-        curl -s --location "$URL" -o bin/latest-configlet.zip
+        curl --header "$HEADER" -s --location "$URL" -o bin/latest-configlet.zip
         unzip bin/latest-configlet.zip -d bin/
         rm bin/latest-configlet.zip
         ;;
-    (*) curl -s --location "$URL" | tar xz -C bin/ ;;
+    (*) curl --header "$HEADER" -s --location "$URL" | tar xz -C bin/ ;;
 esac
