@@ -13,7 +13,7 @@
     },
     {
       "github_username": "amscotti",
-      "alumnus": false,
+      "alumnus": true,
       "show_on_website": true,
       "name": "Anthony Scotti",
       "link_text": "128bit.io",
