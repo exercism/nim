@@ -26,7 +26,7 @@ suite "Secret Handshake":
     check commands(24) == @["jump"]
 
   test "reversing no actions still gives no actions":
-    check commands(16) == newSeq[string]()
+    check commands(16).len == 0
 
   test "all possible actions":
     check commands(15) == @["wink", "double blink", "close your eyes", "jump"]
@@ -35,4 +35,4 @@ suite "Secret Handshake":
     check commands(31) == @["jump", "close your eyes", "double blink", "wink"]
 
   test "do nothing for zero":
-    check commands(0) == newSeq[string]()
+    check commands(0).len == 0

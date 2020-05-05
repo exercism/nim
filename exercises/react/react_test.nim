@@ -39,7 +39,7 @@ suite "React":
       c1 = reactor.createCompute(@[Cell i1], proc(vals: seq[int]): int = vals[0] + 1)
     var observed = newSeq[int]()
     discard c1.addCallback(proc(val: int) = add(observed, val))
-    check observed == newSeq[int]()
+    check observed.len == 0
     i1.value = 2
     check observed == @[3]
 
