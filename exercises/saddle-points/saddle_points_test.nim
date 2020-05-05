@@ -32,7 +32,7 @@ suite "Saddle Points":
       @[1, 5, 4]
     ]
     const expected = @[(1, 2), (2, 2), (3, 2)]
-    check saddlePoints(input).sorted(cmp = system.cmp) == expected
+    check saddlePoints(input).sorted == expected
 
   test "can identify multiple saddle points in a row":
     const input = @[
@@ -41,7 +41,7 @@ suite "Saddle Points":
       @[7, 5, 6]
     ]
     const expected = @[(2, 1), (2, 2), (2, 3)]
-    check saddlePoints(input).sorted(cmp = system.cmp) == expected
+    check saddlePoints(input).sorted == expected
 
   test "can identify saddle point in bottom right corner":
     const input = @[
@@ -58,7 +58,7 @@ suite "Saddle Points":
       @[3, 2, 4]
     ]
     const expected = @[(1, 1), (1, 3)]
-    check saddlePoints(input).sorted(cmp = system.cmp) == expected
+    check saddlePoints(input).sorted == expected
 
   test "can identify that saddle points in a single column matrix are those with the minimum value":
     const input = @[
@@ -68,11 +68,11 @@ suite "Saddle Points":
       @[1]
     ]
     const expected = @[(2, 1), (4, 1)]
-    check saddlePoints(input).sorted(cmp = system.cmp) == expected
+    check saddlePoints(input).sorted == expected
 
   test "can identify that saddle points in a single row matrix are those with the maximum value":
     const input = @[
       @[2, 5, 3, 5]
     ]
     const expected = @[(1, 2), (1, 4)]
-    check saddlePoints(input).sorted(cmp = system.cmp) == expected
+    check saddlePoints(input).sorted == expected
