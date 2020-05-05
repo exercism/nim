@@ -1,5 +1,4 @@
-import
-  math, strutils
+import math, strutils
 
 proc isArmstrongNumber*(input: int): bool =
   let stringNumber = $input

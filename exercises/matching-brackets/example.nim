@@ -1,5 +1,4 @@
-import
-  tables, deques, sequtils
+import deques, sequtils, tables
 
 const
   lookupTable = {'(': ')', '{': '}', '[': ']'}.toTable

@@ -1,5 +1,4 @@
-import
-  sequtils, strutils
+import sequtils, strutils
 
 const
   Plain = "abcdefghijklmnopqrstuvwxyz"

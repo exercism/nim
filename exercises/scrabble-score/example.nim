@@ -1,5 +1,4 @@
-import
-  tables, sequtils, strutils, math
+import math, sequtils, strutils, tables
 
 let
   points = {
