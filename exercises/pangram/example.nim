@@ -1,7 +1,7 @@
 import strutils
 
 const
-    asciiLowercase = {'a'..'z'}
+  asciiLowercase = {'a'..'z'}
 
 proc isPangram*(sentence:string): bool =
   for c in asciiLowercase:
