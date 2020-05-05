@@ -38,9 +38,7 @@ func generateVerses: tuple[song: string, indices: DayArray[int]] =
       of 1:
         result.song &= &"{gifts[i]}.\n\n"
 
-const pair = generateVerses() # Generate the lyrics at compile-time.
-const song = pair[0] # `const (song, indices) = generateVerses()` in Nim 0.19.9
-const indices = pair[1]
+const (song, indices) = generateVerses() # Generate the lyrics at compile-time.
 
 func recite*(start: DayRange, stop: DayRange = 1): string =
   let stop = if stop == 1: start else: stop # Workaround for Nim bug #11274.
