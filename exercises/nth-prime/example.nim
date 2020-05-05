@@ -1,6 +1,6 @@
 import math
 
-proc isPrime(n:int): bool =
+proc isPrime(n: int): bool =
   if n <= 1:
     return false
 
