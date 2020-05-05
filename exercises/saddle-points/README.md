@@ -28,6 +28,11 @@ The matrix can have a different number of rows and columns (Non square).
 Note that you may find other definitions of matrix saddle points online,
 but the tests for this exercise follow the above unambiguous definition.
 
+## Hints
+
+Your implementation can return the coordinates in any order.
+
+
 ## Running the tests
 
 To compile and run the tests, just run the following in your exercise directory:
