@@ -1,4 +1,4 @@
-proc isLeapYear*(y: int): bool {.noSideEffect.} =
+func isLeapYear*(y: int): bool =
   ## Returns true if `y` is a leap year.
   ##
   ## .. code-block:: nim

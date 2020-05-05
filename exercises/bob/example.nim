@@ -19,7 +19,7 @@ proc isYelling(s: string): bool =
 proc isQuestion(s: string): bool =
   return s.strip().endsWith("?")
 
-proc hey*(msg: string): string {.noSideEffect.} =
+func hey*(msg: string): string =
   ## Returns the response of a lackadaisical teenager to a futile attempt to
   ## communicate with him.
   ##
