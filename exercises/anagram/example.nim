@@ -1,5 +1,4 @@
-import
-  algorithm, sequtils, strutils
+import algorithm, sequtils, strutils
 
 type TAnagram = tuple
   word: string

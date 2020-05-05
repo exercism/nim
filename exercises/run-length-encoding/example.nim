@@ -1,5 +1,4 @@
-import
-  sequtils, strutils, re
+import re, sequtils, strutils
 
 proc encode*(input: string): string =
   input.findAll(re"([\w\s])\1*").map(proc(i:string):string =

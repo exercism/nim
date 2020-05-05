@@ -1,5 +1,4 @@
-import
-  tables, strutils, re
+import re, strutils, tables
 
 iterator words(sentence: string): string =
   for word in sentence.findAll(re"[a-zA-Z0-9]+(['][a-z]+)?"):
