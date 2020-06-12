@@ -39,7 +39,7 @@ These guides should help you,
 
 ## Source
 
-A debugging session with Paul Blackwell at gSchool. [http://gschool.it](http://gschool.it)
+A debugging session with Paul Blackwell at gSchool.
 
 ## Submitting Incomplete Solutions
 
