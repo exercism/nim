@@ -1,32 +1,35 @@
-proc isValid(white, black: tuple[rank, file: int]): bool =
-  white.rank < 8 and white.rank >= 0 and white.file < 8 and white.file >= 0 and
-    black.rank < 8 and black.rank >= 0 and black.file < 8 and black.file >= 0
+type
+  Queen* = object
+    row*: range[0..7]
+    col*: range[0..7]
 
-proc validate(white, black: tuple[rank, file: int]): void =
-  if not isValid(white, black) or white == black:
-    raise newException(ValueError, "Invalid positions")
+func initQueen*(row, col: int): Queen =
+  if row in {0..7} and col in {0..7}:
+    result = Queen(row: row, col: col)
+  else:
+    raise newException(ValueError, "Invalid position")
 
-proc board*(white, black: tuple[rank, file: int]): seq[string] =
-  validate(white, black)
+func raiseIfSame(white, black: Queen) =
+  if white == black:
+    raise newException(ValueError, "The queens cannot have the same position")
 
-  var board: seq[string] = @[]
+func canAttack*(white, black: Queen): bool =
+  raiseIfSame(white, black)
+  let rowDiff = abs(white.row - black.row)
+  let colDiff = abs(white.col - black.col)
+  result = (rowDiff == colDiff) or (rowDiff * colDiff == 0)
 
-  for rank in 0..7:
-    board.add("")
-    for file in 0..7:
-      if white == (rank, file):
-        board[rank] &= 'W'
-      elif black == (rank, file):
-        board[rank] &= 'B'
-      else:
-        board[rank] &= '_'
-
-  board
-
-proc canAttack*(white, black: tuple[rank, file: int]): bool =
-  validate(white, black)
-
-  let rankDiff = abs(white.rank - black.rank)
-  let fileDiff = abs(white.file - black.file)
-
-  rankDiff == fileDiff or rankDiff * fileDiff == 0
+func board*(white, black: Queen): string =
+  raiseIfSame(white, black)
+  result = """
+________
+________
+________
+________
+________
+________
+________
+________
+"""
+  result[white.row * 9 + white.col] = 'W'
+  result[black.row * 9 + black.col] = 'B'
