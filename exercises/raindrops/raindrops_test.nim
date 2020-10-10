@@ -19,7 +19,7 @@ suite "Raindrops":
   test "the sound for 6 is Pling as it has a factor 3":
     check convert(6) == "Pling"
 
-  test "the sound for 8 is 8":
+  test "2 to the power 3 does not make a raindrop sound as 3 is the exponent not the base":
     check convert(8) == "8"
 
   test "the sound for 9 is Pling as it has a factor 3":
