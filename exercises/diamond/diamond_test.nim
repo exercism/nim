@@ -4,7 +4,7 @@ import diamond
 # version 1.1.0
 
 suite "Diamond":
-  test "degenerate case with a single \"A\" row":
+  test "degenerate case with a single 'A' row":
     const expected = "A\n"
     check diamond('A') == expected
 
