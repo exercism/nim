@@ -1,8 +1,6 @@
 import unittest
 import triangle
 
-# version 1.2.1
-
 suite "Equilateral triangle":
   test "all sides are equal":
     check isEquilateral([2, 2, 2]) == true

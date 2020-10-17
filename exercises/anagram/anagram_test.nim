@@ -1,8 +1,6 @@
 import unittest
 import anagram
 
-# version 1.5.0
-
 suite "Anagram":
   test "no matches":
     const word = "diaper"

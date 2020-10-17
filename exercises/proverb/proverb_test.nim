@@ -1,8 +1,6 @@
 import unittest
 import proverb
 
-# version 1.1.0
-
 suite "Proverb":
   test "zero pieces":
     const words: seq[string] = @[]

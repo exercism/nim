@@ -1,8 +1,6 @@
 import unittest
 import kindergarten_garden
 
-# version 1.1.1
-
 suite "Kindergarten Garden":
   test "partial garden: garden with single student":
     const garden = "RC\n" &

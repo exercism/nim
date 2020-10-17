@@ -1,8 +1,6 @@
 import unittest
 import allergies
 
-# version 2.0.0
-
 suite "Eggs allergy":
   test "not allergic to anything":
     let allergies = Allergies(score: 0)

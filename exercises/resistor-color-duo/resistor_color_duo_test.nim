@@ -1,8 +1,6 @@
 import unittest
 import resistor_color_duo
 
-# version 2.1.0
-
 suite "Resistor Color Duo":
   test "brown and black":
     check value([Brown, Black]) == 10

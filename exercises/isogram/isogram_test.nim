@@ -1,8 +1,6 @@
 import unittest
 import isogram
 
-# version 1.7.0
-
 suite "Isogram":
   test "empty string":
     check isIsogram("") == true

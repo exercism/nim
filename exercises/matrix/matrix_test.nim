@@ -1,8 +1,6 @@
 import unittest
 import matrix
 
-# version 1.3.0
-
 suite "Matrix":
   test "extract row from one number matrix":
     check row("1", 1) == @[1]

@@ -1,8 +1,6 @@
 import unittest
 import atbash_cipher
 
-# version 1.2.0
-
 # The tests are divided into two groups:
 # Encoding from English to atbash cipher
 # Decoding from atbash cipher to all-lowercase-mashed-together English

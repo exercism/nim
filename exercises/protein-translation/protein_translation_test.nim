@@ -1,8 +1,6 @@
 import unittest
 import protein_translation
 
-# version 1.1.1
-
 suite "Protein Translation":
   test "identifies Methionine codon":
     check translate("AUG") == @["Methionine"]

@@ -1,8 +1,6 @@
 import unittest
 import largest_series_product
 
-# version 1.2.0
-
 suite "Largest Series Product":
   test "finds the largest product if span equals length":
     check largestProduct("29", 2) == 18

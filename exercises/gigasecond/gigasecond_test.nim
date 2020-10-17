@@ -1,8 +1,6 @@
 import unittest, times
 import gigasecond
 
-# version 2.0.0
-
 suite "Gigasecond":
   test "date only specification of time":
     let moment   = initDateTime(25, mApr, 2011, 0, 0, 0, utc())

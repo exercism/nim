@@ -1,8 +1,6 @@
 import unittest
 import run_length_encoding
 
-# version 1.1.0
-
 suite "run-length encode a string":
   test "empty string":
     check encode("") == ""

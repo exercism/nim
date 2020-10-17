@@ -1,8 +1,6 @@
 import unittest
 import resistor_color
 
-# version 1.0.0
-
 suite "Resistor Color":
   test "black":
     check colorCode(Black) == 0

@@ -1,8 +1,6 @@
 import unittest, tables
 import etl
 
-# version 2.0.1
-
 suite "ETL":
   test "single letter":
     const input = {

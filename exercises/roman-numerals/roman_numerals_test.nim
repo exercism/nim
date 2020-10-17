@@ -1,8 +1,6 @@
 import unittest
 import roman_numerals
 
-# version 1.2.0
-
 suite "Roman Numerals":
   test "1 is a single I":
     check roman(1) == "I"

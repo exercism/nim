@@ -1,8 +1,6 @@
 import unittest, intsets
 import diffie_hellman
 
-# version 1.0.0
-
 suite "Diffie Hellman":
   test "private key is greater than 1 and less than p":
     const primes = [5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]

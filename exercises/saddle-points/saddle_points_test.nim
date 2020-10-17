@@ -1,8 +1,6 @@
 import unittest, algorithm
 import saddle_points
 
-# version 1.5.0
-
 suite "Saddle Points":
   test "can identify single saddle point":
     const input = @[

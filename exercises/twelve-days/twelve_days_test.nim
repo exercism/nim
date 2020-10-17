@@ -1,8 +1,6 @@
 import unittest
 import twelve_days
 
-# version 1.2.0
-
 suite "Twelve Days":
   # Single verse: zero newline characters at the end.
   test "first day a partridge in a pear tree":

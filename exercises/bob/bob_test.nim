@@ -1,8 +1,6 @@
 import unittest
 import bob
 
-# version 1.6.0
-
 suite "Bob":
   test "stating something":
     check hey("Tom-ay-to, tom-aaaah-to.") == "Whatever."

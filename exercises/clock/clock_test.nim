@@ -1,8 +1,6 @@
 import unittest
 import clock
 
-# version 2.4.0
-
 suite "Create a new clock with an initial time":
   test "on the hour":
     check create((8, 0)).toStr == "08:00"

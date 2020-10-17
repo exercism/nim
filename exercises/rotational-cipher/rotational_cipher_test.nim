@@ -1,8 +1,6 @@
 import unittest
 import rotational_cipher
 
-# version 1.2.0
-
 suite "Rotational Cipher":
   test "rotate a by 0, same output as input":
     check rotate("a", 0) == "a"

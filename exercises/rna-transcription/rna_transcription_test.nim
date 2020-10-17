@@ -1,8 +1,6 @@
 import unittest
 import rna_transcription
 
-# version 1.3.0
-
 suite "RNA Transcription":
   test "empty RNA sequence":
     check toRna("") == ""

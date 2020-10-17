@@ -1,8 +1,6 @@
 import unittest
 import resistor_color_trio
 
-# version 1.0.0
-
 suite "Resistor Color Trio":
   test "orange and orange and black":
     check label([Orange, Orange, Black]) == (33, "ohms")

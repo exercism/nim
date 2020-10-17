@@ -1,8 +1,6 @@
 import unittest
 import darts
 
-# version 2.2.0
-
 suite "Darts":
   test "missed target":
     check score((-9.0, 9.0)) == 0

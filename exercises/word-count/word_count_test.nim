@@ -1,8 +1,6 @@
 import unittest, tables
 import word_count
 
-# version 1.4.0
-
 suite "Word Count":
   test "count one word":
     let output = countWords("word")

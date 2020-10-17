@@ -1,8 +1,6 @@
 import unittest
 import matching_brackets
 
-# version 2.0.0
-
 suite "Matching Brackets":
   test "paired square brackets":
     check isPaired("[]") == true

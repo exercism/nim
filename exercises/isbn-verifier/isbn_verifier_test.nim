@@ -1,8 +1,6 @@
 import unittest
 import isbn_verifier
 
-# version 2.7.0
-
 suite "ISBN Verifier":
   test "valid ISBN":
     check isValid("3-598-21508-8") == true

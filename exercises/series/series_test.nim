@@ -1,8 +1,6 @@
 import unittest
 import series
 
-# version 1.0.0
-
 suite "Series":
   test "slices of one from one":
     check slices("1", 1) == @["1"]
