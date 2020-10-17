@@ -37,10 +37,10 @@ suite "Perfect Numbers":
   test "edge case (no factors other than itself) is classified correctly":
     check classify(1) == Deficient
 
-  test "zero is rejected (not a positive number)":
+  test "zero is rejected (as it is not a positive integer)":
     expect ValueError:
       discard classify(0)
 
-  test "negative integer is rejected (not a positive number)":
+  test "negative integer is rejected (as it is not a positive integer)":
     expect ValueError:
       discard classify(-1)
