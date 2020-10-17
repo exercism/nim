@@ -35,7 +35,7 @@ I think you got the idea!
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r all_your_base_test.nim
+$ nim c -r test_all_your_base.nim
 ```
 
 ## Submitting Exercises

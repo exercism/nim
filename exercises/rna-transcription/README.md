@@ -22,7 +22,7 @@ each nucleotide with its complement:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r rna_transcription_test.nim
+$ nim c -r test_rna_transcription.nim
 ```
 
 ## Submitting Exercises

@@ -32,7 +32,7 @@ things based on word boundaries.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r atbash_cipher_test.nim
+$ nim c -r test_atbash_cipher.nim
 ```
 
 ## Submitting Exercises

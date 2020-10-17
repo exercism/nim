@@ -17,7 +17,7 @@ the largest product for a series of 6 digits is 23520.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r largest_series_product_test.nim
+$ nim c -r test_largest_series_product.nim
 ```
 
 ## Submitting Exercises

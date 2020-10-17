@@ -27,7 +27,7 @@ exception vs returning a special value) may differ between languages.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r hamming_test.nim
+$ nim c -r test_hamming.nim
 ```
 
 ## Submitting Exercises

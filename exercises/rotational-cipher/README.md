@@ -34,7 +34,7 @@ Ciphertext is written out in the same formatting as the input including spaces a
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r rotational_cipher_test.nim
+$ nim c -r test_rotational_cipher.nim
 ```
 
 ## Submitting Exercises

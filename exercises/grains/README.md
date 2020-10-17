@@ -30,7 +30,7 @@ experiment make the code better? Worse? Did you learn anything from it?
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r grains_test.nim
+$ nim c -r test_grains.nim
 ```
 
 ## Submitting Exercises

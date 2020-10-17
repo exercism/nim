@@ -40,7 +40,7 @@ inclusively. You should not assume that the dice are ordered.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r yacht_test.nim
+$ nim c -r test_yacht.nim
 ```
 
 ## Submitting Exercises

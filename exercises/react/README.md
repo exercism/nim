@@ -19,7 +19,7 @@ state has changed from the previous stable state.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r react_test.nim
+$ nim c -r test_react.nim
 ```
 
 ## Submitting Exercises

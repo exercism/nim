@@ -21,7 +21,7 @@ Examples:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r sublist_test.nim
+$ nim c -r test_sublist.nim
 ```
 
 ## Submitting Exercises

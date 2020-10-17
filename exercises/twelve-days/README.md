@@ -32,7 +32,7 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r twelve_days_test.nim
+$ nim c -r test_twelve_days.nim
 ```
 
 ## Submitting Exercises

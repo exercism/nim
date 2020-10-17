@@ -18,7 +18,7 @@ If everything goes well, you will be ready to fetch your first real exercise.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r hello_world_test.nim
+$ nim c -r test_hello_world.nim
 ```
 
 ## Submitting Exercises

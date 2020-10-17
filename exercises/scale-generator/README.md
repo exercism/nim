@@ -52,7 +52,7 @@ intervals, but they will not figure into this exercise.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r scale_generator_test.nim
+$ nim c -r test_scale_generator.nim
 ```
 
 ## Submitting Exercises

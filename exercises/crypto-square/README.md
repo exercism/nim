@@ -76,7 +76,7 @@ ciphertext back in to the original message:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r crypto_square_test.nim
+$ nim c -r test_crypto_square.nim
 ```
 
 ## Submitting Exercises

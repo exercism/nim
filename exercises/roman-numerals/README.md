@@ -46,7 +46,7 @@ See also: http://www.novaroma.org/via_romana/numbers.html
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r roman_numerals_test.nim
+$ nim c -r test_roman_numerals.nim
 ```
 
 ## Submitting Exercises

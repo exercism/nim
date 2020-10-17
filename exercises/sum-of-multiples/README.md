@@ -12,7 +12,7 @@ The sum of these multiples is 78.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r sum_of_multiples_test.nim
+$ nim c -r test_sum_of_multiples.nim
 ```
 
 ## Submitting Exercises

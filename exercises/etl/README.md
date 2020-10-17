@@ -50,7 +50,7 @@ game while being scored at 4 in the Hawaiian-language version.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r etl_test.nim
+$ nim c -r test_etl.nim
 ```
 
 ## Submitting Exercises

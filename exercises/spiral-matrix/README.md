@@ -27,7 +27,7 @@ like these examples:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r spiral_matrix_test.nim
+$ nim c -r test_spiral_matrix.nim
 ```
 
 ## Submitting Exercises

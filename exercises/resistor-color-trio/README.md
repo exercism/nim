@@ -48,7 +48,7 @@ So an input of `"orange", "orange", "orange"` should return:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r resistor_color_trio_test.nim
+$ nim c -r test_resistor_color_trio.nim
 ```
 
 ## Submitting Exercises

@@ -63,7 +63,7 @@ While asking for Bob's plants would yield:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r kindergarten_garden_test.nim
+$ nim c -r test_kindergarten_garden.nim
 ```
 
 ## Submitting Exercises

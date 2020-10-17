@@ -37,7 +37,7 @@ Your implementation can return the coordinates in any order.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r saddle_points_test.nim
+$ nim c -r test_saddle_points.nim
 ```
 
 ## Submitting Exercises

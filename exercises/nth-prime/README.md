@@ -12,7 +12,7 @@ numbers, pretend they don't exist and implement them yourself.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r nth_prime_test.nim
+$ nim c -r test_nth_prime.nim
 ```
 
 ## Submitting Exercises

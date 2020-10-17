@@ -8,7 +8,7 @@ Your task is to build a high-score component of the classic Frogger game, one of
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r high_scores_test.nim
+$ nim c -r test_high_scores.nim
 ```
 
 ## Submitting Exercises

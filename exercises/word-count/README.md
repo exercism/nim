@@ -48,7 +48,7 @@ proc countWords*(sentence: string): TableRef[string, int] =
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r word_count_test.nim
+$ nim c -r test_word_count.nim
 ```
 
 ## Submitting Exercises

@@ -33,7 +33,7 @@ score is 257, your program should only report the eggs (1) allergy.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r allergies_test.nim
+$ nim c -r test_allergies.nim
 ```
 
 ## Submitting Exercises
