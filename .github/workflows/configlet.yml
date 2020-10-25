@@ -1,8 +1,9 @@
-name: Configlet (lint and fmt)
+name: configlet
 on: [push, pull_request]
 
 jobs:
-  configlet:
+  configlet-lint:
+    name: lint
     runs-on: ubuntu-latest
 
     steps:
@@ -13,6 +14,17 @@ jobs:
 
     - name: configlet lint
       run: configlet lint .
+
+
+  configlet-fmt:
+    name: fmt
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install configlet
+      uses: exercism/github-actions/configlet-ci@master
 
     - name: configlet fmt
       run: configlet fmt . && git diff --exit-code
