@@ -28,3 +28,24 @@ jobs:
 
     - name: configlet fmt
       run: configlet fmt . && git diff --exit-code
+
+
+  configlet-generate:
+    name: generate
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout exercism/nim
+      uses: actions/checkout@v2
+
+    - name: Checkout exercism/problem-specifications
+      uses: actions/checkout@v2
+      with:
+        repository: exercism/problem-specifications
+        path: problem-specifications
+
+    - name: Install configlet
+      uses: exercism/github-actions/configlet-ci@master
+
+    - name: configlet generate
+      run: configlet generate . --spec-path ./problem-specifications && git diff --exit-code
