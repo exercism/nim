@@ -45,7 +45,7 @@ Learn more about [protein translation on Wikipedia](http://en.wikipedia.org/wiki
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r protein_translation_test.nim
+$ nim c -r test_protein_translation.nim
 ```
 
 ## Submitting Exercises

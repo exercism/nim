@@ -10,7 +10,7 @@ output: "looc"
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r reverse_string_test.nim
+$ nim c -r test_reverse_string.nim
 ```
 
 ## Submitting Exercises

@@ -15,7 +15,7 @@ Write some code to determine whether a number is an Armstrong number.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r armstrong_numbers_test.nim
+$ nim c -r test_armstrong_numbers.nim
 ```
 
 ## Submitting Exercises

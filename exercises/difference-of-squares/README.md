@@ -20,7 +20,7 @@ algorithm for the problem is a key skill in software engineering.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r difference_of_squares_test.nim
+$ nim c -r test_difference_of_squares.nim
 ```
 
 ## Submitting Exercises

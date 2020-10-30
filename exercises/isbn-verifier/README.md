@@ -45,7 +45,7 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r isbn_verifier_test.nim
+$ nim c -r test_isbn_verifier.nim
 ```
 
 ## Submitting Exercises

@@ -34,7 +34,7 @@ So: `101 => 1*2^2 + 0*2^1 + 1*2^0 => 1*4 + 0*2 + 1*1 => 4 + 1 => 5 base 10`.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r binary_test.nim
+$ nim c -r test_binary.nim
 ```
 
 ## Submitting Exercises

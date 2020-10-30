@@ -19,7 +19,7 @@ The rules of `raindrops` are that if a given number:
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r raindrops_test.nim
+$ nim c -r test_raindrops.nim
 ```
 
 ## Submitting Exercises

@@ -26,7 +26,7 @@ a single line. Feel free to add your own code/tests to check for degenerate tria
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r triangle_test.nim
+$ nim c -r test_triangle.nim
 ```
 
 ## Submitting Exercises

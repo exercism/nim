@@ -32,7 +32,7 @@ has caused the array to be reversed.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r secret_handshake_test.nim
+$ nim c -r test_secret_handshake.nim
 ```
 
 ## Submitting Exercises

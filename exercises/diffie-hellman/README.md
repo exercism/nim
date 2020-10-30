@@ -41,7 +41,7 @@ secret s.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r diffie_hellman_test.nim
+$ nim c -r test_diffie_hellman.nim
 ```
 
 ## Submitting Exercises

@@ -32,7 +32,7 @@ should all produce the output
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r phone_number_test.nim
+$ nim c -r test_phone_number.nim
 ```
 
 ## Submitting Exercises

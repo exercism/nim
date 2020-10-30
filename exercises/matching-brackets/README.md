@@ -8,7 +8,7 @@ and nested correctly.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r matching_brackets_test.nim
+$ nim c -r test_matching_brackets.nim
 ```
 
 ## Submitting Exercises

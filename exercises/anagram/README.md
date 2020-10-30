@@ -11,7 +11,7 @@ Given `"listen"` and a list of candidates like `"enlists" "google"
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r anagram_test.nim
+$ nim c -r test_anagram.nim
 ```
 
 ## Submitting Exercises

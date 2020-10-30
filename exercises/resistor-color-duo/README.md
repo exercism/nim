@@ -37,7 +37,7 @@ brown-green-violet should return 15 too, ignoring the third color.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r resistor_color_duo_test.nim
+$ nim c -r test_resistor_color_duo.nim
 ```
 
 ## Submitting Exercises

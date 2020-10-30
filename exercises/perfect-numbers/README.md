@@ -21,7 +21,7 @@ Implement a way to determine whether a given number is **perfect**. Depending on
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r perfect_numbers_test.nim
+$ nim c -r test_perfect_numbers.nim
 ```
 
 ## Submitting Exercises

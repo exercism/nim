@@ -17,7 +17,7 @@ The word *isograms*, however, is not an isogram, because the s repeats.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r isogram_test.nim
+$ nim c -r test_isogram.nim
 ```
 
 ## Submitting Exercises

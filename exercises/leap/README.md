@@ -27,7 +27,7 @@ phenomenon, go watch [this youtube video][video].
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r leap_test.nim
+$ nim c -r test_leap.nim
 ```
 
 ## Submitting Exercises

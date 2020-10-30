@@ -20,7 +20,7 @@ Write a function that given a point in the target (defined by its `real` cartesi
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r darts_test.nim
+$ nim c -r test_darts.nim
 ```
 
 ## Submitting Exercises

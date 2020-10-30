@@ -21,7 +21,7 @@ youtube video](http://www.youtube.com/watch?v=Z_2gbGXzFbs).
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r space_age_test.nim
+$ nim c -r test_space_age.nim
 ```
 
 ## Submitting Exercises

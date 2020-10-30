@@ -19,7 +19,7 @@ every existing robot has a unique name.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r robot_name_test.nim
+$ nim c -r test_robot_name.nim
 ```
 
 ## Submitting Exercises

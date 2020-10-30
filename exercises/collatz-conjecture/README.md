@@ -30,7 +30,7 @@ Resulting in 9 steps. So for input n = 12, the return value would be 9.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r collatz_conjecture_test.nim
+$ nim c -r test_collatz_conjecture.nim
 ```
 
 ## Submitting Exercises

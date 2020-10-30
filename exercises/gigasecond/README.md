@@ -9,7 +9,7 @@ A gigasecond is 10^9 (1,000,000,000) seconds.
 
 To compile and run the tests, just run the following in your exercise directory:
 ```bash
-$ nim c -r gigasecond_test.nim
+$ nim c -r test_gigasecond.nim
 ```
 
 ## Submitting Exercises
