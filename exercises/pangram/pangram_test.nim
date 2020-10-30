@@ -1,8 +1,6 @@
 import unittest
 import pangram
 
-# version 2.0.0
-
 suite "Pangram":
   test "empty sentence":
     check isPangram("") == false

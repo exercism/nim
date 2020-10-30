@@ -1,8 +1,6 @@
 import unittest
 import raindrops
 
-# version 1.1.0
-
 suite "Raindrops":
   test "the sound for 1 is 1":
     check convert(1) == "1"

@@ -1,8 +1,6 @@
 import unittest
 import crypto_square
 
-# version 3.2.0
-
 suite "Crypto Square":
   test "empty plaintext results in an empty ciphertext":
     check encrypt("") == ""

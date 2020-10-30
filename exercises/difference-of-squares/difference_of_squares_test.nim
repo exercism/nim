@@ -1,8 +1,6 @@
 import unittest
 import difference_of_squares
 
-# version 1.2.0
-
 suite "Difference of Squares":
   test "square of sum 1":
     check squareOfSum(1) == 1

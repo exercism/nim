@@ -1,8 +1,6 @@
 import unittest
 import spiral_matrix
 
-# version 1.1.0
-
 suite "Spiral Matrix":
   test "empty spiral":
     check spiral(0) == []

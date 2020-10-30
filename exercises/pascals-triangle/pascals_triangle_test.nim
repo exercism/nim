@@ -1,8 +1,6 @@
 import unittest
 import pascals_triangle
 
-# version 1.5.0
-
 suite "Pascal's Triangle":
   test "zero rows":
     check pascal(0).len == 0

@@ -1,8 +1,6 @@
 import unittest
 import prime_factors
 
-# version 1.1.0
-
 suite "Prime Factors":
   test "no factors":
     check primeFactors(1).len == 0

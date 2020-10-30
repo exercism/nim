@@ -1,8 +1,6 @@
 import unittest
 import acronym
 
-# version 1.7.0
-
 suite "Acronym":
   test "basic":
     check abbreviate("Portable Network Graphics") == "PNG"

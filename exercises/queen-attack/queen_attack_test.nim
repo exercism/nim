@@ -1,8 +1,6 @@
 import unittest
 import queen_attack
 
-# version 2.3.0
-
 suite "Queen Attack":
   # Test creation of Queens with valid and invalid positions
   test "queen with a valid position":

@@ -1,8 +1,6 @@
 import unittest
 import nth_prime
 
-# version 2.1.0
-
 suite "Nth Prime":
   test "first prime":
     check prime(1) == 2

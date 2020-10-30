@@ -1,8 +1,6 @@
 import unittest
 import binary
 
-# version 1.1.0
-
 suite "Binary":
   test "binary 0 is decimal 0":
     check binary("0") == 0

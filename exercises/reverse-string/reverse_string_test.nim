@@ -1,8 +1,6 @@
 import unittest
 import reverse_string
 
-# version 1.2.0
-
 suite "Reverse String":
   test "an empty string":
     check reverse("") == ""

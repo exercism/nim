@@ -1,8 +1,6 @@
 import unittest
 import high_scores
 
-# version 4.0.0
-
 suite "High Scores":
   test "latest score":
     check latest(@[100, 0, 90, 30]) == 30

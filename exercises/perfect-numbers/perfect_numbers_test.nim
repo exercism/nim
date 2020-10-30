@@ -1,8 +1,6 @@
 import unittest
 import perfect_numbers
 
-# version 1.1.0
-
 suite "Perfect Numbers":
   test "smallest perfect number is classified correctly":
     check classify(6) == Perfect

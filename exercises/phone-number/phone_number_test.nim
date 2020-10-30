@@ -1,8 +1,6 @@
 import unittest
 import phone_number
 
-# version 1.7.0
-
 suite "Phone Number":
   test "cleans the number":
     check clean("(223) 456-7890") == "2234567890"

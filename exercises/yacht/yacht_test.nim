@@ -1,8 +1,6 @@
 import unittest
 import yacht
 
-# version 1.2.0
-
 suite "Yacht":
   test "Yacht":
     check score([5, 5, 5, 5, 5], Yacht) == 50

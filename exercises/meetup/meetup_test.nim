@@ -1,8 +1,6 @@
 import unittest, times
 import meetup
 
-# version 1.1.0
-
 suite "Meetup":
   test "monteenth of May 2013":
     check meetup(2013, 5, Teenth, dMon) == "2013-05-13"

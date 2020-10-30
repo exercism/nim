@@ -1,8 +1,6 @@
 import unittest, tables
 import nucleotide_count
 
-# version 1.3.0
-
 suite "Nucleotide Count":
   test "empty strand":
     let counts = countDna("")

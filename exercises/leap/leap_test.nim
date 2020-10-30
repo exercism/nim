@@ -1,8 +1,6 @@
 import unittest
 import leap
 
-# version 1.6.0
-
 suite "Leap":
   test "year not divisible by 4 in common year":
     check isLeapYear(2015) == false

@@ -1,8 +1,6 @@
 import unittest
 import sum_of_multiples
 
-# version 1.5.0
-
 suite "Sum of Multiples":
   test "no multiples within limit":
     check sum(1, @[3, 5]) == 0

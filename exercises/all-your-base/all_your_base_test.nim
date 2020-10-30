@@ -1,8 +1,6 @@
 import unittest
 import all_your_base
 
-# version 2.3.0
-
 suite "All Your Base":
   test "single bit one to decimal":
     let inputDigits = [1]

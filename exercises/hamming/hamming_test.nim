@@ -1,8 +1,6 @@
 import unittest
 import hamming
 
-# version 2.3.0
-
 suite "Hamming":
   test "empty strands":
     check distance("", "") == 0

@@ -1,8 +1,6 @@
 import unittest
 import scrabble_score
 
-# version 1.1.0
-
 suite "Scrabble Score":
   test "lowercase letter":
     check score("a") == 1

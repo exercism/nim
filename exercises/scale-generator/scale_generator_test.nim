@@ -1,8 +1,6 @@
 import unittest
 import scale_generator
 
-# version 2.0.0
-
 suite "Scale Generator":
   test "chromatic scale with sharps":
     check scale("C") == @["C", "C#", "D", "D#", "E", "F",

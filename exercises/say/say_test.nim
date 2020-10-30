@@ -1,8 +1,6 @@
 import unittest
 import say
 
-# version 1.2.0
-
 suite "Say":
   test "zero":
     check say(0) == "zero"

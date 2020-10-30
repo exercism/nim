@@ -1,8 +1,6 @@
 import unittest
 import sublist
 
-# version 1.1.0
-
 suite "Sublist":
   test "empty lists":
     check sublist([], []) == Equal

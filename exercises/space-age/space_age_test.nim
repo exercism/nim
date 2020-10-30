@@ -1,8 +1,6 @@
 import unittest
 import space_age
 
-# version 1.2.0
-
 suite "Space Age":
   # Helper operator: return true when two floats are approximately equal
   func `~=`(x, y: float): bool =

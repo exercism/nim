@@ -1,8 +1,6 @@
 import unittest
 import luhn
 
-# version 1.7.0
-
 suite "Luhn":
   test "single digit strings can not be valid":
     check isValid("1") == false

@@ -1,8 +1,6 @@
 import unittest
 import sieve
 
-# version 1.1.0
-
 suite "Sieve":
   test "no primes under two":
     check primes(1).len == 0

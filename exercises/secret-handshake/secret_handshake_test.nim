@@ -1,8 +1,6 @@
 import unittest
 import secret_handshake
 
-# version 1.2.0
-
 suite "Secret Handshake":
   test "wink for 1":
     check commands(1) == @["wink"]

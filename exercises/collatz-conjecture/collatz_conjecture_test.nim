@@ -1,8 +1,6 @@
 import unittest
 import collatz_conjecture
 
-# version 1.2.1
-
 suite "Collatz Conjecture":
   test "zero steps for one":
     check steps(1) == 0
