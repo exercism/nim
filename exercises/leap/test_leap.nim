@@ -20,7 +20,7 @@ suite "Leap":
   test "year divisible by 100 but not by 3 is still not a leap year":
     check isLeapYear(1900) == false
 
-  test "year divisible by 400 in leap year":
+  test "year divisible by 400 is leap year":
     check isLeapYear(2000) == true
 
   test "year divisible by 400 but not by 125 is still a leap year":
