@@ -9,21 +9,7 @@ cache:
 jobs:
   include:
     - stage: "Run `check_exercises`"
-      name: "nim-stable"
-      os: linux
-      dist: bionic
-      env: CHANNEL=stable
-
-    - name: "nim-devel"
-      os: linux
-      dist: bionic
-      env: CHANNEL=devel
-
-    - name: "macOS"
-      os: osx
-      env: CHANNEL=stable
-
-    - name: "arm64"
+      name: "arm64"
       os: linux
       dist: bionic
       env: CHANNEL=stable
