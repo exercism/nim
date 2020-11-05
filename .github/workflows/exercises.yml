@@ -1,0 +1,68 @@
+name: exercises
+on: [push, pull_request]
+
+jobs:
+  exercises:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: linux
+            builder: ubuntu-20.04
+            nim_channel: stable
+          - os: linux
+            builder: ubuntu-20.04
+            nim_channel: devel
+          - os: macOS
+            builder: macos-10.15
+            nim_channel: stable
+
+    name: ${{ matrix.os }}-nim-${{ matrix.nim_channel }}
+    runs-on: ${{ matrix.builder }}
+    env:
+      CHANNEL: ${{ matrix.nim_channel }}
+      NIM_DIR: bin/nim-${{ matrix.nim_channel }}
+
+    steps:
+      - name: Checkout exercism/nim
+        uses: actions/checkout@v2
+
+      - name: Set NIM_VERSION environmental variable
+        run: |
+          if ${{ env.CHANNEL == 'stable' }}; then
+            NIM_VERSION="$(curl -sSfL --retry 3 https://nim-lang.org/channels/stable)"
+          else
+            NIM_VERSION="$(git ls-remote https://github.com/nim-lang/Nim refs/heads/devel | cut -f1)"
+          fi
+          echo "NIM_VERSION=${NIM_VERSION}" >> ${GITHUB_ENV}
+
+      - name: Restore Nim from cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.NIM_DIR }}
+          key: ${{ runner.os }}-nim-${{ env.CHANNEL }}-${{ env.NIM_VERSION }}
+
+      - name: Install up-to-date Nim
+        run: |
+          sh bin/install-nim.sh
+          echo "${NIM_DIR}/bin" >> ${GITHUB_PATH}
+
+      - name: Show versions of Nim and Nimble
+        run: |
+          echo "Nim version:"
+          nim --version
+          echo "Nimble version:"
+          nimble --version
+
+      - name: Compile `check_exercises.nim`
+        run: nim c --styleCheck:hint _test/check_exercises.nim
+
+      - name: Run `check_exercises`
+        run: _test/check_exercises
+
+      - name: Show cache contents
+        run: |
+          echo "Directories in ${NIM_DIR}, sorted by size:"
+          du -h -d 1 "${NIM_DIR}" | sort -hr
+          echo "All files in ${NIM_DIR}, sorted by size:"
+          find "${NIM_DIR}" -type f -exec du -h {} + | sort -hr
