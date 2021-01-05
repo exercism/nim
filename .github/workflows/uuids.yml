@@ -1,0 +1,42 @@
+name: uuids
+on: [push, pull_request]
+
+jobs:
+  check_uuids:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get the version of the latest stable Nim
+      run: |
+        echo "NIM_VERSION=$(curl -sSfL --retry 5 https://nim-lang.org/channels/stable)" >> "${GITHUB_ENV}"
+
+    - name: Get the versions of the installed GCC and OpenSSL
+      run: |
+        echo "GCC_VERSION=$(gcc --version | head -n1 | cut -d' ' -f3)" >> "${GITHUB_ENV}"
+        echo "OPENSSL_VERSION=$(openssl version | cut -d' ' -f2 )" >> "${GITHUB_ENV}"
+
+    - name: Cache binary
+      id: cache-uuids
+      uses: actions/cache@v2
+      with:
+        path: _test/check_uuids
+        key: check_uuids-${{ hashFiles('_test/check_uuids.nim') }}-${{ runner.os }}-nim${{ env.NIM_VERSION }}-gcc${{ env.GCC_VERSION }}-openssl${{ env.OPENSSL_VERSION }}
+
+    - name: Install Nim
+      if: steps.cache-uuids.outputs.cache-hit != 'true'
+      uses: jiro4989/setup-nim-action@v1
+      with:
+        nim-version: "${NIM_VERSION}"
+
+    - name: Run tests for `check_uuids.nim`
+      if: steps.cache-uuids.outputs.cache-hit != 'true'
+      run: nim c --styleCheck:hint -d:test -r ./_test/check_uuids.nim
+
+    - name: Compile `check_uuids.nim`
+      if: steps.cache-uuids.outputs.cache-hit != 'true'
+      run: nim c --styleCheck:hint -d:ssl -d:release --passC:-flto --passL:-s ./_test/check_uuids.nim
+
+    - name: Run `check_uuids`
+      run: ./_test/check_uuids
