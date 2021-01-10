@@ -8,44 +8,46 @@ jobs:
       matrix:
         include:
           - os: linux
-            builder: ubuntu-20.04
-            nim_channel: stable
+            nim: stable
           - os: linux
-            builder: ubuntu-20.04
-            nim_channel: devel
+            nim: devel
           - os: macOS
-            builder: macos-10.15
-            nim_channel: stable
+            nim: stable
 
-    name: ${{ matrix.os }}-nim-${{ matrix.nim_channel }}
-    runs-on: ${{ matrix.builder }}
-    env:
-      CHANNEL: ${{ matrix.nim_channel }}
-      NIM_DIR: bin/nim-${{ matrix.nim_channel }}
+    name: ${{ matrix.os }}-nim-${{ matrix.nim }}
+    runs-on: ${{ matrix.os == 'linux' && 'ubuntu-20.04' || 'macos-10.15' }}
 
     steps:
       - name: Checkout exercism/nim
         uses: actions/checkout@v2
 
-      - name: Set NIM_VERSION environmental variable
+      - name: Set BRANCH environmental variable
         run: |
-          if ${{ env.CHANNEL == 'stable' }}; then
-            NIM_VERSION="$(curl -sSfL --retry 3 https://nim-lang.org/channels/stable)"
-          else
-            NIM_VERSION="$(git ls-remote https://github.com/nim-lang/Nim refs/heads/devel | cut -f1)"
-          fi
-          echo "NIM_VERSION=${NIM_VERSION}" >> ${GITHUB_ENV}
+          to_branch() {
+            # Converts a Nim version string to a `nim-lang/Nim` branch name
+            # that `alaviss/setup-nim` can use as a `version` parameter.
+            # Examples:
+            #   1.4.2  ->  version-1-4
+            #   1.0    ->  version-1-0
+            major_dot_minor="$(cut -d'.' -f1,2 <<< "$1")"
+            printf "version-${major_dot_minor/./-}"
+          }
+          case ${{ matrix.nim }} in
+            'stable')
+              latest="$(curl -sSfL --retry 3 https://nim-lang.org/channels/stable)"
+              branch_name="$(to_branch "${latest}")"
+              ;;
+            *)
+              branch_name=${{ matrix.nim }}
+              ;;
+          esac
+          echo "BRANCH=${branch_name}" >> "${GITHUB_ENV}"
 
-      - name: Restore Nim from cache
-        uses: actions/cache@v2
+      - name: Install Nim
+        uses: alaviss/setup-nim@f81f2a6d1505ab32f440ec9d8adbb81e949d3bf0 # 0.1.1
         with:
-          path: ${{ env.NIM_DIR }}
-          key: ${{ runner.os }}-nim-${{ env.CHANNEL }}-${{ env.NIM_VERSION }}
-
-      - name: Install up-to-date Nim
-        run: |
-          sh bin/install-nim.sh
-          echo "${NIM_DIR}/bin" >> ${GITHUB_PATH}
+          path: 'nim'
+          version: ${{ env.BRANCH }}
 
       - name: Show versions of Nim and Nimble
         run: |
@@ -59,10 +61,3 @@ jobs:
 
       - name: Run `check_exercises`
         run: _test/check_exercises
-
-      - name: Show cache contents
-        run: |
-          echo "Directories in ${NIM_DIR}, sorted by size:"
-          du -h -d 1 "${NIM_DIR}" | sort -hr
-          echo "All files in ${NIM_DIR}, sorted by size:"
-          find "${NIM_DIR}" -type f -exec du -h {} + | sort -hr
