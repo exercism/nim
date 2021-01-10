@@ -7,14 +7,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: linux
-            nim: stable
-          - os: linux
-            nim: devel
-          - os: macOS
-            nim: stable
+          - nim: stable
+            os: linux
 
-    name: ${{ matrix.os }}-nim-${{ matrix.nim }}
+          - nim: stable
+            os: macOS
+
+          - nim: devel
+            os: linux
+
+    name: nim-${{ matrix.nim }}-${{ matrix.os }}
     runs-on: ${{ matrix.os == 'linux' && 'ubuntu-20.04' || 'macos-10.15' }}
 
     steps:
@@ -51,9 +53,8 @@ jobs:
 
       - name: Show versions of Nim and Nimble
         run: |
-          echo "Nim version:"
           nim --version
-          echo "Nimble version:"
+          printf '\n\n\n\n'
           nimble --version
 
       - name: Compile `check_exercises.nim`
