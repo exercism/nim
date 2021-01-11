@@ -13,17 +13,24 @@ jobs:
           - nim: stable
             os: macOS
 
+          - nim: stable
+            os: windows
+
           - nim: devel
             os: linux
 
+          - nim: '1.0'
+            os: linux
+
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
-    runs-on: ${{ matrix.os == 'linux' && 'ubuntu-20.04' || 'macos-10.15' }}
+    runs-on: ${{ matrix.os == 'linux' && 'ubuntu-20.04' || (matrix.os == 'macOS' && 'macos-10.15' || 'windows-2019') }}
 
     steps:
       - name: Checkout exercism/nim
         uses: actions/checkout@v2
 
       - name: Set BRANCH environmental variable
+        shell: bash # Changes the default shell on Windows.
         run: |
           to_branch() {
             # Converts a Nim version string to a `nim-lang/Nim` branch name
@@ -38,6 +45,9 @@ jobs:
             'stable')
               latest="$(curl -sSfL --retry 3 https://nim-lang.org/channels/stable)"
               branch_name="$(to_branch "${latest}")"
+              ;;
+            *\.*)
+              branch_name="$(to_branch ${{ matrix.nim }})"
               ;;
             *)
               branch_name=${{ matrix.nim }}
