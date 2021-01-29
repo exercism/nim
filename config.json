@@ -39,57 +39,54 @@
       ]
     },
     {
-      "slug": "reverse-string",
-      "uuid": "f572ed7b-a1e7-47ab-a9c3-71ba988d3699",
-      "core": false,
+      "slug": "bob",
+      "uuid": "ced77a52-47fc-461f-942b-ed2e0d671d1c",
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "strings"
-      ]
-    },
-    {
-      "slug": "isogram",
-      "uuid": "b1eb9f3c-8724-4b88-a545-2fe34b12b9cf",
-      "core": false,
-      "unlocked_by": "two-fer",
-      "difficulty": 1,
-      "topics": [
-        "algorithms",
         "conditionals",
-        "loops",
-        "maps",
+        "equality",
         "strings"
       ]
     },
     {
-      "slug": "pangram",
-      "uuid": "81009e3e-37ff-4f28-a84a-6935c32f96fa",
-      "core": false,
-      "unlocked_by": "hello-world",
+      "slug": "allergies",
+      "uuid": "58bb800a-5b64-44bc-8282-77972b71e615",
+      "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "algorithms",
+        "bitwise_operations",
+        "classes",
+        "enumerations"
+      ]
+    },
+    {
+      "slug": "sum-of-multiples",
+      "uuid": "4f71d4e9-749e-46ec-a2c8-e17497f1468a",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "math"
+      ]
+    },
+    {
+      "slug": "grade-school",
+      "uuid": "356db5da-2a2b-40cc-bf72-d5046cb003f9",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "classes",
         "conditionals",
         "filtering",
-        "logic",
-        "loops",
+        "integers",
+        "lists",
+        "sorting",
         "strings"
-      ]
-    },
-    {
-      "slug": "rna-transcription",
-      "uuid": "532d4c60-52ff-4271-a346-b7c00ca83560",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "conditionals",
-        "logic",
-        "loops",
-        "maps",
-        "strings",
-        "transforming"
       ]
     },
     {
@@ -110,6 +107,93 @@
       ]
     },
     {
+      "slug": "pangram",
+      "uuid": "81009e3e-37ff-4f28-a84a-6935c32f96fa",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "conditionals",
+        "filtering",
+        "logic",
+        "loops",
+        "strings"
+      ]
+    },
+    {
+      "slug": "acronym",
+      "uuid": "cc35f8f2-488e-40f7-adcd-1e690cabc6f8",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "regular_expressions",
+        "strings"
+      ]
+    },
+    {
+      "slug": "isogram",
+      "uuid": "b1eb9f3c-8724-4b88-a545-2fe34b12b9cf",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "conditionals",
+        "loops",
+        "maps",
+        "strings"
+      ]
+    },
+    {
+      "slug": "difference-of-squares",
+      "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 1,
+      "topics": [
+        "math"
+      ]
+    },
+    {
+      "slug": "triangle",
+      "uuid": "4d520486-fb44-4f84-a261-4c2039a9b89c",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 1,
+      "topics": [
+        "classes",
+        "conditionals"
+      ]
+    },
+    {
+      "slug": "anagram",
+      "uuid": "81816524-33b8-4e06-ad31-65efc9b1fec2",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "logic",
+        "parsing",
+        "strings"
+      ]
+    },
+    {
+      "slug": "matching-brackets",
+      "uuid": "bb8af717-9e8d-498c-85cf-e6e77a84919e",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 1,
+      "topics": [
+        "parsing",
+        "recursion",
+        "stacks",
+        "strings"
+      ]
+    },
+    {
       "slug": "word-count",
       "uuid": "ca6093d1-f2cb-4d28-9a56-312154f1179f",
       "core": false,
@@ -119,41 +203,6 @@
         "algorithms",
         "logic",
         "pattern_recognition",
-        "strings",
-        "text_formatting"
-      ]
-    },
-    {
-      "slug": "gigasecond",
-      "uuid": "dccdbae7-e882-4171-a517-04562113d059",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "dates",
-        "time"
-      ]
-    },
-    {
-      "slug": "bob",
-      "uuid": "ced77a52-47fc-461f-942b-ed2e0d671d1c",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "conditionals",
-        "equality",
-        "strings"
-      ]
-    },
-    {
-      "slug": "run-length-encoding",
-      "uuid": "825b54b4-68a8-4302-9e9b-61960a3df88e",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "algorithms",
         "strings",
         "text_formatting"
       ]
@@ -171,76 +220,6 @@
       ]
     },
     {
-      "slug": "grains",
-      "uuid": "40dcc736-1904-418e-bb69-2186b3bb0a83",
-      "core": false,
-      "unlocked_by": "sum-of-multiples",
-      "difficulty": 2,
-      "topics": [
-        "integers",
-        "type_conversion"
-      ]
-    },
-    {
-      "slug": "difference-of-squares",
-      "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f",
-      "core": false,
-      "unlocked_by": "leap",
-      "difficulty": 1,
-      "topics": [
-        "math"
-      ]
-    },
-    {
-      "slug": "anagram",
-      "uuid": "81816524-33b8-4e06-ad31-65efc9b1fec2",
-      "core": false,
-      "unlocked_by": "bob",
-      "difficulty": 1,
-      "topics": [
-        "algorithms",
-        "logic",
-        "parsing",
-        "strings"
-      ]
-    },
-    {
-      "slug": "allergies",
-      "uuid": "58bb800a-5b64-44bc-8282-77972b71e615",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "bitwise_operations",
-        "classes",
-        "enumerations"
-      ]
-    },
-    {
-      "slug": "atbash-cipher",
-      "uuid": "88dde3e7-95c8-4a5f-8514-1c489917966e",
-      "core": false,
-      "unlocked_by": "grade-school",
-      "difficulty": 1,
-      "topics": [
-        "algorithms",
-        "conditionals",
-        "loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "sum-of-multiples",
-      "uuid": "4f71d4e9-749e-46ec-a2c8-e17497f1468a",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "integers",
-        "math"
-      ]
-    },
-    {
       "slug": "collatz-conjecture",
       "uuid": "e6f013ed-1dfc-4330-8f3c-3bc851f05fa4",
       "core": false,
@@ -249,59 +228,6 @@
       "topics": [
         "loops",
         "math"
-      ]
-    },
-    {
-      "slug": "acronym",
-      "uuid": "cc35f8f2-488e-40f7-adcd-1e690cabc6f8",
-      "core": false,
-      "unlocked_by": "two-fer",
-      "difficulty": 1,
-      "topics": [
-        "regular_expressions",
-        "strings"
-      ]
-    },
-    {
-      "slug": "grade-school",
-      "uuid": "356db5da-2a2b-40cc-bf72-d5046cb003f9",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "classes",
-        "conditionals",
-        "filtering",
-        "integers",
-        "lists",
-        "sorting",
-        "strings"
-      ]
-    },
-    {
-      "slug": "roman-numerals",
-      "uuid": "91f1314c-5272-4a88-afee-747794236e2a",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "conditionals",
-        "integers",
-        "logic",
-        "loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "space-age",
-      "uuid": "64f70cfe-e34c-43ee-9b9a-72fe54884599",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "conditionals",
-        "floating_point_numbers",
-        "integers"
       ]
     },
     {
@@ -318,55 +244,38 @@
       ]
     },
     {
-      "slug": "nth-prime",
-      "uuid": "c52b74a0-e885-4a2b-9a97-9ab62e07662e",
+      "slug": "grains",
+      "uuid": "40dcc736-1904-418e-bb69-2186b3bb0a83",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 2,
       "topics": [
-        "algorithms",
-        "lists",
-        "loops",
-        "math"
+        "integers",
+        "type_conversion"
       ]
     },
     {
-      "slug": "matching-brackets",
-      "uuid": "bb8af717-9e8d-498c-85cf-e6e77a84919e",
+      "slug": "atbash-cipher",
+      "uuid": "88dde3e7-95c8-4a5f-8514-1c489917966e",
       "core": false,
-      "unlocked_by": "bob",
+      "unlocked_by": "grade-school",
       "difficulty": 1,
       "topics": [
-        "parsing",
-        "recursion",
-        "stacks",
+        "algorithms",
+        "conditionals",
+        "loops",
         "strings"
       ]
     },
     {
-      "slug": "queen-attack",
-      "uuid": "7131aec2-34c6-465f-a689-3a1cb297df3a",
+      "slug": "binary",
+      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
       "core": false,
       "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "arrays",
-        "exception_handling",
-        "games",
-        "logic",
-        "matrices"
-      ]
-    },
-    {
-      "slug": "triangle",
-      "uuid": "4d520486-fb44-4f84-a261-4c2039a9b89c",
-      "core": false,
-      "unlocked_by": "leap",
-      "difficulty": 1,
-      "topics": [
-        "classes",
-        "conditionals"
-      ]
+      "difficulty": 0,
+      "topics": null,
+      "deprecated": true,
+      "status": "deprecated"
     },
     {
       "slug": "all-your-base",
@@ -376,41 +285,6 @@
       "difficulty": 1,
       "topics": [
         "math"
-      ]
-    },
-    {
-      "slug": "nucleotide-count",
-      "uuid": "afb513c4-fcfb-4211-bcbc-7807063d301c",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "maps",
-        "strings"
-      ]
-    },
-    {
-      "slug": "raindrops",
-      "uuid": "4e35d149-d3b2-4e98-85bd-7a21783b59d4",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "conditionals",
-        "integers",
-        "strings"
-      ]
-    },
-    {
-      "slug": "react",
-      "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 8,
-      "topics": [
-        "callbacks",
-        "events",
-        "reactive_programming"
       ]
     },
     {
@@ -484,6 +358,17 @@
       "topics": [
         "maps",
         "transforming"
+      ]
+    },
+    {
+      "slug": "gigasecond",
+      "uuid": "dccdbae7-e882-4171-a517-04562113d059",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "dates",
+        "time"
       ]
     },
     {
@@ -570,6 +455,30 @@
       ]
     },
     {
+      "slug": "nth-prime",
+      "uuid": "c52b74a0-e885-4a2b-9a97-9ab62e07662e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "lists",
+        "loops",
+        "math"
+      ]
+    },
+    {
+      "slug": "nucleotide-count",
+      "uuid": "afb513c4-fcfb-4211-bcbc-7807063d301c",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "maps",
+        "strings"
+      ]
+    },
+    {
       "slug": "pascals-triangle",
       "uuid": "9ba153ad-bd49-4c26-9d80-dadb496cb637",
       "core": false,
@@ -639,6 +548,32 @@
       ]
     },
     {
+      "slug": "queen-attack",
+      "uuid": "7131aec2-34c6-465f-a689-3a1cb297df3a",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "exception_handling",
+        "games",
+        "logic",
+        "matrices"
+      ]
+    },
+    {
+      "slug": "raindrops",
+      "uuid": "4e35d149-d3b2-4e98-85bd-7a21783b59d4",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "integers",
+        "strings"
+      ]
+    },
+    {
       "slug": "resistor-color",
       "uuid": "b239a0f3-47b5-4583-985f-c98efca8259e",
       "core": false,
@@ -674,6 +609,31 @@
       ]
     },
     {
+      "slug": "reverse-string",
+      "uuid": "f572ed7b-a1e7-47ab-a9c3-71ba988d3699",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings"
+      ]
+    },
+    {
+      "slug": "rna-transcription",
+      "uuid": "532d4c60-52ff-4271-a346-b7c00ca83560",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "logic",
+        "loops",
+        "maps",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "robot-name",
       "uuid": "5d2fa542-245a-4c5b-bfe1-bd667091c556",
       "core": false,
@@ -681,6 +641,20 @@
       "difficulty": 1,
       "topics": [
         "randomness",
+        "strings"
+      ]
+    },
+    {
+      "slug": "roman-numerals",
+      "uuid": "91f1314c-5272-4a88-afee-747794236e2a",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "integers",
+        "logic",
+        "loops",
         "strings"
       ]
     },
@@ -694,6 +668,18 @@
         "cryptography",
         "integers",
         "strings"
+      ]
+    },
+    {
+      "slug": "run-length-encoding",
+      "uuid": "825b54b4-68a8-4302-9e9b-61960a3df88e",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "strings",
+        "text_formatting"
       ]
     },
     {
@@ -774,6 +760,18 @@
       ]
     },
     {
+      "slug": "space-age",
+      "uuid": "64f70cfe-e34c-43ee-9b9a-72fe54884599",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "conditionals",
+        "floating_point_numbers",
+        "integers"
+      ]
+    },
+    {
       "slug": "spiral-matrix",
       "uuid": "32c1262c-4f60-45cf-a5eb-aae7ea19acfc",
       "core": false,
@@ -821,14 +819,16 @@
       ]
     },
     {
-      "slug": "binary",
-      "uuid": "3acf148d-df9e-4897-8c9f-c17a3ba5e4b6",
+      "slug": "react",
+      "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd",
       "core": false,
       "unlocked_by": null,
-      "difficulty": 0,
-      "topics": null,
-      "deprecated": true,
-      "status": "deprecated"
+      "difficulty": 8,
+      "topics": [
+        "callbacks",
+        "events",
+        "reactive_programming"
+      ]
     }
   ]
 }
