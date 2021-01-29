@@ -13,7 +13,7 @@ jobs:
       uses: exercism/github-actions/configlet-ci@main
 
     - name: configlet lint
-      run: configlet lint .
+      run: configlet lint
 
 
   configlet-fmt:
