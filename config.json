@@ -827,7 +827,8 @@
       "unlocked_by": null,
       "difficulty": 0,
       "topics": null,
-      "deprecated": true
+      "deprecated": true,
+      "status": "deprecated"
     }
   ]
 }
