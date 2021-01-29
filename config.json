@@ -1,5 +1,6 @@
 {
   "language": "Nim",
+  "slug": "nim",
   "active": true,
   "status": {
     "concept_exercises": false,
