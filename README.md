@@ -1,7 +1,5 @@
 # Exercism Nim Track
 
-[![Build Status](https://travis-ci.org/exercism/nim.png?branch=master)](https://travis-ci.org/exercism/nim)
-
 Exercism exercises in Nim
 
 ## Contributing Guide
@@ -10,7 +8,7 @@ Please see the [contributing guide](https://github.com/exercism/docs/blob/master
 
 ## Testing
 
-The file [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/master/_test/check_exercises.nim) checks that the example solution for every implemented exercise passes that exercise's test suite. This repo configures Travis CI to run that file, and you can also run it on your own machine.
+The file [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/master/_test/check_exercises.nim) checks that the example solution for every implemented exercise passes that exercise's test suite. This repo runs that file during CI, and you can also run it on your own machine.
 
 To test all the exercises, run:
 ```bash
