@@ -64,7 +64,7 @@ Options:
 
 let
   appDir = getAppDir()
-  exercisesDir = appDir / "../exercises"
+  exercisesDir = appDir / ".." / "exercises" / "practice"
 var
   outDir: string
   testDir: string
@@ -171,11 +171,11 @@ proc prepareTests(slugs: Slugs) =
     let dir = exercisesDir / slug
 
     # Copy and rename the example solution. For example:
-    #   `exercises/bob/example.nim`  ->  `outDir/src/check_exercises/bob.nim`
+    #   `exercises/practice/bob/example.nim`  ->  `outDir/src/check_exercises/bob.nim`
     copyFile(dir / "example.nim", srcDir / slugUnder & ".nim")
 
     # Copy a wrapped version of the test. For example:
-    #   `exercises/bob/test_bob.nim`  ->  `outDir/tests/test_bob.nim`
+    #   `exercises/practice/bob/test_bob.nim`  ->  `outDir/tests/test_bob.nim`
     let wrappedTest = wrapTest(dir / "test_" & slugUnder & ".nim", slug)
     writeFile(testDir / testName & ".nim", wrappedTest)
 

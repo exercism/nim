@@ -102,10 +102,13 @@ proc otherTrackUuids(track: string): HashSet[string] =
   for f in walkFiles(downloadDir / "*.json"):
     let j = parseFile(f)
     if j["language"].getStr().toLowerAscii() != track:
-      if j["exercises"].len > 0:
-        for exercise in j["exercises"]:
-          let uuid = exercise["uuid"].getStr()
-          result.incl(uuid)
+      for exerciseKind in ["concept", "practice"]:
+        let exercises = j["exercises"]
+        if exercises.kind == JObject:
+          if exercises.hasKey(exerciseKind):
+            for exercise in exercises[exerciseKind]:
+              let uuid = exercise["uuid"].getStr()
+              result.incl(uuid)
   echo &"{result.len:>4} distinct UUIDs on tracks other than 'exercism/{track}'.\n"
 
 func isValidUuidV4(s: string): bool =
@@ -242,29 +245,30 @@ proc isEveryTrackUuidValid(conf: Conf, badUuids: var seq[BadUuid]): bool =
   let otherTrackUuids = if conf.offline: emptySet else: otherTrackUuids(track)
   let probSpecsUuids = if conf.offline: emptySet else: probSpecsUuids()
 
-  if not conf.offline and otherTrackUuids.len < 3000:
+  if not conf.offline and otherTrackUuids.len < 1500:
     writeErrorAndRaise[DownloadError]("too few UUIDs on other tracks: " &
                                       otherTrackUuids.len.`$`)
 
   var trackUuids = initHashSet[string](1000)
   result = true
 
-  for exercise in j["exercises"]:
-    let uuid = exercise["uuid"].getStr()
-    let slug = exercise["slug"].getStr()
-    if not isValidUuidV4(uuid):
-      result = false
-      badUuids.add (slug, uuid, rFormat)
-    if trackUuids.containsOrIncl(uuid):
-      result = false
-      badUuids.add (slug, uuid, rDupOnTrack)
-    if not conf.offline:
-      if otherTrackUuids.contains(uuid):
+  for exerciseKind in ["concept", "practice"]:
+    for exercise in j["exercises"][exerciseKind]:
+      let uuid = exercise["uuid"].getStr()
+      let slug = exercise["slug"].getStr()
+      if not isValidUuidV4(uuid):
         result = false
-        badUuids.add (slug, uuid, rDupOnAnotherTrack)
-      if probSpecsUuids.contains(uuid):
+        badUuids.add (slug, uuid, rFormat)
+      if trackUuids.containsOrIncl(uuid):
         result = false
-        badUuids.add (slug, uuid, rDupInProbSpecs)
+        badUuids.add (slug, uuid, rDupOnTrack)
+      if not conf.offline:
+        if otherTrackUuids.contains(uuid):
+          result = false
+          badUuids.add (slug, uuid, rDupOnAnotherTrack)
+        if probSpecsUuids.contains(uuid):
+          result = false
+          badUuids.add (slug, uuid, rDupInProbSpecs)
 
   let paddedNum = if conf.offline: trackUuids.len.`$` else: &"{trackUuids.len:>4}"
   echo &"{paddedNum} distinct UUIDs on the {track} track.\n"
