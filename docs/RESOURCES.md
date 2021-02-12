@@ -1,3 +1,5 @@
+# Resources
+
 ## Learning
 
 - [Nim basics](https://narimiran.github.io/nim-basics/) - for beginner programmers.

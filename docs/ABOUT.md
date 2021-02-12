@@ -1,3 +1,5 @@
+# About
+
 Nim is a general-purpose language designed and developed by Andreas Rumpf and first appearing in 2008. Designed to be efficient, expressive, and elegant. Nim is statically typed and compiled but lets you write elegant code that runs efficiently. Nim lets you target many platforms by compiling code to C, C++, JavaScript, or Objective-C. Nim syntax is similar to Python and shares many of Python's characteristics but draws inspiration from a number of languages, such as C, C++, C#, Lisp, Ada, Go, Oberon, and others.
 
 As Nim is a general-purpose language it can be used in various places but has been filling a real niche in the area of Game development and Systems Programming including Embedded systems.
