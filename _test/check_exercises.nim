@@ -171,11 +171,13 @@ proc prepareTests(slugs: Slugs) =
     let dir = exercisesDir / slug
 
     # Copy and rename the example solution. For example:
-    #   `exercises/practice/bob/example.nim`  ->  `outDir/src/check_exercises/bob.nim`
-    copyFile(dir / "example.nim", srcDir / slugUnder & ".nim")
+    #   from: `exercises/practice/bob/.meta/example.nim`
+    #   to:   `outDir/src/check_exercises/bob.nim`
+    copyFile(dir / ".meta" / "example.nim", srcDir / slugUnder & ".nim")
 
     # Copy a wrapped version of the test. For example:
-    #   `exercises/practice/bob/test_bob.nim`  ->  `outDir/tests/test_bob.nim`
+    #   from: `exercises/practice/bob/test_bob.nim`
+    #   to:   `outDir/tests/test_bob.nim`
     let wrappedTest = wrapTest(dir / "test_" & slugUnder & ".nim", slug)
     writeFile(testDir / testName & ".nim", wrappedTest)
 
