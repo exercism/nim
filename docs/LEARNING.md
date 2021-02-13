@@ -1,3 +1,5 @@
+# Learning
+
 Exercism provides exercises and feedback but can be difficult to jump into for those learning Nim for the first time. These resources can help you get started:
 
 [Nim in Action](https://book.picheta.me/) is a great book, I would say that this is one of the best resources for learning Nim and what you can do with the language. I highly recommend this book as a good starting point.
