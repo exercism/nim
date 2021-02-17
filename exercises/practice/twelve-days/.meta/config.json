@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "twelve_days.nim"
+    ],
+    "test": [
+      "test_twelve_days.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)"

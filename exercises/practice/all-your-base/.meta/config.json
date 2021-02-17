@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "all_your_base.nim"
+    ],
+    "test": [
+      "test_all_your_base.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   }
 }

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "robot_name.nim"
+    ],
+    "test": [
+      "test_robot_name.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "A debugging session with Paul Blackwell at gSchool."
 }

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "protein_translation.nim"
+    ],
+    "test": [
+      "test_protein_translation.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Tyler Long"
 }

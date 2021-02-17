@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "proverb.nim"
+    ],
+    "test": [
+      "test_proverb.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/For_Want_of_a_Nail"

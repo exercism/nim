@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "clock.nim"
+    ],
+    "test": [
+      "test_clock.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Pairing session with Erin Drummond",
   "source_url": "https://twitter.com/ebdrummond"

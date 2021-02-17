@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "isogram.nim"
+    ],
+    "test": [
+      "test_isogram.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Isogram"

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "matrix.nim"
+    ],
+    "test": [
+      "test_matrix.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Warmup to the `saddle-points` warmup.",
   "source_url": "http://jumpstartlab.com"

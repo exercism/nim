@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "series.nim"
+    ],
+    "test": [
+      "test_series.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "A subset of the Problem 8 at Project Euler",
   "source_url": "http://projecteuler.net/problem=8"

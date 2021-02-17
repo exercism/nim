@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "high_scores.nim"
+    ],
+    "test": [
+      "test_high_scores.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Tribute to the eighties' arcade game Frogger"
 }

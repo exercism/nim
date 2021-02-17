@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "scale_generator.nim"
+    ],
+    "test": [
+      "test_scale_generator.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   }
 }

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "kindergarten_garden.nim"
+    ],
+    "test": [
+      "test_kindergarten_garden.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Random musings during airplane trip.",
   "source_url": "http://jumpstartlab.com"

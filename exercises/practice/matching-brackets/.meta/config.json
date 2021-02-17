@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "matching_brackets.nim"
+    ],
+    "test": [
+      "test_matching_brackets.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Ginna Baker"
 }

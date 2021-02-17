@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "largest_series_product.nim"
+    ],
+    "test": [
+      "test_largest_series_product.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "A variation on Problem 8 at Project Euler",
   "source_url": "http://projecteuler.net/problem=8"
