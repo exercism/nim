@@ -14,6 +14,20 @@
     "indent_style": "space",
     "indent_size": 2
   },
+  "files": {
+    "solution": [
+      "%{snake_slug}.nim"
+    ],
+    "test": [
+      "test_%{snake_slug}.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ],
+    "exemplar": [
+      ".meta/exemplar.nim"
+    ]
+  },
   "exercises": {
     "concept": [],
     "practice": [
