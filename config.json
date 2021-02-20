@@ -928,5 +928,24 @@
   },
   "concepts": [],
   "key_features": [],
-  "tags": []
+  "tags": [
+    "paradigm/imperative",
+    "paradigm/procedural",
+    "typing/static",
+    "typing/strong",
+    "execution_mode/compiled",
+    "platform/windows",
+    "platform/mac",
+    "platform/linux",
+    "platform/web",
+    "runtime/standalone_executable",
+    "used_for/backends",
+    "used_for/cross_platform_development",
+    "used_for/embedded_systems",
+    "used_for/frontends",
+    "used_for/games",
+    "used_for/scientific_calculations",
+    "used_for/scripts",
+    "used_for/web_development"
+  ]
 }
