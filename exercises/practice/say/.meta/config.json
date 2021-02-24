@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "say.nim"
+    ],
+    "test": [
+      "test_say.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "A variation on JavaRanch CattleDrive, exercise 4a",
   "source_url": "http://www.javaranch.com/say.jsp"

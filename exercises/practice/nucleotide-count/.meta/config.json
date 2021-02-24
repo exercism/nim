@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "nucleotide_count.nim"
+    ],
+    "test": [
+      "test_nucleotide_count.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "The Calculating DNA Nucleotides_problem at Rosalind",
   "source_url": "http://rosalind.info/problems/dna/"

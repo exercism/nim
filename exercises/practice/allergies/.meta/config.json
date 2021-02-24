@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "allergies.nim"
+    ],
+    "test": [
+      "test_allergies.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Jumpstart Lab Warm-up",
   "source_url": "http://jumpstartlab.com"

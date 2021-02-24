@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "rna_transcription.nim"
+    ],
+    "test": [
+      "test_rna_transcription.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Hyperphysics",
   "source_url": "http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html"

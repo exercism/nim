@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "anagram.nim"
+    ],
+    "test": [
+      "test_anagram.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Inspired by the Extreme Startup game",
   "source_url": "https://github.com/rchatley/extreme_startup"

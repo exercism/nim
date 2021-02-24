@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "perfect_numbers.nim"
+    ],
+    "test": [
+      "test_perfect_numbers.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",
   "source_url": "http://shop.oreilly.com/product/0636920029687.do"

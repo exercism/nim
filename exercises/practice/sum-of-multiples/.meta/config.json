@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "sum_of_multiples.nim"
+    ],
+    "test": [
+      "test_sum_of_multiples.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "A variation on Problem 1 at Project Euler",
   "source_url": "http://projecteuler.net/problem=1"

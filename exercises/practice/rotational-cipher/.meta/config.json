@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "rotational_cipher.nim"
+    ],
+    "test": [
+      "test_rotational_cipher.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Caesar_cipher"

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "atbash_cipher.nim"
+    ],
+    "test": [
+      "test_atbash_cipher.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/Atbash"

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "scrabble_score.nim"
+    ],
+    "test": [
+      "test_scrabble_score.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
   },
   "source": "Inspired by the Extreme Startup game",
   "source_url": "https://github.com/rchatley/extreme_startup"
