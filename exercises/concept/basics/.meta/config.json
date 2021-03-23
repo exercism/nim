@@ -1,10 +1,7 @@
 {
   "blurb": "TODO: add blurb for basics exercise",
   "authors": [
-    {
-      "github_username": "ynfle",
-      "exercism_username": "ynfle"
-    }
+    "ynfle"
   ],
   "forked_from": [
     "javascript/basics",
