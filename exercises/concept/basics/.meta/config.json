@@ -1,14 +1,24 @@
 {
+  "blurb": "TODO: add blurb for basics exercise",
   "authors": [
     {
       "github_username": "ynfle",
       "exercism_username": "ynfle"
     }
   ],
-  "forked_from": ["javascript/basics", "python/basics"],
+  "forked_from": [
+    "javascript/basics",
+    "python/basics"
+  ],
   "files": {
-    "solution": ["basics.nim"],
-    "test": ["test_basics.nim"],
-    "exemplar": [".meta/exemplar.nim"]
+    "solution": [
+      "basics.nim"
+    ],
+    "test": [
+      "test_basics.nim"
+    ],
+    "exemplar": [
+      ".meta/exemplar.nim"
+    ]
   }
 }
