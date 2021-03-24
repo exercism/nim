@@ -1,6 +1,11 @@
 {
   "blurb": "Implement run-length encoding and decoding.",
-  "authors": [],
+  "authors": [
+    "amscotti"
+  ],
+  "contributors": [
+    "ee7"
+  ],
   "files": {
     "solution": [
       "run_length_encoding.nim"

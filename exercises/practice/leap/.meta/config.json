@@ -1,6 +1,14 @@
 {
   "blurb": "Given a year, report if it is a leap year.",
-  "authors": [],
+  "authors": [
+    "sjakobi"
+  ],
+  "contributors": [
+    "amscotti",
+    "clementi",
+    "ee7",
+    "kytrinyx"
+  ],
   "files": {
     "solution": [
       "leap.nim"

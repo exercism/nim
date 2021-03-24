@@ -1,6 +1,14 @@
 {
   "blurb": "Given a word and a list of possible anagrams, select the correct sublist.",
-  "authors": [],
+  "authors": [
+    "sjakobi"
+  ],
+  "contributors": [
+    "amscotti",
+    "clementi",
+    "ee7",
+    "kytrinyx"
+  ],
   "files": {
     "solution": [
       "anagram.nim"

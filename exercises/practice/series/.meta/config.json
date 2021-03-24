@@ -1,6 +1,9 @@
 {
   "blurb": "Given a string of digits, output all the contiguous substrings of length `n` in that string.",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "series.nim"

@@ -1,6 +1,13 @@
 {
   "blurb": "Given a DNA strand, return its RNA Complement Transcription.",
-  "authors": [],
+  "authors": [
+    "clementi"
+  ],
+  "contributors": [
+    "amscotti",
+    "ee7",
+    "kytrinyx"
+  ],
   "files": {
     "solution": [
       "rna_transcription.nim"

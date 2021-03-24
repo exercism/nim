@@ -1,6 +1,9 @@
 {
   "blurb": "Translate RNA sequences into proteins.",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "protein_translation.nim"

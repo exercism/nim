@@ -1,6 +1,9 @@
 {
   "blurb": "Output the lyrics to 'The Twelve Days of Christmas'",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "twelve_days.nim"

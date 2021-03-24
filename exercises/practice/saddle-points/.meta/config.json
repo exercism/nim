@@ -1,6 +1,9 @@
 {
   "blurb": "Detect saddle points in a matrix.",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "saddle_points.nim"

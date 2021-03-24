@@ -1,6 +1,9 @@
 {
   "blurb": "Implement the classic method for composing secret messages called a square code.",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "crypto_square.nim"
