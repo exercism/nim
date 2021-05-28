@@ -1,0 +1,56 @@
+- name: "abandoned"
+  description: ""
+  color: "d93f0b"
+
+- name: "awaiting review"
+  description: ""
+  color: "9715c6"
+
+- name: "beginner friendly"
+  description: ""
+  color: "0e8a16"
+
+- name: "bug"
+  description: ""
+  color: "fc2929"
+
+- name: "dependencies"
+  description: "Pull requests that update a dependency file"
+  color: "0366d6"
+
+- name: "discussion"
+  description: ""
+  color: "5319e7"
+
+- name: "duplicate"
+  description: ""
+  color: "cccccc"
+
+- name: "enhancement"
+  description: ""
+  color: "84b6eb"
+
+- name: "help wanted"
+  description: ""
+  color: "159818"
+
+- name: "invalid"
+  description: ""
+  color: "e6e6e6"
+
+- name: "pinned"
+  description: ""
+  color: "fbca04"
+
+- name: "question"
+  description: ""
+  color: "cc317c"
+
+- name: "v3-migration 🤖"
+  description: "Preparing for Exercism v3"
+  color: "E99695"
+
+- name: "wontfix"
+  description: ""
+  color: "ffffff"
+
