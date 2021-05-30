@@ -1,15 +1,3 @@
-- name: "abandoned"
-  description: ""
-  color: "d93f0b"
-
-- name: "awaiting review"
-  description: ""
-  color: "9715c6"
-
-- name: "beginner friendly"
-  description: ""
-  color: "0e8a16"
-
 - name: "bug"
   description: ""
   color: "fc2929"
@@ -30,21 +18,9 @@
   description: ""
   color: "84b6eb"
 
-- name: "help wanted"
-  description: ""
-  color: "159818"
-
 - name: "invalid"
   description: ""
   color: "e6e6e6"
-
-- name: "pinned"
-  description: ""
-  color: "fbca04"
-
-- name: "question"
-  description: ""
-  color: "cc317c"
 
 - name: "v3-migration 🤖"
   description: "Preparing for Exercism v3"
