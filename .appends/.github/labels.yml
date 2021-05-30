@@ -10,7 +10,7 @@
   description: ""
   color: "5319e7"
 
-- name: "duplicate"
+- name: "status: duplicate"
   description: ""
   color: "cccccc"
 
@@ -18,7 +18,7 @@
   description: ""
   color: "84b6eb"
 
-- name: "invalid"
+- name: "status: invalid"
   description: ""
   color: "e6e6e6"
 
@@ -26,6 +26,6 @@
   description: "Preparing for Exercism v3"
   color: "E99695"
 
-- name: "wontfix"
+- name: "status: wontfix"
   description: ""
   color: "ffffff"
