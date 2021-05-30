@@ -1,4 +1,4 @@
-- name: "bug"
+- name: "kind: bug"
   description: ""
   color: "fc2929"
 
@@ -6,7 +6,7 @@
   description: "Pull requests that update a dependency file"
   color: "0366d6"
 
-- name: "discussion"
+- name: "kind: discussion"
   description: ""
   color: "5319e7"
 
@@ -14,7 +14,7 @@
   description: ""
   color: "cccccc"
 
-- name: "enhancement"
+- name: "kind: enhancement"
   description: ""
   color: "84b6eb"
 
