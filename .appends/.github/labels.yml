@@ -1,0 +1,31 @@
+- name: "dependencies"
+  description: "Pull requests that update a dependency file"
+  color: "0366d6"
+
+- name: "kind: bug"
+  description: ""
+  color: "fc2929"
+
+- name: "kind: discussion"
+  description: ""
+  color: "5319e7"
+
+- name: "kind: enhancement"
+  description: ""
+  color: "84b6eb"
+
+- name: "status: duplicate"
+  description: ""
+  color: "cccccc"
+
+- name: "status: invalid"
+  description: ""
+  color: "e6e6e6"
+
+- name: "status: wont do/fix"
+  description: ""
+  color: "ffffff"
+
+- name: "v3-migration 🤖"
+  description: "Preparing for Exercism v3"
+  color: "E99695"
