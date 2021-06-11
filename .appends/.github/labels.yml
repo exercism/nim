@@ -1,3 +1,8 @@
+# ----------------------------------------------------------------------------------------- #
+# These are the repository-specific labels that augment the Exercise-wide labels defined in #
+# https://github.com/exercism/org-wide-files/blob/main/global-files/.github/labels.yml.     #
+# ----------------------------------------------------------------------------------------- #
+
 - name: "dependencies"
   description: "Pull requests that update a dependency file"
   color: "0366d6"
@@ -25,7 +30,3 @@
 - name: "status: wont do/fix"
   description: ""
   color: "ffffff"
-
-- name: "v3-migration 🤖"
-  description: "Preparing for Exercism v3"
-  color: "E99695"
