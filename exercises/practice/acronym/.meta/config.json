@@ -1,6 +1,11 @@
 {
   "blurb": "Convert a long phrase to its acronym",
-  "authors": [],
+  "authors": [
+    "amscotti"
+  ],
+  "contributors": [
+    "ee7"
+  ],
   "files": {
     "solution": [
       "acronym.nim"

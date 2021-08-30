@@ -1,6 +1,9 @@
 {
   "blurb": "Score a single throw of dice in the game Yacht",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "yacht.nim"

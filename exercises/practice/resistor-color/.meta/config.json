@@ -1,6 +1,9 @@
 {
   "blurb": "Convert a resistor band's color to its numeric representation",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "resistor_color.nim"

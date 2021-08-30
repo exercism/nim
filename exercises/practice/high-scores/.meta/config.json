@@ -1,6 +1,9 @@
 {
   "blurb": "Manage a player's High Score list",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "high_scores.nim"

@@ -1,6 +1,11 @@
 {
   "blurb": "Given a decimal number, convert it to the appropriate sequence of events for a secret handshake.",
-  "authors": [],
+  "authors": [
+    "amscotti"
+  ],
+  "contributors": [
+    "ee7"
+  ],
   "files": {
     "solution": [
       "secret_handshake.nim"

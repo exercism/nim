@@ -1,6 +1,9 @@
 {
   "blurb": "Check if a given string is a valid ISBN-10 number.",
-  "authors": [],
+  "authors": [
+    "ee7"
+  ],
+  "contributors": [],
   "files": {
     "solution": [
       "isbn_verifier.nim"

@@ -1,6 +1,11 @@
 {
   "blurb": "Reverse a string",
-  "authors": [],
+  "authors": [
+    "amscotti"
+  ],
+  "contributors": [
+    "ee7"
+  ],
   "files": {
     "solution": [
       "reverse_string.nim"

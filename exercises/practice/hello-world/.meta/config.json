@@ -1,6 +1,11 @@
 {
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
-  "authors": [],
+  "authors": [
+    "cmc333333"
+  ],
+  "contributors": [
+    "ee7"
+  ],
   "files": {
     "solution": [
       "hello_world.nim"

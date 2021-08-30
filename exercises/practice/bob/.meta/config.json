@@ -1,6 +1,12 @@
 {
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
-  "authors": [],
+  "authors": [
+    "sjakobi"
+  ],
+  "contributors": [
+    "amscotti",
+    "ee7"
+  ],
   "files": {
     "solution": [
       "bob.nim"

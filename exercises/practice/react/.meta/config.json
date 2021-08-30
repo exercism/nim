@@ -1,6 +1,11 @@
 {
   "blurb": "Implement a basic reactive system.",
-  "authors": [],
+  "authors": [
+    "pminten"
+  ],
+  "contributors": [
+    "petertseng"
+  ],
   "files": {
     "solution": [
       "react.nim"

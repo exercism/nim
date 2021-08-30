@@ -1,6 +1,13 @@
 {
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
-  "authors": [],
+  "authors": [
+    "sjakobi"
+  ],
+  "contributors": [
+    "amscotti",
+    "cmc333333",
+    "ee7"
+  ],
   "files": {
     "solution": [
       "word_count.nim"
