@@ -1,9 +1,7 @@
 {
-  "blurb": "Implement a clock that handles times without dates.",
   "authors": [
     "ee7"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "clock.nim"
@@ -15,6 +13,7 @@
       ".meta/example.nim"
     ]
   },
+  "blurb": "Implement a clock that handles times without dates.",
   "source": "Pairing session with Erin Drummond",
   "source_url": "https://twitter.com/ebdrummond"
 }

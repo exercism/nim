@@ -1,9 +1,7 @@
 {
-  "blurb": "Manage a player's High Score list",
   "authors": [
     "ee7"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "high_scores.nim"
@@ -15,5 +13,6 @@
       ".meta/example.nim"
     ]
   },
+  "blurb": "Manage a player's High Score list",
   "source": "Tribute to the eighties' arcade game Frogger"
 }
