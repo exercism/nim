@@ -1,11 +1,6 @@
 {
-  "blurb": "TODO: add blurb for basics exercise",
   "authors": [
     "ynfle"
-  ],
-  "forked_from": [
-    "javascript/lasagna",
-    "python/guidos-gorgeous-lasagna"
   ],
   "files": {
     "solution": [
@@ -17,5 +12,10 @@
     "exemplar": [
       ".meta/exemplar.nim"
     ]
-  }
+  },
+  "forked_from": [
+    "javascript/lasagna",
+    "python/guidos-gorgeous-lasagna"
+  ],
+  "blurb": "TODO: add blurb for basics exercise"
 }
