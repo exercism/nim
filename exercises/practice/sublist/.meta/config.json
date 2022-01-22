@@ -1,9 +1,7 @@
 {
-  "blurb": "Write a function to determine if a list is a sublist of another list.",
   "authors": [
     "ee7"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "sublist.nim"
@@ -14,5 +12,6 @@
     "example": [
       ".meta/example.nim"
     ]
-  }
+  },
+  "blurb": "Write a function to determine if a list is a sublist of another list."
 }

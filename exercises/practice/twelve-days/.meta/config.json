@@ -1,9 +1,7 @@
 {
-  "blurb": "Output the lyrics to 'The Twelve Days of Christmas'",
   "authors": [
     "ee7"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "twelve_days.nim"
@@ -15,6 +13,7 @@
       ".meta/example.nim"
     ]
   },
+  "blurb": "Output the lyrics to 'The Twelve Days of Christmas'",
   "source": "Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)"
 }

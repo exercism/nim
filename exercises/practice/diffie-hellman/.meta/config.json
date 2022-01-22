@@ -1,9 +1,7 @@
 {
-  "blurb": "Diffie-Hellman key exchange.",
   "authors": [
     "ee7"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "diffie_hellman.nim"
@@ -15,6 +13,7 @@
       ".meta/example.nim"
     ]
   },
+  "blurb": "Diffie-Hellman key exchange.",
   "source": "Wikipedia, 1024 bit key from www.cryptopp.com/wiki.",
   "source_url": "http://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange"
 }
