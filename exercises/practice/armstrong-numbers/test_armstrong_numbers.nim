@@ -1,30 +1,25 @@
-import unittest
-import armstrong_numbers
+import
+  std / unittest
 
-suite "Armstrong Numbers":
-  test "zero is an Armstrong number":
+import
+  armstrong_numbers
+
+suite "armstrong-numbers tests":
+  test "Zero is an Armstrong number":
     check isArmstrongNumber(0) == true
-
-  test "single-digit numbers are Armstrong numbers":
+  test "Single-digit numbers are Armstrong numbers":
     check isArmstrongNumber(5) == true
-
-  test "there are no two-digit Armstrong numbers":
+  test "There are no two-digit Armstrong numbers":
     check isArmstrongNumber(10) == false
-
-  test "three-digit number that is an Armstrong number":
+  test "Three-digit number that is an Armstrong number":
     check isArmstrongNumber(153) == true
-
-  test "three-digit number that is not an Armstrong number":
+  test "Three-digit number that is not an Armstrong number":
     check isArmstrongNumber(100) == false
-
-  test "four-digit number that is an Armstrong number":
+  test "Four-digit number that is an Armstrong number":
     check isArmstrongNumber(9474) == true
-
-  test "four-digit number that is not an Armstrong number":
+  test "Four-digit number that is not an Armstrong number":
     check isArmstrongNumber(9475) == false
-
-  test "seven-digit number that is an Armstrong number":
-    check isArmstrongNumber(9_926_315) == true
-
-  test "seven-digit number that is not an Armstrong number":
-    check isArmstrongNumber(9_926_314) == false
+  test "Seven-digit number that is an Armstrong number":
+    check isArmstrongNumber(9926315) == true
+  test "Seven-digit number that is not an Armstrong number":
+    check isArmstrongNumber(9926314) == false

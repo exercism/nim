@@ -1,0 +1,56 @@
+import
+  std / unittest
+
+import
+  pig_latin
+
+suite "ay is added to words that start with vowels":
+  test "word beginning with a":
+    check translate("apple") == "appleay"
+  test "word beginning with e":
+    check translate("ear") == "earay"
+  test "word beginning with i":
+    check translate("igloo") == "iglooay"
+  test "word beginning with o":
+    check translate("object") == "objectay"
+  test "word beginning with u":
+    check translate("under") == "underay"
+  test "word beginning with a vowel and followed by a qu":
+    check translate("equal") == "equalay"
+suite "first letter and ay are moved to the end of words that start with consonants":
+  test "word beginning with p":
+    check translate("pig") == "igpay"
+  test "word beginning with k":
+    check translate("koala") == "oalakay"
+  test "word beginning with x":
+    check translate("xenon") == "enonxay"
+  test "word beginning with q without a following u":
+    check translate("qat") == "atqay"
+suite "some letter clusters are treated like a single consonant":
+  test "word beginning with ch":
+    check translate("chair") == "airchay"
+  test "word beginning with qu":
+    check translate("queen") == "eenquay"
+  test "word beginning with qu and a preceding consonant":
+    check translate("square") == "aresquay"
+  test "word beginning with th":
+    check translate("therapy") == "erapythay"
+  test "word beginning with thr":
+    check translate("thrush") == "ushthray"
+  test "word beginning with sch":
+    check translate("school") == "oolschay"
+suite "some letter clusters are treated like a single vowel":
+  test "word beginning with yt":
+    check translate("yttria") == "yttriaay"
+  test "word beginning with xr":
+    check translate("xray") == "xrayay"
+suite "position of y in a word determines if it is a consonant or a vowel":
+  test "y is treated like a consonant at the beginning of a word":
+    check translate("yellow") == "ellowyay"
+  test "y is treated like a vowel at the end of a consonant cluster":
+    check translate("rhythm") == "ythmrhay"
+  test "y as second letter in two letter word":
+    check translate("my") == "ymay"
+suite "phrases are translated":
+  test "a whole phrase":
+    check translate("quick fast run") == "ickquay astfay unray"

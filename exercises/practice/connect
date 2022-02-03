@@ -1,0 +1,44 @@
+import
+  std / unittest
+
+import
+  connect
+
+suite "connect tests":
+  test "an empty board has no winner":
+    check winner(@[". . . . .", " . . . . .", "  . . . . .", "   . . . . .",
+                   "    . . . . ."]) ==
+        ""
+  test "X can win on a 1x1 board":
+    check winner(@["X"]) == "X"
+  test "O can win on a 1x1 board":
+    check winner(@["O"]) == "O"
+  test "only edges does not make a winner":
+    check winner(@["O O O X", " X . . X", "  X . . X", "   X O O O"]) == ""
+  test "illegal diagonal does not make a winner":
+    check winner(@["X O . .", " O X X X", "  O X O .", "   . O X .",
+                   "    X X O O"]) ==
+        ""
+  test "nobody wins crossing adjacent angles":
+    check winner(@["X . . .", " . X O .", "  O . X O", "   . O . X",
+                   "    . . O ."]) ==
+        ""
+  test "X wins crossing from left to right":
+    check winner(@[". O . .", " O X X X", "  O X O .", "   X X O X",
+                   "    . O X ."]) ==
+        "X"
+  test "O wins crossing from top to bottom":
+    check winner(@[". O . .", " O X X X", "  O O O .", "   X X O X",
+                   "    . O X ."]) ==
+        "O"
+  test "X wins using a convoluted path":
+    check winner(@[". X X . .", " X . X . X", "  . X . X .", "   . X X . .",
+                   "    O O O O O"]) ==
+        "X"
+  test "X wins using a spiral path":
+    check winner(@["O X X X X X X X X", " O X O O O O O O O",
+                   "  O X O X X X X X O", "   O X O X O O O X O",
+                   "    O X O X X X O X O", "     O X O O O X O X O",
+                   "      O X X X X X O X O", "       O O O O O O O X O",
+                   "        X X X X X X X X O"]) ==
+        "X"

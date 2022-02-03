@@ -1,0 +1,31 @@
+import
+  std / unittest
+
+import
+  micro_blog
+
+suite "micro-blog tests":
+  test "English language short":
+    check truncate("Hi") == "Hi"
+  test "English language long":
+    check truncate("Hello there") == "Hello"
+  test "German language short (broth)":
+    check truncate("brühe") == "brühe"
+  test "German language long (bear carpet → beards)":
+    check truncate("Bärteppich") == "Bärte"
+  test "Bulgarian language short (good)":
+    check truncate("Добър") == "Добър"
+  test "Greek language short (health)":
+    check truncate("υγειά") == "υγειά"
+  test "Maths short":
+    check truncate("a=πr²") == "a=πr²"
+  test "Maths long":
+    check truncate("∅⊊ℕ⊊ℤ⊊ℚ⊊ℝ⊊ℂ") == "∅⊊ℕ⊊ℤ"
+  test "English and emoji short":
+    check truncate("Fly 🛫") == "Fly 🛫"
+  test "Emoji short":
+    check truncate("💇") == "💇"
+  test "Emoji long":
+    check truncate("❄🌡🤧🤒🏥🕰😀") == "❄🌡🤧🤒🏥"
+  test "Royal Flush?":
+    check truncate("🃎🂸🃅🃋🃍🃁🃊") == "🃎🂸🃅🃋🃍"

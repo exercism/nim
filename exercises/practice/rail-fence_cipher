@@ -1,0 +1,22 @@
+import
+  std / unittest
+
+import
+  rail_fence_cipher
+
+suite "encode":
+  test "encode with two rails":
+    check encode("XOXOXOXOXOXOXOXOXO", 2) == "XXXXXXXXXOOOOOOOOO"
+  test "encode with three rails":
+    check encode("WEAREDISCOVEREDFLEEATONCE", 3) == "WECRLTEERDSOEEFEAOCAIVDEN"
+  test "encode with ending in the middle":
+    check encode("EXERCISES", 4) == "ESXIEECSR"
+suite "decode":
+  test "decode with three rails":
+    check decode("TEITELHDVLSNHDTISEIIEA", 3) == "THEDEVILISINTHEDETAILS"
+  test "decode with five rails":
+    check decode("EIEXMSMESAORIWSCE", 5) == "EXERCISMISAWESOME"
+  test "decode with six rails":
+    check decode("133714114238148966225439541018335470986172518171757571896261",
+                 6) ==
+        "112358132134558914423337761098715972584418167651094617711286"

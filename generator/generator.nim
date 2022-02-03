@@ -49,7 +49,7 @@ when defined(testing):
 
 when isMainModule:
   const
-    probSpecExercisesDir {.strdefine.} = "../../problem-specifications/exercises"
+    probSpecExercsesDir {.strdefine.} = "../../problem-specifications/exercises"
 
 const
   slug {.strdefine.} = "anagram"
@@ -134,11 +134,11 @@ func generateExpected*(expected: JsonNode): NimNode =
   result = convertToNimArg(expected)
 
 func generateTest*(test: LabeledTest): NimNode =
-  let testCall = generateInputs(test.input, test.property)
-
   result =
     if test.uuid in implementedTests:
-      genast(desc = newLit(test.description), testCall, expected = generateExpected(test.expected)):
+      genast(desc = newLit(test.description),
+             testCall = generateInputs(test.input, test.property),
+             expected = generateExpected(test.expected)):
         test desc:
           check testCall == expected
     else:

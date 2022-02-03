@@ -1,0 +1,21 @@
+import
+  std / unittest
+
+import
+  resistor_color_duo
+
+suite "resistor-color-duo tests":
+  test "Brown and black":
+    check value(@["brown", "black"]) == 10
+  test "Blue and grey":
+    check value(@["blue", "grey"]) == 68
+  test "Yellow and violet":
+    check value(@["yellow", "violet"]) == 47
+  test "White and red":
+    check value(@["white", "red"]) == 92
+  test "Orange and orange":
+    check value(@["orange", "orange"]) == 33
+  test "Ignore additional colors":
+    check value(@["green", "brown", "orange"]) == 51
+  test "Black and brown, one-digit":
+    check value(@["black", "brown"]) == 1

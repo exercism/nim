@@ -1,0 +1,19 @@
+import
+  std / unittest
+
+import
+  square_root
+
+suite "square-root tests":
+  test "root of 1":
+    check squareRoot(1) == 1
+  test "root of 4":
+    check squareRoot(4) == 2
+  test "root of 25":
+    check squareRoot(25) == 5
+  test "root of 81":
+    check squareRoot(81) == 9
+  test "root of 196":
+    check squareRoot(196) == 14
+  test "root of 65025":
+    check squareRoot(65025) == 255

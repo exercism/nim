@@ -1,210 +1,118 @@
-import unittest
-import allergies
+import
+  std / unittest
 
-suite "Eggs allergy":
+import
+  allergies
+
+suite "testing for eggs allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("eggs") == false
-
+    check allergicTo("eggs", 0) == false
   test "allergic only to eggs":
-    let allergies = Allergies(score: 1)
-    check allergies.isAllergicTo("eggs") == true
-
+    check allergicTo("eggs", 1) == true
   test "allergic to eggs and something else":
-    let allergies = Allergies(score: 3)
-    check allergies.isAllergicTo("eggs") == true
-
+    check allergicTo("eggs", 3) == true
   test "allergic to something, but not eggs":
-    let allergies = Allergies(score: 2)
-    check allergies.isAllergicTo("eggs") == false
-
+    check allergicTo("eggs", 2) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("eggs") == true
-
-suite "Peanuts allergy":
+    check allergicTo("eggs", 255) == true
+suite "testing for peanuts allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("peanuts") == false
-
+    check allergicTo("peanuts", 0) == false
   test "allergic only to peanuts":
-    let allergies = Allergies(score: 2)
-    check allergies.isAllergicTo("peanuts") == true
-
+    check allergicTo("peanuts", 2) == true
   test "allergic to peanuts and something else":
-    let allergies = Allergies(score: 7)
-    check allergies.isAllergicTo("peanuts") == true
-
+    check allergicTo("peanuts", 7) == true
   test "allergic to something, but not peanuts":
-    let allergies = Allergies(score: 5)
-    check allergies.isAllergicTo("peanuts") == false
-
+    check allergicTo("peanuts", 5) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("peanuts") == true
-
-suite "Shellfish allergy":
+    check allergicTo("peanuts", 255) == true
+suite "testing for shellfish allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("shellfish") == false
-
+    check allergicTo("shellfish", 0) == false
   test "allergic only to shellfish":
-    let allergies = Allergies(score: 4)
-    check allergies.isAllergicTo("shellfish") == true
-
+    check allergicTo("shellfish", 4) == true
   test "allergic to shellfish and something else":
-    let allergies = Allergies(score: 14)
-    check allergies.isAllergicTo("shellfish") == true
-
+    check allergicTo("shellfish", 14) == true
   test "allergic to something, but not shellfish":
-    let allergies = Allergies(score: 10)
-    check allergies.isAllergicTo("shellfish") == false
-
+    check allergicTo("shellfish", 10) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("shellfish") == true
-
-suite "Strawberries allergy":
+    check allergicTo("shellfish", 255) == true
+suite "testing for strawberries allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("strawberries") == false
-
+    check allergicTo("strawberries", 0) == false
   test "allergic only to strawberries":
-    let allergies = Allergies(score: 8)
-    check allergies.isAllergicTo("strawberries") == true
-
+    check allergicTo("strawberries", 8) == true
   test "allergic to strawberries and something else":
-    let allergies = Allergies(score: 28)
-    check allergies.isAllergicTo("strawberries") == true
-
+    check allergicTo("strawberries", 28) == true
   test "allergic to something, but not strawberries":
-    let allergies = Allergies(score: 20)
-    check allergies.isAllergicTo("strawberries") == false
-
+    check allergicTo("strawberries", 20) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("strawberries") == true
-
-suite "Tomatoes allergy":
+    check allergicTo("strawberries", 255) == true
+suite "testing for tomatoes allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("tomatoes") == false
-
+    check allergicTo("tomatoes", 0) == false
   test "allergic only to tomatoes":
-    let allergies = Allergies(score: 16)
-    check allergies.isAllergicTo("tomatoes") == true
-
+    check allergicTo("tomatoes", 16) == true
   test "allergic to tomatoes and something else":
-    let allergies = Allergies(score: 56)
-    check allergies.isAllergicTo("tomatoes") == true
-
+    check allergicTo("tomatoes", 56) == true
   test "allergic to something, but not tomatoes":
-    let allergies = Allergies(score: 40)
-    check allergies.isAllergicTo("tomatoes") == false
-
+    check allergicTo("tomatoes", 40) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("tomatoes") == true
-
-suite "Chocolate allergy":
+    check allergicTo("tomatoes", 255) == true
+suite "testing for chocolate allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("chocolate") == false
-
+    check allergicTo("chocolate", 0) == false
   test "allergic only to chocolate":
-    let allergies = Allergies(score: 32)
-    check allergies.isAllergicTo("chocolate") == true
-
+    check allergicTo("chocolate", 32) == true
   test "allergic to chocolate and something else":
-    let allergies = Allergies(score: 112)
-    check allergies.isAllergicTo("chocolate") == true
-
+    check allergicTo("chocolate", 112) == true
   test "allergic to something, but not chocolate":
-    let allergies = Allergies(score: 80)
-    check allergies.isAllergicTo("chocolate") == false
-
+    check allergicTo("chocolate", 80) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("chocolate") == true
-
-suite "Pollen allergy":
+    check allergicTo("chocolate", 255) == true
+suite "testing for pollen allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("pollen") == false
-
+    check allergicTo("pollen", 0) == false
   test "allergic only to pollen":
-    let allergies = Allergies(score: 64)
-    check allergies.isAllergicTo("pollen") == true
-
+    check allergicTo("pollen", 64) == true
   test "allergic to pollen and something else":
-    let allergies = Allergies(score: 224)
-    check allergies.isAllergicTo("pollen") == true
-
+    check allergicTo("pollen", 224) == true
   test "allergic to something, but not pollen":
-    let allergies = Allergies(score: 160)
-    check allergies.isAllergicTo("pollen") == false
-
+    check allergicTo("pollen", 160) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("pollen") == true
-
-suite "Cats allergy":
+    check allergicTo("pollen", 255) == true
+suite "testing for cats allergy":
   test "not allergic to anything":
-    let allergies = Allergies(score: 0)
-    check allergies.isAllergicTo("cats") == false
-
+    check allergicTo("cats", 0) == false
   test "allergic only to cats":
-    let allergies = Allergies(score: 128)
-    check allergies.isAllergicTo("cats") == true
-
+    check allergicTo("cats", 128) == true
   test "allergic to cats and something else":
-    let allergies = Allergies(score: 192)
-    check allergies.isAllergicTo("cats") == true
-
+    check allergicTo("cats", 192) == true
   test "allergic to something, but not cats":
-    let allergies = Allergies(score: 64)
-    check allergies.isAllergicTo("cats") == false
-
+    check allergicTo("cats", 64) == false
   test "allergic to everything":
-    let allergies = Allergies(score: 255)
-    check allergies.isAllergicTo("cats") == true
-
-suite "List the allergies":
+    check allergicTo("cats", 255) == true
+suite "list when:":
   test "no allergies":
-    let allergies = Allergies(score: 0)
-    check allergies.lst.len == 0
-
+    check list(0) == newSeq[int]()
   test "just eggs":
-    let allergies = Allergies(score: 1)
-    check allergies.lst == @["eggs"]
-
+    check list(1) == @["eggs"]
   test "just peanuts":
-    let allergies = Allergies(score: 2)
-    check allergies.lst == @["peanuts"]
-
+    check list(2) == @["peanuts"]
   test "just strawberries":
-    let allergies = Allergies(score: 8)
-    check allergies.lst == @["strawberries"]
-
+    check list(8) == @["strawberries"]
   test "eggs and peanuts":
-    let allergies = Allergies(score: 3)
-    check allergies.lst == @["eggs", "peanuts"]
-
+    check list(3) == @["eggs", "peanuts"]
   test "more than eggs but not peanuts":
-    let allergies = Allergies(score: 5)
-    check allergies.lst == @["eggs", "shellfish"]
-
+    check list(5) == @["eggs", "shellfish"]
   test "lots of stuff":
-    let allergies = Allergies(score: 248)
-    check allergies.lst == @["strawberries", "tomatoes", "chocolate",
-                             "pollen", "cats"]
-
+    check list(248) ==
+        @["strawberries", "tomatoes", "chocolate", "pollen", "cats"]
   test "everything":
-    let allergies = Allergies(score: 255)
-    check allergies.lst == @["eggs", "peanuts", "shellfish", "strawberries",
-                             "tomatoes", "chocolate", "pollen", "cats"]
-
+    check list(255) ==
+        @["eggs", "peanuts", "shellfish", "strawberries", "tomatoes",
+          "chocolate", "pollen", "cats"]
   test "no allergen score parts":
-    let allergies = Allergies(score: 509)
-    check allergies.lst == @["eggs", "shellfish", "strawberries", "tomatoes",
-                             "chocolate", "pollen", "cats"]
+    check list(509) ==
+        @["eggs", "shellfish", "strawberries", "tomatoes", "chocolate",
+          "pollen", "cats"]

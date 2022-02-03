@@ -1,0 +1,29 @@
+import
+  std / unittest
+
+import
+  trinary
+
+suite "trinary tests":
+  test "trinary 1 is decimal 1":
+    check toDecimal(1) == 1
+  test "trinary 2 is decimal 2":
+    check toDecimal(2) == 2
+  test "trinary 10 is decimal 3":
+    check toDecimal(10) == 3
+  test "trinary 11 is decimal 4":
+    check toDecimal(11) == 4
+  test "trinary 100 is decimal 9":
+    check toDecimal(100) == 9
+  test "trinary 112 is decimal 14":
+    check toDecimal(112) == 14
+  test "trinary 222 is decimal 26":
+    check toDecimal(222) == 26
+  test "trinary 1122000120 is decimal 32091":
+    check toDecimal(1122000120) == 32091
+  test "invalid trinary digits returns 0":
+    check toDecimal("1234") == 0
+  test "invalid word as input returns 0":
+    check toDecimal("carrot") == 0
+  test "invalid numbers with letters as input returns 0":
+    check toDecimal("0a1b2c") == 0

@@ -1,0 +1,11 @@
+import
+  std / unittest
+
+import
+  zebra_puzzle
+
+suite "zebra-puzzle tests":
+  test "resident who drinks water":
+    check drinksWater() == "Norwegian"
+  test "resident who owns zebra":
+    check ownsZebra() == "Japanese"

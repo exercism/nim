@@ -1,16 +1,17 @@
-import unittest
-import resistor_color
+import
+  std / unittest
 
-suite "Resistor Color":
-  test "black":
-    check colorCode(Black) == 0
+import
+  resistor_color
 
-  test "white":
-    check colorCode(White) == 9
-
-  test "orange":
-    check colorCode(Orange) == 3
-
-  test "all resistor colors":
-    check colors() == [Black, Brown, Red, Orange, Yellow,
-                       Green, Blue, Violet, Grey, White]
+suite "Color codes":
+  test "Black":
+    check colorCode("black") == 0
+  test "White":
+    check colorCode("white") == 9
+  test "Orange":
+    check colorCode("orange") == 3
+  test "Colors":
+    check colors() ==
+        @["black", "brown", "red", "orange", "yellow", "green", "blue",
+          "violet", "grey", "white"]

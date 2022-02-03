@@ -1,0 +1,40 @@
+import
+  std / unittest
+
+import
+  rectangles
+
+suite "rectangles tests":
+  test "no rows":
+    check rectangles(newSeq[int]()) == 0
+  test "no columns":
+    check rectangles(@[""]) == 0
+  test "no rectangles":
+    check rectangles(@[" "]) == 0
+  test "one rectangle":
+    check rectangles(@["+-+", "| |", "+-+"]) == 1
+  test "two rectangles without shared parts":
+    check rectangles(@["  +-+", "  | |", "+-+-+", "| |  ", "+-+  "]) == 2
+  test "five rectangles with shared parts":
+    check rectangles(@["  +-+", "  | |", "+-+-+", "| | |", "+-+-+"]) == 5
+  test "rectangle of height 1 is counted":
+    check rectangles(@["+--+", "+--+"]) == 1
+  test "rectangle of width 1 is counted":
+    check rectangles(@["++", "||", "++"]) == 1
+  test "1x1 square is counted":
+    check rectangles(@["++", "++"]) == 1
+  test "only complete rectangles are counted":
+    check rectangles(@["  +-+", "    |", "+-+-+", "| | -", "+-+-+"]) == 1
+  test "rectangles can be of different sizes":
+    check rectangles(@["+------+----+", "|      |    |", "+---+--+    |",
+                       "|   |       |", "+---+-------+"]) ==
+        3
+  test "corner is required for a rectangle to be complete":
+    check rectangles(@["+------+----+", "|      |    |", "+------+    |",
+                       "|   |       |", "+---+-------+"]) ==
+        2
+  test "large input with many rectangles":
+    check rectangles(@["+---+--+----+", "|   +--+----+", "+---+--+    |",
+                       "|   +--+----+", "+---+--+--+-+", "+---+--+--+-+",
+                       "+------+  | |", "          +-+"]) ==
+        60

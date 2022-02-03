@@ -1,0 +1,149 @@
+import
+  std / unittest
+
+import
+  grep
+
+suite "Test grepping a single file":
+  test "One file, one match, no flags":
+    check grep("Agamemnon", newSeq[int](), @["iliad.txt"]) ==
+        @["Of Atreus, Agamemnon, King of men."]
+  test "One file, one match, print line numbers flag":
+    check grep("Forbidden", @["-n"], @["paradise-lost.txt"]) ==
+        @["2:Of that Forbidden Tree, whose mortal tast"]
+  test "One file, one match, case-insensitive flag":
+    check grep("FORBIDDEN", @["-i"], @["paradise-lost.txt"]) ==
+        @["Of that Forbidden Tree, whose mortal tast"]
+  test "One file, one match, print file names flag":
+    check grep("Forbidden", @["-l"], @["paradise-lost.txt"]) ==
+        @["paradise-lost.txt"]
+  test "One file, one match, match entire lines flag":
+    check grep("With loss of Eden, till one greater Man", @["-x"],
+               @["paradise-lost.txt"]) ==
+        @["With loss of Eden, till one greater Man"]
+  test "One file, one match, multiple flags":
+    check grep("OF ATREUS, Agamemnon, KIng of MEN.", @["-n", "-i", "-x"],
+               @["iliad.txt"]) ==
+        @["9:Of Atreus, Agamemnon, King of men."]
+  test "One file, several matches, no flags":
+    check grep("may", newSeq[int](), @["midsummer-night.txt"]) ==
+        @["Nor how it may concern my modesty,",
+          "But I beseech your grace that I may know",
+          "The worst that may befall me in this case,"]
+  test "One file, several matches, print line numbers flag":
+    check grep("may", @["-n"], @["midsummer-night.txt"]) ==
+        @["3:Nor how it may concern my modesty,",
+          "5:But I beseech your grace that I may know",
+          "6:The worst that may befall me in this case,"]
+  test "One file, several matches, match entire lines flag":
+    check grep("may", @["-x"], @["midsummer-night.txt"]) == newSeq[int]()
+  test "One file, several matches, case-insensitive flag":
+    check grep("ACHILLES", @["-i"], @["iliad.txt"]) ==
+        @["Achilles sing, O Goddess! Peleus\' son;",
+          "The noble Chief Achilles from the son"]
+  test "One file, several matches, inverted flag":
+    check grep("Of", @["-v"], @["paradise-lost.txt"]) ==
+        @["Brought Death into the World, and all our woe,",
+          "With loss of Eden, till one greater Man",
+          "Restore us, and regain the blissful Seat,",
+          "Sing Heav\'nly Muse, that on the secret top",
+          "That Shepherd, who first taught the chosen Seed"]
+  test "One file, no matches, various flags":
+    check grep("Gandalf", @["-n", "-l", "-x", "-i"], @["iliad.txt"]) ==
+        newSeq[int]()
+  test "One file, one match, file flag takes precedence over line flag":
+    check grep("ten", @["-n", "-l"], @["iliad.txt"]) == @["iliad.txt"]
+  test "One file, several matches, inverted and match entire lines flags":
+    check grep("Illustrious into Ades premature,", @["-x", "-v"],
+               @["iliad.txt"]) ==
+        @["Achilles sing, O Goddess! Peleus\' son;",
+          "His wrath pernicious, who ten thousand woes",
+          "Caused to Achaia\'s host, sent many a soul",
+          "And Heroes gave (so stood the will of Jove)",
+          "To dogs and to all ravening fowls a prey,",
+          "When fierce dispute had separated once",
+          "The noble Chief Achilles from the son",
+          "Of Atreus, Agamemnon, King of men."]
+suite "Test grepping multiples files at once":
+  test "Multiple files, one match, no flags":
+    check grep("Agamemnon", newSeq[int](),
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["iliad.txt:Of Atreus, Agamemnon, King of men."]
+  test "Multiple files, several matches, no flags":
+    check grep("may", newSeq[int](),
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["midsummer-night.txt:Nor how it may concern my modesty,",
+          "midsummer-night.txt:But I beseech your grace that I may know",
+          "midsummer-night.txt:The worst that may befall me in this case,"]
+  test "Multiple files, several matches, print line numbers flag":
+    check grep("that", @["-n"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["midsummer-night.txt:5:But I beseech your grace that I may know",
+          "midsummer-night.txt:6:The worst that may befall me in this case,",
+          "paradise-lost.txt:2:Of that Forbidden Tree, whose mortal tast",
+          "paradise-lost.txt:6:Sing Heav\'nly Muse, that on the secret top"]
+  test "Multiple files, one match, print file names flag":
+    check grep("who", @["-l"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["iliad.txt", "paradise-lost.txt"]
+  test "Multiple files, several matches, case-insensitive flag":
+    check grep("TO", @["-i"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["iliad.txt:Caused to Achaia\'s host, sent many a soul",
+          "iliad.txt:Illustrious into Ades premature,",
+          "iliad.txt:And Heroes gave (so stood the will of Jove)",
+          "iliad.txt:To dogs and to all ravening fowls a prey,",
+          "midsummer-night.txt:I do entreat your grace to pardon me.",
+          "midsummer-night.txt:In such a presence here to plead my thoughts;",
+          "midsummer-night.txt:If I refuse to wed Demetrius.",
+          "paradise-lost.txt:Brought Death into the World, and all our woe,",
+          "paradise-lost.txt:Restore us, and regain the blissful Seat,",
+          "paradise-lost.txt:Sing Heav\'nly Muse, that on the secret top"]
+  test "Multiple files, several matches, inverted flag":
+    check grep("a", @["-v"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["iliad.txt:Achilles sing, O Goddess! Peleus\' son;",
+          "iliad.txt:The noble Chief Achilles from the son",
+          "midsummer-night.txt:If I refuse to wed Demetrius."]
+  test "Multiple files, one match, match entire lines flag":
+    check grep("But I beseech your grace that I may know", @["-x"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["midsummer-night.txt:But I beseech your grace that I may know"]
+  test "Multiple files, one match, multiple flags":
+    check grep("WITH LOSS OF EDEN, TILL ONE GREATER MAN", @["-n", "-i", "-x"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["paradise-lost.txt:4:With loss of Eden, till one greater Man"]
+  test "Multiple files, no matches, various flags":
+    check grep("Frodo", @["-n", "-l", "-x", "-i"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        newSeq[int]()
+  test "Multiple files, several matches, file flag takes precedence over line number flag":
+    check grep("who", @["-n", "-l"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["iliad.txt", "paradise-lost.txt"]
+  test "Multiple files, several matches, inverted and match entire lines flags":
+    check grep("Illustrious into Ades premature,", @["-x", "-v"],
+               @["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]) ==
+        @["iliad.txt:Achilles sing, O Goddess! Peleus\' son;",
+          "iliad.txt:His wrath pernicious, who ten thousand woes",
+          "iliad.txt:Caused to Achaia\'s host, sent many a soul",
+          "iliad.txt:And Heroes gave (so stood the will of Jove)",
+          "iliad.txt:To dogs and to all ravening fowls a prey,",
+          "iliad.txt:When fierce dispute had separated once",
+          "iliad.txt:The noble Chief Achilles from the son",
+          "iliad.txt:Of Atreus, Agamemnon, King of men.",
+          "midsummer-night.txt:I do entreat your grace to pardon me.",
+          "midsummer-night.txt:I know not by what power I am made bold,",
+          "midsummer-night.txt:Nor how it may concern my modesty,",
+          "midsummer-night.txt:In such a presence here to plead my thoughts;",
+          "midsummer-night.txt:But I beseech your grace that I may know",
+          "midsummer-night.txt:The worst that may befall me in this case,",
+          "midsummer-night.txt:If I refuse to wed Demetrius.",
+          "paradise-lost.txt:Of Mans First Disobedience, and the Fruit",
+          "paradise-lost.txt:Of that Forbidden Tree, whose mortal tast",
+          "paradise-lost.txt:Brought Death into the World, and all our woe,",
+          "paradise-lost.txt:With loss of Eden, till one greater Man",
+          "paradise-lost.txt:Restore us, and regain the blissful Seat,",
+          "paradise-lost.txt:Sing Heav\'nly Muse, that on the secret top",
+          "paradise-lost.txt:Of Oreb, or of Sinai, didst inspire",
+          "paradise-lost.txt:That Shepherd, who first taught the chosen Seed"]

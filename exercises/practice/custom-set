@@ -1,0 +1,91 @@
+import
+  std / unittest
+
+import
+  custom_set
+
+suite "Returns true if the set contains no elements":
+  test "sets with no elements are empty":
+    check empty(newSeq[int]()) == true
+  test "sets with elements are not empty":
+    check empty(@[1]) == false
+suite "Sets can report if they contain an element":
+  test "nothing is contained in an empty set":
+    check contains(newSeq[int](), 1) == false
+  test "when the element is in the set":
+    check contains(@[1, 2, 3], 1) == true
+  test "when the element is not in the set":
+    check contains(@[1, 2, 3], 4) == false
+suite "A set is a subset if all of its elements are contained in the other set":
+  test "empty set is a subset of another empty set":
+    check subset(newSeq[int](), newSeq[int]()) == true
+  test "empty set is a subset of non-empty set":
+    check subset(newSeq[int](), @[1]) == true
+  test "non-empty set is not a subset of empty set":
+    check subset(@[1], newSeq[int]()) == false
+  test "set is a subset of set with exact same elements":
+    check subset(@[1, 2, 3], @[1, 2, 3]) == true
+  test "set is a subset of larger set with same elements":
+    check subset(@[1, 2, 3], @[4, 1, 2, 3]) == true
+  test "set is not a subset of set that does not contain its elements":
+    check subset(@[1, 2, 3], @[4, 1, 3]) == false
+suite "Sets are disjoint if they share no elements":
+  test "the empty set is disjoint with itself":
+    check disjoint(newSeq[int](), newSeq[int]()) == true
+  test "empty set is disjoint with non-empty set":
+    check disjoint(newSeq[int](), @[1]) == true
+  test "non-empty set is disjoint with empty set":
+    check disjoint(@[1], newSeq[int]()) == true
+  test "sets are not disjoint if they share an element":
+    check disjoint(@[1, 2], @[2, 3]) == false
+  test "sets are disjoint if they share no elements":
+    check disjoint(@[1, 2], @[3, 4]) == true
+suite "Sets with the same elements are equal":
+  test "empty sets are equal":
+    check equal(newSeq[int](), newSeq[int]()) == true
+  test "empty set is not equal to non-empty set":
+    check equal(newSeq[int](), @[1, 2, 3]) == false
+  test "non-empty set is not equal to empty set":
+    check equal(@[1, 2, 3], newSeq[int]()) == false
+  test "sets with the same elements are equal":
+    check equal(@[1, 2], @[2, 1]) == true
+  test "sets with different elements are not equal":
+    check equal(@[1, 2, 3], @[1, 2, 4]) == false
+  test "set is not equal to larger set with same elements":
+    check equal(@[1, 2, 3], @[1, 2, 3, 4]) == false
+suite "Unique elements can be added to a set":
+  test "add to empty set":
+    check add(newSeq[int](), 3) == @[3]
+  test "add to non-empty set":
+    check add(@[1, 2, 4], 3) == @[1, 2, 3, 4]
+  test "adding an existing element does not change the set":
+    check add(@[1, 2, 3], 3) == @[1, 2, 3]
+suite "Intersection returns a set of all shared elements":
+  test "intersection of two empty sets is an empty set":
+    check intersection(newSeq[int](), newSeq[int]()) == newSeq[int]()
+  test "intersection of an empty set and non-empty set is an empty set":
+    check intersection(newSeq[int](), @[3, 2, 5]) == newSeq[int]()
+  test "intersection of a non-empty set and an empty set is an empty set":
+    check intersection(@[1, 2, 3, 4], newSeq[int]()) == newSeq[int]()
+  test "intersection of two sets with no shared elements is an empty set":
+    check intersection(@[1, 2, 3], @[4, 5, 6]) == newSeq[int]()
+  test "intersection of two sets with shared elements is a set of the shared elements":
+    check intersection(@[1, 2, 3, 4], @[3, 2, 5]) == @[2, 3]
+suite "Difference (or Complement) of a set is a set of all elements that are only in the first set":
+  test "difference of two empty sets is an empty set":
+    check difference(newSeq[int](), newSeq[int]()) == newSeq[int]()
+  test "difference of empty set and non-empty set is an empty set":
+    check difference(newSeq[int](), @[3, 2, 5]) == newSeq[int]()
+  test "difference of a non-empty set and an empty set is the non-empty set":
+    check difference(@[1, 2, 3, 4], newSeq[int]()) == @[1, 2, 3, 4]
+  test "difference of two non-empty sets is a set of elements that are only in the first set":
+    check difference(@[3, 2, 1], @[2, 4]) == @[1, 3]
+suite "Union returns a set of all elements in either set":
+  test "union of empty sets is an empty set":
+    check union(newSeq[int](), newSeq[int]()) == newSeq[int]()
+  test "union of an empty set and non-empty set is the non-empty set":
+    check union(newSeq[int](), @[2]) == @[2]
+  test "union of a non-empty set and empty set is the non-empty set":
+    check union(@[1, 3], newSeq[int]()) == @[1, 3]
+  test "union of non-empty sets contains all unique elements":
+    check union(@[1, 3], @[2, 3]) == @[3, 2, 1]

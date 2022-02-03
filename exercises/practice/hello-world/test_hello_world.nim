@@ -1,6 +1,9 @@
-import unittest
-import hello_world
+import
+  std / unittest
 
-suite "Hello World":
-  test "say hi!":
+import
+  hello_world
+
+suite "hello-world tests":
+  test "Say Hi!":
     check hello() == "Hello, World!"

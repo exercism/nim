@@ -1,0 +1,43 @@
+import
+  std / unittest
+
+import
+  transpose
+
+suite "transpose tests":
+  test "empty string":
+    check transpose(newSeq[int]()) == newSeq[int]()
+  test "two characters in a row":
+    check transpose(@["A1"]) == @["A", "1"]
+  test "two characters in a column":
+    check transpose(@["A", "1"]) == @["A1"]
+  test "simple":
+    check transpose(@["ABC", "123"]) == @["A1", "B2", "C3"]
+  test "single line":
+    check transpose(@["Single line."]) ==
+        @["S", "i", "n", "g", "l", "e", " ", "l", "i", "n", "e", "."]
+  test "first line longer than second line":
+    check transpose(@["The fourth line.", "The fifth line."]) ==
+        @["TT", "hh", "ee", "  ", "ff", "oi", "uf", "rt", "th", "h ", " l",
+          "li", "in", "ne", "e.", "."]
+  test "second line longer than first line":
+    check transpose(@["The first line.", "The second line."]) ==
+        @["TT", "hh", "ee", "  ", "fs", "ie", "rc", "so", "tn", " d", "l ",
+          "il", "ni", "en", ".e", " ."]
+  test "mixed line length":
+    check transpose(@["The longest line.", "A long line.", "A longer line.",
+                      "A line."]) ==
+        @["TAAA", "h   ", "elll", " ooi", "lnnn", "ogge", "n e.", "glr", "ei ",
+          "snl", "tei", " .n", "l e", "i .", "n", "e", "."]
+  test "square":
+    check transpose(@["HEART", "EMBER", "ABUSE", "RESIN", "TREND"]) ==
+        @["HEART", "EMBER", "ABUSE", "RESIN", "TREND"]
+  test "rectangle":
+    check transpose(@["FRACTURE", "OUTLINED", "BLOOMING", "SEPTETTE"]) ==
+        @["FOBS", "RULE", "ATOP", "CLOT", "TIME", "UNIT", "RENT", "EDGE"]
+  test "triangle":
+    check transpose(@["T", "EE", "AAA", "SSSS", "EEEEE", "RRRRRR"]) ==
+        @["TEASER", " EASER", "  ASER", "   SER", "    ER", "     R"]
+  test "jagged triangle":
+    check transpose(@["11", "2", "3333", "444", "555555", "66666"]) ==
+        @["123456", "1 3456", "  3456", "  3 56", "    56", "    5"]
