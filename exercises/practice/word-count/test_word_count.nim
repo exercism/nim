@@ -88,6 +88,13 @@ suite "Word Count":
       output["large"] == 2
       output["and"] == 1
 
+  test "multiple characters after the apostrophe":
+    let output = countWords("They're here !!")
+    check:
+      output.len == 2
+      output["They're"] == 1
+      output["here"] == 1
+
   test "substrings from the beginning":
     let output = countWords("Joe can't tell between app, apple and a.")
     check:
