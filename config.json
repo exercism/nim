@@ -948,7 +948,7 @@
   ],
   "key_features": [
     {
-      "title": "Strong Static Typing",
+      "title": "Strong static typing",
       "content": "Modern statically typed system with type inference, tuples, generics and sum types.",
       "icon": "statically-typed"
     },
@@ -973,7 +973,7 @@
       "icon": "cross-platform"
     },
     {
-      "title": "Customizable Memory Management",
+      "title": "Customizable memory management",
       "content": "Automatic overloadable reference counting and a cycle detector for no garbage collection at all.",
       "icon": "garbage-collected"
     }
