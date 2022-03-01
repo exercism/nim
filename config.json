@@ -949,12 +949,12 @@
   "key_features": [
     {
       "title": "Strong static typing",
-      "content": "Modern statically typed system with type inference, tuples, generics and sum types.",
+      "content": "Modern static type system with type inference, tuples, generics and sum types.",
       "icon": "statically-typed"
     },
     {
       "title": "Fast",
-      "content": "Compiles to C/C++/ObjC with no run time or virtual machine for blazing fast results.",
+      "content": "Compiles to C/C++/ObjC with no runtime or virtual machine for blazing fast results.",
       "icon": "fast"
     },
     {
@@ -963,13 +963,13 @@
       "icon": "expressive"
     },
     {
-      "title": "Interopable",
-      "content": "Easy FFI with the target languages (C/C++/ObjC/Javascript) for execellent interop.",
+      "title": "Interoperable",
+      "content": "Easy FFI with the target languages (C/C++/ObjC/JavaScript) for excellent interop.",
       "icon": "interop"
     },
     {
       "title": "Cross-platform",
-      "content": "Usage on and cross compilation to all major desktop OSs and embedded devices.",
+      "content": "Runs on (and cross-compiles to) all major desktop OSs and embedded devices.",
       "icon": "cross-platform"
     },
     {
