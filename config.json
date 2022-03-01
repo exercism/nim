@@ -973,7 +973,7 @@
       "icon": "cross-platform"
     },
     {
-      "title": "Customizable memory management",
+      "title": "Custom Memory Management",
       "content": "Automatic overloadable reference counting and a cycle detector for no garbage collection at all.",
       "icon": "garbage-collected"
     }
