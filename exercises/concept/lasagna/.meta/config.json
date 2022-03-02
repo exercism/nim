@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "basics.nim"
+      "lasagna.nim"
     ],
     "test": [
-      "test_basics.nim"
+      "test_lasagna.nim"
     ],
     "exemplar": [
       ".meta/exemplar.nim"
@@ -17,5 +17,5 @@
     "javascript/lasagna",
     "python/guidos-gorgeous-lasagna"
   ],
-  "blurb": "TODO: add blurb for basics exercise"
+  "blurb": "TODO: add blurb for lasagna exercise"
 }
