@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout exercism/nim
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set BRANCH environmental variable
         shell: bash # Changes the default shell on Windows.
