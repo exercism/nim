@@ -38,7 +38,7 @@
         "slug": "lasagna",
         "name": "Lasagna",
         "uuid": "3d6fc9bc-c451-4ae5-b322-3ae805c66eb0",
-        "concepts": [],
+        "concepts": ["basics"],
         "prerequisites": [],
         "status": "wip"
       }
@@ -939,7 +939,13 @@
       }
     ]
   },
-  "concepts": [],
+  "concepts": [
+    {
+      "uuid": "79a8d1f1-3cb7-4525-8445-4b909e5ae212",
+      "slug": "basics",
+      "name": "Basics"
+    }
+  ],
   "key_features": [],
   "tags": [
     "paradigm/imperative",
