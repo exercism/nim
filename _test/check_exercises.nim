@@ -43,7 +43,7 @@
 ## │   └── test_yacht.nim
 ## ```
 
-import critbits, os, osproc, parseopt, streams, strscans, strutils, terminal
+import critbits, os, osproc, parseopt, sequtils, streams, strscans, strutils, terminal
 
 proc writeHelp =
   echo """Usage:
@@ -321,9 +321,7 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
       if k in implementedSlugs:
         result.slugs.incl(k, implementedSlugs[k]) # Test specified exercises in the order given.
       else:
-        var matches = newSeq[(string, ExerciseKind)]()
-        for match, kind in implementedSlugs.pairsWithPrefix(k):
-          matches &= (match, kind)
+        let matches = toSeq(implementedSlugs.pairsWithPrefix(k))
         case matches.len
         of 0:
           stdout.styledWrite(fgRed, "Error: ")
