@@ -1,7 +1,7 @@
 import std/unittest
 import lasagna
 
-suite "Lasgna Tests":
+suite "Lasagna Tests":
   test "expectedMinutesInOven is the right value and exported":
     check expectedMinutesInOven == 40
 
