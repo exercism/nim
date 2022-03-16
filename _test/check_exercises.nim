@@ -64,7 +64,7 @@ Options:
 
 let
   appDir = getAppDir()
-  exercisesDir = appDir / ".." / "exercises" / "practice"
+  exercisesDir = appDir / ".." / "exercises"
 var
   outDir: string
   testDir: string
@@ -77,7 +77,11 @@ var
 # allows lookups by prefix so we can neatly support abbreviated exercise names
 # as command-line arguments (e.g. "lar" for "largest-series-product").
 type
-  Slugs = CritBitTree[void]
+  ExerciseKind = enum
+    ekNone, ekConcept = "concept", ekPractice = "practice"
+  SolutionFilename = enum
+    sfDummy, sfConcept = "exemplar.nim", sfPractice = "example.nim"
+  Slugs = CritBitTree[ExerciseKind]
 
 proc getImplementedSlugs: Slugs =
   ## Returns the names of the implemented exercises.
@@ -85,9 +89,12 @@ proc getImplementedSlugs: Slugs =
   ## Let us consider an "implemented exercise" as one with a correctly named
   ## test file, rather than one with an entry in `config.json`. This can be more
   ## convenient when implementing new exercises.
-  for _, dir in walkDir(exercisesDir):
+  for dir in walkDirs(exercisesDir / "concept" / "*"):
     for file in walkFiles(dir / "test_*.nim"):
-      result.incl(dir.splitPath().tail) # e.g. "hello-world"
+      result.incl(dir.splitPath().tail, ekConcept) # e.g. "hello-world"
+  for dir in walkDirs(exercisesDir / "practice" / "*"):
+    for file in walkFiles(dir / "test_*.nim"):
+      result.incl(dir.splitPath().tail, ekPractice) # e.g. "hello-world"
 
 type
   Option = enum
@@ -164,16 +171,16 @@ proc prepareTests(slugs: Slugs) =
   ## compiler warnings and hints at the top of the output.
   var allTests = "import ../tests/[\n"
 
-  for slug in slugs:
+  for slug, kind in slugs:
     let slugUnder = slug.replace("-", "_")
     let testName = "test_" & slugUnder # e.g. "test_hello_world"
     allTests &= "  " & testName & ",\n"
-    let dir = exercisesDir / slug
+    let dir = exercisesDir / $kind / slug
 
     # Copy and rename the example solution. For example:
     #   from: `exercises/practice/bob/.meta/example.nim`
     #   to:   `outDir/src/check_exercises/bob.nim`
-    copyFile(dir / ".meta" / "example.nim", srcDir / slugUnder & ".nim")
+    copyFile(dir / ".meta" / $SolutionFilename(kind.ord), srcDir / slugUnder & ".nim")
 
     # Copy a wrapped version of the test. For example:
     #   from: `exercises/practice/bob/test_bob.nim`
@@ -312,18 +319,18 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
         writeHelp()
     of cmdArgument:
       if k in implementedSlugs:
-        result.slugs.incl(k) # Test specified exercises in the order given.
+        result.slugs.incl(k, implementedSlugs[k]) # Test specified exercises in the order given.
       else:
-        var matches = newSeq[string]()
-        for match in implementedSlugs.keysWithPrefix(k):
-          matches &= match
+        var matches = newSeq[(string, ExerciseKind)]()
+        for match, kind in implementedSlugs.pairsWithPrefix(k):
+          matches &= (match, kind)
         case matches.len
         of 0:
           stdout.styledWrite(fgRed, "Error: ")
           stdout.write("unrecognized exercise name: '" & key & "'\n\n")
           writeHelp()
         of 1:
-          result.slugs.incl(matches[0])
+          result.slugs.incl(matches[0][0], matches[0][1])
         else:
           stdout.styledWrite(fgRed, "Error: ")
           let wording = matches.join("\n  ")
