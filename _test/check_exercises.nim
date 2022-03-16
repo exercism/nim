@@ -213,8 +213,8 @@ proc quietRun: int =
   var
     p = startProcess("nim", args = args, options = {poStdErrToStdOut, poUsePath})
     outp = outputStream(p)
-    line = newStringOfCap(200).TaintedString
-    nextLine = newStringOfCap(200).TaintedString
+    line = newStringOfCap(200)
+    nextLine = newStringOfCap(200)
     passed = newSeq[string]()
     failed = newSeq[string]()
   discard outp.readLine(nextLine)
