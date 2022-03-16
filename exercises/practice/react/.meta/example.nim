@@ -80,7 +80,7 @@ proc createCompute*(reactor: Reactor, inputs: seq[Cell], compute: ComputeFunc): 
   result.fValue = compute(vals)
 
 proc addCallback*(cell: ComputeCell, callback: CallbackFunc): CallbackHandle =
-  add(cell.callbacks, cell.nextCallbackHandle, callback)
+  cell.callbacks[cell.nextCallbackHandle] = callback
   result = cell.nextCallbackHandle
   inc(cell.nextCallbackHandle)
 
