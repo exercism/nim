@@ -67,10 +67,10 @@ let
   appDir = getAppDir()
   exercisesDir = appDir / ".." / "exercises"
 var
-  outDir: string
-  testDir: string
-  srcDir: string
-  allTestsPath: string
+  outDir = ""
+  testDir = ""
+  srcDir = ""
+  allTestsPath = ""
 
 # Let us define the exercise names as a set of strings. This is simpler than
 # defining an `enum` of all exercises (or all implemented exercises). We can use
