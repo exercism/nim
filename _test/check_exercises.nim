@@ -180,7 +180,8 @@ proc prepareTests(slugs: Slugs) =
     # Copy and rename the example solution. For example:
     #   from: `exercises/practice/bob/.meta/example.nim`
     #   to:   `outDir/src/check_exercises/bob.nim`
-    copyFile(dir / ".meta" / $SolutionFilename(kind.ord), srcDir / &"{slugUnder}.nim")
+    copyFile(dir / ".meta" / $SolutionFilename(kind.ord),
+             srcDir / &"{slugUnder}.nim")
 
     # Copy a wrapped version of the test. For example:
     #   from: `exercises/practice/bob/test_bob.nim`
@@ -319,7 +320,8 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
         writeHelp()
     of cmdArgument:
       if k in implementedSlugs:
-        result.slugs.incl(k, implementedSlugs[k]) # Test specified exercises in the order given.
+        # Test specified exercises in the order given.
+        result.slugs.incl(k, implementedSlugs[k])
       else:
         let matches = toSeq(implementedSlugs.pairsWithPrefix(k))
         case matches.len
