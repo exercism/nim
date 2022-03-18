@@ -136,29 +136,29 @@ proc wrapTest(file: string, slug: string): string =
   # Add one indentation layer to all lines from "suite" onwards.
   for line in lines(file):
     if line.len == 0:
-      result &= "\n"
+      result.add "\n"
     elif line.startsWith("suite \""):
       # Put all the tests for an exercise into one suite.
       if not inSuite:
         inSuite = true
-        result &= "proc main =\n"
-        result &= "  suite \"" & slug & "\":\n"
+        result.add "proc main =\n"
+        result.add "  suite \"" & slug & "\":\n"
       # If there are multiple suites, keep the suite names as comments only.
       if numSuites > 1:
-        result &= "    # " & line[7 .. ^3] & "\n"
+        result.add "    # " & line[7 .. ^3] & "\n"
     # Enable bonus tests that are disabled by default.
     elif line.scanf("$sconst runBonusTest"): # Also support `runBonusTests`.
       let indent = if inSuite: "  " else: ""
-      result &= indent & line.split('=')[0] & "= true\n"
+      result.add indent & line.split('=')[0] & "= true\n"
     elif inSuite:
-      result &= "  " & line & "\n"
+      result.add "  " & line & "\n"
     else:
-      result &= line & "\n"
-  result &= "\nmain()\n"
+      result.add line & "\n"
+  result.add "\nmain()\n"
   # The below suppresses an "unused import" warning that is otherwise generated
   # for each exercise. We run each module's `main` proc when importing, but we
   # don't export any of its symbols.
-  result &= "{.used.}\n"
+  result.add "{.used.}\n"
 
 proc prepareTests(slugs: Slugs) =
   ## Copies the example solution and a wrapped test file for the exercises in
@@ -173,7 +173,7 @@ proc prepareTests(slugs: Slugs) =
   for slug, kind in slugs:
     let slugUnder = slug.replace("-", "_")
     let testName = "test_" & slugUnder # e.g. "test_hello_world"
-    allTests &= "  " & testName & ",\n"
+    allTests.add "  " & testName & ",\n"
     let dir = exercisesDir / $kind / slug
 
     # Copy and rename the example solution. For example:
@@ -187,7 +187,7 @@ proc prepareTests(slugs: Slugs) =
     let wrappedTest = wrapTest(dir / "test_" & slugUnder & ".nim", slug)
     writeFile(testDir / testName & ".nim", wrappedTest)
 
-  allTests &= "]\n"
+  allTests.add "]\n"
   writeFile(allTestsPath, allTests)
 
 proc quietRun: int =
@@ -239,13 +239,13 @@ proc quietRun: int =
       if line.startsWith(suiteStr):
         let slug = line[suiteStr.len .. ^1] # [Suite] is always followed by a slug.
         if nextLine.len == 0 or atEnd(outp):
-          passed &= slug
+          passed.add slug
         else:
           if failed.len > 0:
             stdout.write("\n")
           stdout.styledWrite(fgBlue, styleBright, suiteStr)
           stdout.writeLine(slug)
-          failed &= slug
+          failed.add slug
       elif line.startsWith(failedStr):
         let testDesc = line[failedStr.len .. ^1]
         stdout.styledWrite(fgRed, styleBright, failedStr)
@@ -256,7 +256,7 @@ proc quietRun: int =
       # Handle the final line.
       if line.startsWith(suiteStr): # The final line when all suites pass.
         let slug = line[suiteStr.len .. ^1]
-        passed &= slug
+        passed.add slug
       else:
         stdout.writeLine(line)
       result = peekExitCode(p)
