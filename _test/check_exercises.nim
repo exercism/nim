@@ -1,4 +1,4 @@
-## This file is for testing the Nim track of exercism.io.
+## This file is for testing the Nim track of exercism.org.
 ##
 ## It checks that the example solution for every implemented exercise passes
 ## that exercise's test suite.
