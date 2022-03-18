@@ -43,7 +43,8 @@
 ## │   └── test_yacht.nim
 ## ```
 
-import critbits, os, osproc, parseopt, sequtils, streams, strscans, strutils, terminal
+import std/[critbits, os, osproc, parseopt, sequtils, streams, strscans,
+            strutils, terminal]
 
 proc writeHelp =
   echo """Usage:
