@@ -90,12 +90,10 @@ proc getImplementedSlugs: Slugs =
   ## Let us consider an "implemented exercise" as one with a correctly named
   ## test file, rather than one with an entry in `config.json`. This can be more
   ## convenient when implementing new exercises.
-  for dir in walkDirs(exercisesDir / "concept" / "*"):
-    for file in walkFiles(dir / "test_*.nim"):
-      result.incl(dir.splitPath().tail, ekConcept) # e.g. "hello-world"
-  for dir in walkDirs(exercisesDir / "practice" / "*"):
-    for file in walkFiles(dir / "test_*.nim"):
-      result.incl(dir.splitPath().tail, ekPractice) # e.g. "hello-world"
+  for ek in [ekConcept, ekPractice]:
+    for dir in walkDirs(exercisesDir / $ek / "*"):
+      for file in walkFiles(dir / "test_*.nim"):
+        result.incl(dir.splitPath().tail, ek) # e.g. "hello-world"
 
 type
   Option = enum
