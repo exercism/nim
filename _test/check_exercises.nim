@@ -74,7 +74,7 @@ var
 
 # Let us define the exercise names as a set of strings. This is simpler than
 # defining an `enum` of all exercises (or all implemented exercises). We can use
-# `CritBitTree[void]` - an efficient container for a sorted set of strings. It
+# a `CritBitTree` as an efficient container for a sorted set of strings. It
 # allows lookups by prefix so we can neatly support abbreviated exercise names
 # as command-line arguments (e.g. "lar" for "largest-series-product").
 type
