@@ -43,8 +43,8 @@
 ## │   └── test_yacht.nim
 ## ```
 
-import std/[critbits, os, osproc, parseopt, sequtils, streams, strscans,
-            strutils, terminal]
+import std/[critbits, os, osproc, parseopt, sequtils, streams, strformat,
+            strscans, strutils, terminal]
 
 proc writeHelp =
   echo """Usage:
@@ -142,18 +142,19 @@ proc wrapTest(file: string, slug: string): string =
       if not inSuite:
         inSuite = true
         result.add "proc main =\n"
-        result.add "  suite \"" & slug & "\":\n"
+        result.add &"""  suite "{slug}":"""
+        result.add '\n'
       # If there are multiple suites, keep the suite names as comments only.
       if numSuites > 1:
-        result.add "    # " & line[7 .. ^3] & "\n"
+        result.add &"    # {line[7 .. ^3]}\n"
     # Enable bonus tests that are disabled by default.
     elif line.scanf("$sconst runBonusTest"): # Also support `runBonusTests`.
       let indent = if inSuite: "  " else: ""
-      result.add indent & line.split('=')[0] & "= true\n"
+      result.add &"{indent}{line.split('=')[0]}= true\n"
     elif inSuite:
-      result.add "  " & line & "\n"
+      result.add &"  {line}\n"
     else:
-      result.add line & "\n"
+      result.add &"{line}\n"
   result.add "\nmain()\n"
   # The below suppresses an "unused import" warning that is otherwise generated
   # for each exercise. We run each module's `main` proc when importing, but we
@@ -172,20 +173,20 @@ proc prepareTests(slugs: Slugs) =
 
   for slug, kind in slugs:
     let slugUnder = slug.replace("-", "_")
-    let testName = "test_" & slugUnder # e.g. "test_hello_world"
-    allTests.add "  " & testName & ",\n"
+    let testName = &"test_{slugUnder}" # e.g. "test_hello_world"
+    allTests.add &"  {testName},\n"
     let dir = exercisesDir / $kind / slug
 
     # Copy and rename the example solution. For example:
     #   from: `exercises/practice/bob/.meta/example.nim`
     #   to:   `outDir/src/check_exercises/bob.nim`
-    copyFile(dir / ".meta" / $SolutionFilename(kind.ord), srcDir / slugUnder & ".nim")
+    copyFile(dir / ".meta" / $SolutionFilename(kind.ord), srcDir / &"{slugUnder}.nim")
 
     # Copy a wrapped version of the test. For example:
     #   from: `exercises/practice/bob/test_bob.nim`
     #   to:   `outDir/tests/test_bob.nim`
-    let wrappedTest = wrapTest(dir / "test_" & slugUnder & ".nim", slug)
-    writeFile(testDir / testName & ".nim", wrappedTest)
+    let wrappedTest = wrapTest(dir / &"test_{slugUnder}.nim", slug)
+    writeFile(testDir / &"{testName}.nim", wrappedTest)
 
   allTests.add "]\n"
   writeFile(allTestsPath, allTests)
@@ -268,9 +269,9 @@ proc quietRun: int =
   let numDigits = if maxLen < 10: 1 elif maxLen < 100: 2 else: 3
   if failed.len > 0:
     stdout.write("\n")
-  echo "Passed: " & passed.len.`$`.align(numDigits)
-  let failedSlugs = if failed.len == 0: "" else: " (" & failed.join(", ") & ")"
-  echo "Failed: " & failed.len.`$`.align(numDigits) & failedSlugs
+  echo &"Passed: {passed.len.`$`.align(numDigits)}"
+  let failedSlugs = if failed.len == 0: "" else: &""" ({failed.join(", ")})"""
+  echo &"Failed: {failed.len.`$`.align(numDigits)} {failedSlugs}"
 
 proc runTests(slugs: Slugs, options: Options): int =
   ## Runs the tests for the exercises in `slugs` with user-specifed `options`.
@@ -282,7 +283,7 @@ proc runTests(slugs: Slugs, options: Options): int =
   if optQuiet in options:
     result = quietRun()
   else:
-    result = execCmd("nim c -r --styleCheck:hint " & allTestsPath)
+    result = execCmd(&"nim c -r --styleCheck:hint {allTestsPath}")
     if result == 0:
       let wording = if slugs.len == 1: " exercise." else: " exercises."
       echo "\nTested ", slugs.len, wording, "\nAll tests passed."
@@ -314,7 +315,7 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
       else:
         stdout.styledWrite(fgRed, "Error: ")
         let prefix = if len(k) == 1: "-" else: "--"
-        stdout.write("invalid command line option: '" & prefix & key & "'\n\n")
+        stdout.write(&"invalid command line option: '{prefix}{key}'\n\n")
         writeHelp()
     of cmdArgument:
       if k in implementedSlugs:
@@ -324,15 +325,15 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
         case matches.len
         of 0:
           stdout.styledWrite(fgRed, "Error: ")
-          stdout.write("unrecognized exercise name: '" & key & "'\n\n")
+          stdout.write(&"unrecognized exercise name: '{key}'\n\n")
           writeHelp()
         of 1:
           result.slugs.incl(matches[0][0], matches[0][1])
         else:
           stdout.styledWrite(fgRed, "Error: ")
           let wording = matches.join("\n  ")
-          stdout.write("exercise name '" & key & "' is ambiguous. It matches:")
-          stdout.write("\n  " & wording & "\n\n")
+          stdout.write(&"exercise name '{key}' is ambiguous. It matches:")
+          stdout.write(&"\n  {wording}\n\n")
           writeHelp()
     of cmdEnd: assert(false) # Cannot happen.
 
