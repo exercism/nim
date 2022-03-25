@@ -63,9 +63,10 @@ Options:
   -t, --tmp       Set output path to a temporary location (e.g. in `/tmp`)"""
   quit(0)
 
-let
-  appDir = getAppDir()
-  exercisesDir = appDir.parentDir() / "exercises"
+const
+  thisDir = currentSourcePath().parentDir()
+  exercisesDir = thisDir.parentDir() / "exercises"
+
 var
   outDir = ""
   testDir = ""
@@ -104,7 +105,7 @@ proc prepareDir(options: Options) =
   ## Creates the new directory structure for the tests.
   # Note that `getTempDir()` is generally discouraged, but it shouldn't cause
   # problems here and the `-t` option is not the default.
-  let outBase = if optTmp in options: getTempDir() else: appDir
+  let outBase = if optTmp in options: getTempDir() else: thisDir
   outDir = outBase / "check_exercises_tmp"
   testDir = outDir / "tests"
   srcDir = outDir / "src" / "check_exercises"
