@@ -1,4 +1,4 @@
-## This file is for testing the Nim track of exercism.io.
+## This file is for testing the Nim track of exercism.org.
 ##
 ## It checks that the example solution for every implemented exercise passes
 ## that exercise's test suite.
@@ -43,7 +43,8 @@
 ## │   └── test_yacht.nim
 ## ```
 
-import critbits, os, osproc, parseopt, sequtils, streams, strscans, strutils, terminal
+import std/[critbits, os, osproc, parseopt, sequtils, streams, strformat,
+            strscans, strutils, terminal]
 
 proc writeHelp =
   echo """Usage:
@@ -66,14 +67,14 @@ let
   appDir = getAppDir()
   exercisesDir = appDir / ".." / "exercises"
 var
-  outDir: string
-  testDir: string
-  srcDir: string
-  allTestsPath: string
+  outDir = ""
+  testDir = ""
+  srcDir = ""
+  allTestsPath = ""
 
 # Let us define the exercise names as a set of strings. This is simpler than
 # defining an `enum` of all exercises (or all implemented exercises). We can use
-# `CritBitTree[void]` - an efficient container for a sorted set of strings. It
+# a `CritBitTree` as an efficient container for a sorted set of strings. It
 # allows lookups by prefix so we can neatly support abbreviated exercise names
 # as command-line arguments (e.g. "lar" for "largest-series-product").
 type
@@ -89,12 +90,10 @@ proc getImplementedSlugs: Slugs =
   ## Let us consider an "implemented exercise" as one with a correctly named
   ## test file, rather than one with an entry in `config.json`. This can be more
   ## convenient when implementing new exercises.
-  for dir in walkDirs(exercisesDir / "concept" / "*"):
-    for file in walkFiles(dir / "test_*.nim"):
-      result.incl(dir.splitPath().tail, ekConcept) # e.g. "hello-world"
-  for dir in walkDirs(exercisesDir / "practice" / "*"):
-    for file in walkFiles(dir / "test_*.nim"):
-      result.incl(dir.splitPath().tail, ekPractice) # e.g. "hello-world"
+  for ek in [ekConcept, ekPractice]:
+    for dir in walkDirs(exercisesDir / $ek / "*"):
+      for file in walkFiles(dir / "test_*.nim"):
+        result.incl(dir.splitPath().tail, ek) # e.g. "hello-world"
 
 type
   Option = enum
@@ -137,29 +136,30 @@ proc wrapTest(file: string, slug: string): string =
   # Add one indentation layer to all lines from "suite" onwards.
   for line in lines(file):
     if line.len == 0:
-      result &= "\n"
+      result.add "\n"
     elif line.startsWith("suite \""):
       # Put all the tests for an exercise into one suite.
       if not inSuite:
         inSuite = true
-        result &= "proc main =\n"
-        result &= "  suite \"" & slug & "\":\n"
+        result.add "proc main =\n"
+        result.add &"""  suite "{slug}":"""
+        result.add '\n'
       # If there are multiple suites, keep the suite names as comments only.
       if numSuites > 1:
-        result &= "    # " & line[7 .. ^3] & "\n"
+        result.add &"    # {line[7 .. ^3]}\n"
     # Enable bonus tests that are disabled by default.
     elif line.scanf("$sconst runBonusTest"): # Also support `runBonusTests`.
       let indent = if inSuite: "  " else: ""
-      result &= indent & line.split('=')[0] & "= true\n"
+      result.add &"{indent}{line.split('=')[0]}= true\n"
     elif inSuite:
-      result &= "  " & line & "\n"
+      result.add &"  {line}\n"
     else:
-      result &= line & "\n"
-  result &= "\nmain()\n"
+      result.add &"{line}\n"
+  result.add "\nmain()\n"
   # The below suppresses an "unused import" warning that is otherwise generated
   # for each exercise. We run each module's `main` proc when importing, but we
   # don't export any of its symbols.
-  result &= "{.used.}\n"
+  result.add "{.used.}\n"
 
 proc prepareTests(slugs: Slugs) =
   ## Copies the example solution and a wrapped test file for the exercises in
@@ -173,22 +173,23 @@ proc prepareTests(slugs: Slugs) =
 
   for slug, kind in slugs:
     let slugUnder = slug.replace("-", "_")
-    let testName = "test_" & slugUnder # e.g. "test_hello_world"
-    allTests &= "  " & testName & ",\n"
+    let testName = &"test_{slugUnder}" # e.g. "test_hello_world"
+    allTests.add &"  {testName},\n"
     let dir = exercisesDir / $kind / slug
 
     # Copy and rename the example solution. For example:
     #   from: `exercises/practice/bob/.meta/example.nim`
     #   to:   `outDir/src/check_exercises/bob.nim`
-    copyFile(dir / ".meta" / $SolutionFilename(kind.ord), srcDir / slugUnder & ".nim")
+    copyFile(dir / ".meta" / $SolutionFilename(kind.ord),
+             srcDir / &"{slugUnder}.nim")
 
     # Copy a wrapped version of the test. For example:
     #   from: `exercises/practice/bob/test_bob.nim`
     #   to:   `outDir/tests/test_bob.nim`
-    let wrappedTest = wrapTest(dir / "test_" & slugUnder & ".nim", slug)
-    writeFile(testDir / testName & ".nim", wrappedTest)
+    let wrappedTest = wrapTest(dir / &"test_{slugUnder}.nim", slug)
+    writeFile(testDir / &"{testName}.nim", wrappedTest)
 
-  allTests &= "]\n"
+  allTests.add "]\n"
   writeFile(allTestsPath, allTests)
 
 proc quietRun: int =
@@ -240,13 +241,13 @@ proc quietRun: int =
       if line.startsWith(suiteStr):
         let slug = line[suiteStr.len .. ^1] # [Suite] is always followed by a slug.
         if nextLine.len == 0 or atEnd(outp):
-          passed &= slug
+          passed.add slug
         else:
           if failed.len > 0:
             stdout.write("\n")
           stdout.styledWrite(fgBlue, styleBright, suiteStr)
           stdout.writeLine(slug)
-          failed &= slug
+          failed.add slug
       elif line.startsWith(failedStr):
         let testDesc = line[failedStr.len .. ^1]
         stdout.styledWrite(fgRed, styleBright, failedStr)
@@ -257,7 +258,7 @@ proc quietRun: int =
       # Handle the final line.
       if line.startsWith(suiteStr): # The final line when all suites pass.
         let slug = line[suiteStr.len .. ^1]
-        passed &= slug
+        passed.add slug
       else:
         stdout.writeLine(line)
       result = peekExitCode(p)
@@ -269,9 +270,9 @@ proc quietRun: int =
   let numDigits = if maxLen < 10: 1 elif maxLen < 100: 2 else: 3
   if failed.len > 0:
     stdout.write("\n")
-  echo "Passed: " & passed.len.`$`.align(numDigits)
-  let failedSlugs = if failed.len == 0: "" else: " (" & failed.join(", ") & ")"
-  echo "Failed: " & failed.len.`$`.align(numDigits) & failedSlugs
+  echo &"Passed: {passed.len.`$`.align(numDigits)}"
+  let failedSlugs = if failed.len == 0: "" else: &""" ({failed.join(", ")})"""
+  echo &"Failed: {failed.len.`$`.align(numDigits)} {failedSlugs}"
 
 proc runTests(slugs: Slugs, options: Options): int =
   ## Runs the tests for the exercises in `slugs` with user-specifed `options`.
@@ -283,7 +284,7 @@ proc runTests(slugs: Slugs, options: Options): int =
   if optQuiet in options:
     result = quietRun()
   else:
-    result = execCmd("nim c -r --styleCheck:hint " & allTestsPath)
+    result = execCmd(&"nim c -r --styleCheck:hint {allTestsPath}")
     if result == 0:
       let wording = if slugs.len == 1: " exercise." else: " exercises."
       echo "\nTested ", slugs.len, wording, "\nAll tests passed."
@@ -315,25 +316,26 @@ proc parseCmdLine: tuple[slugs: Slugs, options: Options] =
       else:
         stdout.styledWrite(fgRed, "Error: ")
         let prefix = if len(k) == 1: "-" else: "--"
-        stdout.write("invalid command line option: '" & prefix & key & "'\n\n")
+        stdout.write(&"invalid command line option: '{prefix}{key}'\n\n")
         writeHelp()
     of cmdArgument:
       if k in implementedSlugs:
-        result.slugs.incl(k, implementedSlugs[k]) # Test specified exercises in the order given.
+        # Test specified exercises in the order given.
+        result.slugs.incl(k, implementedSlugs[k])
       else:
         let matches = toSeq(implementedSlugs.pairsWithPrefix(k))
         case matches.len
         of 0:
           stdout.styledWrite(fgRed, "Error: ")
-          stdout.write("unrecognized exercise name: '" & key & "'\n\n")
+          stdout.write(&"unrecognized exercise name: '{key}'\n\n")
           writeHelp()
         of 1:
           result.slugs.incl(matches[0][0], matches[0][1])
         else:
           stdout.styledWrite(fgRed, "Error: ")
           let wording = matches.join("\n  ")
-          stdout.write("exercise name '" & key & "' is ambiguous. It matches:")
-          stdout.write("\n  " & wording & "\n\n")
+          stdout.write(&"exercise name '{key}' is ambiguous. It matches:")
+          stdout.write(&"\n  {wording}\n\n")
           writeHelp()
     of cmdEnd: assert(false) # Cannot happen.
 
