@@ -65,7 +65,7 @@ Options:
 
 let
   appDir = getAppDir()
-  exercisesDir = appDir / ".." / "exercises"
+  exercisesDir = appDir.parentDir() / "exercises"
 var
   outDir = ""
   testDir = ""
