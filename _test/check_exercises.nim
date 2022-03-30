@@ -64,8 +64,8 @@ Options:
   quit(0)
 
 const
-  thisDir = currentSourcePath().parentDir()
-  exercisesDir = thisDir.parentDir() / "exercises"
+  repoRootDir = currentSourcePath().parentDir().parentDir()
+  exercisesDir = repoRootDir / "exercises"
 
 var
   outDir = ""
@@ -105,7 +105,7 @@ proc prepareDir(options: Options) =
   ## Creates the new directory structure for the tests.
   # Note that `getTempDir()` is generally discouraged, but it shouldn't cause
   # problems here and the `-t` option is not the default.
-  let outBase = if optTmp in options: getTempDir() else: thisDir
+  let outBase = if optTmp in options: getTempDir() else: repoRootDir / "_test"
   outDir = outBase / "check_exercises_tmp"
   testDir = outDir / "tests"
   srcDir = outDir / "src" / "check_exercises"
