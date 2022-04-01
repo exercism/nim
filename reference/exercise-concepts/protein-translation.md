@@ -11,7 +11,7 @@
   - compile-time vs. runtime
 - strings
 - table constructor
-  - multiple keys at one time (as seen [here](https://exercism.io/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf))
+  - multiple keys at one time (as seen [here](https://exercism.org/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf))
     <br />
     eg. `{"nim", "Nim": "awesome"}`
 - method call syntax
@@ -56,7 +56,7 @@
 
 ### Case Statment
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/protein-translation/solutions/1078c01ba467400881b40827ffd1b84f)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/protein-translation/solutions/1078c01ba467400881b40827ffd1b84f)
 
 - case statement
 - of branch
