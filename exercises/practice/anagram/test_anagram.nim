@@ -8,9 +8,9 @@ suite "Anagram":
     check detectAnagrams(word, candidates).len == 0
 
   test "detects two anagrams":
-    const word = "master"
-    const candidates = @["stream", "pigeon", "maters"]
-    check detectAnagrams(word, candidates) == @["stream", "maters"]
+    const word = "solemn"
+    const candidates = @["lemons", "cherry", "melons"]
+    check detectAnagrams(word, candidates) == @["lemons", "melons"]
 
   test "does not detect anagram subsets":
     const word = "good"
@@ -62,12 +62,22 @@ suite "Anagram":
     const candidates = @["patter"]
     check detectAnagrams(word, candidates).len == 0
 
-  test "words are not anagrams of themselves (case-insensitive)":
+  test "words are not anagrams of themselves":
     const word = "BANANA"
-    const candidates = @["BANANA", "Banana", "banana"]
+    const candidates = @["BANANA"]
+    check detectAnagrams(word, candidates).len == 0
+
+  test "words are not anagrams of themselves even if letter case is partially different":
+    const word = "BANANA"
+    const candidates = @["Banana"]
+    check detectAnagrams(word, candidates).len == 0
+
+  test "words are not anagrams of themselves even if letter case is completely different":
+    const word = "BANANA"
+    const candidates = @["banana"]
     check detectAnagrams(word, candidates).len == 0
 
   test "words other than themselves can be anagrams":
     const word = "LISTEN"
-    const candidates = @["Listen", "Silent", "LISTEN"]
+    const candidates = @["LISTEN", "Silent"]
     check detectAnagrams(word, candidates) == @["Silent"]
