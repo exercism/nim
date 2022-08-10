@@ -4,7 +4,7 @@ Exercism exercises in Nim
 
 ## Contributing Guide
 
-Please see the [contributing guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md)
+Please see the [contributing guide](https://exercism.org/docs/building/tracks).
 
 ## Testing
 
