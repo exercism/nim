@@ -35,9 +35,11 @@ suite "Protein Translation":
   test "Tyrosine RNA sequence 2":
     check translate("UAC") == @["Tyrosine"]
 
-  test "identifies Cysteine codons":
-    for codon in ["UGU", "UGC"]:
-      check translate(codon) == @["Cysteine"]
+  test "Cysteine RNA sequence 1":
+    check translate("UGU") == @["Cysteine"]
+
+  test "Cysteine RNA sequence 2":
+    check translate("UGC") == @["Cysteine"]
 
   test "identifies Tryptophan codon":
     check translate("UGG") == @["Tryptophan"]
