@@ -80,7 +80,8 @@ suite "Grade School":
     school.addStudent("Alex", 2)
     school.addStudent("Jim", 3)
     school.addStudent("Charlie", 1)
-    check school.roster() == @["Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim"]
+    check school.roster() == @["Anna", "Barb", "Charlie", "Alex", "Peter",
+                               "Zoe", "Jim"]
 
   test "grade is empty if no students in the roster":
     var school = School()
