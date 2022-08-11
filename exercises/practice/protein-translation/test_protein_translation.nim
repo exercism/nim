@@ -2,7 +2,7 @@ import unittest
 import protein_translation
 
 suite "Protein Translation":
-  test "identifies Methionine codon":
+  test "Methionine RNA sequence":
     check translate("AUG") == @["Methionine"]
 
   test "Phenylalanine RNA sequence 1":
@@ -41,7 +41,7 @@ suite "Protein Translation":
   test "Cysteine RNA sequence 2":
     check translate("UGC") == @["Cysteine"]
 
-  test "identifies Tryptophan codon":
+  test "Tryptophan RNA sequence":
     check translate("UGG") == @["Tryptophan"]
 
   test "STOP codon RNA sequence 1":
@@ -53,20 +53,20 @@ suite "Protein Translation":
   test "STOP codon RNA sequence 3":
     check translate("UGA").len == 0
 
-  test "translates RNA strand into correct protein":
+  test "translate RNA strand into correct protein list":
     check translate("AUGUUUUGG") == @["Methionine", "Phenylalanine", "Tryptophan"]
 
-  test "stops translation if STOP codon at beginning of sequence":
+  test "translation stops if STOP codon at beginning of sequence":
     check translate("UAGUGG").len == 0
 
-  test "stops translation if STOP codon at end of two-codon sequence":
+  test "translation stops if STOP codon at end of two-codon sequence":
     check translate("UGGUAG") == @["Tryptophan"]
 
-  test "stops translation if STOP codon at end of three-codon sequence":
+  test "translation stops if STOP codon at end of three-codon sequence":
     check translate("AUGUUUUAA") == @["Methionine", "Phenylalanine"]
 
-  test "stops translation if STOP codon in middle of three-codon sequence":
+  test "translation stops if STOP codon in middle of three-codon sequence":
     check translate("UGGUAGUGG") == @["Tryptophan"]
 
-  test "stops translation if STOP codon in middle of six-codon sequence":
+  test "translation stops if STOP codon in middle of six-codon sequence":
     check translate("UGGUGUUAUUAAUGGUUU") == @["Tryptophan", "Cysteine", "Tyrosine"]
