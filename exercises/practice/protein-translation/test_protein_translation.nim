@@ -44,9 +44,14 @@ suite "Protein Translation":
   test "identifies Tryptophan codon":
     check translate("UGG") == @["Tryptophan"]
 
-  test "identifies STOP codons":
-    for codon in ["UAA", "UAG", "UGA"]:
-      check translate(codon).len == 0
+  test "STOP codon RNA sequence 1":
+    check translate("UAA").len == 0
+
+  test "STOP codon RNA sequence 2":
+    check translate("UAG").len == 0
+
+  test "STOP codon RNA sequence 3":
+    check translate("UGA").len == 0
 
   test "translates RNA strand into correct protein":
     const strand = "AUGUUUUGG"
