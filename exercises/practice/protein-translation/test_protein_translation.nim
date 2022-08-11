@@ -17,9 +17,17 @@ suite "Protein Translation":
   test "Leucine RNA sequence 2":
     check translate("UUG") == @["Leucine"]
 
-  test "identifies Serine codons":
-    for codon in ["UCU", "UCC", "UCA", "UCG"]:
-      check translate(codon) == @["Serine"]
+  test "Serine RNA sequence 1":
+    check translate("UCU") == @["Serine"]
+
+  test "Serine RNA sequence 2":
+    check translate("UCC") == @["Serine"]
+
+  test "Serine RNA sequence 3":
+    check translate("UCA") == @["Serine"]
+
+  test "Serine RNA sequence 4":
+    check translate("UCG") == @["Serine"]
 
   test "identifies Tyrosine codons":
     for codon in ["UAU", "UAC"]:
