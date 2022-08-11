@@ -1,17 +1,33 @@
-import algorithm, sequtils
+import std/[algorithm, strformat]
 
 type
-  Student* = tuple[name: string, grade: int]
+  Student* = object
+    name*: string
+    grade*: int
+
   School* = object
     students*: seq[Student]
 
-proc roster*(s: School): seq[string] =
-  s.students
-    .sortedByIt((it.grade, it.name))
-    .mapIt(it.name)
+func roster*(school: School): seq[string] =
+  ## Returns the names of every student in the `school`, sorted by grade then name.
+  result = newSeq[string](school.students.len)
+  for i, student in school.students.sortedByIt((it.grade, it.name)):
+    result[i] = student.name
 
-proc grade*(s: School, g: int): seq[string] =
-  s.students
-    .filter(proc(i: Student): bool = i.grade == g)
-    .sortedByIt((it.grade, it.name))
-    .mapIt(it.name)
+func addStudent*(school: var School, name: string, grade: int) =
+  ## Adds a student with `name` and `grade` to the `school`.
+  ##
+  ## Raises a `ValueError` if `school` already contains a student named `name`.
+  for student in school.students:
+    if student.name == name:
+      raise newException(ValueError, &"School already contains student: {name}")
+  school.students.add Student(name: name, grade: grade)
+
+func grade*(school: School, grade: int): seq[string] =
+  ## Returns the names of the students in the given `school` and `grade`, in
+  ## alphabetical order.
+  result = @[]
+  for student in school.students:
+    if student.grade == grade:
+      result.add student.name
+  sort result
