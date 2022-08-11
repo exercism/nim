@@ -54,30 +54,19 @@ suite "Protein Translation":
     check translate("UGA").len == 0
 
   test "translates RNA strand into correct protein":
-    const strand = "AUGUUUUGG"
-    const expected = @["Methionine", "Phenylalanine", "Tryptophan"]
-    check translate(strand) == expected
+    check translate("AUGUUUUGG") == @["Methionine", "Phenylalanine", "Tryptophan"]
 
   test "stops translation if STOP codon at beginning of sequence":
-    const strand = "UAGUGG"
-    check translate(strand).len == 0
+    check translate("UAGUGG").len == 0
 
   test "stops translation if STOP codon at end of two-codon sequence":
-    const strand = "UGGUAG"
-    const expected = @["Tryptophan"]
-    check translate(strand) == expected
+    check translate("UGGUAG") == @["Tryptophan"]
 
   test "stops translation if STOP codon at end of three-codon sequence":
-    const strand = "AUGUUUUAA"
-    const expected = @["Methionine", "Phenylalanine"]
-    check translate(strand) == expected
+    check translate("AUGUUUUAA") == @["Methionine", "Phenylalanine"]
 
   test "stops translation if STOP codon in middle of three-codon sequence":
-    const strand = "UGGUAGUGG"
-    const expected = @["Tryptophan"]
-    check translate(strand) == expected
+    check translate("UGGUAGUGG") == @["Tryptophan"]
 
   test "stops translation if STOP codon in middle of six-codon sequence":
-    const strand = "UGGUGUUAUUAAUGGUUU"
-    const expected = @["Tryptophan", "Cysteine", "Tyrosine"]
-    check translate(strand) == expected
+    check translate("UGGUGUUAUUAAUGGUUU") == @["Tryptophan", "Cysteine", "Tyrosine"]
