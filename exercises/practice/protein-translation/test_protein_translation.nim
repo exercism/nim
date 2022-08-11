@@ -5,9 +5,11 @@ suite "Protein Translation":
   test "identifies Methionine codon":
     check translate("AUG") == @["Methionine"]
 
-  test "identifies Phenylalanine codons":
-    for codon in ["UUU", "UUC"]:
-      check translate(codon) == @["Phenylalanine"]
+  test "Phenylalanine RNA sequence 1":
+    check translate("UUU") == @["Phenylalanine"]
+
+  test "Phenylalanine RNA sequence 2":
+    check translate("UUC") == @["Phenylalanine"]
 
   test "identifies Leucine codons":
     for codon in ["UUA", "UUG"]:
