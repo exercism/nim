@@ -21,17 +21,19 @@ const codonToAminoAcid = {
 }.toTable
 
 func translate*(s: string): seq[string] =
-  if s.len mod 3 != 0:
-    raise newException(ValueError, "Invalid RNA sequence: " & s)
-
+  var codon = newString(3)
   for i in countup(0, s.high, 3):
-    let codon = s[i..i+2]
-
-    if codon notin codonToAminoAcid:
-      raise newException(ValueError, "Unknown codon: " & codon)
-
-    let aminoAcid = codonToAminoAcid[codon]
-    if aminoAcid == "STOP":
-      return
+    if i+2 < s.len:
+      codon[0] = s[i]
+      codon[1] = s[i+1]
+      codon[2] = s[i+2]
+      if codon in codonToAminoAcid:
+        let aminoAcid = codonToAminoAcid[codon]
+        if aminoAcid == "STOP":
+          return
+        else:
+          result.add aminoAcid
+      else:
+        raise newException(ValueError, "Unknown codon: " & codon)
     else:
-      result &= aminoAcid
+      raise newException(ValueError, "Invalid RNA sequence: " & s)
