@@ -208,3 +208,7 @@ suite "List the allergies":
     let allergies = Allergies(score: 509)
     check allergies.lst == @["eggs", "shellfish", "strawberries", "tomatoes",
                              "chocolate", "pollen", "cats"]
+
+  test "no allergen score parts without highest valid score":
+    let allergies = Allergies(score: 257)
+    check allergies.lst == @["eggs"]
