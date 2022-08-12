@@ -48,8 +48,14 @@ suite "Scalene triangle":
   test "all sides are equal":
     check isScalene([4, 4, 4]) == false
 
-  test "two sides are equal":
+  test "first and second sides are equal":
     check isScalene([4, 4, 3]) == false
+
+  test "first and third sides are equal":
+    check isScalene([3, 4, 3]) == false
+
+  test "second and third sides are equal":
+    check isScalene([4, 3, 3]) == false
 
   test "may not violate triangle inequality":
     check isScalene([7, 3, 2]) == false
