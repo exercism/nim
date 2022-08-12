@@ -33,3 +33,7 @@ suite "Space Age":
   # Bonus
   test "age that requires int64":
     check age("Saturn", 3_000_000_000) ~= 3.23
+
+  test "invalid planet causes error":
+    expect ValueError:
+      discard age("Sun", 680_804_807)
