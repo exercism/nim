@@ -2,6 +2,9 @@ import unittest
 import protein_translation
 
 suite "Protein Translation":
+  test "empty RNA sequence results in no proteins":
+    check translate("").len == 0
+
   test "Methionine RNA sequence":
     check translate("AUG") == @["Methionine"]
 
@@ -53,6 +56,12 @@ suite "Protein Translation":
   test "STOP codon RNA sequence 3":
     check translate("UGA").len == 0
 
+  test "sequence of two protein codons translates into proteins":
+    check translate("UUUUUU") == @["Phenylalanine", "Phenylalanine"]
+
+  test "sequence of two different protein codons translates into proteins":
+    check translate("UUAUUG") == @["Leucine", "Leucine"]
+
   test "translate RNA strand into correct protein list":
     check translate("AUGUUUUGG") == @["Methionine", "Phenylalanine", "Tryptophan"]
 
@@ -70,3 +79,18 @@ suite "Protein Translation":
 
   test "translation stops if STOP codon in middle of six-codon sequence":
     check translate("UGGUGUUAUUAAUGGUUU") == @["Tryptophan", "Cysteine", "Tyrosine"]
+
+  test "non-existing codon can't translate":
+    expect ValueError:
+      discard translate("AAA")
+
+  test "unknown amino acids, not part of a codon, can't translate":
+    expect ValueError:
+      discard translate("XYZ")
+
+  test "incomplete RNA sequence can't translate":
+    expect ValueError:
+      discard translate("AUGU")
+
+  test "incomplete RNA sequence can translate if valid until a STOP codon":
+    check translate("UUCUUCUAAUGGU") == @["Phenylalanine", "Phenylalanine"]
