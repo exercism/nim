@@ -68,14 +68,17 @@ suite "Word Count":
       output["stop"] == 2
 
   test "with apostrophes":
-    let output = countWords("First: don't laugh. Then: don't cry.")
+    let output = countWords("'First: don't laugh. Then: don't cry. You're getting it.'")
     check:
-      output.len == 5
+      output.len == 8
       output["first"] == 1
       output["don't"] == 2
       output["laugh"] == 1
       output["then"] == 1
       output["cry"] == 1
+      output["you're"] == 1
+      output["getting"] == 1
+      output["it"] == 1
 
   test "with quotations":
     let output = countWords("Joe can't tell between 'large' and large.")
