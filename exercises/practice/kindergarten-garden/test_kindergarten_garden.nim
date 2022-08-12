@@ -1,47 +1,68 @@
 import unittest
 import kindergarten_garden
 
-suite "Kindergarten Garden":
-  test "partial garden: garden with single student":
+suite "Partial garden":
+  test "garden with single student":
     const garden = "RC\n" &
                    "GG"
     check plants(garden, "Alice") == @[Radishes, Clover, Grass, Grass]
 
-  test "partial garden: different garden with single student":
+  test "different garden with single student":
     const garden = "VC\n" &
                    "RC"
     check plants(garden, "Alice") == @[Violets, Clover, Radishes, Clover]
 
-  test "partial garden: garden with two students":
+  test "garden with two students":
     const garden = "VVCG\n" &
                    "VVRC"
     check plants(garden, "Bob") == @[Clover, Grass, Radishes, Clover]
 
-
-  # Test multiple students for the same 3-student garden.
+suite "Partial garden with 3 students"
   const smallGarden = "VVCCGG\n" &
                       "VVCCGG"
 
-  test "partial garden: garden with three students - second student's garden":
+  test "second student's garden":
     check plants(smallGarden, "Bob") == @[Clover, Clover, Clover, Clover]
 
-  test "partial garden: garden with three students - third student's garden":
+  test "third student's garden":
     check plants(smallGarden, "Charlie") == @[Grass, Grass, Grass, Grass]
 
-
-  # Test multiple students for the same 12-student garden.
+suite "Full garden":
   const fullGarden = "VRCGVVRVCGGCCGVRGCVCGCGV\n" &
                      "VRCCCGCRRGVCGCRVVCVGCGCV"
 
-  test "full garden: first student's garden":
-    check plants(fullGarden, "Alice") == @[Violets, Radishes,
-                                           Violets, Radishes]
+  test "for Alice, first student's garden":
+    check plants(fullGarden, "Alice") == @[Violets, Radishes, Violets, Radishes]
 
-  test "full garden: second student's garden":
+  test "for Bob, second student's garden":
     check plants(fullGarden, "Bob") == @[Clover, Grass, Clover, Clover]
 
-  test "full garden: second to last student's garden":
+  test "for Charlie":
+    check plants(fullGarden, "Charlie") == @[Violets, Violets, Clover, Grass]
+
+  test "for David":
+    check plants(fullGarden, "David") == @[Radishes, Violets, Clover, Radishes]
+
+  test "for Eve":
+    check plants(fullGarden, "Eve") == @[Clover, Grass, Radishes, Grass]
+
+  test "for Fred":
+    check plants(fullGarden, "Fred") == @[Grass, Clover, Violets, Clover]
+
+  test "for Ginny":
+    check plants(fullGarden, "Ginny") == @[Clover, Grass, Grass, Clover]
+
+  test "for Harriet":
+    check plants(fullGarden, "Harriet") == @[Violets, Radishes, Radishes, Violets]
+
+  test "for Ileana":
+    check plants(fullGarden, "Ileana") == @[Grass, Clover, Violets, Clover]
+
+  test "for Joseph":
+    check plants(fullGarden, "Joseph") == @[Violets, Clover, Violets, Grass]
+
+  test "for Kincaid, second to last student's garden":
     check plants(fullGarden, "Kincaid") == @[Grass, Clover, Clover, Grass]
 
-  test "full garden: last student's garden":
+  test "for Larry, last student's garden":
     check plants(fullGarden, "Larry") == @[Grass, Violets, Clover, Violets]
