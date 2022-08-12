@@ -25,10 +25,10 @@ suite "Hamming":
     expect(ValueError):
       discard distance("ATA", "AGTG")
 
-  test "disallow left empty strand":
+  test "disallow empty first strand":
     expect(ValueError):
       discard distance("", "G")
 
-  test "disallow right empty strand":
+  test "disallow empty second strand":
     expect(ValueError):
       discard distance("G", "")
