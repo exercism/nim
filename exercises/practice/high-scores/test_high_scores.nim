@@ -5,11 +5,11 @@ suite "Latest Score":
   test "latest score":
     check latest(@[100, 0, 90, 30]) == 30
 
-suite "Personal Best"
+suite "Personal Best":
   test "personal best":
     check personalBest(@[40, 100, 70]) == 100
 
-suite "Top 3 scores"
+suite "Top 3 scores":
   test "personal top three from a list of scores":
     check personalTopThree(@[10, 30, 90, 30, 100, 20,
                              10, 0, 30, 40, 40, 70, 70]) == @[100, 90, 70]
