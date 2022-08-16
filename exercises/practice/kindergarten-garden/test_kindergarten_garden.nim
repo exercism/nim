@@ -17,7 +17,7 @@ suite "Partial garden":
                    "VVRC"
     check plants(garden, "Bob") == @[Clover, Grass, Radishes, Clover]
 
-suite "Partial garden with 3 students"
+suite "Partial garden with 3 students":
   const smallGarden = "VVCCGG\n" &
                       "VVCCGG"
 
