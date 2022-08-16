@@ -47,6 +47,12 @@ suite "Matching Brackets":
   test "too many closing brackets":
     check isPaired("[]]") == false
 
+  test "early unexpected brackets":
+    check isPaired(")()") == false
+
+  test "early mismatched brackets":
+    check isPaired("{)()") == false
+
   test "math expression":
     check isPaired("(((185 + 223.85) * 15) - 543)/2") == true
 
