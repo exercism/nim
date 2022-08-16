@@ -22,7 +22,7 @@ suite "Create queens with valid and invalid positions":
     expect(ValueError):
       discard initQueen(4, 8)
 
-suite "canAttack"
+suite "Check whether one queen can attack another":
   test "cannot attack":
     let whiteQueen = initQueen(2, 4)
     let blackQueen = initQueen(6, 6)
@@ -90,7 +90,7 @@ suite "Graphical board representation":
                                            "________\n"
 
 # Bonus
-suite "Raise error if queens occupy the same position"
+suite "Raise error if queens occupy the same position":
   test "queens cannot have the same position (canAttack)":
     let whiteQueen = initQueen(2, 2)
     let blackQueen = initQueen(2, 2)
