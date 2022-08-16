@@ -47,6 +47,9 @@ suite "Sublist":
   test "second list missing element from first list":
     check sublist([1, 2, 3], [1, 3]) == Unequal
 
+  test "first list missing additional digits from second list":
+    check sublist([1, 2], [1, 22]) == Unequal
+
   test "order matters to a list":
     check sublist([1, 2, 3], [3, 2, 1]) == Unequal
 
