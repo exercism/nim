@@ -1,11 +1,11 @@
 import unittest
 import high_scores
 
-suite "Latest Score":
+suite "Latest score":
   test "latest score":
     check latest(@[100, 0, 90, 30]) == 30
 
-suite "Personal Best":
+suite "Personal best":
   test "personal best":
     check personalBest(@[40, 100, 70]) == 100
 
