@@ -1,8 +1,7 @@
 import unittest
 import queen_attack
 
-suite "Queen Attack":
-  # Test creation of Queens with valid and invalid positions
+suite "Create queens with valid and invalid positions":
   test "queen with a valid position":
     check:
       initQueen(2, 2) == Queen(row: 2, col: 2)
@@ -23,7 +22,7 @@ suite "Queen Attack":
     expect(ValueError):
       discard initQueen(4, 8)
 
-  # Test the ability of one queen to attack another
+suite "Check whether one queen can attack another":
   test "cannot attack":
     let whiteQueen = initQueen(2, 4)
     let blackQueen = initQueen(6, 6)
@@ -59,7 +58,14 @@ suite "Queen Attack":
     let blackQueen = initQueen(0, 6)
     check canAttack(whiteQueen, blackQueen) == true
 
-  # Bonus: graphical board representation
+  test "cannot attack if falling diagonals are only the same when reflected " &
+       "across the longest falling diagonal":
+    let whiteQueen = initQueen(4, 1)
+    let blackQueen = initQueen(2, 5)
+    check canAttack(whiteQueen, blackQueen) == false
+
+# Bonus
+suite "Graphical board representation":
   test "represent a board graphically #1":
     let whiteQueen = initQueen(2, 3)
     let blackQueen = initQueen(5, 6)
@@ -84,8 +90,8 @@ suite "Queen Attack":
                                            "________\n" &
                                            "________\n"
 
-
-  # Bonus: raise an error if queens occupy the same position
+# Bonus
+suite "Raise error if queens occupy the same position":
   test "queens cannot have the same position (canAttack)":
     let whiteQueen = initQueen(2, 2)
     let blackQueen = initQueen(2, 2)
