@@ -1,6 +1,6 @@
 proc steps*(number: int): int =
   if (number < 1):
-    raise newException(ValueError, "Only positive numbers are allowed")
+    raise newException(ValueError, "Only positive integers are allowed")
 
   var n = number
   while (n != 1):
