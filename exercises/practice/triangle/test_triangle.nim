@@ -14,7 +14,6 @@ suite "Equilateral triangle":
   test "all zero sides is not a triangle":
     check isEquilateral([0, 0, 0]) == false
 
-
 suite "Isosceles triangle":
   test "last two sides are equal":
     check isIsosceles([3, 4, 4]) == true
@@ -39,7 +38,6 @@ suite "Isosceles triangle":
 
   test "third triangle inequality violation":
     check isIsosceles([3, 1, 1]) == false
-
 
 suite "Scalene triangle":
   test "no sides are equal":
