@@ -58,7 +58,8 @@ suite "Check whether one queen can attack another":
     let blackQueen = initQueen(0, 6)
     check canAttack(whiteQueen, blackQueen) == true
 
-  test "cannot attack if falling diagonals are only the same when reflected across the longest falling diagonal":
+  test "cannot attack if falling diagonals are only the same when reflected " &
+       "across the longest falling diagonal":
     let whiteQueen = initQueen(4, 1)
     let blackQueen = initQueen(2, 5)
     check canAttack(whiteQueen, blackQueen) == false
