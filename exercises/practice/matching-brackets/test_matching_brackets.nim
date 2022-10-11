@@ -41,6 +41,9 @@ suite "Matching Brackets":
   test "paired and wrong nested brackets":
     check isPaired("[({]})") == false
 
+  test "paired and wrong nested brackets but innermost are correct":
+    check isPaired("[({}])") == false
+
   test "paired and incomplete brackets":
     check isPaired("{}[") == false
 
