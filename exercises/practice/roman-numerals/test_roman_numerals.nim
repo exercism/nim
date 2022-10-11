@@ -73,3 +73,9 @@ suite "Roman Numerals":
 
   test "1666 is MDCLXVI":
     check roman(1666) == "MDCLXVI"
+
+  test "3001 is MMMI":
+    check roman(3001) == "MMMI"
+
+  test "3999 is MMMCMXCIX":
+    check roman(3999) == "MMMCMXCIX"
