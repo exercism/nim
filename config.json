@@ -109,7 +109,7 @@
       },
       {
         "slug": "sum-of-multiples",
-        "name": "Sum Of Multiples",
+        "name": "Sum of Multiples",
         "uuid": "4f71d4e9-749e-46ec-a2c8-e17497f1468a",
         "practices": [],
         "prerequisites": [],
@@ -199,7 +199,7 @@
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "aaeadc9c-d92d-4d5a-a601-e7836f59dd9f",
         "practices": [],
         "prerequisites": [],
@@ -403,7 +403,7 @@
       },
       {
         "slug": "diffie-hellman",
-        "name": "Diffie Hellman",
+        "name": "Diffie-Hellman",
         "uuid": "bf9a2fc3-def5-4bfc-a944-91bb213ad8b5",
         "practices": [],
         "prerequisites": [],
@@ -418,7 +418,7 @@
       },
       {
         "slug": "etl",
-        "name": "Etl",
+        "name": "ETL",
         "uuid": "da9807c2-959d-49e0-86a9-44de02501f37",
         "practices": [],
         "prerequisites": [],
@@ -454,7 +454,7 @@
       },
       {
         "slug": "isbn-verifier",
-        "name": "Isbn Verifier",
+        "name": "ISBN Verifier",
         "uuid": "e184b588-f6a1-4e07-ab31-5cedfd4f26c7",
         "practices": [],
         "prerequisites": [],
@@ -558,7 +558,7 @@
       },
       {
         "slug": "pascals-triangle",
-        "name": "Pascals Triangle",
+        "name": "Pascal's Triangle",
         "uuid": "9ba153ad-bd49-4c26-9d80-dadb496cb637",
         "practices": [],
         "prerequisites": [],
@@ -710,7 +710,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "532d4c60-52ff-4271-a346-b7c00ca83560",
         "practices": [],
         "prerequisites": [],
@@ -766,7 +766,7 @@
       },
       {
         "slug": "run-length-encoding",
-        "name": "Run Length Encoding",
+        "name": "Run-Length Encoding",
         "uuid": "825b54b4-68a8-4302-9e9b-61960a3df88e",
         "practices": [],
         "prerequisites": [],
