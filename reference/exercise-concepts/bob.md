@@ -2,7 +2,7 @@
 
 [Example Implementation](https://github.com/exercism/nim/blob/main/exercises/bob/example.nim)
 
-## General:
+## General
 
 - importing modules
   - importing specific _things_ (not a technical term)
@@ -73,13 +73,13 @@
 
 - implicit `result` variable
 
-### Types
+### Object or tuple
 
 [Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/b3f58e77a19d4293be369db4f738084e)
 
-- types
+- objects
 - tuples
-  - vs. objects
+- objects vs tuples
 
 ### Generic parameters
 

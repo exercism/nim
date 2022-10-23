@@ -2,7 +2,7 @@
 
 [Example Implementation](https://github.com/exercism/nim/blob/main/exercises/protein-translation/example.nim)
 
-## General:
+## General
 
 - importing libraries
 - stdlib
@@ -12,8 +12,7 @@
 - strings
 - table constructor
   - multiple keys at one time (as seen [here](https://exercism.org/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf))
-    <br />
-    eg. `{"nim", "Nim": "awesome"}`
+    e.g. `{"nim", "Nim": "awesome"}`
 - method call syntax
 - func/proc definiton
 - routine exporting
