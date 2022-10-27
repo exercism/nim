@@ -1,6 +1,6 @@
 # Concepts of protein-translation
 
-[Example Implementation](https://github.com/exercism/nim/blob/master/exercises/protein-translation/example.nim)
+[Example Implementation](https://github.com/exercism/nim/blob/main/exercises/protein-translation/example.nim)
 
 ## General:
 
