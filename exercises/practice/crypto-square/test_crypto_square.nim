@@ -5,6 +5,9 @@ suite "Crypto Square":
   test "empty plaintext results in an empty ciphertext":
     check encrypt("") == ""
 
+  test "normalization results in empty plaintext":
+    check encrypt("... --- ...") == ""
+
   test "lowercase":
     check encrypt("A") == "a"
 
