@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+
+# Change directory to the repo root, so that `git grep`:
+# - Operates on the whole repo, even if this script is called from a subdirectory.
+# - Outputs paths relative to the repo root.
+repo_root="$(git rev-parse --show-toplevel)"
+cd "${repo_root}" || exit
+exit_status=0
+
+# Check that each git-tracked non-binary file has no trailing whitespace.
+trailing_whitespace="$(git grep -I '[[:blank:]]$')"
+if [ -n "${trailing_whitespace}" ]; then
+  echo "There is trailing whitespace on the below lines:"
+  echo "${trailing_whitespace}"
+  exit_status=1
+fi
+
+# Check that each git-tracked non-binary file has one final newline.
+for file in $(git grep -I --files-with-matches ''); do
+  if [ "$(tail -c 1 "${file}" | wc -l)" -eq 0 ]; then
+    echo "No newline at end of file: ${file}"
+    exit_status=1
+  elif [ "$(tail -c 2 "${file}" | wc -l)" -eq 2 ]; then
+    echo "Multiple newlines at end of file: ${file}"
+    exit_status=1
+  fi
+done
+
+exit "${exit_status}"
