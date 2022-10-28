@@ -2,7 +2,7 @@
 
 To compile and run the tests, just run the following in your exercise directory:
 
-```bash
+```shell
 nim c -r test_<snake-case-exercise>.nim
 ```
 
