@@ -19,7 +19,7 @@ jobs:
           - nim: devel
             os: linux
 
-          - nim: '1.0'
+          - nim: '1.0.10'
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
@@ -40,7 +40,7 @@ jobs:
         if: matrix.nim != 'devel'
         uses: iffy/install-nim@1ab2fcc1d8294b3956d5696f45cd470c9fe69466
         with:
-          version: "binary:${{ matrix.nim }}"
+          version: "binary:${{ matrix.nim == 'stable' && '1.6.8' || matrix.nim }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
