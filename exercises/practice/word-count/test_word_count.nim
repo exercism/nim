@@ -118,3 +118,10 @@ suite "Word Count":
       output["one"] == 1
       output["two"] == 1
       output["three"] == 1
+
+  test "quotation for word with apostrophe":
+    let output = countWords("can, can't, 'can't'")
+    check:
+      output.len == 2
+      output["can"] == 1
+      output["can't"] == 2
