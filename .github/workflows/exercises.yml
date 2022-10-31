@@ -7,19 +7,19 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - nim: stable
+          - nim: '1.6.8'
             os: linux
 
-          - nim: stable
+          - nim: '1.6.8'
             os: macOS
 
-          - nim: stable
+          - nim: '1.6.8'
             os: windows
 
           - nim: devel
             os: linux
 
-          - nim: '1.0'
+          - nim: '1.0.10'
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
