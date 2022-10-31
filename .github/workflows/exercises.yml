@@ -29,37 +29,20 @@ jobs:
       - name: Checkout exercism/nim
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Set BRANCH environmental variable
-        shell: bash # Changes the default shell on Windows.
-        run: |
-          to_branch() {
-            # Converts a Nim version string to a `nim-lang/Nim` branch name
-            # that `alaviss/setup-nim` can use as a `version` parameter.
-            # Examples:
-            #   1.4.2  ->  version-1-4
-            #   1.0    ->  version-1-0
-            major_dot_minor="$(cut -d'.' -f1,2 <<< "$1")"
-            printf "version-${major_dot_minor/./-}"
-          }
-          case ${{ matrix.nim }} in
-            'stable')
-              latest="$(curl -sSfL --retry 3 https://nim-lang.org/channels/stable)"
-              branch_name="$(to_branch "${latest}")"
-              ;;
-            *\.*)
-              branch_name="$(to_branch ${{ matrix.nim }})"
-              ;;
-            *)
-              branch_name=${{ matrix.nim }}
-              ;;
-          esac
-          echo "BRANCH=${branch_name}" >> "${GITHUB_ENV}"
-
-      - name: Install Nim
+      - name: Install Nim (devel)
+        if: matrix.nim == 'devel'
         uses: alaviss/setup-nim@f81f2a6d1505ab32f440ec9d8adbb81e949d3bf0 # 0.1.1
         with:
           path: 'nim'
-          version: ${{ env.BRANCH }}
+          version: ${{ matrix.nim }}
+
+      - name: Install Nim (non-devel)
+        if: matrix.nim != 'devel'
+        uses: iffy/install-nim@1ab2fcc1d8294b3956d5696f45cd470c9fe69466
+        with:
+          version: "binary:${{ matrix.nim }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show versions of Nim and Nimble
         run: |
