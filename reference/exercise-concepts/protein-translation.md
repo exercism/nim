@@ -11,8 +11,7 @@
   - compile-time vs. runtime
 - strings
 - table constructor
-  - multiple keys at one time (as seen [here](https://exercism.org/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf))
-    e.g. `{"nim", "Nim": "awesome"}`
+  - multiple keys at one time (as seen [here][solution-multiple-keys]) e.g. `{"nim", "Nim": "awesome"}`
 - method call syntax
 - func/proc definiton
 - routine exporting
@@ -64,3 +63,5 @@
 
 - iterator vs. proc
 - `yield` statement
+
+[solution-multiple-keys]: https://exercism.org/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf
