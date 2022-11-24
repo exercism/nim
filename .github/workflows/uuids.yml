@@ -5,7 +5,7 @@ jobs:
   check_uuids:
     runs-on: ubuntu-22.04
     env:
-      NIM_VERSION: '1.6.8'
+      NIM_VERSION: '1.6.10'
 
     steps:
     - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
