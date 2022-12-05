@@ -1,7 +1,6 @@
+_test/check_exercises_tmp/
 nimcache/
 *.html
-*_test
-!_test/*.nim
 bin/configlet
 bin/configlet.exe
 .DS_Store
