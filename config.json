@@ -974,7 +974,7 @@
     },
     {
       "title": "Custom Memory Management",
-      "content": "Automatic overloadable reference counting and a cycle detector for no garbage collection at all.",
+      "content": "Automatic deterministic reference counting and destructors with an optional cycle detector for no garbage collection.",
       "icon": "garbage-collected"
     }
   ],
