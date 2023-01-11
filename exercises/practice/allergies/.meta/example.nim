@@ -1,24 +1,16 @@
-import sequtils
-
 type
-  Allergies* = object
-    score*: int
+  Allergen* = enum
+    Eggs
+    Peanuts
+    Shellfish
+    Strawberries
+    Tomatoes
+    Chocolate
+    Pollen
+    Cats
 
-var
-  allergiesList = [
-    "eggs",
-    "peanuts",
-    "shellfish",
-    "strawberries",
-    "tomatoes",
-    "chocolate",
-    "pollen",
-    "cats"
-  ]
+func isAllergicTo*(score: int, allergen: Allergen): bool =
+  (score and 1 shl allergen.ord) != 0
 
-
-proc isAllergicTo*(allergies: Allergies, allergy: string): bool =
-  (allergies.score and 1 shl allergiesList.find(allergy)) != 0
-
-proc lst*(allergies: Allergies): seq[string] =
-  allergiesList.filterIt(allergies.isAllergicTo(it))
+func allergies*(score: int): set[Allergen] =
+  cast[typeof(result)](score)
