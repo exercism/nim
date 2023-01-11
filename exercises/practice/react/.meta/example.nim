@@ -48,8 +48,8 @@ proc `value=`*(cell: Cell, val: int) =
     for consumer in cell.consumers.mitems:
       consumer.value = consumer.value()
 
-func addCallback*(cell: Cell, callback: Callback) =
+proc addCallback*(cell: Cell, callback: Callback) =
   cell.callbacks.incl callback
 
-func removeCallback*(cell: Cell, callback: Callback) =
+proc removeCallback*(cell: Cell, callback: Callback) =
   cell.callbacks.excl callback
