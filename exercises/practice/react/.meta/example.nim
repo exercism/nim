@@ -22,7 +22,7 @@ type
 func newInputCell*(val: int): Cell =
   Cell(kind: ckInput, val: val)
 
-func value*(cell: var Cell): int =
+func value*(cell: Cell): int =
   case cell.kind
   of ckInput:
     cell.val
@@ -39,7 +39,7 @@ proc newComputeCell*(dependencies: seq[Cell], compute: ComputeFunc): Cell =
   for dependency in dependencies:
     dependency.consumers.add result
 
-proc `value=`*(cell: var Cell, val: int) =
+proc `value=`*(cell: Cell, val: int) =
   if val != cell.val:
     cell.val = val
     if cell.kind == ckCompute:
@@ -48,8 +48,8 @@ proc `value=`*(cell: var Cell, val: int) =
     for consumer in cell.consumers.mitems:
       consumer.value = consumer.value()
 
-func addCallback*(cell: var Cell, callback: Callback) =
+func addCallback*(cell: Cell, callback: Callback) =
   cell.callbacks.incl callback
 
-func removeCallback*(cell: var Cell, callback: Callback) =
+func removeCallback*(cell: Cell, callback: Callback) =
   cell.callbacks.excl callback

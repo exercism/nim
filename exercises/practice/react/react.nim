@@ -9,17 +9,17 @@ type
 proc newInputCell*(val: int): Cell =
   discard
 
-proc value*(cell: var Cell): int =
+proc value*(cell: Cell): int =
   discard
 
-proc `value=`*(cell: var Cell, val: int) =
+proc `value=`*(cell: Cell, val: int) =
   discard
 
 proc newComputeCell*(dependencies: seq[Cell], compute: ComputeFunc): Cell =
   discard
 
-proc addCallback*(cell: var Cell, callback: Callback) =
+proc addCallback*(cell: Cell, callback: Callback) =
   discard
 
-proc removeCallback*(cell: var Cell, callback: Callback) =
+proc removeCallback*(cell: Cell, callback: Callback) =
   discard
