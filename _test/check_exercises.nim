@@ -116,7 +116,7 @@ proc prepareDir(options: Options) =
   createDir(srcDir)
   const configFileContents = """
     --path: "$projectDir/../src/check_exercises"
-    switch("styleCheck", "hint")
+    switch("styleCheck", "error")
   """.unindent()
   writeFile(testDir / "config.nims", configFileContents)
 
