@@ -51,7 +51,7 @@ jobs:
           nimble --version
 
       - name: Compile `check_exercises.nim`
-        run: nim c --styleCheck:hint _test/check_exercises.nim
+        run: nim c --styleCheck:error _test/check_exercises.nim
 
       - name: Run `check_exercises`
         run: _test/check_exercises

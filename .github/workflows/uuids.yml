@@ -32,11 +32,11 @@ jobs:
 
     - name: Run tests for `check_uuids.nim`
       if: steps.cache-uuids.outputs.cache-hit != 'true'
-      run: nim c --styleCheck:hint -d:test -r ./_test/check_uuids.nim
+      run: nim c --styleCheck:error -d:test -r ./_test/check_uuids.nim
 
     - name: Compile `check_uuids.nim`
       if: steps.cache-uuids.outputs.cache-hit != 'true'
-      run: nim c --styleCheck:hint -d:ssl -d:release --passC:-flto --passL:-s ./_test/check_uuids.nim
+      run: nim c --styleCheck:error -d:ssl -d:release --passC:-flto --passL:-s ./_test/check_uuids.nim
 
     - name: Run `check_uuids`
       run: ./_test/check_uuids
