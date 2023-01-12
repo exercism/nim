@@ -19,7 +19,7 @@ jobs:
           - nim: devel
             os: linux
 
-          - nim: '1.0.10'
+          - nim: '1.6.0'
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
