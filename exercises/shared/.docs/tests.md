@@ -3,7 +3,7 @@
 To compile and run the tests, just run the following in your exercise directory:
 
 ```shell
-nim r test_<snake-case-exercise>.nim
+nim r test_exercise_name.nim
 ```
 
-Replace `<snake-case-exercise>` with the actual exercise name in snake case (e.g. `all_your_base`).
+Replace `exercise_name` with the name of the exercise (e.g. `all_your_base`).
