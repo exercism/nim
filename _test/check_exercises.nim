@@ -116,8 +116,14 @@ proc prepareDir(options: Options) =
   createDir(srcDir)
   const configFileContents = """
     --path: "$projectDir/../src/check_exercises"
+    switch("define", "nimStrictDelete")
+    when (NimMajor, NimMinor) >= (1, 9):
+      switch("experimental", "strictDefs")
+    elif (NimMajor, NimMinor) >= (1, 6):
+      switch("experimental", "strictEffects")
+    switch("experimental", "strictFuncs")
     switch("styleCheck", "error")
-  """.unindent()
+  """.dedent(4)
   writeFile(testDir / "config.nims", configFileContents)
 
 proc wrapTest(file: string, slug: string): string =
