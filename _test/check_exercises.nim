@@ -114,7 +114,10 @@ proc prepareDir(options: Options) =
   removeDir(outDir)
   createDir(testDir)
   createDir(srcDir)
-  const configFileContents = "--path: \"$projectDir/../src/check_exercises\""
+  const configFileContents = """
+    --path: "$projectDir/../src/check_exercises"
+    switch("styleCheck", "error")
+  """.unindent()
   writeFile(testDir / "config.nims", configFileContents)
 
 proc wrapTest(file: string, slug: string): string =
@@ -205,8 +208,8 @@ proc quietRun: int =
   result = -1
 
   putEnv("NIMTEST_OUTPUT_LVL", "PRINT_FAILURES")
-  let args = @["c", "-r", "--styleCheck:hint", "--colors:on",
-               "--hint[Conf]:off", "--hint[Processing]:off", "--hint[Link]:off",
+  let args = @["c", "-r", "--colors:on", "--hint[Conf]:off",
+               "--hint[Processing]:off", "--hint[Link]:off",
                "--hint[SuccessX]:on", "--hint[Exec]:off", allTestsPath]
 
   const suiteStr = "[Suite] "
@@ -285,7 +288,7 @@ proc runTests(slugs: Slugs, options: Options): int =
   if optQuiet in options:
     result = quietRun()
   else:
-    result = execCmd(&"nim c -r --styleCheck:hint {allTestsPath}")
+    result = execCmd(&"nim c -r {allTestsPath}")
     if result == 0:
       let wording = if slugs.len == 1: " exercise." else: " exercises."
       echo "\nTested ", slugs.len, wording, "\nAll tests passed."
