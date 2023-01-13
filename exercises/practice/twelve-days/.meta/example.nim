@@ -40,8 +40,7 @@ func generateVerses: tuple[song: string, indices: DayArray[int]] =
 
 const (song, indices) = generateVerses() # Generate the lyrics at compile-time.
 
-func recite*(start: DayRange, stop: DayRange = 1): string =
-  let stop = if stop == 1: start else: stop # Workaround for Nim bug #11274.
+func recite*(start: DayRange, stop = start): string =
   let firstChar = indices[start]
   let lastChar = if stop == 12: song.high - 2 else: indices[stop + 1] - 3
   result = song[firstChar .. lastChar] # Excludes the final two newlines.
