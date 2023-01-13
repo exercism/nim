@@ -13,13 +13,13 @@ The file [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/main
 To test all the exercises, run:
 
 ```shell
-nim c -r check_exercises.nim
+nim r check_exercises.nim
 ```
 
 To test a selection of exercises, run:
 
 ```shell
-nim c -r check_exercises.nim [exercise-name] [...]
+nim r check_exercises.nim [exercise-name] [...]
 ```
 
 This finds all the relevant tests, processes them into a new directory for testing, and runs them. For more information, please read the documentation comments in [`_test/check_exercises.nim`](https://github.com/exercism/nim/blob/main/_test/check_exercises.nim) or run `check_exercises` with the `--help` option.
