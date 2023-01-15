@@ -973,7 +973,7 @@
       "icon": "cross-platform"
     },
     {
-      "title": "Custom Memory Management",
+      "title": "Custom memory management",
       "content": "Automatic deterministic ref counting, destructors and a cycle detector for no garbage collection.",
       "icon": "garbage-collected"
     }
