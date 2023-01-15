@@ -974,7 +974,7 @@
     },
     {
       "title": "Custom memory management",
-      "content": "Automatic deterministic ref counting, destructors and a cycle detector for no garbage collection.",
+      "content": "Deterministic memory management, with destructors and move semantics (inspired by C++ and Rust).",
       "icon": "garbage-collected"
     }
   ],
