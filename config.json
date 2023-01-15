@@ -946,7 +946,38 @@
       "name": "Basics"
     }
   ],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Strong static typing",
+      "content": "Modern static type system with type inference, tuples, generics, and sum types.",
+      "icon": "statically-typed"
+    },
+    {
+      "title": "Fast",
+      "content": "Compiles to C/C++/ObjC with no runtime or virtual machine, for blazing fast results.",
+      "icon": "fast"
+    },
+    {
+      "title": "Expressive",
+      "content": "Friendly syntax, macro system and generics allow for expressive DSLs and code reusability.",
+      "icon": "expressive"
+    },
+    {
+      "title": "Interoperable",
+      "content": "Easy FFI with the target languages (C/C++/ObjC/JavaScript) for excellent interop.",
+      "icon": "interop"
+    },
+    {
+      "title": "Cross-platform",
+      "content": "Runs on (and cross-compiles to) all major desktop OSs and embedded devices.",
+      "icon": "cross-platform"
+    },
+    {
+      "title": "Custom memory management",
+      "content": "Deterministic memory management, with destructors and move semantics (inspired by C++ and Rust).",
+      "icon": "garbage-collected"
+    }
+  ],
   "tags": [
     "paradigm/imperative",
     "paradigm/procedural",
