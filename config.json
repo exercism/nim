@@ -949,7 +949,7 @@
   "key_features": [
     {
       "title": "Strong static typing",
-      "content": "Modern static type system with type inference, tuples, generics and sum types.",
+      "content": "Modern static type system with type inference, tuples, generics, and sum types.",
       "icon": "statically-typed"
     },
     {
