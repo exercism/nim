@@ -954,7 +954,7 @@
     },
     {
       "title": "Fast",
-      "content": "Compiles to C/C++/ObjC with no runtime or virtual machine for blazing fast results.",
+      "content": "Compiles to C/C++/ObjC with no runtime or virtual machine, for blazing fast results.",
       "icon": "fast"
     },
     {
