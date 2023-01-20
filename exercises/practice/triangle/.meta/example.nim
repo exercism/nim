@@ -1,4 +1,4 @@
-import sequtils
+import std/sequtils
 
 proc valid(a, b, c: int): bool =
   let greatThenZero = all([a, b, c], proc (x: int): bool = return x > 0)

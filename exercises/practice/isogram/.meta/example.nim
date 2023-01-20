@@ -1,4 +1,4 @@
-import sequtils, sets, strutils
+import std/[sequtils, sets, strutils]
 
 proc isIsogram*(phrase: string): bool =
   let charactersLower = phrase.filterIt(it.isAlphaAscii()).mapIt(it.toLowerAscii)

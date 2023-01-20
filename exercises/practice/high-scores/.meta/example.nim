@@ -1,4 +1,4 @@
-import algorithm
+import std/algorithm
 
 func latest*(scores: openArray[int]): int =
   scores[^1]

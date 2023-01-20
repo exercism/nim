@@ -1,4 +1,4 @@
-import sequtils, strutils
+import std/[sequtils, strutils]
 
 const
   Plain = "abcdefghijklmnopqrstuvwxyz"

@@ -1,4 +1,4 @@
-import tables
+import std/tables
 
 func countDna*(s: string): CountTable[char] =
   result = s.toCountTable()

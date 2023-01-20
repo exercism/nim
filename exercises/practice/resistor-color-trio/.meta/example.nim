@@ -1,4 +1,4 @@
-import math
+import std/math
 
 type
   ResistorColor* = enum

@@ -1,4 +1,4 @@
-import sequtils
+import std/sequtils
 
 func saddlePoints*(matrix: seq[seq[int]]): seq[tuple[r, c: int]] =
   if matrix.len == 0:

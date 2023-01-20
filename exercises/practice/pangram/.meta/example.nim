@@ -1,4 +1,4 @@
-import strutils
+import std/strutils
 
 const
   asciiLowercase = {'a'..'z'}

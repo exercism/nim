@@ -1,4 +1,4 @@
-import math
+import std/math
 
 func score*(x, y: float): int =
   let r = hypot(x, y)

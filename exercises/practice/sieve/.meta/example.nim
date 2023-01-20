@@ -1,4 +1,4 @@
-import math
+import std/math
 
 func eratosthenes(n: int): seq[bool] =
   result = newSeq[bool](n+1)

@@ -1,4 +1,4 @@
-import algorithm, sequtils, strutils
+import std/[algorithm, sequtils, strutils]
 
 type TAnagram = tuple
   word: string

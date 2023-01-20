@@ -1,4 +1,4 @@
-import strformat, times
+import std/[strformat, times]
 
 type Schedule* = enum
   Teenth, First, Second, Third, Fourth, Last
