@@ -11,8 +11,8 @@ func plants*(s: string, student: string): seq[Plant] =
 
   for c in theirPlants:
     case c
-    of 'C': result &= Clover
-    of 'G': result &= Grass
-    of 'R': result &= Radishes
-    of 'V': result &= Violets
+    of 'C': result.add Clover
+    of 'G': result.add Grass
+    of 'R': result.add Radishes
+    of 'V': result.add Violets
     else: raise newException(ValueError, "Invalid plant: " & $c)

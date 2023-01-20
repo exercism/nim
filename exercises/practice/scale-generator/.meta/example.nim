@@ -15,4 +15,4 @@ func scale*(tonic: string, intervals = defaultIntervals): seq[string] =
   result = @[tonicCapitalized]
   for c in intervals:
     i += semitones[c]
-    result &= chromatic[i mod 12]
+    result.add chromatic[i mod 12]

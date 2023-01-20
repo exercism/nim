@@ -5,6 +5,6 @@ func primeFactors*(n: int64): seq[int] =
   while n > 1:
     while n mod d == 0:
       n = n div d
-      result &= d
+      result.add d
 
     inc d

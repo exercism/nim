@@ -4,12 +4,12 @@ proc toRna*(strand: string): string =
   for c in strand:
     case c
     of 'A':
-      result &= 'U'
+      result.add 'U'
     of 'G':
-      result &= 'C'
+      result.add 'C'
     of 'C':
-      result &= 'G'
+      result.add 'G'
     of 'T':
-      result &= 'A'
+      result.add 'A'
     else:
       raise newException(ValueError, "Invalid nucleotide")

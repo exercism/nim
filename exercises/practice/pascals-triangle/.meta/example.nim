@@ -3,11 +3,11 @@ func createTriangle(n: int): seq[seq[int]] =
 
   for i in 1 .. n:
     var row = newSeqOfCap[int](n)
-    row &= 1
+    row.add 1
     for j in 1 ..< i:
-      row &= result[i-1][j-1] + result[i-1][j]
-    row &= 1
-    result &= row
+      row.add result[i-1][j-1] + result[i-1][j]
+    row.add 1
+    result.add row
 
 const p = createTriangle(30) # Generate rows of the triangle at compile-time.
 

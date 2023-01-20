@@ -28,15 +28,15 @@ func generateVerses: tuple[song: string, indices: DayArray[int]] =
   ##   `indices`: the index in `song` of the first character for each verse.
   for n in nth.low .. nth.high:
     result.indices[n] = result.song.len
-    result.song &= &"On the {nth[n]} day of Christmas my true love gave to me: "
+    result.song.add &"On the {nth[n]} day of Christmas my true love gave to me: "
     for i in countdown(n, 1):
       case i
       of 3..12:
-        result.song &= &"{gifts[i]}, "
+        result.song.add &"{gifts[i]}, "
       of 2:
-        result.song &= &"{gifts[i]}, and "
+        result.song.add &"{gifts[i]}, and "
       of 1:
-        result.song &= &"{gifts[i]}.\n\n"
+        result.song.add &"{gifts[i]}.\n\n"
 
 const (song, indices) = generateVerses() # Generate the lyrics at compile-time.
 
