@@ -10,10 +10,10 @@ const
   reverseBit = 4
 
 
-proc bitset(input: Natural, position: Natural): bool =
+func bitset(input: Natural, position: Natural): bool =
   (input and 1 shl position) != 0
 
-proc commands*(input: Natural): seq[string] =
+func commands*(input: Natural): seq[string] =
   for index, item in signals:
     if input.bitset(index):
       result.add(item)

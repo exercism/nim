@@ -20,5 +20,5 @@ const times = [
   Neptune: 5200418592.0
 ]
 
-proc age*(planet: Planet, seconds: int64): float =
+func age*(planet: Planet, seconds: int64): float =
   seconds.float / times[planet]

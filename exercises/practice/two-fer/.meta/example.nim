@@ -1,2 +1,2 @@
-proc twoFer*(name = "you"): string =
+func twoFer*(name = "you"): string =
   "One for " & name & ", one for me."

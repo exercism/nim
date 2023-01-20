@@ -1,6 +1,6 @@
 import math, strutils
 
-proc isArmstrongNumber*(input: int): bool =
+func isArmstrongNumber*(input: int): bool =
   let stringNumber = $input
   let numberLength = len(stringNumber).toFloat
 

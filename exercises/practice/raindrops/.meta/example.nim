@@ -1,6 +1,6 @@
 import strutils
 
-proc convert*(sound: int): string =
+func convert*(sound: int): string =
   var raindrops = ""
 
   if (sound mod 3) == 0:

@@ -5,7 +5,7 @@ const
   Cipher = "zyxwvutsrqponmlkjihgfedcba"
 
 
-proc group(s: string, digits = 5): string =
+func group(s: string, digits = 5): string =
   result = ""
   var c = 0
   for item in s:
@@ -15,14 +15,14 @@ proc group(s: string, digits = 5): string =
     result.add(item)
     inc(c)
 
-proc clean(phrase: string): seq[char] =
+func clean(phrase: string): seq[char] =
   phrase.toLowerAscii.filterIt(it.isAlphaNumeric)
 
-proc convert(c: char, fromInput: string, toInput: string): char =
+func convert(c: char, fromInput: string, toInput: string): char =
   if c.isAlphaAscii: toInput[fromInput.find(c)] else: c
 
-proc encode*(phrase: string): string =
+func encode*(phrase: string): string =
   phrase.clean.mapIt(it.convert(Plain, Cipher)).join("").group
 
-proc decode*(phrase: string): string =
+func decode*(phrase: string): string =
   phrase.clean.mapIt(it.convert(Cipher, Plain)).join("")
