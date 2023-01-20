@@ -1,5 +1,5 @@
-from strutils import endsWith, strip
-from unicode import isLower, isUpper, isWhiteSpace, runes
+from std/strutils import endsWith, strip
+from std/unicode import isLower, isUpper, isWhiteSpace, runes
 
 proc isSilence(s: string): bool =
   for r in runes(s):

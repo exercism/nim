@@ -1,4 +1,4 @@
-import math, strutils
+import std/[math, strutils]
 
 func encrypt*(s: string): string =
   var normalized = newStringOfCap(s.len)

@@ -1,4 +1,4 @@
-import strformat
+import std/strformat
 
 func recite*(s: openArray[string]): string =
   if s.len == 0:

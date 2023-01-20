@@ -1,4 +1,4 @@
-import strutils
+import std/strutils
 
 func matrix(s: string): seq[seq[int]] =
   for line in s.splitLines:

@@ -1,4 +1,4 @@
-import math
+import std/math
 
 proc isPrime(n: int): bool =
   if n <= 1:

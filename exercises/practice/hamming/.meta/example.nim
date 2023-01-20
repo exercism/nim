@@ -1,4 +1,4 @@
-import sequtils
+import std/sequtils
 
 proc isDifferent(pair: tuple[a, b: char]): bool = pair.a != pair.b
 

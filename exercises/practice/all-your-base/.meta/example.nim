@@ -1,4 +1,4 @@
-import algorithm, math
+import std/[algorithm, math]
 
 func convert*(digits: openArray[int], fromBase: int, toBase: int): seq[int] =
   if fromBase < 2:

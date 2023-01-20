@@ -1,4 +1,4 @@
-import math
+import std/math
 
 func score*(p: tuple[x, y: float]): int =
   let r = hypot(p.x, p.y)

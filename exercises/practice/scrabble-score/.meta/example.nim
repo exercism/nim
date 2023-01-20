@@ -1,4 +1,4 @@
-import math, sequtils, strutils, tables
+import std/[math, sequtils, strutils, tables]
 
 let
   points = {

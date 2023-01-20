@@ -1,4 +1,4 @@
-import algorithm
+import std/algorithm
 
 const
   signals = [

@@ -1,4 +1,4 @@
-import deques, sequtils, tables
+import std/[deques, sequtils, tables]
 
 const
   lookupTable = {'(': ')', '{': '}', '[': ']'}.toTable

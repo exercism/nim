@@ -1,4 +1,4 @@
-import strformat
+import std/strformat
 
 type
   DayRange = range[1..12]

@@ -1,4 +1,4 @@
-import sets, strutils, tables
+import std/[sets, strutils, tables]
 
 const
   chromaticSharps = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]

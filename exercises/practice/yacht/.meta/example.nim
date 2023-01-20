@@ -1,4 +1,4 @@
-import math
+import std/math
 
 type Category* = enum
   Ones = 1, Twos, Threes, Fours, Fives, Sixes,

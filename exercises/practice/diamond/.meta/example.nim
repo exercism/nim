@@ -1,4 +1,4 @@
-import strutils
+import std/strutils
 
 func toDiamond(c: char): seq[string] =
   let rowLen = 2 * (c.ord - 'A'.ord) + 1

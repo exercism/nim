@@ -1,4 +1,4 @@
-import strutils
+import std/strutils
 
 proc convert*(sound: int): string =
   var raindrops = ""
