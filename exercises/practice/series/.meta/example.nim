@@ -3,4 +3,4 @@ func slices*(s: string, n: int): seq[string] =
     raise newException(ValueError, "Invalid slice length: " & $n)
 
   for i in 0 .. s.len-n:
-    result &= s[i ..< i+n]
+    result.add s[i ..< i+n]

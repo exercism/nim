@@ -13,4 +13,4 @@ func saddlePoints*(matrix: seq[seq[int]]): seq[tuple[r, c: int]] =
     let rowMax = row.max
     for c, _ in row:
       if rowMax == colMins[c]:
-        result &= (r+1, c+1)
+        result.add (r+1, c+1)

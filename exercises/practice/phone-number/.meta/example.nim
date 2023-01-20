@@ -1,7 +1,7 @@
 func clean*(s: string): string =
   for c in s:
     if c in {'0'..'9'}:
-      result &= c
+      result.add c
 
   if result.len == 11 and result[0] == '1':
     result = result[1 .. ^1]

@@ -4,7 +4,7 @@ func encrypt*(s: string): string =
   var normalized = newStringOfCap(s.len)
   for c in s.toLowerAscii():
     if c in {'a'..'z'} or c in {'0'..'9'}:
-      normalized &= c
+      normalized.add c
 
   let r = normalized.len.float.sqrt.ceil.int
   let c = (normalized.len.float / r.float).round.int
@@ -14,8 +14,8 @@ func encrypt*(s: string): string =
   for s in 0 ..< r:
     var word = ""
     for i in countup(s, normalized.high, r):
-      word &= normalized[i]
+      word.add normalized[i]
 
-    ct &= word
+    ct.add word
 
   result = ct.join(" ")

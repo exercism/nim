@@ -18,6 +18,6 @@ func convert*(digits: openArray[int], fromBase: int, toBase: int): seq[int] =
   if n == 0:
     return @[0]
   while n > 0:
-    result &= n mod toBase
+    result.add n mod toBase
     n = n div toBase
   result.reverse

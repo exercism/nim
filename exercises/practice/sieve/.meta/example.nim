@@ -17,4 +17,4 @@ let p = eratosthenes(1e6.int)
 proc primes*(limit: int): seq[int] =
   for i in 2 .. limit:
     if p[i]:
-      result &= i
+      result.add i
