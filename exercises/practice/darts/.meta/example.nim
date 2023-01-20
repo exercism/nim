@@ -1,7 +1,7 @@
 import math
 
-func score*(p: tuple[x, y: float]): int =
-  let r = hypot(p.x, p.y)
+func score*(x, y: float): int =
+  let r = hypot(x, y)
   if r <= 1:
     10
   elif r <= 5:
