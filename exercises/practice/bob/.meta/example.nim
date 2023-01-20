@@ -1,13 +1,13 @@
 from std/strutils import endsWith, strip
 from std/unicode import isLower, isUpper, isWhiteSpace, runes
 
-proc isSilence(s: string): bool =
+func isSilence(s: string): bool =
   for r in runes(s):
     if not isWhiteSpace(r):
       return false
   return true
 
-proc isYelling(s: string): bool =
+func isYelling(s: string): bool =
   var nUpperRunes = 0
   for r in runes(s):
     if isLower(r):
@@ -16,7 +16,7 @@ proc isYelling(s: string): bool =
       inc(nUpperRunes)
   return nUpperRunes > 0
 
-proc isQuestion(s: string): bool =
+func isQuestion(s: string): bool =
   return s.strip().endsWith("?")
 
 func hey*(msg: string): string =

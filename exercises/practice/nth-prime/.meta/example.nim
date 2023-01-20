@@ -1,6 +1,6 @@
 import std/math
 
-proc isPrime(n: int): bool =
+func isPrime(n: int): bool =
   if n <= 1:
     return false
 
@@ -20,7 +20,7 @@ iterator primeIter(n: int): int =
       inc countOfPrime
     inc candidate
 
-proc prime*(number: int): int =
+func prime*(number: int): int =
   if number < 1:
     raise newException(ValueError, "there is no zeroth prime")
 

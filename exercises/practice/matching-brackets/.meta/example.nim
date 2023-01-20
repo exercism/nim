@@ -3,10 +3,10 @@ import std/[deques, sequtils, tables]
 const
   lookupTable = {'(': ')', '{': '}', '[': ']'}.toTable
 
-proc hasValue[A, B](t: Table[A, B], value: B): bool =
+func hasValue[A, B](t: Table[A, B], value: B): bool =
   value in toSeq(t.values)
 
-proc isPaired*(value: string): bool =
+func isPaired*(value: string): bool =
   var stack = initDeque[char]()
 
   for item in value:

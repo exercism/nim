@@ -1,4 +1,4 @@
-proc toRna*(strand: string): string =
+func toRna*(strand: string): string =
   result = ""
 
   for c in strand:

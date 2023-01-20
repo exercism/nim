@@ -1,4 +1,4 @@
-proc steps*(number: int): int =
+func steps*(number: int): int =
   if (number < 1):
     raise newException(ValueError, "Only positive integers are allowed")
 
