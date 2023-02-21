@@ -417,6 +417,20 @@
         ]
       },
       {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "9a71f9ff-637b-4d1d-87f1-a0451e162e50",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "games",
+          "integers",
+          "math",
+          "randomness"
+        ]
+      },
+      {
         "slug": "etl",
         "name": "ETL",
         "uuid": "da9807c2-959d-49e0-86a9-44de02501f37",
