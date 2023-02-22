@@ -9,14 +9,13 @@ type
     wisdom*: int
     charisma*: int
     hitpoints*: int
-  DiceRange = 1..6
 
 randomize()
 
 proc ability*: int =
   var lowest = int.high
   for i in 1..4:
-    let roll = rand(DiceRange)
+    let roll = rand(1..6)
     result += roll
     lowest = min(lowest, roll)
   result -= lowest
