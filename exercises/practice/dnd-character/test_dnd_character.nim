@@ -81,33 +81,28 @@ suite "D&D Character":
     type
       AbilityDist = array[3..18, int]
 
+    func generateBounds(n: int): tuple[mins, maxs: AbilityDist] =
+      const delta = 0.5
+
+      # The below `expected` array contains the number of ways to produce each
+      # ability score. For example, only 1 of the 1296 dice combinations gives a
+      # score of 3 (rolling a 1 on all 4 dice) and so a correct `ability`
+      # function should return 3 roughly 1 time per 1296 calls.
+      const expected: AbilityDist =
+        [1, 4, 10, 21, 38, 62, 91, 122, 148, 167, 172, 160, 131, 94, 54, 21]
+
+      for i in expected.low .. expected.high:
+        result.mins[i] = (expected[i].float * n.float * (1 - delta)).floor().int
+        result.maxs[i] = (expected[i].float * n.float * (1 + delta)).ceil().int
+
     const
       n = 100
       combinationsCount = 6 * 6 * 6 * 6 # Four six-sided dice.
       numTrials = n * combinationsCount
-
-    func multiply(a: AbilityDist, f: float): AbilityDist =
-      for i in a.low .. a.high:
-        if f > 1:
-          result[i] = (a[i].float * n.float * f).ceil().int
-        else:
-          result[i] = (a[i].float * n.float * f).floor().int
-
-    # The below `expected` array contains the number of ways to produce each
-    # ability score. For example, only 1 of the 1296 dice combinations gives a
-    # score of 3 (rolling a 1 on all 4 dice) and so a correct `ability` function
-    # should return 3 roughly 1 time per 1296 calls.
-
-    const expected: AbilityDist =
-      [1, 4, 10, 21, 38, 62, 91, 122, 148, 167, 172, 160, 131, 94, 54, 21]
+      (mins, maxs) = generateBounds(n)
 
     # Generate many ability scores and check that the resulting distribution is
     # sufficiently close to the expected one.
-
-    const
-      delta = 0.5
-      mins = expected.multiply(1.0 - delta)
-      maxs = expected.multiply(1.0 + delta)
 
     var actual: AbilityDist
 
