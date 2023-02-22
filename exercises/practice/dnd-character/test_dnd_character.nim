@@ -87,7 +87,7 @@ suite "D&D Character":
       # The below `expected` array contains the number of ways to produce each
       # ability score. For example, only 1 of the 1296 dice combinations gives a
       # score of 3 (rolling a 1 on all 4 dice) and so a correct `ability`
-      # function should return 3 roughly 1 time per 1296 calls.
+      # procedure should return 3 roughly 1 time per 1296 calls.
       const expected: AbilityDist =
         [1, 4, 10, 21, 38, 62, 91, 122, 148, 167, 172, 160, 131, 94, 54, 21]
 
