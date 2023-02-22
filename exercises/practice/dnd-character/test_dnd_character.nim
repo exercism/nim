@@ -92,6 +92,7 @@ suite "D&D Character":
 
     # Generate many ability scores and check that the resulting distribution is
     # sufficiently close to the expected one.
+    # A correct implementation has a tiny chance of failing this test.
 
     const
       delta = 0.5
