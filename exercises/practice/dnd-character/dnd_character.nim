@@ -1,5 +1,6 @@
 type
   Character* = object
+    strength*: int
 
 proc ability*: int =
   discard
