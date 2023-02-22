@@ -66,17 +66,6 @@ suite "D&D Character":
         c.charisma in {3..18}
         c.hitpoints == 10 + modifier(c.constitution)
 
-  test "each ability is only calculated once":
-    for i in 1..5:
-      let c = initCharacter()
-      check:
-        c.strength == c.strength
-        c.dexterity == c.dexterity
-        c.constitution == c.constitution
-        c.intelligence == c.intelligence
-        c.wisdom == c.wisdom
-        c.charisma == c.charisma
-
   test "random ability is distributed correctly":
     type
       AbilityDist = array[3..18, int]
