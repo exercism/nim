@@ -1,5 +1,5 @@
 type
-  Character = object
+  Character* = object
 
 proc ability*: int =
   discard

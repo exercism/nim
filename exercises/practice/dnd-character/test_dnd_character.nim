@@ -1,4 +1,4 @@
-import std/[math, unittest]
+import std/[math, sets, unittest]
 import dnd_character
 
 suite "D&D Character":
@@ -66,6 +66,17 @@ suite "D&D Character":
         c.charisma in {3..18}
         c.hitpoints == 10 + modifier(c.constitution)
 
+  # A correct implementation has a tiny chance of failing the below tests.
+
+  test "characters are different":
+    var seen = initHashSet[Character]()
+    for i in 1..5:
+      let c = initCharacter()
+      if c in seen:
+        echo "Failure: character was generated more than once: Character" & $c
+        fail()
+      seen.incl c
+
   test "random ability is distributed correctly":
     type
       AbilityDist = array[3..18, int]
@@ -92,7 +103,6 @@ suite "D&D Character":
 
     # Generate many ability scores and check that the resulting distribution is
     # sufficiently close to the expected one.
-    # A correct implementation has a tiny chance of failing this test.
 
     const
       delta = 0.5

@@ -1,7 +1,7 @@
 import std/[math, random]
 
 type
-  Character = object
+  Character* = object
     strength*: int
     dexterity*: int
     constitution*: int
