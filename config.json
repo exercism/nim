@@ -939,6 +939,20 @@
         ]
       },
       {
+        "slug": "linked-list",
+        "name": "Linked List",
+        "uuid": "de2be158-c9af-4890-985b-43b0b7c8d8ff",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "data_structures",
+          "generics",
+          "objects",
+          "pointers"
+        ]
+      },
+      {
         "slug": "react",
         "name": "React",
         "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd",
