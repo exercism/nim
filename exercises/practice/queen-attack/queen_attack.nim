@@ -1,7 +1,7 @@
 type
   Queen* = object
-    row*: range[0..7]
-    col*: range[0..7]
+    row*: int
+    col*: int
 
 proc initQueen*(row, col: int): Queen =
   discard
