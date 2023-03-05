@@ -1,2 +1,2 @@
-proc commands*(n: Natural): seq[string] =
+proc commands*(n: int): seq[string] =
   discard

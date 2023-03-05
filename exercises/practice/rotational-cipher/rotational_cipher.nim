@@ -1,2 +1,2 @@
-proc rotate*(s: string, n: Natural): string =
+proc rotate*(s: string, n: int): string =
   discard
