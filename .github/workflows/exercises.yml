@@ -55,3 +55,9 @@ jobs:
 
       - name: Run `check_exercises`
         run: _test/check_exercises
+
+      - name: Compile `check_stubs.nim`
+        run: nim c --styleCheck:error _test/check_stubs.nim
+
+      - name: Run `check_stubs`
+        run: _test/check_stubs
