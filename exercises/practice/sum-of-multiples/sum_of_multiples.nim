@@ -1,2 +1,2 @@
-proc sum*(limit: int, factors: seq[int]): int =
+proc sum*(limit: int, factors: openArray[int]): int =
   discard
