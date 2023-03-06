@@ -48,10 +48,12 @@ proc shift*[T](list: var LinkedList[T]): T =
   dec list.count
 
 iterator nodes[T](list: LinkedList[T]): Node[T] =
+  ## Yields every node of `list`. Supports removing a node during traversal.
   var node = list.head
   while node != nil:
+    let tmp = node.next
     yield node
-    node = node.next
+    node = tmp
 
 proc delete*[T](list: var LinkedList[T], val: T) =
   ## Removes a node with value `val` from `list`.
