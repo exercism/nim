@@ -1,14 +1,16 @@
-import unittest
+import std/[strutils, unittest]
 import scale_generator
 
 suite "Chromatic scales":
+  const chromaticIntervals = "m".repeat(11)
+
   test "chromatic scale with sharps":
-    check scale("C") == @["C", "C#", "D", "D#", "E", "F",
-                          "F#", "G", "G#", "A", "A#", "B"]
+    check scale("C", chromaticIntervals) == @["C", "C#", "D", "D#", "E", "F",
+                                              "F#", "G", "G#", "A", "A#", "B"]
 
   test "chromatic scale with flats":
-    check scale("F") == @["F", "Gb", "G", "Ab", "A", "Bb",
-                          "B", "C", "Db", "D", "Eb", "E"]
+    check scale("F", chromaticIntervals) == @["F", "Gb", "G", "Ab", "A", "Bb",
+                                              "B", "C", "Db", "D", "Eb", "E"]
 
 suite "Scales with specified intervals":
   test "simple major scale":
