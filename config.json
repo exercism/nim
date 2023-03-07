@@ -350,6 +350,19 @@
         ]
       },
       {
+        "slug": "binary-search",
+        "name": "Binary Search",
+        "uuid": "6314edad-0239-4fe0-a4be-c4033e52e76a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "algorithms",
+          "arrays",
+          "searching"
+        ]
+      },
+      {
         "slug": "clock",
         "name": "Clock",
         "uuid": "f1ebb810-ec96-4415-ae97-c76a0a714267",
