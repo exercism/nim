@@ -7,13 +7,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - nim: '1.6.10'
+          - nim: '2.0.0'
             os: linux
 
-          - nim: '1.6.10'
+          - nim: '2.0.0'
             os: macOS
 
-          - nim: '1.6.10'
+          - nim: '2.0.0'
             os: windows
 
           - nim: devel
