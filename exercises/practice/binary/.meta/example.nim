@@ -1,12 +1,7 @@
-from std/algorithm import reversed
-from std/strutils import allCharsInSet
-
-func binary*(input: string): int {.raises: [ValueError]} =
-  if not input.allCharsInSet({'0', '1'}):
-    raise newException(ValueError, "not binary")
-  else:
-    var value = 0
-    for factor, digit in reversed(input):
-      if digit == '1':
-        value += 1 shl factor
-    return value
+func binary*(s: string): int =
+  result = 0
+  for i, c in s:
+    if c in {'0', '1'}:
+      result = result shl 1 or (c.ord - '0'.ord)
+    else:
+      raise newException(ValueError, "not a binary number: " & s)
