@@ -13,8 +13,9 @@ type
 randomize()
 
 proc ability*: int =
+  result = 0
   var lowest = int.high
-  for i in 1..4:
+  for _ in 1..4:
     let roll = rand(1..6)
     result += roll
     lowest = min(lowest, roll)
