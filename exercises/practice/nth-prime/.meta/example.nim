@@ -1,28 +1,30 @@
 import std/math
 
-func isPrime(n: int): bool =
-  if n <= 1:
-    return false
+func eratosthenes(n: int): seq[bool] =
+  result = newSeq[bool](n+1)
+  result[2] = true
 
-  for i in 2 .. sqrt(n.toFloat).toInt:
-    if n mod i == 0:
-      return false
+  for odd in countup(3, n, 2):
+    result[odd] = true
 
-  return true
+  for i in countup(3, n.float.sqrt.int, 2): # Optimisation: stop at sqrt(n)
+    if result[i]:
+      for j in countup(i*i, n, 2*i): # Optimisation: start at i*i
+        result[j] = false
 
-iterator primeIter(n: int): int =
-  var
-    candidate = 2
-    countOfPrime = 0
-  while countOfPrime < n:
-    if candidate.isPrime:
-      yield candidate
-      inc countOfPrime
-    inc candidate
+func primesUpTo(limit: int): seq[int] =
+  result = @[0]
+  let p = eratosthenes(limit)
+  for i, b in p:
+    if b:
+      result.add i
 
-func prime*(number: int): int =
-  if number < 1:
-    raise newException(ValueError, "there is no zeroth prime")
+const limit = 1e6.int
+let primes = primesUpTo(limit)
 
-  for i in primeIter(number):
-    result = i
+proc prime*(n: int): int =
+  ## Returns the `n`th prime, or an exception if that is greater than `limit`.
+  if n in 1..primes.high:
+    primes[n]
+  else:
+    raise newException(ValueError, "n is out of range")
