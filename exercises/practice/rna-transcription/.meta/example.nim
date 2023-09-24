@@ -1,15 +1,11 @@
-func toRna*(strand: string): string =
-  result = ""
-
-  for c in strand:
-    case c
-    of 'A':
-      result.add 'U'
-    of 'G':
-      result.add 'C'
-    of 'C':
-      result.add 'G'
-    of 'T':
-      result.add 'A'
-    else:
-      raise newException(ValueError, "Invalid nucleotide")
+func toRna*(s: string): string =
+  result = newString(s.len)
+  for i, c in s:
+    result[i] =
+      case c
+      of 'A': 'U'
+      of 'G': 'C'
+      of 'C': 'G'
+      of 'T': 'A'
+      else:
+        raise newException(ValueError, "Invalid nucleotide: " & c)
