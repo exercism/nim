@@ -1,25 +1,17 @@
-import std/sequtils
+type
+  Triangle = array[3, int]
 
-func valid(a, b, c: int): bool =
-  let greatThenZero = all([a, b, c], proc (x: int): bool = return x > 0)
-  let equalityCheck = (a + b >= c) and (a + c >= b) and (b + c >= a)
+func isValid(t: Triangle): bool =
+  for side in t:
+    if side <= 0:
+      return false
+  (t[0] + t[1] >= t[2]) and (t[0] + t[2] >= t[1]) and (t[1] + t[2] >= t[0])
 
-  greatThenZero and equalityCheck
+func isEquilateral*(t: Triangle): bool =
+  isValid(t) and t[0] == t[1] and t[1] == t[2]
 
-func isEquilateral*(sides: array[3, int]): bool =
-  let a = sides[0]
-  let b = sides[1]
-  let c = sides[2]
-  valid(a, b, c) and all(sides, proc (x: int): bool = return a == x)
+func isIsosceles*(t: Triangle): bool =
+  isValid(t) and (t[0] == t[1] or t[1] == t[2] or t[0] == t[2])
 
-func isIsosceles*(sides: array[3, int]): bool =
-  let a = sides[0]
-  let b = sides[1]
-  let c = sides[2]
-  valid(a, b, c) and (a == b or b == c or a == c)
-
-func isScalene*(sides: array[3, int]): bool =
-  let a = sides[0]
-  let b = sides[1]
-  let c = sides[2]
-  valid(a, b, c) and not isIsosceles(sides)
+func isScalene*(t: Triangle): bool =
+  isValid(t) and not isIsosceles(t)
