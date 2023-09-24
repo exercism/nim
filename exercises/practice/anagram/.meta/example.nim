@@ -1,21 +1,15 @@
-import std/[algorithm, sequtils, strutils]
+import std/strutils
 
-type TAnagram = tuple
-  word: string
-  chars: seq[char]  # the lowercased and sorted chars of the word
-
-func isAnagramTo(a, b: TAnagram): bool =
-  a.chars == b.chars and cmpIgnoreCase(a.word, b.word) != 0
-
-func anagram(word: string): TAnagram =
-  var chars = toSeq(word.toLowerAscii().items)
-  sort(chars, cmp[char])
-  (word, chars)
+func count(s: string): array[26, uint8] =
+  for c in s:
+    if c in {'a'..'z'}:
+      inc result[c.ord - 'a'.ord]
+    elif c in {'A'..'Z'}:
+      inc result[c.ord - 'A'.ord]
 
 func detectAnagrams*(word: string, candidates: seq[string]): seq[string] =
-  ## Returns a sequence of those `candidates` that are anagrams of `word`.
-  ##
-  ## .. code-block:: nimrod
-  ##   assert detectAnagrams("Ant", @["tan", "ant"]) == @["tan"]
-  let reference = anagram(word)
-  candidates.filterIt(anagram(it).isAnagramTo(reference))
+  result = @[]
+  let targetCount = count(word)
+  for cand in candidates:
+    if targetCount == cand.count() and cmpIgnoreCase(word, cand) != 0:
+      result.add cand
