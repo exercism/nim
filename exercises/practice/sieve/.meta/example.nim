@@ -12,9 +12,10 @@ func eratosthenes(n: int): seq[bool] =
       for j in countup(i*i, n, 2*i): # Optimisation: start at i*i
         result[j] = false
 
-let p = eratosthenes(1e6.int)
+const p = eratosthenes(1e3.int)
 
-proc primes*(limit: int): seq[int] =
+func primes*(limit: int): seq[int] =
+  result = @[]
   for i in 2 .. limit:
     if p[i]:
       result.add i
