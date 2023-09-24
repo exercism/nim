@@ -1,16 +1,24 @@
-import std/[re, sequtils, strutils]
+import std/parseutils
+from std/private/digitsutils import addInt
 
-proc encode*(input: string): string =
-  input.findAll(re"([\w\s])\1*").map(proc(i: string): string =
-    if i.len > 1:
-      return $i.len & i[0]
-    return i
-  ).join("")
+func encode*(s: string): string =
+  result = ""
+  var i = 0
+  while i < s.len:
+    let c = s[i]
+    let count = s.skipWhile({c}, i)
+    if count > 1:
+      result.addInt count
+    result.add c
+    i += count
 
-proc decode*(input: string): string =
-  input.findAll(re"(\d*)(\w|\s)").map(proc(i: string): string =
-    if i.len > 1:
-      let count = parseInt(i[i.low .. i.high - 1])
-      return i[i.high].repeat(count)
-    return i
-  ).join("")
+func decode*(s: string): string =
+  result = ""
+  var i = 0
+  while i < s.len:
+    var n = 0.uint
+    let digitsParsed = s.parseUInt(n, i)
+    i += digitsParsed
+    for _ in 0 .. (if digitsParsed > 0: n-1 else: 0):
+      result.add s[i]
+    inc i
