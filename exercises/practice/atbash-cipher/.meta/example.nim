@@ -1,28 +1,25 @@
-import std/[sequtils, strutils]
+func atbash(c: char): char =
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
+  if c in {'A'..'Z'}:
+    alphabet['Z'.ord - c.ord]
+  elif c in {'a'..'z'}:
+    alphabet['z'.ord - c.ord]
+  else:
+    c
 
-const
-  Plain = "abcdefghijklmnopqrstuvwxyz"
-  Cipher = "zyxwvutsrqponmlkjihgfedcba"
+func encode*(s: string, groupLen = 5): string =
+  result = newStringOfCap(s.len + s.len div groupLen)
+  var count = 0
+  for c in s:
+    if c in {'0'..'9', 'a'..'z', 'A'..'Z'}:
+      if count == groupLen:
+        result.add ' '
+        count = 0
+      result.add atbash(c)
+      inc count
 
-
-func group(s: string, digits = 5): string =
-  result = ""
-  var c = 0
-  for item in s:
-    if c == digits:
-      result.add(" ")
-      c = 0
-    result.add(item)
-    inc(c)
-
-func clean(phrase: string): seq[char] =
-  phrase.toLowerAscii.filterIt(it.isAlphaNumeric)
-
-func convert(c: char, fromInput: string, toInput: string): char =
-  if c.isAlphaAscii: toInput[fromInput.find(c)] else: c
-
-func encode*(phrase: string): string =
-  phrase.clean.mapIt(it.convert(Plain, Cipher)).join("").group
-
-func decode*(phrase: string): string =
-  phrase.clean.mapIt(it.convert(Cipher, Plain)).join("")
+func decode*(s: string): string =
+  result = newStringOfCap(s.len)
+  for c in s:
+    if c in {'0'..'9', 'a'..'z'}:
+      result.add atbash(c)
