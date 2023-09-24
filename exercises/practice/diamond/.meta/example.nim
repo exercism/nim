@@ -1,23 +1,24 @@
 import std/strutils
 
-func toDiamond(c: char): seq[string] =
-  let rowLen = 2 * (c.ord - 'A'.ord) + 1
-  let emptyRow = " ".repeat(rowLen)
+func toDiamond(c: 'A'..'Z'): string =
+  let size = ord(c) - ord('A')
+  let w = 2 * (size + 1)
+  result = ' '.repeat(w * (w - 1))
 
-  for ch in 'A' .. c:
-    var row = emptyRow
-    let i = c.ord - ch.ord
-    row[i] = ch
-    row[^(i + 1)] = ch
-    result.add row
-  for i in countdown(result.high - 1, 0):
-    result.add result[i]
+  for i in 0 .. size:
+    let ch = char('A'.ord + i)
+    let middle = (i * w) + size
+    result[middle - i] = ch
+    result[middle + i] = ch
+    result[middle + size + 1] = '\n'
+    result[result.high - middle - i - 1] = ch
+    result[result.high - middle + i - 1] = ch
+    result[result.high - middle + size] = '\n'
 
-func generateDiamonds: seq[string] =
-  for c in 'A'..'Z':
-    result.add c.toDiamond.join("\n") & "\n"
+func generateDiamonds: array['A'..'Z', string] =
+  for c, s in result.mpairs:
+    s = toDiamond(c)
 
-const diamonds = generateDiamonds() # Generate all diamonds at compile-time.
-
-func diamond*(c: char): string =
-  diamonds[c.ord - 'A'.ord]
+func diamond*(c: 'A'..'Z'): string =
+  const diamonds = generateDiamonds() # Generate all diamonds at compile-time.
+  diamonds[c]
