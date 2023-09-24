@@ -1,5 +1,11 @@
-import std/[re, sequtils, strutils]
+import std/strutils
 
-proc abbreviate*(phrase: string): string =
-  let words = phrase.findAll(re"[A-Z]+['a-z]*|['a-z]+")
-  words.mapIt(it[0].toUpperAscii).join
+func abbreviate*(s: string): string =
+  result = ""
+  var isAfterDelim = true
+  for c in s:
+    if isAfterDelim and c in {'A'..'Z', 'a'..'z'}:
+      result.add c.toUpperAscii()
+      isAfterDelim = false
+    elif c in {' ', '-'}:
+      isAfterDelim = true
