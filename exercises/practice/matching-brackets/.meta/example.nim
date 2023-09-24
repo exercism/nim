@@ -1,21 +1,21 @@
-import std/[deques, sequtils, tables]
+func toClosing(c: char): char =
+  case c
+  of '(': ')'
+  of '[': ']'
+  of '{': '}'
+  else: '\0'
 
-const
-  lookupTable = {'(': ')', '{': '}', '[': ']'}.toTable
+func isPaired*(s: string): bool =
+  ## Returns whether `(`, `[`, and `{` are matched and correctly nested in `s`.
+  ## Caller guarantees that the nesting depth of those characters is at most 100.
+  var stack {.noinit.} : array[100, char]
+  var i = 0
 
-func hasValue[A, B](t: Table[A, B], value: B): bool =
-  value in toSeq(t.values)
+  for c in s:
+    if c in {'(', '[', '{'}:
+      stack[i] = toClosing(c)
+      inc i
+    elif c in {')', ']', '}'}:
+      if i > 0 and stack[i-1] == c: dec i else: return false
 
-func isPaired*(value: string): bool =
-  var stack = initDeque[char]()
-
-  for item in value:
-    if item in lookupTable:
-      stack.addLast(item)
-    if lookupTable.hasValue(item):
-      if len(stack) == 0:
-        return false
-      if lookupTable[stack.popLast()] != item:
-        return false
-
-  return len(stack) == 0
+  i == 0
