@@ -1,11 +1,11 @@
-import std/algorithm
+import std/[algorithm, bitops]
 
 type
   Action* = enum
     Wink, DoubleBlink, CloseEyes, Jump, Reverse
 
 func has(n: Natural, action: Action): bool =
-  (n and 1 shl action.ord) != 0
+  testBit(n, action.ord)
 
 func commands*(n: Natural): seq[Action] =
   result = newSeqOfCap[Action](Action.high.ord)
