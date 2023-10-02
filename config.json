@@ -853,6 +853,7 @@
         "topics": [
           "bitwise_operations",
           "conditionals",
+          "enumerations",
           "integers",
           "lists",
           "logic",

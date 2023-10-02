@@ -1,22 +1,16 @@
-import std/algorithm
+import std/[algorithm, bitops]
 
-const
-  signals = [
-    "wink",
-    "double blink",
-    "close your eyes",
-    "jump"
-  ]
-  reverseBit = 4
+type
+  Action* = enum
+    Wink, DoubleBlink, CloseEyes, Jump, Reverse
 
+func commands*(n: Natural): seq[Action] =
+  result = newSeqOfCap[Action](Action.high.ord)
 
-func bitset(input: Natural, position: Natural): bool =
-  (input and 1 shl position) != 0
-
-func commands*(input: Natural): seq[string] =
-  for index, item in signals:
-    if input.bitset(index):
-      result.add(item)
-
-  if input.bitset(reverseBit):
-    result.reverse
+  for action in Action:
+    if n.testBit(action.ord):
+      case action
+      of Wink..Jump:
+        result.add action
+      of Reverse:
+        result.reverse()
