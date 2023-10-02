@@ -8,10 +8,9 @@ func commands*(n: Natural): seq[Action] =
   result = newSeqOfCap[Action](Action.high.ord)
 
   for action in Action:
-    case action
-    of Wink..Jump:
-      if n.testBit(action.ord):
+    if n.testBit(action.ord):
+      case action
+      of Wink..Jump:
         result.add action
-    of Reverse:
-      if n.testBit(action.ord):
+      of Reverse:
         reverse result
