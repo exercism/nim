@@ -13,4 +13,4 @@ func commands*(n: Natural): seq[Action] =
       of Wink..Jump:
         result.add action
       of Reverse:
-        reverse result
+        result.reverse()
