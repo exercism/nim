@@ -8,7 +8,7 @@ func toClosing(c: char): char =
 func isPaired*(s: string): bool =
   ## Returns whether `(`, `[`, and `{` are matched and correctly nested in `s`.
   ## Caller guarantees that the nesting depth of those characters is at most 100.
-  var stack {.noinit.} : array[100, char]
+  var stack {.noinit.}: array[100, char]
   var i = 0
 
   for c in s:
