@@ -1,7 +1,11 @@
 import std/strutils
 
-func isSilence(s: string): bool =
-  isEmptyOrWhitespace(s)
+func isQuestion(s: string): bool =
+  ## Returns whether the last non-space character in `s` is a question mark.
+  var i = s.high
+  while i >= 0 and s[i] == ' ':
+    dec i
+  i >= 0 and s[i] == '?'
 
 func isYelling(s: string): bool =
   ## Returns whether `s` contains both an uppercase letter, and no lowercase letter.
@@ -12,15 +16,8 @@ func isYelling(s: string): bool =
     elif c in {'A'..'Z'}:
       result = true
 
-func isQuestion(s: string): bool =
-  ## Returns whether the last non-space character in `s` is a question mark.
-  var i = s.high
-  while i >= 0 and s[i] == ' ':
-    dec i
-  i >= 0 and s[i] == '?'
-
 func hey*(s: string): string =
-  if isSilence(s):
+  if isEmptyOrWhitespace(s):
     "Fine. Be that way!"
   elif isQuestion(s):
     if isYelling(s):
