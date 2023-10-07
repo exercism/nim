@@ -19,7 +19,7 @@ const lookup = block:
       if s.len == 0:
         s = $i
 
-  genLookup() ## Creates lookup at compile time.
+  genLookup() # Creates lookup at compile time.
 
 func convert*(n: int): string =
   lookup[n mod lookup.len]
