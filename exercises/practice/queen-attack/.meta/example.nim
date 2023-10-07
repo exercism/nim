@@ -6,17 +6,15 @@ type
     col*: range[0..7]
 
 func initQueen*(row, col: int): Queen =
-  if row in 0..7 and col in 0..7:
-    result = Queen(row: row, col: col)
+  if row in {0..7} and col in {0..7}:
+    Queen(row: row, col: col)
   else:
     raise newException(ValueError, "Invalid position")
 
 func canAttack*(white, black: Queen): bool =
   if white != black:
-    result =
-      white.row == black.row or
-      white.col == black.col or
-      abs(white.row - black.row) == abs(white.col - black.col)
+    white.row == black.row or white.col == black.col or
+        abs(white.row - black.row) == abs(white.col - black.col)
   else:
     raise newException(ValueError, "The queens cannot have the same position")
 
