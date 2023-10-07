@@ -21,5 +21,5 @@ const lookup = block:
 
   genLookup() # Creates lookup at compile time.
 
-func convert*(n: int): string =
+func convert*(n: uint): string =
   lookup[n mod lookup.len]
