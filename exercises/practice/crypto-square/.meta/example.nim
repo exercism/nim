@@ -6,7 +6,7 @@ func normalized(s: string): string =
     if c in {'a'..'z', '0'..'9'}:
       result.add c
     elif c in {'A'..'Z'}:
-      result.add char(c.ord + 'a'.ord - 'A'.ord) # Converts to lowercase.
+      result.add char(c.ord + 'a'.ord - 'A'.ord)
 
 func encrypt*(s: string): string =
   result = ""
@@ -14,16 +14,16 @@ func encrypt*(s: string): string =
   if norm.len == 0:
     return
 
-  let c = norm.len.float.sqrt.ceil.int
-  let r = if c * (c-1) < norm.len: c else: c-1
+  let cols = norm.len.float.sqrt.ceil.int
+  let rows = if cols * (cols - 1) < norm.len: cols else: cols - 1
 
-  for _ in norm.len ..< c*r:
+  for _ in norm.len ..< cols * rows:
     norm.add ' '
 
-  result = newStringOfCap(norm.len + c)
+  result = newStringOfCap(norm.len + cols)
 
-  for i in 0 ..< c:
+  for i in 0 ..< cols:
     if result.len > 0:
       result.add ' '
-    for j in countup(i, norm.high, c):
+    for j in countup(i, norm.high, cols):
       result.add norm[j]
