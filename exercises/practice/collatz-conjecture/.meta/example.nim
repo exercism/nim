@@ -5,9 +5,5 @@ func steps*(n: int): int =
   var n = n
   result = 0
   while n != 1:
-    if n mod 2 == 0:
-      n = n div 2
-    else:
-      n = (3 * n + 1) div 2
-      inc result
+    n = if n mod 2 == 0: n div 2 else: 3 * n + 1
     inc result
