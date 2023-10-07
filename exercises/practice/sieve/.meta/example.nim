@@ -12,10 +12,11 @@ func eratosthenes(n: int): seq[bool] =
       for j in countup(i*i, n, 2*i): # Optimisation: start at i*i
         result[j] = false
 
-const p = eratosthenes(1e3.int)
-
-func primes*(limit: int): seq[int] =
+func primes*(limit: int, sieveLimit: static int = 1000): seq[int] =
+  ## Returns every prime number up to `limit`.
+  ## Caller guarantees that `limit` is less than or equal to `sieveLimit`.
+  const sieve = eratosthenes(sieveLimit)
   result = @[]
   for i in 2 .. limit:
-    if p[i]:
+    if sieve[i]:
       result.add i
