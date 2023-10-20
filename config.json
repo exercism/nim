@@ -38,7 +38,9 @@
         "slug": "lasagna",
         "name": "Lasagna",
         "uuid": "3d6fc9bc-c451-4ae5-b322-3ae805c66eb0",
-        "concepts": ["basics"],
+        "concepts": [
+          "basics"
+        ],
         "prerequisites": [],
         "status": "wip"
       }
@@ -335,7 +337,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": null,
         "status": "deprecated"
       },
       {
@@ -1021,16 +1022,16 @@
     }
   ],
   "tags": [
+    "execution_mode/compiled",
     "paradigm/imperative",
     "paradigm/procedural",
+    "platform/linux",
+    "platform/mac",
+    "platform/web",
+    "platform/windows",
+    "runtime/standalone_executable",
     "typing/static",
     "typing/strong",
-    "execution_mode/compiled",
-    "platform/windows",
-    "platform/mac",
-    "platform/linux",
-    "platform/web",
-    "runtime/standalone_executable",
     "used_for/backends",
     "used_for/cross_platform_development",
     "used_for/embedded_systems",
