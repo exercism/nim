@@ -6,4 +6,7 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
+      time: '07:00'
+    commit-message:
+      prefix: '.github'

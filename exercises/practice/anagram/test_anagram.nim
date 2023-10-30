@@ -54,7 +54,7 @@ suite "Anagram":
 
   test "does not detect an anagram if the original word is repeated":
     const word = "go"
-    const candidates = @["go Go GO"]
+    const candidates = @["goGoGO"]
     check detectAnagrams(word, candidates).len == 0
 
   test "anagrams must use all letters exactly once":
