@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout exercism/nim
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
       - name: Install Nim (devel)
         if: matrix.nim == 'devel'
@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Nim (non-devel)
         if: matrix.nim != 'devel'
-        uses: iffy/install-nim@96e44cd5d6df83f65cd844a8631e8301944bc958
+        uses: iffy/install-nim@dcaa84c8d3feb17cd7cc10bd124d1658888d9c0e
         with:
           version: "binary:${{ matrix.nim }}"
         env:
