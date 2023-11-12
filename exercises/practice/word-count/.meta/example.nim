@@ -1,11 +1,15 @@
-import std/[re, strutils, tables]
+import std/[strutils, tables]
 
-iterator words(sentence: string): string =
-  for word in sentence.findAll(re"[a-zA-Z0-9]+(['][a-z]+)?"):
-    yield toLowerAscii(word)
-
-proc countWords*(sentence: string): TableRef[string, int] =
-  result = newTable[string, int]()
-  for word in words(sentence):
-    let count = result.getOrDefault(word)
-    result[word] = count + 1
+func countWords*(s: string): CountTable[string] =
+  result = initCountTable[string]()
+  var word = ""
+  for i, c in s:
+    if c in {'0'..'9', 'A'..'Z', 'a'..'z'}:
+      word.add c.toLowerAscii()
+    elif c == '\'' and word.len > 0 and i+1 < s.len and s[i+1] in {'A'..'Z', 'a'..'z'}:
+      word.add c
+    elif word.len > 0:
+      result.inc word
+      word.setLen 0
+  if word.len > 0:
+    result.inc word

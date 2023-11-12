@@ -1,18 +1,25 @@
-import std/strutils
+const lookup = block:
+  const raindrops = [
+    (3, "Pling"),
+    (5, "Plang"),
+    (7, "Plong"),
+  ]
 
-func convert*(sound: int): string =
-  var raindrops = ""
+  func calcPeriod(a: openArray[(int, string)]): int =
+    ## Returns the product of the integers in `a`.
+    result = 1
+    for (n, _) in a:
+      result *= n
 
-  if (sound mod 3) == 0:
-    raindrops.add("Pling")
+  func genLookup: array[calcPeriod(raindrops), string] =
+    for i, s in result.mpairs:
+      for (n, sound) in raindrops:
+        if i mod n == 0:
+          s.add sound
+      if s.len == 0:
+        s = $i
 
-  if (sound mod 5) == 0:
-    raindrops.add("Plang")
+  genLookup() # Creates lookup at compile time.
 
-  if (sound mod 7) == 0:
-    raindrops.add("Plong")
-
-  if len(raindrops) > 0:
-    raindrops
-  else:
-    intToStr(sound)
+func convert*(n: uint): string =
+  lookup[n mod lookup.len]

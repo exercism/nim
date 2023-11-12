@@ -1,15 +1,18 @@
-func toStr(s: set[char]): string =
-  for c in s:
-    result.add c
+const alphabetLen = len('a'..'z')
 
-const alphabetLower = {'a'..'z'}.toStr # Generate alphabet at compile-time.
-const alphabetUpper = {'A'..'Z'}.toStr
+func rotate(c: char, n: 0..alphabetLen, isLower: static bool): char =
+  const last = when isLower: 'z'.ord else: 'Z'.ord
+  var rotated = c.ord + n
+  if rotated > last:
+    rotated -= alphabetLen
+  char(rotated)
 
-func rotate*(s: string, n: Natural): string =
-  for c in s:
+func rotate*(s: string, n: 0..alphabetLen): string =
+  result = newString(s.len)
+  for i, c in s:
     if c in {'a'..'z'}:
-      result.add alphabetLower[(c.ord + (n mod 26) - 'a'.ord) mod 26]
+      result[i] = rotate(c, n, true)
     elif c in {'A'..'Z'}:
-      result.add alphabetUpper[(c.ord + (n mod 26) - 'A'.ord) mod 26]
+      result[i] = rotate(c, n, false)
     else:
-      result.add c
+      result[i] = c

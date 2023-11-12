@@ -1,8 +1,8 @@
-import std/sequtils
-
-func isDifferent(pair: tuple[a, b: char]): bool = pair.a != pair.b
-
-func distance*(strand1, strand2: string): int =
-  if len(strand1) != len(strand2):
-    raise newException(ValueError, "Invalid nucleotide")
-  len(filter(zip(toSeq(strand1.items), toSeq(strand2.items)), isDifferent))
+func distance*(a, b: string): int =
+  result = 0
+  if a.len == b.len:
+    for i in 0 .. a.high:
+      if a[i] != b[i]:
+        inc result
+  else:
+    raise newException(ValueError, "the inputs must be of equal length")

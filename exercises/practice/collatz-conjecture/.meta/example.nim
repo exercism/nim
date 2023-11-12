@@ -1,12 +1,9 @@
-func steps*(number: int): int =
-  if (number < 1):
-    raise newException(ValueError, "Only positive integers are allowed")
+func steps*(n: int): int =
+  if n < 1:
+    raise newException(ValueError, "Not a positive integer: " & $n)
 
-  var n = number
-  while (n != 1):
-    if (n mod 2 == 0):
-      n = (n / 2).toInt
-    else:
-      n = 3 * n + 1
-
-    result.inc
+  var n = n
+  result = 0
+  while n != 1:
+    n = if n mod 2 == 0: n div 2 else: 3 * n + 1
+    inc result

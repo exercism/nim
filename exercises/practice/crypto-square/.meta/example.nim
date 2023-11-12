@@ -1,21 +1,29 @@
-import std/[math, strutils]
+import std/math
+
+func normalized(s: string): string =
+  result = newStringOfCap(s.len)
+  for c in s:
+    if c in {'a'..'z', '0'..'9'}:
+      result.add c
+    elif c in {'A'..'Z'}:
+      result.add char(c.ord + 'a'.ord - 'A'.ord)
 
 func encrypt*(s: string): string =
-  var normalized = newStringOfCap(s.len)
-  for c in s.toLowerAscii():
-    if c in {'a'..'z'} or c in {'0'..'9'}:
-      normalized.add c
+  result = ""
+  var norm = normalized(s)
+  if norm.len == 0:
+    return
 
-  let r = normalized.len.float.sqrt.ceil.int
-  let c = (normalized.len.float / r.float).round.int
-  normalized = normalized.alignLeft(r*c, ' ')
+  let cols = norm.len.float.sqrt.ceil.int
+  let rows = if cols * (cols - 1) < norm.len: cols else: cols - 1
 
-  var ct = newSeq[string]()
-  for s in 0 ..< r:
-    var word = ""
-    for i in countup(s, normalized.high, r):
-      word.add normalized[i]
+  for _ in norm.len ..< cols * rows:
+    norm.add ' '
 
-    ct.add word
+  result = newStringOfCap(norm.len + cols)
 
-  result = ct.join(" ")
+  for i in 0 ..< cols:
+    if result.len > 0:
+      result.add ' '
+    for j in countup(i, norm.high, cols):
+      result.add norm[j]
