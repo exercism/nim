@@ -3,7 +3,7 @@ import std/math
 func countDigits(n: Natural): int =
   ## Returns the number of digits in `n`.
   ## Avoids expensive operations like `div`, `log10`, and string conversion.
-  ## Optimizes for smallest numbers, without binary search.
+  ## Optimized for small `n`, without binary search.
   result = 19 # int64.high is approximately 9.2 x 10^18, which has 19 digits.
   var t = 1
   for i in 1 ..< result:
