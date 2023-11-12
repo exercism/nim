@@ -7,9 +7,9 @@ func eratosthenes(n: int): seq[bool] =
   for odd in countup(3, n, 2):
     result[odd] = true
 
-  for i in countup(3, n.float.sqrt.int, 2): # Optimisation: stop at sqrt(n)
+  for i in countup(3, n.float.sqrt.int, 2): # Optimization: stop at sqrt(n).
     if result[i]:
-      for j in countup(i*i, n, 2*i): # Optimisation: start at i*i
+      for j in countup(i*i, n, 2*i): # Optimization: start at i*i.
         result[j] = false
 
 func primesUpTo(limit: int): seq[int] =
