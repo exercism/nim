@@ -979,6 +979,14 @@
           "events",
           "reactive_programming"
         ]
+      },
+      {
+        "slug": "list-ops",
+        "name": "List Ops",
+        "uuid": "779343ba-9b40-4d43-b696-2267c4eecde0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
       }
     ]
   },

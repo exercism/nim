@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "Norbiox"
+  ],
+  "files": {
+    "solution": [
+      "list_ops.nim"
+    ],
+    "test": [
+      "test_list_ops.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
+  },
+  "blurb": "Implement basic list operations."
+}
