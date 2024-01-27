@@ -11,18 +11,10 @@ func initRobot*(facing = North, x = 0, y = 0): Robot =
   Robot(direction: facing, x: x, y: y)
 
 func left(dir: Compass): Compass =
-  case dir:
-    of North: West
-    of East: North
-    of South: East
-    of West: South
+  if dir == Compass.low: Compass.high else: pred(dir)
 
 func right(dir: Compass): Compass =
-  case dir:
-    of North: East
-    of East: South
-    of South: West
-    of West: North
+  if dir == Compass.high: Compass.low else: succ(dir)
 
 func move*(robot: var Robot, instructions: string) =
   for c in instructions:
