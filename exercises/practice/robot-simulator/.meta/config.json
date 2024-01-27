@@ -1,0 +1,16 @@
+{
+  "authors": [],
+  "files": {
+    "solution": [
+      "robot_simulator.nim"
+    ],
+    "test": [
+      "test_robot_simulator.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
+  },
+  "blurb": "Write a robot simulator.",
+  "source": "Inspired by an interview question at a famous company."
+}
