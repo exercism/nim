@@ -34,4 +34,5 @@ proc foldr*(function: proc(x, y: int): int, list: seq[int], accumulator: int): i
 
 proc reverse*(list: seq[int]): seq[int] =
   result = @[]
-  for x in list: result.insert(x, 0)
+  for x in list:
+    result.insert(x, 0)
