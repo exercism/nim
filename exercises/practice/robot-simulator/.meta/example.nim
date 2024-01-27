@@ -10,19 +10,15 @@ type
 func initRobot*(facing = North, x = 0, y = 0): Robot =
   Robot(direction: facing, x: x, y: y)
 
-func left(dir: Compass): Compass =
-  if dir == Compass.low: Compass.high else: pred(dir)
-
-func right(dir: Compass): Compass =
-  if dir == Compass.high: Compass.low else: succ(dir)
-
 func move*(robot: var Robot, instructions: string) =
   for c in instructions:
     case c
     of 'L':
-      robot.direction = robot.direction.left()
+      robot.direction =
+          if robot.direction == Compass.low: Compass.high else: pred(robot.direction)
     of 'R':
-      robot.direction = robot.direction.right()
+      robot.direction =
+          if robot.direction == Compass.high: Compass.low else: succ(robot.direction)
     of 'A':
       case robot.direction:
         of North: inc robot.y
