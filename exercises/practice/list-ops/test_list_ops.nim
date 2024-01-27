@@ -62,7 +62,7 @@ suite "folds (reduces) the given list from the left with a function":
     check foldl(@[1, 2, 3, 4], function, 5) == 15
 
   test "direction dependent function applied to non-empty list":
-    func function(x: int, y: int): int | float = x - y
+    func function(x: int, y: int): int = x - y
     check foldl(@[1, 2, 3, 4], function, 24) == 14
 
   test "empty list":
@@ -88,7 +88,7 @@ suite "folds (reduces) the given list from the right with a function":
     check foldr(@[1, 2, 3, 4], function, 5) == 15
 
   test "direction dependent function applied to non-empty list":
-    func function(x: int, y: int): int | float = x - y
+    func function(x: int, y: int): int = x - y
     check foldr(@[1, 2, 3, 4], function, 24) == 14
 
   test "empty list":
