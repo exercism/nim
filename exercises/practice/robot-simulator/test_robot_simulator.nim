@@ -1,7 +1,7 @@
 import unittest
 import robot_simulator
 
-suite "Robot_Simulator":
+suite "Robot Simulator":
   test "create robot: at origin facing north":
     var robot = initRobot()
     check robot.direction == North
