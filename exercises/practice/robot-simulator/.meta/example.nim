@@ -33,9 +33,9 @@ func move*(robot: var Robot, instructions: string) =
       robot.direction = robot.direction.right
     of 'A':
       case robot.direction:
-        of North: inc(robot.y)
-        of South: dec(robot.y)
-        of East: inc(robot.x)
-        of West: dec(robot.x)
+        of North: inc robot.y
+        of South: dec robot.y
+        of East: inc robot.x
+        of West: dec robot.x
     else:
       discard
