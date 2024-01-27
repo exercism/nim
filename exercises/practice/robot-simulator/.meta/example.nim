@@ -28,9 +28,9 @@ func move*(robot: var Robot, instructions: string) =
   for c in instructions:
     case c
     of 'L':
-      robot.direction = robot.direction.left
+      robot.direction = robot.direction.left()
     of 'R':
-      robot.direction = robot.direction.right
+      robot.direction = robot.direction.right()
     of 'A':
       case robot.direction:
         of North: inc robot.y
