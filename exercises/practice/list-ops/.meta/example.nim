@@ -34,14 +34,14 @@ func foldl*(list: openArray[int], function: proc(x, y: int): int {.noSideEffect.
   if list.len == 0:
     accumulator
   else:
-    foldl(list[1..^1], function, function(accumulator, list[0]))
+    foldl(list.toOpenArray(1, list.high), function, function(accumulator, list[0]))
 
 func foldr*(list: openArray[int], function: proc(x, y: int): int {.noSideEffect.},
             accumulator: int): int =
   if list.len == 0:
     accumulator
   else:
-    function(foldr(list[1..^1], function, accumulator), list[0])
+    function(foldr(list.toOpenArray(1, list.high), function, accumulator), list[0])
 
 func reverse*(list: openArray[int]): seq[int] =
   result = newSeq[int](list.len)
