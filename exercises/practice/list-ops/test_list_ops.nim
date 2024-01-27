@@ -23,9 +23,6 @@ suite "concatenate a list of lists":
   test "list of lists":  # 331451c1-9573-42a1-9869-2d06e3b389a9
     check concatenate(@[@[1, 2], @[3], @[], @[4, 5, 6]]) == @[1, 2, 3, 4, 5, 6]
 
-  # test "list of nested lists":  # d6ecd72c-197f-40c3-89a4-aa1f45827e09
-  #   check concatenate(@[@[@[1], @[2]], @[@[3]], @[@[]], @[@[4, 5, 6]]]) == @[@[1], @[2], @[3], @[], @[4, 5, 6]]
-
 
 suite "filter list returning only values that satisfy the filter function":
   func predicate(x: int): bool = x mod 2 == 1
@@ -113,6 +110,3 @@ suite "reverse the elements of the list":
 
   test "non-empty list":  # fcc03d1e-42e0-4712-b689-d54ad761f360
     check reverse(@[1, 2, 3, 4]) == @[4, 3, 2, 1]
-
-  # test "list of lists is not flattened":  # 40872990-b5b8-4cb8-9085-d91fc0d05d26
-    # check reverse(@[@[], @[1], @[2, 3]]) == @[@[2, 3], @[1], @[]]
