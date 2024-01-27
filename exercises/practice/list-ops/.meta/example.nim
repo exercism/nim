@@ -33,6 +33,6 @@ proc foldr*(function: proc(x, y: int): int, list: seq[int], accumulator: int): i
   return function(foldr(function, list[1..^1], accumulator), list[0])
 
 proc reverse*(list: seq[int]): seq[int] =
-  result = @[]
-  for x in list:
-    result.insert(x, 0)
+  result = newSeq[int](list.len)
+  for i, x in list:
+    result[list.high - i] = x
