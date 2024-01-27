@@ -7,7 +7,7 @@ suite "Robot_Simulator":
     check robot.direction == North
 
   test "Create robot -> at negative position facing south":
-    var robot = initRobot(South,-1,-1)
+    var robot = initRobot(South, -1, -1)
     check robot.direction == South
     check robot.xPos == -1 and robot.yPos == -1
 
@@ -84,7 +84,7 @@ suite "Robot_Simulator":
     check robot.xPos == -1 and robot.yPos == 0
 
   test "Follow series of instructions -> moving east and north from README":
-    var robot = initRobot(North,7,3)
+    var robot = initRobot(North, 7, 3)
     robot.move("RAALAL")
     check robot.direction == West
     check robot.xPos == 9 and robot.yPos == 4
@@ -96,13 +96,13 @@ suite "Robot_Simulator":
     check robot.xPos == -4 and robot.yPos == 1
 
   test "Follow series of instructions -> moving west and south":
-    var robot = initRobot(East,2,-7)
+    var robot = initRobot(East, 2, -7)
     robot.move("RRAAAAALA")
     check robot.direction == South
     check robot.xPos == -3 and robot.yPos == -8
 
   test "Follow series of instructions -> moving east and north":
-    var robot = initRobot(South,8,4)
+    var robot = initRobot(South, 8, 4)
     robot.move("LAAARRRALLLL")
     check robot.direction == North
     check robot.xPos == 11 and robot.yPos == 5
