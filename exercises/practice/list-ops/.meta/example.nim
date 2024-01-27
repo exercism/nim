@@ -18,9 +18,9 @@ proc length*(list: seq[int]): int =
   list.len
 
 proc map*(function: proc(x: int): int, list: seq[int]): seq[int] =
-  result = @[]
-  for x in list:
-    result.add function(x)
+  result = newSeq[int](list.len)
+  for i, x in list:
+    result[i] = function(x)
 
 proc foldl*(function: proc(x, y: int): int, list: seq[int], accumulator: int): int =
   if list.len == 0:
