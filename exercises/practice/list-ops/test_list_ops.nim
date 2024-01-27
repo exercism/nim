@@ -116,4 +116,3 @@ suite "reverse the elements of the list":
 
   # test "list of lists is not flattened":  # 40872990-b5b8-4cb8-9085-d91fc0d05d26
     # check reverse(@[@[], @[1], @[2, 3]]) == @[@[2, 3], @[1], @[]]
-
