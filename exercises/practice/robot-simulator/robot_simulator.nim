@@ -4,8 +4,8 @@ type
 
   Robot* = object
     direction*: Compass
-    xPos*: int
-    yPos*: int
+    x*: int
+    y*: int
 
 proc initRobot*(facing = North, x = 0, y = 0): Robot =
   discard

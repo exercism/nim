@@ -4,11 +4,11 @@ type
 
   Robot* = object
     direction*: Compass
-    xPos*: int
-    yPos*: int
+    x*: int
+    y*: int
 
 func initRobot*(facing = North, x = 0, y = 0): Robot =
-  Robot(direction: facing, xPos: x, yPos: y)
+  Robot(direction: facing, x: x, y: y)
 
 func right(dir: Compass): Compass =
   case dir:
@@ -33,7 +33,7 @@ func move*(robot: var Robot, instructions: string) =
     if c != 'A':
       continue
     case robot.direction:
-      of North: inc(robot.yPos)
-      of South: dec(robot.yPos)
-      of East: inc(robot.xPos)
-      of West: dec(robot.xPos)
+      of North: inc(robot.y)
+      of South: dec(robot.y)
+      of East: inc(robot.x)
+      of West: dec(robot.x)
