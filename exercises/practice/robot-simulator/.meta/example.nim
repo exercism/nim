@@ -26,14 +26,16 @@ func left(dir: Compass): Compass =
 
 func move*(robot: var Robot, instructions: string) =
   for c in instructions:
-    if c == 'L':
+    case c
+    of 'L':
       robot.direction = robot.direction.left
-    if c == 'R':
+    of 'R':
       robot.direction = robot.direction.right
-    if c != 'A':
-      continue
-    case robot.direction:
-      of North: inc(robot.y)
-      of South: dec(robot.y)
-      of East: inc(robot.x)
-      of West: dec(robot.x)
+    of 'A':
+      case robot.direction:
+        of North: inc(robot.y)
+        of South: dec(robot.y)
+        of East: inc(robot.x)
+        of West: dec(robot.x)
+    else:
+      discard
