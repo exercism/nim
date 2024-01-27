@@ -27,8 +27,9 @@ description = "concatenate a list of lists -> empty list"
 [331451c1-9573-42a1-9869-2d06e3b389a9]
 description = "concatenate a list of lists -> list of lists"
 
-# [d6ecd72c-197f-40c3-89a4-aa1f45827e09]
-# description = "concatenate a list of lists -> list of nested lists"
+[d6ecd72c-197f-40c3-89a4-aa1f45827e09]
+description = "concatenate a list of lists -> list of nested lists"
+include = false
 
 [0524fba8-3e0f-4531-ad2b-f7a43da86a16]
 description = "filter list returning only values that satisfy the filter function -> empty list"
@@ -102,5 +103,6 @@ description = "reverse the elements of the list -> empty list"
 [fcc03d1e-42e0-4712-b689-d54ad761f360]
 description = "reverse the elements of the list -> non-empty list"
 
-# [40872990-b5b8-4cb8-9085-d91fc0d05d26]
-# description = "reverse the elements of the list -> list of lists is not flattened"
+[40872990-b5b8-4cb8-9085-d91fc0d05d26]
+description = "reverse the elements of the list -> list of lists is not flattened"
+include = false
