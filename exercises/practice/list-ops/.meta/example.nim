@@ -1,8 +1,14 @@
 func append*(list1, list2: seq[int]): seq[int] =
   if list2.len == 0:
-    list1
-  else:
-    append(list1 & list2[0], list2[1..^1])
+    return list1
+  result = newSeq[int](list1.len + list2.len)
+  var i = 0
+  for x in list1:
+    result[i] = x
+    inc i
+  for x in list2:
+    result[i] = x
+    inc i
 
 func concatenate*(lists: seq[seq[int]]): seq[int] =
   result = @[]
