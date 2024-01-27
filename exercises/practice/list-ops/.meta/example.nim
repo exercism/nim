@@ -15,7 +15,7 @@ func concatenate*(lists: openArray[seq[int]]): seq[int] =
   for list in lists:
     result = append(result, list)
 
-func filter*(predicate: proc(x: int): bool {.noSideEffect.}, list: openArray[int]): seq[int] =
+func filter*(list: openArray[int], predicate: proc(x: int): bool {.noSideEffect.}): seq[int] =
   result = @[]
   for x in list:
     if predicate(x):
@@ -24,24 +24,24 @@ func filter*(predicate: proc(x: int): bool {.noSideEffect.}, list: openArray[int
 func length*(list: openArray[int]): int =
   list.len
 
-func map*(function: proc(x: int): int {.noSideEffect.}, list: openArray[int]): seq[int] =
+func map*(list: openArray[int], function: proc(x: int): int {.noSideEffect.}): seq[int] =
   result = newSeq[int](list.len)
   for i, x in list:
     result[i] = function(x)
 
-func foldl*(function: proc(x, y: int): int {.noSideEffect.}, list: openArray[int],
+func foldl*(list: openArray[int], function: proc(x, y: int): int {.noSideEffect.},
             accumulator: int): int =
   if list.len == 0:
     accumulator
   else:
-    foldl(function, list[1..^1], function(accumulator, list[0]))
+    foldl(list[1..^1], function, function(accumulator, list[0]))
 
-func foldr*(function: proc(x, y: int): int {.noSideEffect.}, list: openArray[int],
+func foldr*(list: openArray[int], function: proc(x, y: int): int {.noSideEffect.},
             accumulator: int): int =
   if list.len == 0:
     accumulator
   else:
-    function(foldr(function, list[1..^1], accumulator), list[0])
+    function(foldr(list[1..^1], function, accumulator), list[0])
 
 func reverse*(list: openArray[int]): seq[int] =
   result = newSeq[int](list.len)
