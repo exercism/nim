@@ -7,24 +7,24 @@ type
     xPos*: int
     yPos*: int
 
-proc initRobot*(facing = North, x = 0, y = 0): Robot =
+func initRobot*(facing = North, x = 0, y = 0): Robot =
   Robot(direction: facing, xPos: x, yPos: y)
 
-proc right(dir: Compass): Compass =
+func right(dir: Compass): Compass =
   case dir:
     of North: East
     of East: South
     of South: West
     of West: North
 
-proc left(dir: Compass): Compass =
+func left(dir: Compass): Compass =
   case dir:
     of North: West
     of East: North
     of South: East
     of West: South
 
-proc move*(robot: var Robot, instructions: string) =
+func move*(robot: var Robot, instructions: string) =
   for c in instructions:
     if c == 'L':
       robot.direction = robot.direction.left
