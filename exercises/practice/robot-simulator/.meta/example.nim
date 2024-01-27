@@ -7,7 +7,7 @@ type
     xPos*: int
     yPos*: int
 
-proc initRobot*(facing: Compass = North, x: int = 0, y: int = 0): Robot =
+proc initRobot*(facing = North, x = 0, y = 0): Robot =
   Robot(direction: facing, xPos: x, yPos: y)
 
 proc right(dir: Compass): Compass =

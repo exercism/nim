@@ -8,7 +8,7 @@ type
     yPos*: int
 
 # constructor proc to return a new robot with default attributes
-proc initRobot*(facing: Compass = North, x: int = 0, y: int = 0): Robot =
+proc initRobot*(facing = North, x = 0, y = 0): Robot =
   discard
 
 # implement this proc to move the robot following the instructions
