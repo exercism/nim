@@ -4,7 +4,7 @@ import list_ops
 
 suite "append entries to a list and return the new list":
   test "empty lists":  # 485b9452-bf94-40f7-a3db-c3cf4850066a
-    check append(@[], @[]) == newSeq[int]()
+    check append(@[], @[]).len == 0
 
   test "list to empty list":  # 2c894696-b609-4569-b149-8672134d340a
     check append(@[], @[1, 2, 3, 4]) == @[1, 2, 3, 4]
@@ -18,7 +18,7 @@ suite "append entries to a list and return the new list":
 
 suite "concatenate a list of lists":
   test "empty list":  # 28444355-201b-4af2-a2f6-5550227bde21
-    check concatenate(@[]) == newSeq[int]()
+    check concatenate(@[]).len == 0
 
   test "list of lists":  # 331451c1-9573-42a1-9869-2d06e3b389a9
     check concatenate(@[@[1, 2], @[3], @[], @[4, 5, 6]]) == @[1, 2, 3, 4, 5, 6]
@@ -31,7 +31,7 @@ suite "filter list returning only values that satisfy the filter function":
   func predicate(x: int): bool = x mod 2 == 1
 
   test "empty list":  # 0524fba8-3e0f-4531-ad2b-f7a43da86a16
-    check filter(predicate, @[]) == newSeq[int]()
+    check filter(predicate, @[]).len == 0
 
   test "non-empty list":  # 88494bd5-f520-4edb-8631-88e415b62d24
     check filter(predicate, @[1, 2, 3, 5]) == @[1, 3, 5]
@@ -49,7 +49,7 @@ suite "return a list of elements whose values equal the list value transformed b
   func function(x: int): int = x + 1
 
   test "empty list":  # c0bc8962-30e2-4bec-9ae4-668b8ecd75aa
-    check map(function, @[]) == newSeq[int]()
+    check map(function, @[]).len == 0
 
   test "non-empty list":  # 11e71a95-e78b-4909-b8e4-60cdcaec0e91
     check map(function, @[1, 3, 5, 7]) == @[2, 4, 6, 8]
@@ -109,7 +109,7 @@ suite "folds (reduces) the given list from the right with a function":
 
 suite "reverse the elements of the list":
   test "empty list":  # 94231515-050e-4841-943d-d4488ab4ee30
-    check reverse(@[]) == newSeq[int]()
+    check reverse(@[]).len == 0
 
   test "non-empty list":  # fcc03d1e-42e0-4712-b689-d54ad761f360
     check reverse(@[1, 2, 3, 4]) == @[4, 3, 2, 1]
