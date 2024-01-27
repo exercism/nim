@@ -12,7 +12,7 @@ proc filter*(predicate: proc(x: int): bool, list: seq[int]): seq[int] =
   result = @[]
   for x in list:
     if predicate(x):
-      result.add(x)
+      result.add x
 
 proc length*(list: seq[int]): int =
   list.len
@@ -20,7 +20,7 @@ proc length*(list: seq[int]): int =
 proc map*(function: proc(x: int): int, list: seq[int]): seq[int] =
   result = @[]
   for x in list:
-    result.add(function(x))
+    result.add function(x)
 
 proc foldl*(function: proc(x, y: int): int, list: seq[int], accumulator: int): int =
   if list.len == 0:
