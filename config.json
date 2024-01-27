@@ -954,6 +954,14 @@
         ]
       },
       {
+        "slug": "list-ops",
+        "name": "List Ops",
+        "uuid": "779343ba-9b40-4d43-b696-2267c4eecde0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "linked-list",
         "name": "Linked List",
         "uuid": "de2be158-c9af-4890-985b-43b0b7c8d8ff",
@@ -979,14 +987,6 @@
           "events",
           "reactive_programming"
         ]
-      },
-      {
-        "slug": "list-ops",
-        "name": "List Ops",
-        "uuid": "779343ba-9b40-4d43-b696-2267c4eecde0",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1
       }
     ]
   },
