@@ -17,10 +17,9 @@ proc filter*(predicate: proc(x: int): bool, list: seq[int]): seq[int] =
   return newList
 
 proc length*(list: seq[int]): int =
-  var len = 0
+  result = 0
   for _ in list:
-    len += 1
-  return len
+    inc result
 
 proc map*(function: proc(x: int): int, list: seq[int]): seq[int] =
   var newList = newSeq[int]()
