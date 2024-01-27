@@ -23,13 +23,15 @@ func map*(function: proc(x: int): int {.noSideEffect.}, list: seq[int]): seq[int
   for i, x in list:
     result[i] = function(x)
 
-func foldl*(function: proc(x, y: int): int {.noSideEffect.}, list: seq[int], accumulator: int): int =
+func foldl*(function: proc(x, y: int): int {.noSideEffect.}, list: seq[int],
+            accumulator: int): int =
   if list.len == 0:
     accumulator
   else:
     foldl(function, list[1..^1], function(accumulator, list[0]))
 
-func foldr*(function: proc(x, y: int): int {.noSideEffect.}, list: seq[int], accumulator: int): int =
+func foldr*(function: proc(x, y: int): int {.noSideEffect.}, list: seq[int],
+            accumulator: int): int =
   if list.len == 0:
     accumulator
   else:
