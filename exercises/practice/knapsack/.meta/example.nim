@@ -1,6 +1,6 @@
-type item = tuple[weight: int, value: int]
+type Item = tuple[weight: int, value: int]
 
-proc maximumValue*(maximumWeight: int, items: openArray[item]): int =
+proc maximumValue*(maximumWeight: int, items: openArray[Item]): int =
     var dp = new_seq[int](maximumWeight + 1)
     for item in items:
         for weight in countdown(maximumWeight, item.weight):
