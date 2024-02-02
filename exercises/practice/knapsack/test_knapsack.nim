@@ -62,4 +62,3 @@ suite "knapsack":
         ]
     let expected = 1458
     check maximumValue(maximumWeight, items) == expected
-
