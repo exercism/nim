@@ -979,6 +979,14 @@
           "events",
           "reactive_programming"
         ]
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "6cd9b4d2-2274-4b56-98cf-1c820f1da836",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
       }
     ]
   },
