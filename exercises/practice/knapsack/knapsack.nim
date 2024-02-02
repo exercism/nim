@@ -1,4 +1,4 @@
-type item = tuple[weight: int, value: int]
+type Item = tuple[weight: int, value: int]
 
-proc maximumValue*(maximumWeight: int, items: openArray[item]): int =
+proc maximumValue*(maximumWeight: int, items: openArray[Item]): int =
     discard
