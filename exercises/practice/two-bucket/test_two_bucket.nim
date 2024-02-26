@@ -28,4 +28,3 @@ suite "two-bucket":
 
   test "Goal larger than both buckets is impossible":
     check not measure(5, 7, 8, "one").possible
-
