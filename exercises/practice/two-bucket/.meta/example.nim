@@ -1,11 +1,11 @@
 type
-  measureResult* = tuple
+  MeasureResult* = tuple
     possible: bool
     moves: int
     goalBucket: string
     otherBucket: int
 
-proc measure*(bucket1, bucket2, goal: int, startBucket: string): measureResult =
+proc measure*(bucket1, bucket2, goal: int, startBucket: string): MeasureResult =
   if startBucket == "two":
     result = measure(bucket2, bucket1, goal, "one")
     result.goalBucket = if result.goalBucket == "one": "two" else: "one"
