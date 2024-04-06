@@ -1,4 +1,4 @@
-import unittest
+import std/unittest
 import zebra_puzzle
 
 suite "Zebra Puzzle":
