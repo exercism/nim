@@ -5,15 +5,21 @@ import std/[algorithm, sequtils]
 type
   Nationality* = enum
     Englishman, Spaniard, Ukranian, Japanese, Norwegian
+
   Color = enum
     Red, Green, Ivory, Yellow, Blue
+
   Pet = enum
     Dog, Snails, Fox, Horse, Zebra
+
   Drink = enum
     Coffee, Tea, Milk, OrangeJuice, Water
+
   Smoke = enum
     OldGold, Kools, Chesterfields, LuckyStrike, Parliaments
+
   House = tuple[color: Color, nationality: Nationality, pet: Pet, drink: Drink, smoke: Smoke]
+
   Solution = array[5, House]
 
 iterator permutations[T](): array[5, T] =
