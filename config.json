@@ -968,6 +968,14 @@
         ]
       },
       {
+        "slug": "zebra-puzzle",
+        "name": "Zebra Puzzle",
+        "uuid": "fb039314-a7de-4c65-9303-8209dbcf6e5e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "react",
         "name": "React",
         "uuid": "5904b7d1-08a3-4565-979c-a8e2f1e440fd",
