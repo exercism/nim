@@ -29,6 +29,7 @@ iterator permutations[T]: array[5, T] =
     yield term
 
 proc solve: Solution =
+  result = default(Solution)
   for colors in permutations[Color]():
     if colors.find(Ivory) != colors.find(Green) + 1: continue
     for nationalities in permutations[Nationality]():
