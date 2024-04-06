@@ -28,7 +28,7 @@ iterator permutations[T]: array[5, T] =
   while term.nextPermutation():
     yield term
 
-proc solve: Solution =
+func solve: Solution =
   result = default(Solution)
   for colors in permutations[Color]():
     if colors.find(Ivory) != colors.find(Green) + 1: continue
@@ -56,8 +56,8 @@ proc solve: Solution =
 # Calculate solution at compile time.
 const solution = solve()
 
-proc waterDrunkBy*: Nationality =
+func waterDrunkBy*: Nationality =
   solution.filterIt(it.drink == Water)[0].nationality
 
-proc zebraOwnedBy*: Nationality =
+func zebraOwnedBy*: Nationality =
   solution.filterIt(it.pet == Zebra)[0].nationality
