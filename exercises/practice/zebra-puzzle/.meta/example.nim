@@ -52,7 +52,7 @@ proc solve: Solution =
               result[i] = (colors[i], nationalities[i], pets[i], drinks[i], cigarettes[i])
             return result
 
-# Calculate solution at compile-time
+# Calculate solution at compile time.
 const solution = solve()
 
 proc waterDrunkBy*: Nationality =
