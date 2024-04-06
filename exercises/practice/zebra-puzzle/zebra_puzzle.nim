@@ -2,8 +2,8 @@ type
   Nationality* = enum
     Englishman, Spaniard, Ukranian, Japanese, Norwegian
 
-proc waterDrunkBy*(): Nationality =
+proc waterDrunkBy*: Nationality =
   discard
 
-proc zebraOwnedBy*(): Nationality =
+proc zebraOwnedBy*: Nationality =
   discard

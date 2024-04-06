@@ -22,13 +22,13 @@ type
 
   Solution = array[5, House]
 
-iterator permutations[T](): array[5, T] =
+iterator permutations[T]: array[5, T] =
   var term = [T(0), T(1), T(2), T(3), T(4)]
   yield term
   while term.nextPermutation():
     yield term
 
-proc solve(): Solution =
+proc solve: Solution =
   for colors in permutations[Color]():
     if colors.find(Ivory) != colors.find(Green) + 1: continue
     for nationalities in permutations[Nationality]():
@@ -55,8 +55,8 @@ proc solve(): Solution =
 # Calculate solution at compile-time
 const solution = solve()
 
-proc waterDrunkBy*(): Nationality =
+proc waterDrunkBy*: Nationality =
   solution.filterIt(it.drink == Water)[0].nationality
 
-proc zebraOwnedBy*(): Nationality =
+proc zebraOwnedBy*: Nationality =
   solution.filterIt(it.pet == Zebra)[0].nationality
