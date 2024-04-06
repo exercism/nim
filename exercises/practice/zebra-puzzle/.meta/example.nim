@@ -6,7 +6,7 @@ type
   Nationality* = enum
     Englishman, Spaniard, Ukranian, Japanese, Norwegian
   Color = enum
-    Red, Green, Ivory, Yellow, Blue  
+    Red, Green, Ivory, Yellow, Blue
   Pet = enum
     Dog, Snails, Fox, Horse, Zebra
   Drink = enum
