@@ -77,5 +77,8 @@ suite "Roman Numerals":
   test "3001 is MMMI":
     check roman(3001) == "MMMI"
 
+  test "3888 is MMMDCCCLXXXVIII":
+    check roman(3888) == "MMMDCCCLXXXVIII"
+
   test "3999 is MMMCMXCIX":
     check roman(3999) == "MMMCMXCIX"
