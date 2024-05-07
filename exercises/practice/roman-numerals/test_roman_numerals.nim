@@ -23,6 +23,9 @@ suite "Roman Numerals":
   test "9 is IX":
     check roman(9) == "IX"
 
+  test "16 is XVI":
+    check roman(16) == "XVI"
+
   test "27 is XXVII":
     check roman(27) == "XXVII"
 
@@ -35,6 +38,9 @@ suite "Roman Numerals":
   test "59 is LIX":
     check roman(59) == "LIX"
 
+  test "66 is LXVI":
+    check roman(66) == "LXVI"
+
   test "93 is XCIII":
     check roman(93) == "XCIII"
 
@@ -44,11 +50,17 @@ suite "Roman Numerals":
   test "163 is CLXIII":
     check roman(163) == "CLXIII"
 
+  test "166 is CLXVI":
+    check roman(166) == "CLXVI"
+
   test "402 is CDII":
     check roman(402) == "CDII"
 
   test "575 is DLXXV":
     check roman(575) == "DLXXV"
+
+  test "666 is DCLXVI":
+    check roman(666) == "DCLXVI"
 
   test "911 is CMXI":
     check roman(911) == "CMXI"
@@ -56,26 +68,17 @@ suite "Roman Numerals":
   test "1024 is MXXIV":
     check roman(1024) == "MXXIV"
 
-  test "3000 is MMM":
-    check roman(3000) == "MMM"
-
-  test "16 is XVI":
-    check roman(16) == "XVI"
-
-  test "66 is LXVI":
-    check roman(66) == "LXVI"
-
-  test "166 is CLXVI":
-    check roman(166) == "CLXVI"
-
-  test "666 is DCLXVI":
-    check roman(666) == "DCLXVI"
-
   test "1666 is MDCLXVI":
     check roman(1666) == "MDCLXVI"
 
+  test "3000 is MMM":
+    check roman(3000) == "MMM"
+
   test "3001 is MMMI":
     check roman(3001) == "MMMI"
+
+  test "3888 is MMMDCCCLXXXVIII":
+    check roman(3888) == "MMMDCCCLXXXVIII"
 
   test "3999 is MMMCMXCIX":
     check roman(3999) == "MMMCMXCIX"
