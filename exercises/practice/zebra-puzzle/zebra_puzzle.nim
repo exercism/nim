@@ -1,6 +1,6 @@
 type
   Nationality* = enum
-    Englishman, Spaniard, Ukranian, Japanese, Norwegian
+    Englishman, Spaniard, Ukrainian, Japanese, Norwegian
 
 proc waterDrunkBy*: Nationality =
   discard
