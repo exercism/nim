@@ -4,7 +4,7 @@ import std/[algorithm, sequtils]
 
 type
   Nationality* = enum
-    Englishman, Spaniard, Ukranian, Japanese, Norwegian
+    Englishman, Spaniard, Ukrainian, Japanese, Norwegian
 
   Color = enum
     Red, Green, Ivory, Yellow, Blue
@@ -40,7 +40,7 @@ func solve: Solution =
         if nationalities.find(Spaniard) != pets.find(Dog): continue
         for drinks in permutations[Drink]():
           if drinks[2] != Milk: continue
-          if nationalities.find(Ukranian) != drinks.find(Tea): continue
+          if nationalities.find(Ukrainian) != drinks.find(Tea): continue
           if colors.find(Green) != drinks.find(Coffee): continue
           for cigarettes in permutations[Smoke]():
             if cigarettes.find(OldGold) != pets.find(Snails): continue
