@@ -23,7 +23,7 @@ jobs:
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
-    runs-on: ${{ matrix.os == 'linux' && 'ubuntu-22.04' || (matrix.os == 'macOS' && 'macos-14' || 'windows-2022') }}
+    runs-on: ${{ matrix.os == 'linux' && 'ubuntu-22.04' || (matrix.os == 'macOS' && 'macos-13' || 'windows-2022') }}
 
     steps:
       - name: Checkout exercism/nim
