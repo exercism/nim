@@ -24,7 +24,7 @@ jobs:
 
     - name: Install Nim
       if: steps.cache-uuids.outputs.cache-hit != 'true'
-      uses: iffy/install-nim@2546aaf825947f6bf76be75ff78d74176992e99d
+      uses: iffy/install-nim@25e9ede26d630a40bb8ecb9ce75479e281e717bf
       with:
         version: "binary:${{ env.NIM_VERSION }}"
       env:
