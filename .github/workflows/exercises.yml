@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Nim (non-devel)
         if: matrix.nim != 'devel'
-        uses: iffy/install-nim@28af9cddcdc5e5da655da4ff631b86bd87585a5b
+        uses: iffy/install-nim@36ade90cb7e61ea0dc825e0935c17a8cd8e74384
         with:
           version: "binary:${{ matrix.nim }}"
         env:
