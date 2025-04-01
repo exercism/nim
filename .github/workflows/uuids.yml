@@ -17,7 +17,7 @@ jobs:
 
     - name: Cache binary
       id: cache-uuids
-      uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
       with:
         path: _test/check_uuids
         key: check_uuids-${{ hashFiles('_test/check_uuids.nim') }}-${{ runner.os }}-nim${{ env.NIM_VERSION }}-gcc${{ env.GCC_VERSION }}-openssl${{ env.OPENSSL_VERSION }}
