@@ -839,11 +839,11 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
+        "status": "deprecated",
         "topics": [
           "pattern_matching",
           "strings"
-        ],
-        "status": "deprecated"
+        ]
       },
       {
         "slug": "secret-handshake",
