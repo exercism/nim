@@ -11,7 +11,7 @@
   - compile-time vs. runtime
 - strings
 - table constructor
-  - multiple keys at one time (as seen [here][solution-multiple-keys]) e.g. `{"nim", "Nim": "awesome"}`
+  - multiple keys at one time (as seen [in this solution][solution-multiple-keys]) e.g. `{"nim", "Nim": "awesome"}`
 - method call syntax
 - func/proc definiton
 - routine exporting
