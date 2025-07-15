@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   check_uuids:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       NIM_VERSION: '2.0.0'
 
