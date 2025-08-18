@@ -8,22 +8,15 @@ jobs:
       matrix:
         include:
           - nim: '2.2.4'
-            os: linux
-
-          - nim: '2.2.4'
-            os: macOS
-
-          - nim: '2.2.4'
-            os: windows
+            os: [ubuntu-24.04, windows-2022, macOS-13, macOS-15]
 
           - nim: devel
-            os: linux
+            os: ubuntu-24.04
 
           - nim: '1.6.0'
-            os: linux
+            os: ubuntu-24.04
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
-    runs-on: ${{ matrix.os == 'linux' && 'ubuntu-24.04' || (matrix.os == 'macOS' && 'macos-13' || 'windows-2022') }}
 
     steps:
       - name: Checkout exercism/nim
