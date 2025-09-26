@@ -988,6 +988,14 @@
           "events",
           "reactive_programming"
         ]
+      },
+      {
+        "slug": "robot-simulator",
+        "name": "Robot Simulator",
+        "uuid": "cfedbb93-eda4-49f9-92a1-aa1a6cc8453f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
       }
     ]
   },
