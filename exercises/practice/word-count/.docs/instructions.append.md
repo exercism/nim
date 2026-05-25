@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 The return from `countWords` can be any hash table type with a key of `string` and a value of `int`.
 
