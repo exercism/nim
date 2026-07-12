@@ -19,7 +19,7 @@ jobs:
           - nim: devel
             os: linux
 
-          - nim: '1.6.0'
+          - nim: '1.6.x'
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
@@ -29,20 +29,12 @@ jobs:
       - name: Checkout exercism/nim
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-      - name: Install Nim (devel)
-        if: matrix.nim == 'devel'
-        uses: alaviss/setup-nim@f81f2a6d1505ab32f440ec9d8adbb81e949d3bf0 # 0.1.1
+      - name: Install Nim
+        uses: jiro4989/setup-nim-action@cb1fc1270b117457dd0d9f610ec981fad3369cec # v2.3.0
         with:
-          path: 'nim'
-          version: ${{ matrix.nim }}
-
-      - name: Install Nim (non-devel)
-        if: matrix.nim != 'devel'
-        uses: iffy/install-nim@cceb6b4d10dcb1968575ac083d4981c0302fd00d # 5.1.1
-        with:
-          version: "binary:${{ matrix.nim }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          nim-version: "${{ matrix.nim }}"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: nimble build -Y
 
       - name: Show versions of Nim and Nimble
         run: |
