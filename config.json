@@ -988,14 +988,20 @@
           "events",
           "reactive_programming"
         ]
-      },
-      {
         "slug": "robot-simulator",
         "name": "Robot Simulator",
         "uuid": "cfedbb93-eda4-49f9-92a1-aa1a6cc8453f",
         "practices": [],
         "prerequisites": [],
         "difficulty": 1
+      },
+      {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "7bd03415-9b80-455c-a41c-3de292595fcd",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
       }
     ]
   },
