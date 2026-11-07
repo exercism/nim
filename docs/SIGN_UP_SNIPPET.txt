@@ -1,0 +1,8 @@
+proc mostCommonWord(text: string): string =
+  var counts = initCountTable[string]()
+  var best = ""
+  for word in text.toLowerAscii.split(' '):
+    counts.inc(word)
+    if counts[word] > counts[best]:
+      best = word
+  &"\"{best}\" appears {counts[best]} times"
