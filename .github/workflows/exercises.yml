@@ -23,6 +23,8 @@ jobs:
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
+    # The devel compiler can break at any time, so its leg doesn't count towards the Tests check
+    continue-on-error: ${{ matrix.nim == 'devel' }}
     runs-on: ${{ matrix.os == 'linux' && 'ubuntu-24.04' || (matrix.os == 'macOS' && 'macos-26' || 'windows-2022') }}
 
     steps:
