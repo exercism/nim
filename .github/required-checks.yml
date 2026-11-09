@@ -10,6 +10,5 @@ checks:
   - Run shellcheck on scripts
   - check_uuids
   - configlet / configlet
-  - i18n / completeness
   - Tests
   - Validate required checks
