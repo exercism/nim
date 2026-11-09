@@ -11,4 +11,5 @@ checks:
   - check_uuids
   - configlet / configlet
   - i18n / completeness
+  - Tests
   - Validate required checks

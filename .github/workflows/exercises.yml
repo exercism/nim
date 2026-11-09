@@ -23,6 +23,8 @@ jobs:
             os: linux
 
     name: nim-${{ matrix.nim }}-${{ matrix.os }}
+    # The devel compiler can break at any time, so its leg doesn't count towards the Tests check
+    continue-on-error: ${{ matrix.nim == 'devel' }}
     runs-on: ${{ matrix.os == 'linux' && 'ubuntu-24.04' || (matrix.os == 'macOS' && 'macos-26' || 'windows-2022') }}
 
     steps:
@@ -61,3 +63,18 @@ jobs:
 
       - name: Run `check_stubs`
         run: _test/check_stubs
+
+  tests:
+    name: Tests
+    needs: exercises
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check that every configuration passed
+        env:
+          RESULT: ${{ needs.exercises.result }}
+        run: |
+          if [[ "$RESULT" != "success" ]]; then
+            echo "The exercise tests failed on at least one configuration."
+            exit 1
+          fi
