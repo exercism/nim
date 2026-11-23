@@ -29,6 +29,9 @@ suite "Yacht":
   test "Yacht of 3s counted as Fives":
     check score([3, 3, 3, 3, 3], Fives) == 0
 
+  test "Fives":
+    check score([1, 5, 3, 5, 3], Fives) == 10
+
   test "Sixes":
     check score([2, 3, 4, 5, 6], Sixes) == 6
 

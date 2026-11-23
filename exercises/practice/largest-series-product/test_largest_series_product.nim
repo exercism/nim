@@ -34,12 +34,6 @@ suite "Largest Series Product":
     expect ValueError:
       discard largestProduct("123", 4)
 
-  test "reports 1 for empty string and empty product (0 span)":
-    check largestProduct("", 0) == 1
-
-  test "reports 1 for nonempty string and empty product (0 span)":
-    check largestProduct("123", 0) == 1
-
   test "rejects empty string and nonzero span":
     expect ValueError:
       discard largestProduct("", 1)

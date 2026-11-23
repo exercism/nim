@@ -26,6 +26,9 @@ suite "Luhn":
   test "invalid long number with an even remainder":
     check isValid("1 2345 6789 1234 5678 9012") == false
 
+  test "invalid long number with a remainder divisible by 5":
+    check isValid("1 2345 6789 1234 5678 9013") == false
+
   test "valid number with an even number of digits":
     check isValid("095 245 88") == true
 
@@ -50,8 +53,17 @@ suite "Luhn":
   test "input digit 9 is correctly converted to output digit 9":
     check isValid("091") == true
 
+  test "very long input is valid":
+    check isValid("9999999999 9999999999 9999999999 9999999999") == true
+
+  test "valid luhn with an odd number of digits and non zero first digit":
+    check isValid("109") == true
+
   test "using ascii value for non-doubled non-digit isn't allowed":
     check isValid("055b 444 285") == false
 
   test "using ascii value for doubled non-digit isn't allowed":
     check isValid(":9") == false
+
+  test "non-numeric, non-space char in the middle with a sum that's divisible by 10 isn't allowed":
+    check isValid("59%59") == false

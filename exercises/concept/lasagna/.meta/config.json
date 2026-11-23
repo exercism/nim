@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "ynfle"
+  ],
+  "files": {
+    "solution": [
+      "lasagna.nim"
+    ],
+    "test": [
+      "test_lasagna.nim"
+    ],
+    "exemplar": [
+      ".meta/exemplar.nim"
+    ]
+  },
+  "forked_from": [
+    "javascript/lasagna",
+    "python/guidos-gorgeous-lasagna"
+  ],
+  "blurb": "Learn some Nim basics by cooking lasagna."
+}

@@ -1,9 +1,7 @@
 {
-  "blurb": "Manage robot factory settings.",
   "authors": [
     "ee7"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "robot_name.nim"
@@ -15,5 +13,6 @@
       ".meta/example.nim"
     ]
   },
+  "blurb": "Manage robot factory settings.",
   "source": "A debugging session with Paul Blackwell at gSchool."
 }

@@ -16,3 +16,15 @@ suite "Resistor Color Trio":
 
   test "yellow and violet and yellow":
     check label([Yellow, Violet, Yellow]) == (470, "kiloohms")
+
+  test "blue and violet and blue":
+    check label([Blue, Violet, Blue]) == (67, "megaohms")
+
+  test "minimum possible value":
+    check label([Black, Black, Black]) == (0, "ohms")
+
+  test "maximum possible value":
+    check label([White, White, White]) == (99, "gigaohms")
+
+  test "first two colors make an invalid octal number":
+    check label([Black, Grey, Black]) == (8, "ohms")

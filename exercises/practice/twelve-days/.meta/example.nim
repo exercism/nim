@@ -1,4 +1,4 @@
-import strformat
+import std/strformat
 
 type
   DayRange = range[1..12]
@@ -28,20 +28,19 @@ func generateVerses: tuple[song: string, indices: DayArray[int]] =
   ##   `indices`: the index in `song` of the first character for each verse.
   for n in nth.low .. nth.high:
     result.indices[n] = result.song.len
-    result.song &= &"On the {nth[n]} day of Christmas my true love gave to me: "
+    result.song.add &"On the {nth[n]} day of Christmas my true love gave to me: "
     for i in countdown(n, 1):
       case i
       of 3..12:
-        result.song &= &"{gifts[i]}, "
+        result.song.add &"{gifts[i]}, "
       of 2:
-        result.song &= &"{gifts[i]}, and "
+        result.song.add &"{gifts[i]}, and "
       of 1:
-        result.song &= &"{gifts[i]}.\n\n"
+        result.song.add &"{gifts[i]}.\n\n"
 
 const (song, indices) = generateVerses() # Generate the lyrics at compile-time.
 
-func recite*(start: DayRange, stop: DayRange = 1): string =
-  let stop = if stop == 1: start else: stop # Workaround for Nim bug #11274.
+func recite*(start: DayRange, stop = start): string =
   let firstChar = indices[start]
   let lastChar = if stop == 12: song.high - 2 else: indices[stop + 1] - 3
   result = song[firstChar .. lastChar] # Excludes the final two newlines.

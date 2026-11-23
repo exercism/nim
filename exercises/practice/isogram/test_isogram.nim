@@ -40,3 +40,6 @@ suite "Isogram":
 
   test "same first and last characters":
     check isIsogram("angola") == false
+
+  test "word with duplicated character and with two hyphens":
+    check isIsogram("up-to-date") == false

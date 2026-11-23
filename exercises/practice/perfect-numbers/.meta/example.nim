@@ -1,4 +1,4 @@
-import math
+import std/math
 
 type Classification* = enum
   Perfect, Deficient, Abundant

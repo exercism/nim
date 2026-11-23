@@ -25,6 +25,10 @@ suite "Series":
     expect ValueError:
       discard slices("12345", 6)
 
+  test "slice length is way too large":
+    expect ValueError:
+      discard slices("12345", 42)
+
   test "slice length cannot be zero":
     expect ValueError:
       discard slices("12345", 0)

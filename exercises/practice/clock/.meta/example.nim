@@ -1,18 +1,22 @@
-import strformat
+import std/[math, strformat]
 
-type Clock = int
-type Time = tuple[h, m: int]
+type
+  Clock* = object
+    hour*: range[0..23]
+    minute*: range[0..59]
 
-func create*(t: Time): Clock =
-  result = (t.h * 60 + t.m) mod 1440
-  if result < 0:
-    result += 1440
+  Minutes* = distinct int
 
-func toStr*(c: Clock): string =
-  &"{c div 60:02}:{c mod 60:02}"
+func initClock*(hour, minute: int): Clock =
+  const minutesInHour = 60
+  let numMinutes = (hour * minutesInHour + minute).euclMod(minutesInHour * 24)
+  Clock(hour: numMinutes div minutesInHour, minute: numMinutes mod minutesInHour)
 
-func add*(t: Time, v: int): int =
-  create (t.h, t.m + v)
+func `$`*(c: Clock): string =
+  &"{c.hour:02}:{c.minute:02}"
 
-func subtract*(t: Time, v: int): int =
-  create (t.h, t.m - v)
+func `+`*(c: Clock, v: Minutes): Clock =
+  initClock(c.hour, c.minute + v.int)
+
+func `-`*(c: Clock, v: Minutes): Clock =
+  initClock(c.hour, c.minute - v.int)

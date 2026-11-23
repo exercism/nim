@@ -80,7 +80,7 @@ let
 
 proc downloadConfig(client: HttpClient, track: string) =
   ## Downloads the `config.json` file for the given Exercism track.
-  let url = &"https://raw.githubusercontent.com/exercism/{track}/master/config.json"
+  let url = &"https://raw.githubusercontent.com/exercism/{track}/main/config.json"
   client.downloadFile(url, downloadDir / &"{track}.json")
 
 proc downloadConfigs(tracks: seq[string]) =

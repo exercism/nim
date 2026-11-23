@@ -29,5 +29,5 @@ suite "Pangram":
   test "mixed case and punctuation":
     check isPangram("\"Five quacking Zephyrs jolt my wax bed.\"") == true
 
-  test "case insensitive":
-    check isPangram("the quick brown fox jumps over with lazy FX") == false
+  test "a-m and A-M are 26 different characters but not a pangram":
+    check isPangram("abcdefghijklm ABCDEFGHIJKLM") == false

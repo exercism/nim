@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "ee7"
+  ],
+  "files": {
+    "solution": [
+      "binary_search.nim"
+    ],
+    "test": [
+      "test_binary_search.nim"
+    ],
+    "example": [
+      ".meta/example.nim"
+    ]
+  },
+  "blurb": "Implement a binary search algorithm.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
+}

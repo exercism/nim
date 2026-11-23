@@ -1,4 +1,4 @@
-import random
+import std/random
 
 randomize()
 

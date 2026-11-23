@@ -31,11 +31,11 @@ suite "Phone Number":
 
   test "invalid with letters":
     expect ValueError:
-      discard clean("123-abc-7890")
+      discard clean("523-abc-7890")
 
   test "invalid with punctuations":
     expect ValueError:
-      discard clean("123-@:!-7890")
+      discard clean("523-@:!-7890")
 
   test "invalid if area code starts with 0":
     expect ValueError:

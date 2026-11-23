@@ -1,9 +1,9 @@
 {
-  "blurb": "Implement a basic reactive system.",
   "authors": [
     "pminten"
   ],
   "contributors": [
+    "ee7",
     "petertseng"
   ],
   "files": {
@@ -16,5 +16,6 @@
     "example": [
       ".meta/example.nim"
     ]
-  }
+  },
+  "blurb": "Implement a basic reactive system."
 }

@@ -1,2 +1,2 @@
-proc hello*: string =
+func hello*: string =
   "Hello, World!"

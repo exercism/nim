@@ -17,11 +17,23 @@ suite "Say":
   test "twenty-two":
     check say(22) == "twenty-two"
 
+  test "thirty":
+    check say(30) == "thirty"
+
+  test "ninety-nine":
+    check say(99) == "ninety-nine"
+
   test "one hundred":
     check say(100) == "one hundred"
 
   test "one hundred twenty-three":
     check say(123) == "one hundred twenty-three"
+
+  test "two hundred":
+    check say(200) == "two hundred"
+
+  test "nine hundred ninety-nine":
+    check say(999) == "nine hundred ninety-nine"
 
   test "one thousand":
     check say(1000) == "one thousand"

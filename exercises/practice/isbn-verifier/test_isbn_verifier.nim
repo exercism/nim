@@ -14,7 +14,10 @@ suite "ISBN Verifier":
   test "check digit is a character other than X":
     check isValid("3-598-21507-A") == false
 
-  test "invalid character in ISBN":
+  test "invalid check digit in ISBN is not treated as zero":
+    check isValid("4-598-21507-B") == false
+
+  test "invalid character in ISBN is not treated as zero":
     check isValid("3-598-P1581-X") == false
 
   test "X is only valid as a check digit":
@@ -47,8 +50,11 @@ suite "ISBN Verifier":
   test "input is 9 characters":
     check isValid("134456729") == false
 
-  test "invalid characters are not ignored":
+  test "invalid characters are not ignored after checking length":
     check isValid("3132P34035") == false
+
+  test "invalid characters are not ignored before checking length":
+    check isValid("3598P215088") == false
 
   test "input is too long but contains a valid ISBN":
     check isValid("98245726788") == false

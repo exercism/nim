@@ -41,11 +41,20 @@ suite "Matching Brackets":
   test "paired and wrong nested brackets":
     check isPaired("[({]})") == false
 
+  test "paired and wrong nested brackets but innermost are correct":
+    check isPaired("[({}])") == false
+
   test "paired and incomplete brackets":
     check isPaired("{}[") == false
 
   test "too many closing brackets":
     check isPaired("[]]") == false
+
+  test "early unexpected brackets":
+    check isPaired(")()") == false
+
+  test "early mismatched brackets":
+    check isPaired("{)()") == false
 
   test "math expression":
     check isPaired("(((185 + 223.85) * 15) - 543)/2") == true

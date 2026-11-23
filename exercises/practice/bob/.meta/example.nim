@@ -1,48 +1,30 @@
-from strutils import endsWith, strip
-from unicode import isLower, isUpper, isWhiteSpace, runes
+import std/strutils
 
-proc isSilence(s: string): bool =
-  for r in runes(s):
-    if not isWhiteSpace(r):
+func isQuestion(s: string): bool =
+  ## Returns whether the last non-space character in `s` is a question mark.
+  var i = s.high
+  while i >= 0 and s[i] == ' ':
+    dec i
+  i >= 0 and s[i] == '?'
+
+func isYelling(s: string): bool =
+  ## Returns whether `s` contains both an uppercase letter, and no lowercase letter.
+  result = false
+  for c in s:
+    if c in {'a'..'z'}:
       return false
-  return true
+    elif c in {'A'..'Z'}:
+      result = true
 
-proc isYelling(s: string): bool =
-  var nUpperRunes = 0
-  for r in runes(s):
-    if isLower(r):
-      return false
-    elif isUpper(r):
-      inc(nUpperRunes)
-  return nUpperRunes > 0
-
-proc isQuestion(s: string): bool =
-  return s.strip().endsWith("?")
-
-func hey*(msg: string): string =
-  ## Returns the response of a lackadaisical teenager to a futile attempt to
-  ## communicate with him.
-  ##
-  ## .. code-block:: nim
-  ##   let greeting = "Hi, Bob!"
-  ##   assert hey(greeting) == "Whatever."
-  ##
-  ##   let question == "What's up, Bob?"
-  ##   assert hey(question) == "Sure."
-  ##
-  ##   let rage = "TALK TO ME!!!"
-  ##   assert hey(rage) == "Whoa, chill out!"
-  ##
-  ##   let resignation = ""
-  ##   assert hey(resignation) == "Fine. Be that way!"
-  if isSilence(msg):
-    return "Fine. Be that way!"
-  elif isQuestion(msg):
-    if isYelling(msg):
-      return "Calm down, I know what I'm doing!"
+func hey*(s: string): string =
+  if isEmptyOrWhitespace(s):
+    "Fine. Be that way!"
+  elif isQuestion(s):
+    if isYelling(s):
+      "Calm down, I know what I'm doing!"
     else:
-      return "Sure."
-  elif isYelling(msg):
-    return "Whoa, chill out!"
+      "Sure."
+  elif isYelling(s):
+    "Whoa, chill out!"
   else:
-    return "Whatever."
+    "Whatever."

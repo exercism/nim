@@ -1,8 +1,8 @@
 # Concepts of protein-translation
 
-[Example Implementation](https://github.com/exercism/nim/blob/master/exercises/bob/example.nim)
+[Example Implementation](https://github.com/exercism/nim/blob/main/exercises/bob/example.nim)
 
-## General:
+## General
 
 - importing modules
   - importing specific _things_ (not a technical term)
@@ -52,14 +52,14 @@
 
 ### Implicit return
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/bob/solutions/fd46a50ebb2f47b8b415cc046ca7f65d)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/fd46a50ebb2f47b8b415cc046ca7f65d)
 
 - if expression
 - implicit return
 
 ### `parseutils` module
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/bob/solutions/5eeba8cf35ff469e8ac732e9abe62d51)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/5eeba8cf35ff469e8ac732e9abe62d51)
 
 - multiline comment
 - sets
@@ -69,21 +69,21 @@
 
 ### Implicit `result` variable
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/bob/solutions/fdfdef2cedac4324a7c1f49545ae9188)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/fdfdef2cedac4324a7c1f49545ae9188)
 
 - implicit `result` variable
 
-### Types
+### Object or tuple
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/bob/solutions/b3f58e77a19d4293be369db4f738084e)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/b3f58e77a19d4293be369db4f738084e)
 
-- types
+- objects
 - tuples
-  - vs. objects
+- objects vs tuples
 
 ### Generic parameters
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/bob/solutions/e70f5bc5f63c4692a947fa121c8fdb40)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/e70f5bc5f63c4692a947fa121c8fdb40)
 
 - generics
 - anon. procs
@@ -91,6 +91,6 @@
 
 ### `import as`
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/bob/solutions/03b007333a7b489db24c6e0c9e07908b)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/bob/solutions/03b007333a7b489db24c6e0c9e07908b)
 
 - `import as`

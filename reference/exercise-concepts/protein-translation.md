@@ -1,8 +1,8 @@
 # Concepts of protein-translation
 
-[Example Implementation](https://github.com/exercism/nim/blob/master/exercises/protein-translation/example.nim)
+[Example Implementation](https://github.com/exercism/nim/blob/main/exercises/protein-translation/example.nim)
 
-## General:
+## General
 
 - importing libraries
 - stdlib
@@ -11,9 +11,7 @@
   - compile-time vs. runtime
 - strings
 - table constructor
-  - multiple keys at one time (as seen [here](https://exercism.io/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf))
-    <br />
-    eg. `{"nim", "Nim": "awesome"}`
+  - multiple keys at one time (as seen [in this solution][solution-multiple-keys]) e.g. `{"nim", "Nim": "awesome"}`
 - method call syntax
 - func/proc definiton
 - routine exporting
@@ -56,7 +54,7 @@
 
 ### Case Statment
 
-[Example Implementation](https://exercism.io/tracks/nim/exercises/protein-translation/solutions/1078c01ba467400881b40827ffd1b84f)
+[Example Implementation](https://exercism.org/tracks/nim/exercises/protein-translation/solutions/1078c01ba467400881b40827ffd1b84f)
 
 - case statement
 - of branch
@@ -65,3 +63,5 @@
 
 - iterator vs. proc
 - `yield` statement
+
+[solution-multiple-keys]: https://exercism.org/tracks/nim/exercises/protein-translation/solutions/fc829b982b274a80883f7f82d6e8faaf
